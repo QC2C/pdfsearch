@@ -850,9 +850,8 @@ input {
 <li onclick="openPDF(event,'ibpr3',this)">IBPR Pedoman Proses IBPR</li>
 <li onclick="openPDF(event,'self assesment',this)">Self Assesment/li>
 <li onclick="openPDF(event,'dsafe',this)">D_Safe</li>
-<li onclick="openPDF(event,'fokus waspada dan siaga',this)">
-Fokus, Waspada dan Siaga
-</li>
+<li onclick="openPDF(event,'fokus waspada dan siaga',this)">Fokus, Waspada dan Siaga</li>
+<li onclick="openPDF(event,'green',this)">Green Movement KAI v3</li>
     </ul>
   </li>
 
@@ -882,6 +881,7 @@ Fokus, Waspada dan Siaga
     <div id="suggestions"></div>
   </div>
 </div>
+
 <div id="results"></div> <!-- TAMBAHKAN INI -->
 
 <div id="pdfViewer" style="display:none; position:relative;">
@@ -1100,7 +1100,7 @@ dipasang dan/ atau diperlihatkan bersama-sama dengan Semboyan siang hari.</li>
   title: "PD 3 - BAB III",
   desc: `
   <div style="text-align:center;">
-    <h2>BAB III</h2>
+    <b>BAB III</b>
     <h3>URAIAN SEMBOYAN</h3>
     <h4>Bagian Kesatu</h4>
     <h4>Semboyan di Jalur Kereta Api</h4>
@@ -2865,7 +2865,7 @@ melewati wesel terakhir.</li>
     </li>
   </ol>
     <div style="text-align:center;">
-    <h2>Bagian Kedua</h2>
+    <b>Bagian Kedua</b>
     <h3>Semboyan Kereta Api</h3>
     <h4>Paragraf 1</h4>
     <h4>Semboyan Terlihat</h4>
@@ -3080,7 +3080,7 @@ melewati wesel terakhir.</li>
   </ol>
 
   <div style="text-align:center; margin-top:30px;">
-    <h2>Bagian Ketiga</h2>
+    <b>Bagian Ketiga</b>
     <h3>Semboyan Langsir</h3>
   </div>
 
@@ -14310,10 +14310,9 @@ Pasal 2
   `
 },
 {
-  title: "7/KT.203/XI/KA/2025 Tag Line Safety Mindset & Culture",
+  title: "KT.203 - FOKUS, WASPADA & SIAGA",
   desc: `
-    FOKUS, WASPADA & SIAGA, HATI-HATI<br>
-    MENJAMIN KESELAMATAN PEKERJA, PERJALANAN KA & LANGSIRAN<br><br>
+  7/KT.203/XI/KA/2025 Tag Line Safety Mindset & Culture<br>
 
     <ol>
       <li>
@@ -14321,34 +14320,36 @@ Pasal 2
         pentingnya penerapan kedisiplinan dan kewaspadaan dalam setiap pelaksanaan pekerjaan
         Petugas di jajaran Operasi Non Crew. Sebagai cerminan identitas dan semangat seluruh jajaran
         Non Crew, ditekankan Tag Line Safety Mindset & Culture sebagai berikut :
-        <br><br>
-        <b>FOKUS, WASPADA & SIAGA, HATI-HATI</b><br>
-        <b>MENJAMIN KESELAMATAN PEKERJA, PERJALANAN KA & LANGSIRAN</b>
+        <br>
+        <center>
+        <h2>FOKUS, WASPADA & SIAGA</h2>
+        <h3>HATI-HATI,MENJAMIN KESELAMATAN PEKERJA, PERJALANAN KA & LANGSIRAN</h3>
       </li>
+       </center>
 
       <li>
         Melalui Tag Line Safety Mindset & Culture tersebut, diharapkan seluruh jajaran Operasi Non
         Crew dapat senantiasa :
         <ol type="a">
           <li>
-            Fokus bahwa harus tetap kosentrasi penuh terhadap Prosedur Kerja dan Tanggung Jawab
+            <b>Fokus</b> bahwa harus tetap kosentrasi penuh terhadap Prosedur Kerja dan Tanggung Jawab
             sesuai tupoksinya masing-masing dalam menjamin keselamatan pekerja, perjalanan kereta
             api dan langsiran.
           </li>
           <li>
-            Waspada dan Siaga adalah tindakan untuk selalu siap dalam menghadapi segala kondisi
+           <b>Waspada dan Siaga</b> adalah tindakan untuk selalu siap dalam menghadapi segala kondisi
             yang terus berubah dan resiko yang kemungkinan terus muncul secara konsisten dalam
             menjamin keselamatan perkerja, menjamin keselamatan perjalanan kereta api baik kondisi
             normal maupun tidak normal serta antisipasi terhadap segala potensi bahaya yang ada di
             lingkungan kerja masing-masing.
           </li>
           <li>
-            BerHati-hati dalam setiap tindakan wajib terukur, cepat, tepat, tidak ceroboh dan sesuai
+            <b>Berhati-hati</b> dalam setiap tindakan wajib terukur, cepat, tepat, tidak ceroboh dan sesuai
             prosedur guna menjamin keselamatan perjalanan kereta api, langsiran, diri sendiri dan
             orang lain.
           </li>
           <li>
-            Menjamin Keselamatan Pekerja, Perjalanan KA & Langsiran bahwa keselamatan adalah
+            <b>Menjamin Keselamatan Pekerja, Perjalanan KA & Langsiran</b> bahwa keselamatan adalah
             suatu hasil kolaborasi kerjasama dari suatu tindakan keselamatan oleh masing-masing
             individu dalam bekerja.
           </li>
@@ -14375,7 +14376,15 @@ Pasal 2
         sticker, digital ataupun media lainnya di area wilayah kerja yang mudah terlihat oleh seluruh
         petugas operasi non crew.
       </li>
+
+    <li>Demikian disampaikan, atas perhatiannya kami ucapkan terima kasih.</li>
     </ol>
+    <br><br><br>
+
+Vice President of Non Train Crew Operation,<br><br><br>
+
+<b>RACHMAD ZAINI KURNIAWAN<br>
+NIPP 47115</b>
   `
 },
 {
@@ -18536,6 +18545,15 @@ siap menjalankan dinas...(pagi/siang/malam)
     desc: `
   
       <img src="https://i.ibb.co.com/0yQJj7zN/form-negative-cek-elektrik-sta-karangpucung.png" 
+             alt="Apitan Lidah Wesel" 
+             style="max-width:100%; height:auto; margin-top:10px;">
+    `
+  },
+  {
+    title: "Hanta Virus - 2026",
+    desc: `
+  <h3>8S / Langkah - langkah agar bebas dari virus Hanta di Kantor</h3>
+      <img src="https://i.ibb.co.com/svy9R7F5/getdokumeneoffice.jpg" 
              alt="Apitan Lidah Wesel" 
              style="max-width:100%; height:auto; margin-top:10px;">
     `
@@ -73901,6 +73919,90 @@ Pemasangan Stiker Barcode CC Ops-SISCA di Setiap Ruangan Petugas Operasional Non
   `
 },
 {
+  title: "KG.113 - KAI Green Movement Program di Lingkungan Daop 2",
+  desc: `
+    <ol>
+        5/KG.113/IV/DO.2/2026 Bandung, 30 April 2026
+        <br><br><br>
+
+        Yth.
+        <ol>
+          <li>Para Manager di Daerah Operasi 2 Bandung</li>
+          <li>Assistant Manager Angkutan Barang | UNTUNG HARI YOSO MULYO | 46719</li>
+        </ol>
+        di
+        <br>
+        Tempat
+<br><br>
+      <li>
+        Menunjuk Nota Dinas Managing Director of Human Capital and Institutional Relations Nomor
+        213/KG.113/IV/KA/2026 tanggal 17 April 2026 Perihal Pelaksanaan "KAI Green Movement
+        Program".
+      </li>
+
+      <li>
+        KAI Green Movement Program bertujuan untuk mendorong perubahan perilaku pegawai dalam
+        mengurangi emisi karbon melalui penggunaan transportasi ramah lingkungan, meningkatkan
+        awareness pegawai terhadap isu lingkungan serta meningkatkan engagement pegawai melalui
+        program berbasis challenge & recognition.
+      </li>
+
+      <li>
+        Sehubungan dengan hal tersebut di atas, kepada seluruh Pekerja Daop 2 Bandung untuk
+        melaksanakan dan turut berperan aktif dalam “KAI Green Movement Program” di Lingkungan
+        Daop 2 Bandung dengan ketentuan sebagai berikut:
+        
+        <ol type="a">
+          <li>
+            Pekerja menggunakan kendaraan non-BBM atau alternatif berjalan kaki, bersepeda,
+            menggunakan kendaraan listrik atau transportasi umum setiap hari Kamis;
+          </li>
+
+          <li>
+            Pekerja melakukan dokumentasi (foto/selfie) sebagai bukti pelaksanaan program dan
+            dilaporkan kepada Manager masing -masing ( media pelaporan diatur oleh unit);
+          </li>
+
+          <li>
+            Manager terkait mengumpulkan dan melaporkan dokumentasi yang telah direkap
+            menggunakan formulir terlampir dan diupload melaui tautan sebagai berikut :
+            <br><br>
+
+            <a href="https://drive.google.com/drive/folders/122O4hD3hykjMMndxKykaDCGeBAS8YKq4?usp=sharing" target="_blank">
+              Klik di sini untuk membuka Google Drive
+            </a>;
+          </li>
+
+          <li>
+            Hasil laporan dari masing-masing Manager akan dilaporan oleh Manager SDM dan Umum
+            secara periodik melalui Rail Culture Management System.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        Kepada para Manager terkait untuk dapat mensosialisasikan dan mendorong program dimaksud
+        kepada jajarannya.
+      </li>
+
+      <li>
+        Demikian untuk dilaksanakan dengan penuh tanggung jawab atas perhatiannya diucapkan
+        terima kasih.
+      </li>
+    </ol>
+
+    <br><br>
+
+    <div style="text-align:left;">
+      Executive Vice President Daerah Operasi 2 Bandung,
+      <br><br><br>
+      <b>HENDRA WAHYONO</b>
+      <br>
+      NIPP 41124
+    </div>
+  `
+},
+{
   title: "O/34- Mencegah penularan Covid-19 di Ruang Kerja PPKA, PAP, PLR, PJL, PRS, PPKP, Kru KA dan Kabin Masinis",
   desc: `
     d Bandung0010 O/34 04/07/-‘21 1110<br><br>
@@ -77207,15 +77309,10 @@ C Gedebage dibantu oleh:
 
       <ol type="a">
         <li>melaksanakan pemantauan, pengawasan, dan pemeriksaan terhadap kondisi peralatan sinyal, telekomunikasi, dan listrik umum untuk fasilitas operasi kereta api;</li>
-
         <li>melaksanakan pembinaan teknis terhadap pelaksanaan perawatan peralatan sinyal, telekomunikasi, dan listrik umum untuk fasilitas operasi kereta api;</li>
-
         <li>melaksanakan pengawasan dan pemeriksaan pergudangan, suku cadang, dan alat kerja perawatan;</li>
-
         <li>melaksanakan pengawasan dan pembinaan teknis sumber daya manusia;</li>
-
         <li>membuat laporan pengawasan dan pemeriksaan kegiatan perawatan secara periodik maupun insidental kepada Executive Vice President; dan</li>
-
         <li>melakukan pengawasan kegiatan perawatan dan pembangunan peralatan sinyal, telekomunikasi, dan listrik umum untuk fasilitas operasi kereta api.</li>
       </ol>
 
@@ -77403,6 +77500,46 @@ Quality Controller Operasi Crew Kereta Api Bandurig sebagaimana dimaksud
     </ol>
   `
 },
+{
+  title: "ORTALA - Struktur Organisasi Daop 2 Bd",
+  desc: `
+  <div class="center-title">PER. U/KO.104/II/6/KA-2020</div>
+<h3>1. Struktur Organisasi Daop 2 Bd</h3>
+<img src="https://i.ibb.co.com/twJ9WVdv/Screenshot-2026-05-12-084305.png"
+alt="Apitan Lidah Wesel"
+style="max-width:100%; height:auto; border-radius:8px; float:center;"
+<br><br>
+
+<h3>2. Struktur Organisasi Manager Sarana</h3>
+<img src="https://i.ibb.co.com/KpqDwF37/Screenshot-2026-05-12-084320.png"
+alt="Apitan Lidah Wesel"
+style="max-width:100%; height:auto; border-radius:8px; float:center;"
+<br><br>
+
+<h3>3. Struktur Organisasi Manager Jalan Rel dan Jembatan</h3>
+<img src="https://i.ibb.co.com/fz0s7CMf/Screenshot-2026-05-12-084402.png"
+alt="Apitan Lidah Wesel"
+style="max-width:100%; height:auto; border-radius:8px; float:center;"
+<br><br>
+
+<h3>4. Struktur Organisasi Manager Operasi</h3>
+<img src="https://i.ibb.co.com/6JmmHgWq/Screenshot-2026-05-12-084428.png"
+alt="Apitan Lidah Wesel"
+style="max-width:100%; height:auto; border-radius:8px; float:center;"
+<br><br>
+<img src="https://i.ibb.co.com/Lz8Q1ZS7/Screenshot-2026-05-12-084450.png"
+alt="Apitan Lidah Wesel"
+style="max-width:100%; height:auto; border-radius:8px; float:center;"
+<br><br>
+<img src="https://i.ibb.co.com/FLdQM6hK/Screenshot-2026-05-12-084501.png"
+alt="Apitan Lidah Wesel"
+style="max-width:100%; height:auto; border-radius:8px; float:center;"
+<br><br>
+
+
+
+    `
+},
 
 /// ORTALA DITOP 2025
 {
@@ -77474,7 +77611,7 @@ Quality Controller Operasi Crew Kereta Api Bandurig sebagaimana dimaksud
   `
 },
 {
-  title: "ORTALA DITOP - OP,OI,OM",
+  title: "ORTALA DITOP - OP",
   desc: `
 
 PER.DZ/KO.104/XI/3/KA-2025 
@@ -77787,8 +77924,7 @@ PER.DZ/KO.104/XI/3/KA-2025
   desc: `
 
 <ol>
-  <li>
-    <b>Paragraf 2<br>Susunan Organisasi<br>Pasal 18</b><br>
+    <center><b>Paragraf 2<br>Susunan Organisasi<br>Pasal 18</b><br></center>
     Subdivision of Non Train Crew Operation terdiri atas:
     <ol type="a">
       <li>Section of Non Train Crew Planning (OPNP);</li>
@@ -77796,9 +77932,8 @@ PER.DZ/KO.104/XI/3/KA-2025
       <li>Section of Infrastructure Operation and Regulation (OPNI).</li>
     </ol>
   </li>
-
-  <li>
-    <b>Paragraf 3<br>Section of Non Train Crew Planning<br>Pasal 19</b>
+<center>
+    <b>Paragraf 3<br>Section of Non Train Crew Planning<br>Pasal 19</b></center>
     <ol>
       <li>Section of Non Train Crew Planning (OPNP) dipimpin oleh Manager of Non Train Crew Planning.</li>
       <li>
@@ -77817,17 +77952,17 @@ PER.DZ/KO.104/XI/3/KA-2025
     </ol>
   </li>
 
-  <li>
-    <b>Pasal 20</b><br>
+    <center>
+      <b>Pasal 20</b><br> </center>
     Manager of Non Train Crew Planning dibantu oleh:
     <ol type="a">
       <li>Specialist of Non Train Crew Assignment Planning; dan</li>
       <li>Specialist of Non Train Crew Development Planning.</li>
     </ol>
   </li>
-
-  <li>
+     <center>    
     <b>Pasal 21</b>
+    </center>
     <ol>
       <li>
         Specialist of Non Train Crew Assignment Planning sebagaimana dimaksud dalam Pasal 20 huruf a mempunyai tugas:
@@ -77859,9 +77994,10 @@ PER.DZ/KO.104/XI/3/KA-2025
       </li>
     </ol>
   </li>
-
-  <li>
+<center>
     <b>Paragraf 4<br>Section of Non Train Crew Control and Evaluation<br>Pasal 22</b>
+    </center>
+
     <ol>
       <li>Section of Non Train Crew Control and Evaluation (OPNC) dipimpin oleh Manager of Non Train Crew Control and Evaluation.</li>
       <li>
@@ -77870,113 +78006,123 @@ PER.DZ/KO.104/XI/3/KA-2025
           <li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait pengendalian, evaluasi, dan pembinaan petugas operasi prasarana;</li>
           <li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait pengendalian, evaluasi, dan pembinaan petugas operasi prasarana;</li>
           <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait pengendalian, evaluasi, dan pembinaan petugas operasi prasarana;</li>
-        </ol>
-      </li>
-    </ol>
-  </li>
-
+    <li>melakukan pengendalian dan evaluasi terhadap pelaksanaan pelatihan dan proses pemenuhan sertifikasi;</li>
+    <li>melakukan pengendalian, evaluasi, dan pembinaan petugas operasi prasarana;</li>
+    <li>melakukan pengendalian, evaluasi, dan pembinaan administrasi perjalanan kereta api dalam operasi prasarana;</li>
+    <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian, evaluasi, dan pembinaan petugas operasi prasarana; dan</li>
+    <li>melaksanakan tugas lain yang diberikan oleh Vice President of Non Train Crew Operation.</li>
 </ol>
-<ol>
-    <li>d. melakukan pengendalian dan evaluasi terhadap pelaksanaan pelatihan dan proses pemenuhan sertifikasi;</li>
-    <li>C. melakukan pengendalian, evaluasi, dan pembinaan petugas operasi prasarana;</li>
-    <li>f melakukan pengendalian, evaluasi, dan pembinaan administrasi perjalanan kereta api dalam operasi prasarana;</li>
-    <li>g mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian, evaluasi, dan pembinaan petugas operasi prasarana; dan</li>
-    <li>h. melaksanakan tugas lain yang diberikan oleh Vice President of Non Train Crew Operation.</li>
-    <li>Pasal 23</li>
-    <li>Manager of Non Train Crew Control and Evaluation dibantu oleh:</li>
+
+
+    <b>Pasal 23</b>
+    Manager of Non Train Crew Control and Evaluation dibantu oleh:
+
     <li>a. Specialist of Non Train Crew Control and Evaluation Java Area;</li>
     <li>b. Specialist of Non Train Crew Control and Evaluation Sumatera Area; dan</li>
     <li>Junior Specialist of Non Train Crew Operation Support.</li>
     </ol>
-    <ol>
-    <li>Pasal 24</li>
-    <li>(1) Specialist of Non Train Crew Control and Evaluation Java Area sebagaimana dimaksud dalam Pasal 23 huruf a mempunyai tugas:</li>
-    <li>8. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa;</li>
-    <li>b. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa;</li>
-    <li>C. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa;</li>
-    <li>d. menyusun analisis kebutuhan pembinaan petugas operasi prasarana stasiun wilayah Jawa;</li>
-    <li>e. melaksanakan pembinaan petugas operasi prasarana stasiun dan pusat pengendali wilayah Jawa;</li>
-    <li>f. memantau pelaksanaan pendidikan dan pelatihan serta pendidikan lapangan untuk petugas operasi prasarana stasiun dan pusat pengendali wilayah Jawa;</li>
-    <li>g membantu pengendalian dan pembinaan administrasi perjalanan kereta api di stasiun wilayah Jawa;</li>
-    <li>h. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa; dan</li>
+  
+      <center>
+    <b>Pasal 24</b>
+    </center>
+
+    <b>(1) Specialist of Non Train Crew Control and Evaluation Java Area sebagaimana dimaksud dalam Pasal 23 huruf a mempunyai tugas:</b>
+    <ol type="a">
+    <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa;</li>
+    <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa;</li>
+    <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa;</li>
+    <li> menyusun analisis kebutuhan pembinaan petugas operasi prasarana stasiun wilayah Jawa;</li>
+    <li> melaksanakan pembinaan petugas operasi prasarana stasiun dan pusat pengendali wilayah Jawa;</li>
+    <li> memantau pelaksanaan pendidikan dan pelatihan serta pendidikan lapangan untuk petugas operasi prasarana stasiun dan pusat pengendali wilayah Jawa;</li>
+    <li> membantu pengendalian dan pembinaan administrasi perjalanan kereta api di stasiun wilayah Jawa;</li>
+    <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Jawa; dan</li>
     <li>melaksanakan tugas lain yang diberikan oleh Manager of Non Train Crew Control and Evaluation. i.</li>
         </ol>
-    <ol>
-    <li>(2) Specialist of Non Train Crew Control and Evaluation Sumatera Area sebagaimana dimaksud dalam Pasal 23 huruf b mempunyai tugas:</li>
-    <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera;</li>
-    <li>b. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera;</li>
-    <li>C. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera,</li>
-    <li>d. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera</li>
-    <li>menyusun analisis kebutuhan pembinaan petugas operasi prasarana stasiun dan pusat pengendali wilayah Sumatera;</li>
-    <li>f. melaksanakan pembinaan petugas operasi prasarana stasiun dan pusat pengendali wilayah Sumatera;</li>
-    <li>g-memantau pelaksanaan pendidikan dan pelatihan serta pendidikan lapangan petugas operasi prasarana stasiun dan pusat pengendali wilayah Sumatera;</li>
-    <li>h. membantu pengendalian dan pembinaan administrasi perjalanan kereta api di stasiun wilayah Sumatera;</li>
-    <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera; dan</li>
-    <li>j. melaksanakan tugas lain yang diberikan oleh Manager of Non Train Crew Control and Evaluation.</li>
-        </ol>
-    <ol>
-    <li>(3) Junior Specialist of Non Train Crew Operation Support sebagaimana dimaksud dalam Pasal 23 huruf e mempunyai tugas:</li>
-    <li>a membantu pengembangan dan pembaruan sistem evaluasi berbasis data dan teknologi untuk mendukung efektivitas pengendalian dan pembinaan petugas operasi prasarana di stasiun;</li>
-    <li>b. membantu pengelolaan data laporan implementasi peraturan dinas dan standar operational procedure,</li>
-    <li>C. membantu penyusunan analisis kebutuhan pembinaan petugas operasi prasarana stasiun wilayah Jawa dan Sumatera;</li>
-    <li>d. membantu pengendalian, evaluasi, dan pembinaan petugas operasi prasarana;</li>
-    <li>e. membantu pengelolaan data inovasi keselamatan terkait petugas operasi prasarana; dan</li>
-    <li>f. melaksanakan tugas lain yang diberikan oleh Manager of Non Train Crew Control and Evaluation.</li>
-  </ol>
-        <li>Paragraf 5</li>
-      <b>Section of Infrastructure Operation and Regulation</b><br>
-      <b>Pasal 25</b>
-      <li>(1) Section of Infrastructure Operation and Regulation (OPNI) dipimpin oleh Manager of Infrastructure Operation and Regulation.</li>
+    <ol><br>
 
-      <b>(2) Manager of Infrastructure Operation and Regulation mempunyai tugas:</b>
-                <ol>
-      <li>a. mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait pengelolaan dan pemenuhan Infrastructure Operation (10) serta regulasi operasi prasarana;</li>
-      <li>b. mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait pengelolaan dan pemenuhan Infrastructure Operation (10) serta regulasi operasi prasarana;</li>
-      <li>C. mengevaluasi dan mengusulkan program kerja dan anggaran terkait pengelolaan dan pemenuhan Infrastructure Operation (10) serta regulasi operasi prasarana;</li>
-      <li>d. merencanakan dan mengevaluasi kebutuhan Infrastructure Operation (10);</li>
-      <li>e. melakukan kontrol terhadap Infrastructure Operation (IO);</li>
-      <li>f. menyusun dan mengevaluasi kajian terkait Infrastructure Operation (10);</li>
-      <li>g- menyusun dan mengevaluasi laporan data Infrastructure Operation (10);</li>
-      <li>h. menyusun dan mengevaluasi kajian dan analisis kepatuhan terhadap peraturan dinas yang berkaitan dengan pengoperasian prasarana berikut perubahannya;</li>
-      <li>i. merencanakan penyusunan dan pengoperasian prasarana; pembaruan regulasi terkait merencanakan dan melakukan internalisasi, uji petik, dan pemantauan pelaksanaan peraturan dinas yang berkaitan dengan pengoperasian prasarana;</li>
-      <li>k. mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan dan pemenuhan Infrastructure Operation (IO) serta regulasi operasi prasarana; dan</li>
-      <li>1. melaksanakan tugas lain yang diberikan oleh Vice President of Non Train Crew Operation.</li>
+    <b>(2) Specialist of Non Train Crew Control and Evaluation Sumatera Area sebagaimana dimaksud dalam Pasal 23 huruf b mempunyai tugas:</b>
+    <ol type="a">
+    <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera;</li>
+    <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera;</li>
+    <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera,</li>
+    <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera</li>
+    <li>menyusun analisis kebutuhan pembinaan petugas operasi prasarana stasiun dan pusat pengendali wilayah Sumatera;</li>
+    <li>melaksanakan pembinaan petugas operasi prasarana stasiun dan pusat pengendali wilayah Sumatera;</li>
+    <li>memantau pelaksanaan pendidikan dan pelatihan serta pendidikan lapangan petugas operasi prasarana stasiun dan pusat pengendali wilayah Sumatera;</li>
+    <li> membantu pengendalian dan pembinaan administrasi perjalanan kereta api di stasiun wilayah Sumatera;</li>
+    <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan pembinaan petugas operasi prasarana di stasiun dan pusat pengendali wilayah Sumatera; dan</li>
+    <li> melaksanakan tugas lain yang diberikan oleh Manager of Non Train Crew Control and Evaluation.</li>
         </ol>
-      <b>Pasal 26</b><br>
+<br>
+    <b>(3) Junior Specialist of Non Train Crew Operation Support sebagaimana dimaksud dalam Pasal 23 huruf e mempunyai tugas:</b>
+    <ol type="a">
+    <li>membantu pengembangan dan pembaruan sistem evaluasi berbasis data dan teknologi untuk mendukung efektivitas pengendalian dan pembinaan petugas operasi prasarana di stasiun;</li>
+    <li> membantu pengelolaan data laporan implementasi peraturan dinas dan standar operational procedure,</li>
+    <li> membantu penyusunan analisis kebutuhan pembinaan petugas operasi prasarana stasiun wilayah Jawa dan Sumatera;</li>
+    <li> membantu pengendalian, evaluasi, dan pembinaan petugas operasi prasarana;</li>
+    <li> membantu pengelolaan data inovasi keselamatan terkait petugas operasi prasarana; dan</li>
+    <li> melaksanakan tugas lain yang diberikan oleh Manager of Non Train Crew Control and Evaluation.</li>
+  </ol>
+
+        <center><b>Paragraf 5</b>
+      <b>Section of Infrastructure Operation and Regulation</b><br>
+      <b>Pasal 25</b><br></center>
+
+      <li>Section of Infrastructure Operation and Regulation (OPNI) dipimpin oleh Manager of Infrastructure Operation and Regulation.</li>
+      <li>Manager of Infrastructure Operation and Regulation mempunyai tugas:</li>
+<ol type="a">
+<li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait pengelolaan dan pemenuhan Infrastructure Operation (IO) serta regulasi operasi prasarana;</li>
+<li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait pengelolaan dan pemenuhan Infrastructure Operation (IO) serta regulasi operasi prasarana;</li>
+<li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait pengelolaan dan pemenuhan Infrastructure Operation (10) serta regulasi operasi prasarana;</li>
+<li>merencanakan dan mengevaluasi kebutuhan Infrastructure Operation (IO);</li>
+<li>melakukan kontrol terhadap Infrastructure Operation (IO);</li>
+<li>menyusun dan mengevaluasi kajian terkait Infrastructure Operation (IO);</li>
+<li>menyusun dan mengevaluasi laporan data Infrastructure Operation (IO);</li>
+<li>menyusun dan mengevaluasi kajian dan analisis kepatuhan terhadap peraturan dinas yang berkaitan dengan pengoperasian prasarana berikut perubahannya;</li>
+<li>merencanakan penyusunan dan pengoperasian prasarana; pembaruan regulasi terkait merencanakan dan melakukan internalisasi, uji petik, dan pemantauan pelaksanaan peraturan dinas yang berkaitan dengan pengoperasian prasarana;</li>
+<li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan dan pemenuhan Infrastructure Operation (IO) serta regulasi operasi prasarana; dan</li>
+<li>melaksanakan tugas lain yang diberikan oleh Vice President of Non Train Crew Operation.</li>
+</ol>
+
+     <center><b>Pasal 26</b><br></center>
 
      <b>Manager of Infrastructure Operation and Regulation dibantu oleh:</b>
-                  <ol>
-      <li>8. Specialist of IO Administration Java Area;</li>
-      <li>b. Specialist of IO Administration Sumatera Area; dan</li>
-      <li>C. Specialist of Non Train Crew Regulation.</li>
-      <b>(1) Specialist of IO Administration Java Area sebagaimana dimaksud dalam Pasal 26 huruf a mempunyai tugas</b>
-      <li>a.  melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa;</li>
-      <li>b. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa;</li>
-      <li>C. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa;</li>
-      <li>d. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan dan evaluasi kebutuhan personel dan biaya terkait Infrastructure Operation (10) wilayah Jawa;</li>
-      <li>c. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk melakukan kontrol terhadap Infrastructure Operation (10) wilayah Jawa;</li>
-      <li>f. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kajian terkait Infrastructure Operation (IO) wilayah Jawa:</li>
-      <li>g-melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan laporan data Infrastructure Operation (IO) wilayah Jawa;</li>
-      <li>h. mengelola administrasi dan kerumahtanggaan di Subdivision of Non Train Crew Operation;</li>
-      <li>i. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa; dan</li>
-      <li>j. melaksanakan tugas lain yang diberikan oleh Manager of Infrastructure Operation and Regulation.</li>
+      <ol>
+      <li>Specialist of IO Administration Java Area;</li>
+      <li>Specialist of IO Administration Sumatera Area; dan</li>
+      <li>Specialist of Non Train Crew Regulation.</li>
       </ol>
+
+      <b>(1) Specialist of IO Administration Java Area sebagaimana dimaksud dalam Pasal 26 huruf a mempunyai tugas</b>
+      <ol type="a">
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan dan evaluasi kebutuhan personel dan biaya terkait Infrastructure Operation (10) wilayah Jawa;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk melakukan kontrol terhadap Infrastructure Operation (10) wilayah Jawa;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kajian terkait Infrastructure Operation (IO) wilayah Jawa:</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan laporan data Infrastructure Operation (IO) wilayah Jawa;</li>
+<li>mengelola administrasi dan kerumahtanggaan di Subdivision of Non Train Crew Operation;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Jawa; dan</li>
+<li>melaksanakan tugas lain yang diberikan oleh Manager of Infrastructure Operation and Regulation.</li>
+      </ol>
+
       <b>(2) Specialist of IO Administration Sumatera Area sebagaimana dimaksud dalam Pasal 26 huruf b mempunyai tugas:</b>
-            <ol>
-      <li>a. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera;</li>
-      <li>b. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera;</li>
-      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera; C.</li>
-      <li>d. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan dan evaluasi kebutuhan personel dan biaya terkait Infrastructure Operation (10) wilayah Sumatera;</li>
-      <li>e. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk melakukan kontrol terhadap Infrastructure Operation (IO) wilayah Sumatera;</li>
-      <li>f. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kajian terkait Infrastructure Operation (IO) wilayah Sumatera;</li>
-      <li>g melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan laporan data Infrastructure Operation (10) wilayah Sumatera;</li>
-      <li>h. mengelola administrasi dan kerumahtanggaan di Subdivision of Non Train Crew Operation;</li>
-      <li>i. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera; dan</li>
-      <li>j melaksanakan tugas lain yang diberikan oleh Manager of Infrastructure Operation and Regulation.</li>
+            <ol type="a">
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan dan evaluasi kebutuhan personel dan biaya terkait Infrastructure Operation (IO) wilayah Sumatera;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk melakukan kontrol terhadap Infrastructure Operation (IO) wilayah Sumatera;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kajian terkait Infrastructure Operation (IO) wilayah Sumatera;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan laporan data Infrastructure Operation (IO) wilayah Sumatera;</li>
+<li>mengelola administrasi dan kerumahtanggaan di Subdivision of Non Train Crew Operation;</li>
+<li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan kebutuhan pengoperasian prasarana perkeretaapian wilayah Sumatera; dan</li>
+<li>melaksanakan tugas lain yang diberikan oleh Manager of Infrastructure Operation and Regulation.</li>
             </ol>
 
       <b>(3) Specialist of Non Train Crew Regulation sebagaimana dimaksud dalam Pasal 26 huruf c mempunyai tugas:</b>
-      <ol>
+      <ol type="a">
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengelolaan kepatuhan peraturan dinas yang berkaitan dengan pengoperasian prasarana;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengelolaan kepatuhan peraturan dinas yang berkaitan dengan pengoperasian prasarana perkeretaapian;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan kepatuhan peraturan dinas yang berkaitan dengan pengoperasian prasarana;</li>
@@ -77987,13 +78133,19 @@ PER.DZ/KO.104/XI/3/KA-2025
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan kepatuhan peraturan dinas yang berkaitan dengan pengoperasian prasarana; dan</li>
       <li>melaksanakan tugas lain yang diberikan oleh Manager of Infrastructure Operation and Regulation.</li>
     </ol>
-    Bagian Keenam<br>
+`
+},
+    {
+  title: "Ortala Ditop - Consulting",
+  desc: `
+    <center><b>Bagian Keenam<br>
     Specialist of Operation Personnel Wellness and Consulting<br>
     Pasal 28<br>
+    </b></center>
     <ol>
-      <li>(1) Specialist of Operation Personnel Wellness and Consulting bertanggung jawab kepada Executive Vice President of Operation Personnel Organizing.</li>
-      <li>(2) Specialist of Operation Personnel Wellness and Consulting mempunyai tugas:
-        <ol>
+      <li>Specialist of Operation Personnel Wellness and Consulting bertanggung jawab kepada Executive Vice President of Operation Personnel Organizing.</li>
+      <li>Specialist of Operation Personnel Wellness and Consulting mempunyai tugas:
+        <ol type="a">
           <li>membantu menyelenggarakan kegiatan asesmen untuk pekerja operasi;</li>
           <li>melaksanakan kegiatan konseling untuk pekerja operasi;</li>
           <li>bekerja sama dengan satuan organisasi lain dalam proses pendalaman fenomena dan masalah pekerja operasi;</li>
@@ -78009,19 +78161,19 @@ PER.DZ/KO.104/XI/3/KA-2025
 {
   title: "Ortala Ditop -  OI",
   desc: `
-    <ol>
-      <li>
+      <center>
         BAB IV<br>
         DIVISION OF OPERATION INTEGRATION<br>
         Bagian Kesatu<br>
         Kedudukan, Tugas, dan Fungsi<br>
         Pasal 29<br>
-        (1) Division of Operation Integration (OI) adalah satuan organisasi di Direktorat Operasi (DO).<br>
-        (2) Division of Operation Integration (Ol) dipimpin oleh Executive Vice President of Operation Integration yang bertanggung jawab kepada Managing Director of Operation.
-      </li>
+        </center>
+    <ol>
+        <li> Division of Operation Integration (OI) adalah satuan organisasi di Direktorat Operasi (DO).<br> </li>
+        <li>Division of Operation Integration (Ol) dipimpin oleh Executive Vice President of Operation Integration yang bertanggung jawab kepada Managing Director of Operation. </li>
+      </ol>
 
-      <li>
-        Pasal 30<br>
+        <center>Pasal 30<br></center>
         <b>Executive Vice President of Operation Integration mempunyai tugas:</b>
         <ol type="a">
           <li>menetapkan program integrasi angkutan dan pengoperasian kereta api penumpang dan kereta api barang:</li>
@@ -78031,8 +78183,8 @@ PER.DZ/KO.104/XI/3/KA-2025
         </ol>
       </li>
 
-      <li>
-        Pasal 31<br>
+      <center>
+        Pasal 31<br></center>
         Dalam melaksanakan tugas sebagaimana dimaksud dalam Pasal 30, Executive Vice President of Operation Integration menyelenggarakan fungsi:
         <ol type="a">
           <li>pemastian ketersediaan dan pembaruan kebijakan, prosedur, dan strategi terkait integrasi angkutan dan pengoperasian kereta api;</li>
@@ -78047,32 +78199,32 @@ PER.DZ/KO.104/XI/3/KA-2025
         </ol>
       </li>
 
-      <li>
-        Bagian Kedua
-       Susunan Organisasi
-        Pasal 32
+     <center>
+        Bagian Kedua<br>
+       Susunan Organisasi<br>
+        Pasal 32</center>
+
         Division of Operation Integration terdiri atas.
         <ol type="a">
           <li>Subdivision of Passenger Operation Integration (OIP); dan</li>
           <li>Subdivision of Freight Operation Integration (OIF).</li>
         </ol>
-      </li>
-
-      <li>
+     
+<center>
         Bagian Ketiga
         Subdivision of Passenger Operation Integration
         Paragraf 1
         Tugas
-        Pasal 33
-        (1) Subdivision of Passenger Operation Integration (OIP) dipimpin oleh Vice President of Passenger Operation Integration yang bertanggung jawab kepada Executive Vice President of Operation Integration.
-        (2) Vice President of Passenger Operation Integration mempunyai tugas:
+        Pasal 33</center>
+<ol>
+         <li>Subdivision of Passenger Operation Integration (OIP) dipimpin oleh Vice President of Passenger Operation Integration yang bertanggung jawab kepada Executive Vice President of Operation Integration.</li>
+         <li>Vice President of Passenger Operation Integration mempunyai tugas:</li>
         <ol type="a">
           <li>menyelenggarakan penyusunan, evaluasi, dan pembaruan kebijakan dan prosedur terkait integrasi angkutan penumpang dengan pengoperasian kereta api penumpang;</li>
           <li>menyelenggarakan penyusunan masterplan dan roadmap terkait integrasi angkutan penumpang dengan pengoperasian kereta api penumpang;</li>
           <li>menyelenggarakan penyusunan program kerja dan anggaran terkait integrasi angkutan penumpang dengan pengoperasian kereta api penumpang,</li>
-          <li>
-            menyelenggarakan perencanaan, pengendalian, dan evaluasi integrasi angkutan penumpang dengan pengoperasian kereta api penumpang yang meliputi:
-            <ol>
+          <li>menyelenggarakan perencanaan, pengendalian, dan evaluasi integrasi angkutan penumpang dengan pengoperasian kereta api penumpang yang meliputi:
+            <ol type="i">
               <li>perencanaan, pengendalian, dan evaluasi kebutuhan dan ketersediaan fasilitas pelayanan di atas kereta api dan stasiun;</li>
               <li>perencanaan, pengendalian, dan evaluasi kegiatan inspeksi terhadap kualitas kebersihan kereta dan stasiun serta kecukupan pemenuhan fasilitas pelayanan di kereta dan stasiun; dan</li>
               <li>penyusunan standar kualitas kebersihan kereta dan stasiun serta standar ketersediaan fasilitas pelayanan di kereta dan stasiun.</li>
@@ -78084,13 +78236,14 @@ PER.DZ/KO.104/XI/3/KA-2025
           <li>mengoordinasikan perencanaan dan pengendalian operasional agar penggunaan sarana, prasarana, dan kapasitas lintas kereta api penumpang lebih maksimal;</li>
           <li>menyelenggarakan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait integrasi angkutan penumpang dengan pengoperasian kereta api penumpang; dan</li>
           <li>melaksanakan tugas lain yang diberikan oleh Executive Vice President of Operation Integration.</li>
-      <li>C. menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan fasilitas pelayanan di kereta;</li>
-      <li>d. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk memastikan pemenuhan fasilitas pelayanan di kereta sesuai standar pelayanan minimum;</li>
-      <li>e. memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan fasilitas pelayanan di kereta;</li>
-      <li>f membantu melakukan pembinaan kepada satuan kerja yang mengelola fasilitas pelayanan di kereta di seluruh daerah;</li>
-      <li>g melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan fasilitas pelayanan di kereta; dan</li>
-      <li>h. melaksanakan tugas lain yang diberikan oleh Manager of Facility and Cleanliness on Board.</li>
+      <li> menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan fasilitas pelayanan di kereta;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk memastikan pemenuhan fasilitas pelayanan di kereta sesuai standar pelayanan minimum;</li>
+      <li> memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan fasilitas pelayanan di kereta;</li>
+      <li> membantu melakukan pembinaan kepada satuan kerja yang mengelola fasilitas pelayanan di kereta di seluruh daerah;</li>
+      <li>gmelakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan fasilitas pelayanan di kereta; dan</li>
+      <li> melaksanakan tugas lain yang diberikan oleh Manager of Facility and Cleanliness on Board.</li>
           </ol>
+          </li>
 
 
       <b>(2) Specialist of Cleanliness on Board sebagaimana dimaksud dalam Pasal 36 huruf b mempunyai tugas:</b>
@@ -78128,40 +78281,39 @@ PER.DZ/KO.104/XI/3/KA-2025
 
       <b>Pasal 40</b>
       <b>(1) Specialist of Facility on Station sebagaimana dimaksud dalam Pasal 39 huruf a mempunyai tugas:</b>
-<ol>
-      <li>B. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengelolaan fasilitas pelayanan stasiun;</li>
-      <li>b. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengelolaan fasilitas pelayanan stasiun;</li>
-      <li>C. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan fasilitas pelayanan stasiun;</li>
-      <li>d. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan pemenuhan fasilitas pelayanan stasiun sesuai standar pelayanan minimum;</li>
-      <li>e. memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan fasilitas pelayanan di stasiun;</li>
-      <li>f. membantu melakukan pembinaan kepada satuan kerja yang mengelola fasilitas pelayanan stasiun di seluruh daerah;</li>
+      <ol type="a">
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengelolaan fasilitas pelayanan stasiun;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengelolaan fasilitas pelayanan stasiun;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan fasilitas pelayanan stasiun;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan pemenuhan fasilitas pelayanan stasiun sesuai standar pelayanan minimum;</li>
+      <li> memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan fasilitas pelayanan di stasiun;</li>
+      <li> membantu melakukan pembinaan kepada satuan kerja yang mengelola fasilitas pelayanan stasiun di seluruh daerah;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan fasilitas pelayanan stasiun; dan</li>
-      <li>h. melaksanakan tugas lain yang diberikan oleh Manager of Facility and Cleanliness on Station.</li>
-    <li>C. menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan fasilitas pelayanan di kereta;</li>
-      <li>d. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk memastikan pemenuhan fasilitas pelayanan di kereta sesuai standar pelayanan minimum;</li>
-      <li>e. memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan fasilitas pelayanan di kereta;</li>
-      <li>f membantu melakukan pembinaan kepada satuan kerja yang mengelola fasilitas pelayanan di kereta di seluruh daerah;</li>
-      <li>g melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan fasilitas pelayanan di kereta; dan</li>
-      <li>h. melaksanakan tugas lain yang diberikan oleh Manager of Facility and Cleanliness on Board.</li>
+      <li> melaksanakan tugas lain yang diberikan oleh Manager of Facility and Cleanliness on Station.</li>
+    <li> menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan fasilitas pelayanan di kereta;</li>
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk memastikan pemenuhan fasilitas pelayanan di kereta sesuai standar pelayanan minimum;</li>
+      <li> memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan fasilitas pelayanan di kereta;</li>
+      <li>membantu melakukan pembinaan kepada satuan kerja yang mengelola fasilitas pelayanan di kereta di seluruh daerah;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan fasilitas pelayanan di kereta; dan</li>
+      <li> melaksanakan tugas lain yang diberikan oleh Manager of Facility and Cleanliness on Board.</li>
     </ol>
 
 
       <b>(2) Specialist of Cleanliness on Board sebagaimana dimaksud dalam Pasal 36 huruf b mempunyai tugas:</b>
-      <ol>
-      <li>a. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengelolaan kebersihan kereta;</li>
-      <li>b. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengelolaan kebersihan kereta;</li>
-      <li>c. menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan kebersihan kereta;</li>
-      <li>d. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan kebutuhan cuci kereta dan On Trip Cleaning (OTC);</li>
-      <li>e. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan dan pembaruan kerangka acuan kerja terkait pengelolaan kebersihan kereta;</li>
-      <li>f. memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan kebersihan kereta;</li>
-      <li>g-membantu melakukan pembinaan kepada satuan kerja yang mengelola kebersihan kereta di seluruh daerah;</li>
-      <li>h. melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan kebersihan kereta; dan</li>
+      <ol type="a">
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengelolaan kebersihan kereta;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengelolaan kebersihan kereta;</li>
+      <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengelolaan kebersihan kereta;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk perencanaan kebutuhan cuci kereta dan On Trip Cleaning (OTC);</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan dan pembaruan kerangka acuan kerja terkait pengelolaan kebersihan kereta;</li>
+      <li> memantau dan mengevaluasi kinerja pelayanan daerah serta perbaikan kebersihan kereta;</li>
+      <li>membantu melakukan pembinaan kepada satuan kerja yang mengelola kebersihan kereta di seluruh daerah;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan kebersihan kereta; dan</li>
       <li>melaksanakan tugas lain yang diberikan oleh Manager of Facility and Cleanliness on Board.</li>
-
-    <li>d. Quality Controller of Facility and Cleanliness Central Java Area;</li>
-    <li>c. Quality Controller of Facility and Cleanliness East Java Area;</li>
-    <li>f. Quality Controller of Facility and Cleanliness North Sumatera Area; dan</li>
-    <li>g Quality Controller of Facility and Cleanliness South Sumatera Area.</li>
+    <li> Quality Controller of Facility and Cleanliness Central Java Area;</li>
+    <li> Quality Controller of Facility and Cleanliness East Java Area;</li>
+    <li>Quality Controller of Facility and Cleanliness North Sumatera Area; dan</li>
+    <li> Quality Controller of Facility and Cleanliness South Sumatera Area.</li>
   </ol>
 
   <p>Pasal 43</p>
@@ -78434,18 +78586,22 @@ Pasal 47<br>
 
       <li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait perencanaan dan pengembangan sarana dan prasarana pendukung angkutan barang;</li>
       <li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait perencanaan dan pengembangan sarana dan prasarana pendukung angkutan barang;</li>
-      <li>C. mengevaluasi dan mengusulkan program kerja dan anggaran terkait perencanaan dan pengembangan sarana dan prasarana pendukung angkutan barang;</li>
+      <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait perencanaan dan pengembangan sarana dan prasarana pendukung angkutan barang;</li>
       <li>melakukan riset, analisis, dan penyusunan draf perencanaan dan pengembangan sarana, prasarana, dan fasilitas lainnya pendukung angkutan barang;</li>
       <li>mengevaluasi dan mengusulkan standar sarana dan prasarana pendukung angkutan barang;</li>
       <li>memantau dan mengevaluasi ketersediaan sarana, prasarana, dan fasilitas lainnya guna mengoptimalkan pencapaian program pendapatan angkutan barang;</li>
       <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan dan pengembangan sarana dan prasarana pendukung angkutan barang; dan melaksanakan tugas lain yang diberikan oleh Vice President of Freight Operation Integration.</li>
       
-      <li>Pasal 56</li>
+      <b>Pasal 56</b>
+      <ol>
       <li>Manager of Freight Infrastructure Integration dibantu oleh:</li>
       <li>аSpecialist of Freight Product Track; dan</li>
       <li>b. Specialist of Freight Product Terminal.</li>
-      <li>Pasal 57</li>
-      <li>(1) Specialist of Freight Product Track sebagaimana dimaksud dalam Pasal 56 huruf a mempunyai tugas:</li>
+      </ol>
+
+      <b>Pasal 57</b>
+      <li>Specialist of Freight Product Track sebagaimana dimaksud dalam Pasal 56 huruf a mempunyai tugas:</li>
+<ol type:"a">
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan dan pengembangan infrastruktur jalan rel, jembatan, sinyal, dan telekomunikasi pendukung angkutan barang;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan dan pengembangan infrastruktur jalan rel, jembatan, sinyal, dan telekomunikasi pendukung angkutan barang;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan dan pengembangan infrastruktur jalan rel, jembatan, sinyal, dan telekomunikasi pendukung angkutan barang;</li>
@@ -78453,19 +78609,1430 @@ Pasal 47<br>
       <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf standar infrastruktur jalan rel, jembatan, sinyal, dan telekomunikasi pendukung angkutan barang;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan dan pengembangan infrastruktur jalan rel, jembatan, sinyal, dan telekomunikasi pendukung angkutan barang; dan</li>
       <li>melaksanakan tugas lain yang diberikan oleh Manager of Freight Infrastructure Integration.</li>
-      <li>(2) Specialist of Freight Product Terminal sebagaimana dimaksud dalam Pasal 56 huruf b mempunyai tugas:</li>
+ </ol>
+      <b>(2) Specialist of Freight Product Terminal sebagaimana dimaksud dalam Pasal 56 huruf b mempunyai tugas:</b>
+      <ol type:"a">
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan dan pengembangan infrastruktur fasilitas muat-bongkar dan terminal angkutan barang;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan dan pengembangan infrastruktur fasilitas muat-melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan dan pengembangan infrastruktur fasilitas muat-bongkar dan terminal angkutan barang;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf perencanaan dan pengembangan prasarana fasilitas muat-bongkar dan terminal angkutan barang:</li>
       <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf standar infrastruktur fasilitas muat-bongkar dan terminal angkutan barang;</li>
       <li>memantau ketersediaan infrastruktur jalan rel, jembatan, sinyal, dan telekomunikasi serta fasilitas muat-bongkar dan terminal guna mengoptimalkan pencapaian program pendapatan angkutan barang;</li>
       <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan dan pengembangan infrastruktur fasilitas muat-bongkar dan terminal angkutan barang; dan</li>
-      <li>h. melaksanakan tugas lain yang diberikan oleh Manager of Freight Infrastructure Integration.bongkar dan terminal angkutan barang;</li>
+      <li> melaksanakan tugas lain yang diberikan oleh Manager of Freight Infrastructure Integration.bongkar dan terminal angkutan barang;</li>
+      <li> melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan dan pengembangan infrastruktur fasilitas muat-bongkar dan terminal angkutan barang:
+      </li>
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf perencanaan dan pengembangan prasarana fasilitas muat-bongkar dan terminal angkutan barang:</li>
+      <li> menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf standar infrastruktur fasilitas muat-bongkar dan terminal angkutan barang;</li>
+      <li>
+        memantau ketersediaan infrastruktur jalan rel, jembatan, sinyal, dan telekomunikasi serta fasilitas muat-bongkar dan terminal guna mengoptimalkan pencapaian program pendapatan angkutan barang:
+      </li>
+      <li>
+        melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan dan pengembangan infrastruktur fasilitas muat-bongkar dan terminal angkutan barang, dan
+      </li>
+      <li>
+        melaksanakan tugas lain yang diberikan oleh Manager of Freight Infrastructure Integration.</li>
     </ol>
 
   `
 },
-///beum beres.................
+{
+  title: "Ortala Ditop - OM",
+  desc: `
+<div style="text-align:center;">
+  <b>BAB V</b>
+  <b>DIVISION OF OPERATION MANAGEMENT</b>
+  <b>Bagian Kesatu</b>
+  <b>Kedudukan, Tugas, dan Fungsi</b>
+</div>
+
+<div style="text-align:center;">
+  <b>Pasal 58</b>
+</div>
+
+<ol>
+  <li>Division of Operation Management (OM) adalah satuan organisasi di Direktorat Operasi (DO).</li>
+
+  <li>Division of Operation Management (OM) dipimpin oleh Executive Vice President of Operation Management yang bertanggung jawab kepada Managing Director of Operation.</li>
+</ol>
+
+<div style="text-align:center;">
+  <b>Pasal 59</b>
+</div>
+
+<p>Executive Vice President of Operation Management mempunyai tugas:</p>
+
+<ol type="a">
+  <li>
+    menetapkan program dan pengendalian terkait operasi kereta api, meliputi:
+    <ol>
+      <li>perencanaan operasi perjalanan kereta api dan operasi sarana kereta api;</li>
+
+      <li>pengendalian dan evaluasi perjalanan kereta api dan operasi sarana kereta api;</li>
+
+      <li>perencanaan dan pengendalian operasi kereta api secara terpusat dan terpadu di seluruh lintas wilayah Sumatera bagian selatan.</li>
+    </ol>
+  </li>
+
+  <li>mengarahkan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan operasi kereta api;</li>
+
+  <li>melaksanakan tugas lain yang diberikan oleh Managing Director of Operation.</li>
+</ol>
+
+<div style="text-align:center;">
+  <b>Pasal 60</b>
+</div>
+
+<p>Dalam melaksanakan tugas sebagaimana dimaksud dalam Pasal 59, Executive Vice President of Operation Management menyelenggarakan fungsi:</p>
+
+<ol type="a">
+  <li>pemastian ketersediaan dan pembaruan kebijakan, prosedur, dan strategi terkait pengelolaan operasi kereta api;</li>
+
+  <li>pemastian tersusunnya masterplan dan roadmap terkait pengelolaan operasi kereta api;</li>
+
+  <li>penetapan rencana kerja dan anggaran terkait pengelolaan operasi kereta api;</li>
+
+  <li>pengoptimalan program perencanaan operasi kereta api yang meliputi perencanaan perjalanan kereta api dan perencanaan operasi sarana kereta api;</li>
+
+  <li>pengendalian dan evaluasi kinerja operasi kereta api yang meliputi pengendalian dan evaluasi perjalanan kereta api dan operasi sarana kereta api;</li>
+
+  <li>pemantauan realisasi perjalanan kereta api, operasi sarana dan operasi prasarana secara terpusat dan terpadu di seluruh lintas wilayah Sumatera bagian selatan;</li>
+
+  <li>pemastian pemenuhan rencana pola operasi dalam rangka mendukung penyelesaian proyek strategis nasional dan pengembangan bisnis Perusahaan;</li>
+
+  <li>pemastian pemenuhan perizinan pengoperasian sarana;</li>
+
+  <li>pemastian pemahaman petugas operasi prasarana di pusat pengendali terkait dengan sistem pengendalian perjalanan kereta api, operasi sarana, dan operasi prasarana;</li>
+
+  <li>pemastian ketersediaan dan pembaruan kebijakan dan prosedur terkait sistem pengendalian perjalanan kereta api, operasi sarana dan operasi prasarana;</li>
+
+  <li>pengoptimalan proses bisnis operasi kereta api yang efektif dan efisien; dan</li>
+
+  <li>peningkatan kualitas (quality improvement) dan penyusunan program digitalisasi pengelolaan operasi kereta api secara berkelanjutan.</li>
+</ol>
+
+<div style="text-align:center;">
+  <b>Bagian Kedua</b>
+  <b>Susunan Organisasi</b>
+</div>
+
+<div style="text-align:center;">
+  <b>Pasal 61</b>
+</div>
+
+<p>Division of Operation Management terdiri atas:</p>
+
+<ol type="a">
+  <li>Subdivision of Train Operation Planning (OMR);</li>
+
+  <li>Subdivision of Train Operation Control and Evaluation (OMP); dan</li>
+
+  <li>Subdivision of Operation Southern Sumatera (OMS).</li>
+</ol>
+`
+},
+{
+  title: "Ortala Ditop- OMR",
+  desc: `
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Bagian Ketiga
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Subdivision of Train Operation Planning
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Paragraf 1
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Tugas
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Pasal 62
+  </div>
+
+  <ol>
+    <li>Subdivision of Train Operation Planning (OMR) dipimpin oleh Vice President of Train Operation Planning yang bertanggung jawab kepada Executive Vice President of Operation Management.</li>
+
+    <li>
+      Vice President of Train Operation Planning mempunyai tugas:
+      <ol type="a">
+        <li>menyelenggarakan penyusunan, evaluasi, dan pembaruan kebijakan dan prosedur terkait perencanaan perjalanan kereta api dan perencanaan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan penyusunan masterplan dan roadmap terkait perencanaan perjalanan kereta api dan perencanaan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan penyusunan program kerja dan anggaran terkait perencanaan perjalanan kereta api dan perencanaan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan perencanaan grafik perjalanan kereta api, perencanaan perubahan perjalanan kereta api, rekayasa perjalanan kereta api, kajian pola operasi, perencanaan kapasitas lintas, dan perencanaan operasi stasiun;</li>
+
+        <li>menyelenggarakan perencanaan stamformasi kereta api, perencanaan operasi lokomotif, kereta rel diesel, kereta rel listrik dan light rail transit, perencanaan operasi kereta serta perencanaan operasi gerbong;</li>
+
+        <li>menyelenggarakan pemenuhan rencana pola operasi dalam rangka mendukung penyelesaian proyek strategis nasional dan pengembangan bisnis Perusahaan;</li>
+
+        <li>menyelenggarakan perencanaan digitalisasi proses bisnis Direktorat Operasi;</li>
+
+        <li>menyelenggarakan pengelolaan perizinan pengoperasian sarana, meliputi lintas pelayanan, izin operasi sarana perkeretaapian, dan penambahan pengoperasian kereta api;</li>
+
+        <li>menyelenggarakan perencanaan kebutuhan penambahan jumlah dan jenis sarana untuk mendukung perjalanan kereta api;</li>
+
+        <li>melakukan peningkatan kualitas (quality improvement) perencanaan perjalanan kereta api dan perencanaan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan perjalanan kereta api dan perencanaan operasi sarana kereta api; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Executive Vice President of Operation Management.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Paragraf 2
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Susunan Organisasi
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Pasal 63
+  </div>
+
+  <ol>
+    <li>
+      Subdivision of Train Operation Planning terdiri atas:
+      <ol type="a">
+        <li>Section of Traffic Planning (OMRP);</li>
+        <li>Section of Rolling Stock Operation Planning (OMRR); dan</li>
+        <li>Section of Digital Operation and Authorization (OMRD).</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Paragraf 3
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Section of Traffic Planning
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Pasal 64
+  </div>
+
+  <ol>
+    <li>Section of Traffic Planning (OMRP) dipimpin oleh Manager of Traffic Planning.</li>
+
+    <li>
+      Manager of Traffic Planning mempunyai tugas:
+      <ol type="a">
+        <li>mengevaluasi, mengusulkan, dan memperbarui draft kebijakan dan prosedur terkait perencanaan perjalanan kereta api;</li>
+
+        <li>mengevaluasi, mengusulkan, dan memperbarui draft masterplan dan roadmap terkait perencanaan perjalanan kereta api;</li>
+
+        <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait perencanaan perjalanan kereta api;</li>
+
+        <li>mengevaluasi dan mengusulkan perencanaan grafik perjalanan kereta api dan perubahan perjalanan kereta api;</li>
+
+        <li>mengevaluasi dan mengusulkan rekayasa perjalanan kereta api dan kajian pola operasi;</li>
+
+        <li>mengevaluasi dan mengusulkan perencanaan kapasitas lintas dan perencanaan operasi stasiun;</li>
+
+        <li>melakukan pembinaan kepada pekerja konseptor grafik perjalanan kereta api;</li>
+
+        <li>menyusun rencana pola operasi dalam rangka mendukung penyelesaian proyek strategis nasional dan pengembangan bisnis Perusahaan;</li>
+
+        <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan perjalanan kereta api; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Vice President of Train Operation Planning.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Pasal 65
+  </div>
+
+  <ol>
+    <li>
+      Manager of Traffic Planning dibantu oleh:
+      <ol type="a">
+        <li>Specialist of Train Diagram Planning;</li>
+        <li>Specialist of Non Train Diagram Planning;</li>
+        <li>Specialist of Terminal Program and Line Capacity; dan</li>
+        <li>Junior Specialist of Traffic Analyst and Reporting.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin:14px 0;">
+    Pasal 66
+  </div>
+
+  <ol>
+    <li>
+      Specialist of Train Diagram Planning sebagaimana dimaksud dalam Pasal 65 huruf a mempunyai tugas:
+      <ol type="a">
+        <li>menyusun draft serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draft kebijakan dan prosedur terkait penyusunan grafik perjalanan kereta api dan perubahan perjalanan kereta api;</li>
+
+        <li>menyusun draft serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draft masterplan dan roadmap terkait penyusunan grafik perjalanan kereta api dan perubahan perjalanan kereta api;</li>
+
+        <li>menyusun draft serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draft program kerja dan anggaran terkait penyusunan grafik perjalanan kereta api dan perubahan perjalanan kereta api;</li>
+
+        <li>melakukan analisis data hasil pelaksanaan grafik perjalanan kereta api dan perubahan perjalanan kereta api;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan grafik perjalanan kereta api dan perubahan perjalanan kereta api;</li>
+
+        <li>melakukan proses penyusunan grafik perjalanan kereta api serta pendukung grafik perjalanan kereta api;</li>
+
+        <li>melakukan proses administrasi dan perizinan yang berkaitan dengan perubahan grafik perjalanan kereta api;</li>
+
+        <li>melakukan koordinasi untuk pelaksanaan penyusunan grafik perjalanan kereta api dan pembinaan kepada konseptor penyusun grafik perjalanan kereta api;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait penyusunan grafik perjalanan kereta api dan perubahan perjalanan kereta api; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Planning.</li>
+      </ol>
+    </li>
+  </ol>
+
+   <center>
+      <b>Paragraf 4</b><br>
+      <b>Section of Rolling Stock Operation Planning</b><br>
+      <b>Pasal 67</b>
+    </center>
+
+    <ol>
+      <li>
+        Section of Rolling Stock Operation Planning (OMRR) dipimpin oleh Manager of Rolling Stock Operation Planning.
+      </li>
+
+      <li>
+        Manager of Rolling Stock Operation Planning mempunyai tugas:
+        <ol type="a">
+          <li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait perencanaan operasi sarana kereta api;</li>
+
+          <li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait perencanaan operasi sarana kereta api;</li>
+
+          <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait perencanaan operasi sarana kereta api;</li>
+
+          <li>mengevaluasi dan mengusulkan perencanaan stamformasi kereta api, perencanaan operasi lokomotif, kereta rel diesel, kereta rel listrik dan light rail transit, perencanaan operasi kereta serta perencanaan operasi gerbong;</li>
+
+          <li>melakukan pembinaan kepada pekerja perencana operasi sarana;</li>
+
+          <li>mengevaluasi dan mengusulkan perencanaan asistensi sarana dan permohonan usulan mutasi sarana;</li>
+
+          <li>mengarahkan dan mengoordinasikan perencanaan serta analisis kebutuhan jenis dan jumlah sarana;</li>
+
+          <li>mengendalikan sinkronisasi penyediaan jenis dan jumlah sarana dengan pengembangan keterminalan, kapasitas lintas, dan pola operasi;</li>
+
+          <li>memantau ketersediaan dan optimalisasi pemanfaatan sarana sesuai kebutuhan layanan;</li>
+
+          <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan operasi sarana kereta api;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Vice President of Train Operation Planning.</li>
+        </ol>
+      </li>
+    </ol>
+
+    <div style="text-align:center;">
+      <b>Pasal 68</b>
+    </div>
+
+    <ol>
+      <li>
+        Manager of Rolling Stock Operation Planning dibantu oleh:
+        <ol type="a">
+          <li>Specialist of Tractive Rail Vehicle Operation Planning;</li>
+          <li>Specialist of Coaches Operation Planning;</li>
+          <li>Specialist of Wagon Operation Planning; dan</li>
+          <li>Specialist of Operate Freight and Passenger.</li>
+        </ol>
+      </li>
+    </ol>
+
+    <div style="text-align:center;">
+      <b>Pasal 69</b>
+    </div>
+
+    <ol>
+      <li>
+        Specialist of Tractive Rail Vehicle Operation Planning sebagaimana dimaksud dalam Pasal 68 huruf a mempunyai tugas:
+        <ol type="a">
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melakukan analisis data operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>menyusun 0.18 dinasan sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>merencanakan asistensi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>mengusulkan mutasi sarana lokomotif, kereta rel diesel, dan kereta rel listrik;</li>
+
+          <li>menganalisis data harian gangguan sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit penyebab dan akibatnya terhadap perjalanan kereta api;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Planning.</li>
+        </ol>
+      </li>
+
+      <li>
+        Specialist of Coaches Operation Planning sebagaimana dimaksud dalam Pasal 68 huruf h mempunyai tugas:
+        <ol type="a">
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan operasi sarana kereta;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan operasi sarana kereta;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan operasi sarana kereta;</li>
+
+          <li>melakukan analisis data operasi kereta dan menyusun stamformasi dinasan sarana kereta;</li>
+
+          <li>menyusun 0.18 dinasan sarana kereta;</li>
+
+          <li>merencanakan asistensi sarana kereta dan mengusulkan mutasi saruna kereta;</li>
+
+          <li>melakukan analisis data harian gangguan sarana kereta penyebab dan akibatnya terhadap perjalanan kereta api;</li>
+
+          <li>membantu menyusun program produksi operasi sarana kereta api;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan operasi sarana kereta;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Planning.</li>
+        </ol>
+      </li>
+
+      <li>
+        Specialist of Wagon Operation Planning sebagaimana dimaksud dalam Pasal 68 huruf e mempunyai tugas:
+        <ol type="a">
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan operasi sarana gerbong;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan operasi sarana gerbong;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan operasi sarana gerbong;</li>
+
+          <li>melakukan analisis data operasi gerbong dan menyusun dinasan sarana gerbong;</li>
+
+          <li>menyusun 0.18 dinasan sarana gerbong;</li>
+
+          <li>merencanakan asistensi sarana gerbong dan mengusulkan mutasi sarana gerbong;</li>
+
+          <li>melakukan analisis data harian gangguan sarana gerbong penyebab dan akibatnya terhadap perjalanan kereta api;</li>
+
+          <li>merencanakan Waktu Peredaran Gerbong (WPG);</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan operasi sarana gerbong;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Planning.</li>
+        </ol>
+      </li>
+
+      <li>
+        Specialist of Operate Freight and Passenger sebagaimana dimaksud dalam Pasal 58 huruf d mempunyai tugas:
+        <ol type="a">
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perencanaan kebutuhan penambahan jumlah dan jenis sarana;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perencanaan kebutuhan penambahan jumlah dan jenis sarana;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perencanaan kebutuhan penambahan jumlah dan jenis sarana;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data untuk perencanaan kebutuhan dan analisis jenis dan jumlah sarana angkutan barang dan penumpang;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data untuk analisis kebutuhan jenis dan jumlah sarana dalam pengembangan angkutan barang eksisting dan rencana penambahan вагапа;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data untuk sinkronisasi perencanaan dan penyediaan jenis dan jumlah sarana dengan pengembangan keterminalan, kapasitas lintas, dan pola operasi;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk pemantauan dan koordinasi ketersediaan jenis dan jumlah sarana angkutan barang dan penumpang;</li>
+
+          <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data untuk rekomendasi optimalisasi pemanfaatan sarana sesuai kebutuhan layanan;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan kebutuhan penambahan jumlah dan jenis sarana;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Planning.</li>
+        </ol>
+      </li>
+    </ol>
+    <div style="text-align:center;">
+    <h4>Paragraf 5</h4>
+    <h4>Section of Digital Operation and Authorization</h4>
+  </div>
+
+  <div style="text-align:center;">
+    <h4>Pasal 70</h4>
+  </div>
+
+  <ol>
+    <li>
+      Section of Digital Operation and Authorization (OMRD) dipimpin oleh Manager of Digital Operation and Authorization
+    </li>
+
+    <li>
+      Manager of Digital Operation and Authorization mempunyai tugas:
+      <ol type="a">
+        <li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait pengelolaan digitalisasi proses bisnis operasi dan perizinan pengoperasian kereta api;</li>
+
+        <li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait pengelolaan digitalisasi proses bisnis operasi dan perizinan pengoperasian kereta api;</li>
+
+        <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait pengelolaan digitalisasi proses bisnis operasi dan perizinan pengoperasian kereta api;</li>
+
+        <li>mengevaluasi dan mengusulkan rencana digitalisasi proses bisnis di Direktorat Operasi;</li>
+
+        <li>mengevaluasi dan mengusulkan kajian dan permohonan penetapan lintas pelayanan perkeretaapian;</li>
+
+        <li>mengoordinasikan proses permohonan perizinan pengoperasian sarana dan penambahan pengoperasian kereta api;</li>
+
+        <li>mengevaluasi data pendukung Track Access Charge (TAC);</li>
+
+        <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengelolaan digitalisasi proses bisnis operasi dan perizinan pengoperasian kereta api; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Vice President of Train Operation Planning.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center;">
+    <h4>Pasal 71</h4>
+  </div>
+
+  <ol>
+    <li>
+      Manager of Digital Operation and Authorization dibantu oleh:
+      <ol type="a">
+        <li>Specialist of Digital Operation; dan</li>
+        <li>Specialist of Train Operation Authorization.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center;">
+    <h4>Pasal 72</h4>
+  </div>
+
+  <ol>
+    <li>
+      Specialist of Digital Operation sebagaimana dimaksud dalam Pasal 71 huruf a mempunyai tugas:
+      <ol type="a">
+        <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait penyusunan digitalisasi proses bisnis operasi;</li>
+
+        <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait penyusunan digitalisasi proses bisnis operasi;</li>
+
+        <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait penyusunan digitalisasi proses bisnis operasi;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan tahapan digitalisasi proses bisnis operasi kereta api;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan simulasi pengembangan operasi kereta api dengan menggunakan aplikasi operasi;</li>
+
+        <li>mengelola aplikasi operasi meliputi perencanaan pengembangan, dan integrasi dengan aplikasi lainnya;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait penyusunan digitalisasi proses bisnis operasi; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Digital Operation and Authorization.</li>
+      </ol>
+    </li>
+
+    <li>
+      Specialist of Train Operation Authorization sebagaimana dimaksud dalam Pasal 71 huruf b mempunyai tugas:
+      <ol type="a">
+        <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait perizinan pengoperasian kereta api;</li>
+
+        <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait perizinan pengoperasian kereta api;</li>
+
+        <li>menyusun draf serta melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait perizinan pengoperasian kereta api;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan kajian dan permohonan penetapan lintas pelayanan perkeretaapian;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk permohonan perizinan pengoperasian sarana dan penambahan pengoperasian kereta api;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk evaluasi dan sinkronisasi terkait rencana penambahan perjalanan kereta api terhadap kesesuaian lintas pelayanan;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk evaluasi dan sinkronisasi terkait rencana penambahan perjalanan kereta api terhadap kesesuaian frekuensi kereta api pada dokumen keputusan izin operasi;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan data pendukung Track Access Charge (TAC);</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perizinan pengoperasian kereta api; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Digital Operation and Authorization.</li>
+      </ol>
+    </li>
+  </ol>
+
+`
+},
+{
+  title: "Ortala Ditop - OMP",
+  desc: `
+  <div style="text-align:center; font-weight:bold; margin:20px 0;">
+    Bagian Keempat
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:10px 0;">
+    Subdivision of Train Operation Control and Evaluation
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:10px 0;">
+    Paragraf 1
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:10px 0;">
+    Tugas
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:20px 0;">
+    Pasal 73
+  </div>
+
+  <ol>
+    <li>
+      Subdivision of Train Operation Control and Evaluation (OMP) dipimpin oleh Vice President of Train Operation Control and Evaluation yang bertanggung jawab kepada Executive Vice President of Operation Management.
+    </li>
+
+    <li>
+      Vice President of Train Operation Control and Evaluation mempunyai tugas:
+      <ol type="a">
+        <li>menyelenggarakan penyusunan, evaluasi, dan pembaruan kebijakan dan prosedur terkait pengendalian dan evaluasi perjalanan kereta api dan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan penyusunan masterplan dan roadmap terkait pengendalian dan evaluasi perjalanan kereta api dan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan penyusunan program kerja dan anggaran terkait pengendalian dan evaluasi perjalanan kereta api dan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan pembinaan pemahaman kepatuhan petugas operasi prasarana di pusat pengendali terkait dengan sistem pengendalian perjalanan kereta api, operasi sarana dan operasi prasarana;</li>
+
+        <li>
+          mengendalikan dan mengevaluasi pelaksanaan:
+          <ol>
+            <li>pengendalian dan evaluasi perjalanan kereta api penumpang dan barang;</li>
+
+            <li>pengendalian dan evaluasi operasi sarana (lokomotif, kereta rel diesel, kereta rel diesel elektrik, kereta rel listrik, light rail transit, kereta, dan gerbong);</li>
+
+            <li>pengendalian dan evaluasi operasi prasarana;</li>
+
+            <li>pengendalian dan evaluasi stamformasi kereta api; dan</li>
+
+            <li>performansi dan/atau pelaporan operasi perjalanan kereta api.</li>
+          </ol>
+        </li>
+
+        <li>menyelenggarakan pembaruan kebijakan dan prosedur terkait sistem pengendalian perjalanan kereta api, operasi sarana dan operasi prasarana;</li>
+
+        <li>menyelenggarakan pengelolaan proses bisnis terkait pengendalian dan evaluasi operasi kereta api yang efektif dan efisien;</li>
+
+        <li>melakukan peningkatan kualitas (quality improvement) pengendalian dan evaluasi perjalanan kereta api dan operasi sarana kereta api;</li>
+
+        <li>menyelenggarakan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan evaluasi perjalanan kereta api dan operasi sarana kereta api; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Executive Vice President of Operation Management.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin:20px 0;">
+    Paragraf 2
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:10px 0;">
+    Susunan Organisasi
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:20px 0;">
+    Pasal 74
+  </div>
+
+  <ol>
+    <li>
+      Subdivision of Train Operation Control and Evaluation terdiri atas:
+      <ol type="a">
+        <li>Section of Traffic Control (OMPT);</li>
+        <li>Section of Rolling Stock Operation Control and Evaluation (OMPR); dan</li>
+        <li>Section of Traffic Evaluation (OMPE).</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin:20px 0;">
+    Paragraf 3
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:10px 0;">
+    Section of Traffic Control
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin:20px 0;">
+    Pasal 75
+  </div>
+
+  <ol>
+    <li>
+      Section of Traffic Control (OMPT) dipimpin oleh Manager of Traffic Control.
+    </li>
+
+    <li>
+      Manager of Traffic Control mempunyai tugas:
+      <ol type="a">
+        <li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait pengendalian perjalanan kereta api penumpang dan barang;</li>
+
+        <li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait pengendalian perjalanan kereta api penumpang dan barang;</li>
+
+        <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait pengendalian perjalanan kereta api penumpang dan barang;</li>
+
+        <li>melakukan pengendalian perjalanan kereta api penumpang antar kota, penumpang perkotaan dan barang antar kota di wilayah Jawa dan Sumatera;</li>
+
+        <li>melakukan pembaruan kebijakan dan prosedur terkait sistem pengendalian perjalanan kereta api, dan operasi prasarana;</li>
+
+        <li>melakukan pembinaan pemahaman kepatuhan dan uji petik petugas operasi prasarana di pusat pengendali terkait dengan sistem pengendalian perjalanan kereta api, dan operasi prasarana;</li>
+
+        <li>melakukan pengendalian operasi prasarana;</li>
+
+        <li>melakukan pengelolaan proses bisnis terkait pengendalian perjalanan kereta api penumpang dan barang yang efektif dan efisien;</li>
+
+        <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian perjalanan kereta api penumpang dan barang; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Vice President of Train Operation Control and Evaluation.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin:20px 0;">
+    Pasal 76
+  </div>
+
+  <ol>
+    <li>
+      Manager of Traffic Control dibantu oleh:
+      <ol type="a">
+        <li>Specialist of Operation Control of Passenger and Freight Java Area;</li>
+
+        <li>Specialist of Operation Control of Commuter;</li>
+
+        <li>Specialist of Operation Control of Passenger and Freight Sumatera Area;</li>
+
+        <li>Specialist of Operation Control of Infrastructure Operation;</li>
+
+        <li>Pengendali Operasi Kereta Api; dan</li>
+
+        <li>Pengendali Radio.</li>
+      </ol>
+    </li>
+  </ol>
+    <div style="text-align:center;">
+    <h2>Pasal 77</h2>
+  </div>
+
+  <ol>
+    <li>
+      <div style="text-align:center;">
+        <b>Specialist of Operation Control of Passenger and Freight Java Area</b>
+      </div>
+
+      <ol type="a">
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Jawa;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Jawa;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Jawa;</li>
+
+        <li>melakukan pengendalian perjalanan kereta api secara tidak langsung di wilayah Jawa;</li>
+
+        <li>menyusun data harian kelambatan serta data jumlah perjalanan kereta api luar biasa dan kereta api batal di wilayah Jawa;</li>
+
+        <li>memastikan akurasi data dan tersedianya draf laporan perjalanan kereta api penumpang dan barang di wilayah Jawa untuk Milis Broadcast;</li>
+
+        <li>menyusun data pemantauan harian untuk kereta api penumpang dan barang di wilayah Jawa;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Jawa; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Control.</li>
+      </ol>
+    </li>
+
+    <li>
+      <div style="text-align:center;">
+        <b>Specialist of Operation Control of Commuter</b>
+      </div>
+
+      <ol type="a">
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian perjalanan kereta api penumpang perkotaan;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian perjalanan kereta api penumpang perkotaan;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian perjalanan kereta api penumpang perkotaan;</li>
+
+        <li>melakukan pengendalian perjalanan kereta api penumpang perkotaan secara tidak langsung;</li>
+
+        <li>menyusun data harian kelambatan serta data jumlah perjalanan kereta api luar biasa dan kereta api batal;</li>
+
+        <li>memastikan akurasi data dan tersedianya draf laporan perjalanan kereta api penumpang perkotaan;</li>
+
+        <li>menyusun data pemantauan harian untuk kereta api penumpang perkotaan;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian perjalanan kereta api penumpang perkotaan; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Control.</li>
+      </ol>
+    </li>
+
+    <li>
+      <div style="text-align:center;">
+        <b>Specialist of Operation Control of Passenger and Freight Sumatera Area</b>
+      </div>
+
+      <ol type="a">
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Sumatera;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Sumatera;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Sumatera;</li>
+
+        <li>melakukan pengendalian perjalanan kereta api secara tidak langsung di wilayah Sumatera;</li>
+
+        <li>menyusun data harian kelambatan serta data jumlah perjalanan kereta api luar biasa dan kereta api batal di wilayah Sumatera;</li>
+
+        <li>memastikan akurasi data dan tersedianya draf laporan perjalanan kereta api penumpang dan barang di wilayah Sumatera;</li>
+
+        <li>menyusun data pemantauan harian untuk kereta api penumpang dan kereta api barang di wilayah Sumatera;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian perjalanan kereta api penumpang dan barang di wilayah Sumatera; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Control.</li>
+      </ol>
+    </li>
+
+    <li>
+      <div style="text-align:center;">
+        <b>Specialist of Operation Control of Infrastructure Operation</b>
+      </div>
+
+      <ol type="a">
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian operasi prasarana;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian operasi prasarana;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian operasi prasarana;</li>
+
+        <li>menyusun data harian gangguan operasi prasarana;</li>
+
+        <li>melakukan koordinasi dengan satuan organisasi terkait dan memantau penanganan gangguan prasarana;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk pembaruan kebijakan dan prosedur terkait sistem pengendalian perjalanan kereta api, operasi sarana, dan operasi prasarana;</li>
+
+        <li>membantu melakukan pembinaan pemahaman petugas operasi prasarana di pusat pengendali terkait dengan sistem pengendalian perjalanan kereta api dan operasi prasarana;</li>
+
+        <li>menyusun laporan kinerja operasi prasarana;</li>
+
+        <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian operasi prasarana; dan</li>
+
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Control.</li>
+      </ol>
+    </li>
+
+    <li>
+      <div style="text-align:center;">
+        <b>Pengendali Operasi Kereta Api</b>
+      </div>
+
+      <ol type="a">
+        <li>melakukan evaluasi kinerja operasi perjalanan kereta api;</li>
+
+        <li>mengoordinasikan para pengendali daerah;</li>
+
+        <li>membantu proses pengendalian operasi kereta api pada saat terjadi kekusutan perjalanan kereta api; dan</li>
+
+        <li>membuat laporan-laporan terkait pengendalian operasi kereta api.</li>
+      </ol>
+    </li>
+
+    <li>
+      <div style="text-align:center;">
+        <b>Pengendali Radio</b>
+      </div>
+
+      <ol type="a">
+        <li>melakukan evaluasi gangguan operasi sarana;</li>
+
+        <li>memantau kinerja petugas pengendali operasi sarana;</li>
+
+        <li>membantu pengendalian operasi sarana pada saat terjadi kekusutan pengendalian operasi sarana; dan</li>
+
+        <li>mengoordinasikan dengan pihak-pihak terkait untuk penyelesaian gangguan dalam operasi kereta api.</li>
+      </ol>
+    </li>
+  </ol>
+      <div style="text-align:center;">
+      <h3>Paragraf 4</h3>
+      <h2>Section of Rolling Stock Operation Control and Evaluation</h2>
+      <h3>Pasal 78</h3>
+    </div>
+
+    <ol>
+      <li>
+        Section of Rolling Stock Operation Control and Evaluation (OMPR) dipimpin oleh Manager of Rolling Stock Operation Control and Evaluation.
+      </li>
+
+      <li>
+        Manager of Rolling Stock Operation Control and Evaluation mempunyai tugas:
+        <ol type="a">
+          <li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait pengendalian dan evaluasi operasi sarana;</li>
+
+          <li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait pengendalian dan evaluasi operasi sarana;</li>
+
+          <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait pengendalian dan evaluasi operasi sarana;</li>
+
+          <li>melakukan pembaruan kebijakan dan prosedur terkait sistem pengendalian operasi sarana;</li>
+
+          <li>melakukan pembinaan pemahaman petugas operasi prasarana di pusat pengendali terkait dengan sistem pengendalian operasi sarana;</li>
+
+          <li>melakukan pengendalian dan evaluasi operasi lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melakukan pengendalian dan evaluasi operasi kereta dan gerbong;</li>
+
+          <li>melakukan pengelolaan proses bisnis terkait pengendalian dan evaluasi operasi sarana yang efektif dan efisien;</li>
+
+          <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan evaluasi operasi sarana;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh atasan.</li>
+        </ol>
+      </li>
+    </ol>
+
+    <div style="text-align:center; margin-top:30px;">
+      <h3>Pasal 80</h3>
+    </div>
+
+    <ol>
+      <li>
+        Specialist of Tractive Rail Vehicle Operation Control and Evaluation sebagaimana dimaksud dalam Pasal 79 huruf a mempunyai tugas:
+        <ol type="a">
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian dan evaluasi operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian dan evaluasi operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan evaluasi operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>menyusun data kesiapan operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melakukan pengendalian dan evaluasi pelaksanaan mutasi atau asistensi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit di Depo Induk;</li>
+
+          <li>melakukan pengendalian dan evaluasi peredaran sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melakukan pemeriksaan dan pemantauan penyimpangan dinasan lokomotif;</li>
+
+          <li>menyusun data gangguan sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan evaluasi operasi sarana lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Control and Evaluation.</li>
+        </ol>
+      </li>
+
+      <li>
+        Specialist of Coaches Operation Control and Evaluation sebagaimana dimaksud dalam Pasal 79 huruf b mempunyai tugas:
+        <ol type="a">
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian dan evaluasi operasi sarana kereta;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian dan evaluasi operasi sarana kereta;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan evaluasi operasi sarana kereta;</li>
+
+          <li>menyusun data kesiapan operasi sarana kereta;</li>
+
+          <li>melakukan pengendalian dan evaluasi pelaksanaan mutasi atau asistensi sarana kereta di Depo Induk;</li>
+
+          <li>melakukan pengendalian dan evaluasi peredaran sarana kereta;</li>
+
+          <li>melakukan pemeriksaan dan pemantauan penyimpangan dinasan kereta;</li>
+
+          <li>menyusun data gangguan sarana kereta;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan evaluasi operasi sarana kereta;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Control and Evaluation.</li>
+        </ol>
+      </li>
+
+      <li>
+        Specialist of Wagon Operation Control and Evaluation sebagaimana dimaksud dalam Pasal 79 huruf c mempunyai tugas:
+        <ol type="a">
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait pengendalian dan evaluasi operasi sarana gerbong;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait pengendalian dan evaluasi operasi sarana gerbong;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait pengendalian dan evaluasi operasi sarana gerbong;</li>
+
+          <li>menyusun data kesiapan operasi sarana gerbong;</li>
+
+          <li>melakukan pengendalian dan evaluasi pelaksanaan mutasi atau asistensi sarana gerbong di Depo Induk dan peredaran sarana gerbong;</li>
+
+          <li>melakukan pengendalian dan evaluasi peredaran sarana gerbong;</li>
+
+          <li>melakukan pemeriksaan dan pemantauan penyimpangan dinasan gerbong;</li>
+
+          <li>menyusun data gangguan sarana gerbong;</li>
+
+          <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian dan evaluasi operasi sarana gerbong;</li>
+
+          <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Control and Evaluation.</li>
+        </ol>
+      </li>
+
+      <li>
+        Pengendali Operasi Sarana sebagaimana dimaksud dalam Pasal 79 huruf d mempunyai tugas:
+        <ol type="a">
+          <li>melakukan pengendalian langsung operasi sarana kereta api;</li>
+
+          <li>meminimalisir dampak gangguan sarana pada pengendalian operasi kereta api;</li>
+
+          <li>mengoptimalkan pencapaian program kinerja operasi sarana kereta api;</li>
+
+          <li>membuat laporan-laporan terkait pengendalian operasi sarana.</li>
+        </ol>
+      </li>
+    </ol>
+    <div style="text-align:center;">
+  <h3>Paragraf 5</h3>
+  <h2>Section of Traffic Evaluation</h2>
+  <h4>Pasal 81</h4>
+</div>
+
+<ol>
+  <li>Section of Traffic Evaluation (OMPE) dipimpin oleh Manager of Traffic Evaluation.</li>
+
+  <li>
+    Manager of Traffic Evaluation mempunyai tugas:
+    <ol type="a">
+      <li>mengevaluasi, mengusulkan, dan memperbarui draf kebijakan dan prosedur terkait evaluasi perjalanan kereta api penumpang dan barang;</li>
+
+      <li>mengevaluasi, mengusulkan, dan memperbarui draf masterplan dan roadmap terkait evaluasi perjalanan kereta api penumpang dan barang;</li>
+
+      <li>mengevaluasi dan mengusulkan program kerja dan anggaran terkait evaluasi perjalanan kereta api penumpang dan barang;</li>
+
+      <li>melakukan evaluasi perjalanan kereta api penumpang dan barang;</li>
+
+      <li>melakukan evaluasi perjalanan kereta api perkotaan serta kinerja operasi kereta api;</li>
+
+      <li>melakukan evaluasi operasi prasarana;</li>
+
+      <li>menyusun laporan performansi operasi perjalanan kereta api;</li>
+
+      <li>melakukan pengelolaan proses bisnis terkait evaluasi perjalanan kereta api penumpang dan barang yang efektif dan efisien;</li>
+
+      <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait evaluasi perjalanan kereta api penumpang dan barang; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Vice President of Train Operation Control and Evaluation.</li>
+    </ol>
+  </li>
+</ol>
+
+<div style="text-align:center;">
+  <h4>Pasal 82</h4>
+</div>
+
+<ol>
+  <li>
+    Manager of Traffic Evaluation dibantu oleh:
+    <ol type="a">
+      <li>Specialist of Traffic Evaluation of Passenger Train;</li>
+
+      <li>Specialist of Traffic Evaluation of Freight Train;</li>
+
+      <li>Specialist of Traffic Evaluation of Commuter; dan</li>
+
+      <li>Specialist of Traffic Performance Evaluation.</li>
+    </ol>
+  </li>
+</ol>
+
+<div style="text-align:center;">
+  <h4>Pasal 83</h4>
+</div>
+
+<ol>
+  <li>
+    Specialist of Traffic Evaluation of Passenger Train sebagaimana dimaksud dalam Pasal 82 huruf a mempunyai tugas:
+    <ol type="a">
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait evaluasi perjalanan kereta api penumpang;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait evaluasi perjalanan kereta api penumpang;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait evaluasi perjalanan kereta api penumpang;</li>
+
+      <li>melakukan analisis dan menyusun laporan data harian kelambatan yang meliputi andil kelambatan wilayah, dinas, dan kereta api Public Service Obligation (PSO), perintis dan komersial;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait evaluasi perjalanan kereta api penumpang; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Evaluation.</li>
+    </ol>
+  </li>
+
+  <li>
+    Specialist of Traffic Evaluation of Freight Train sebagaimana dimaksud dalam Pasal 82 huruf b mempunyai tugas:
+    <ol type="a">
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait evaluasi perjalanan kereta api barang;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait evaluasi perjalanan kereta api barang;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait evaluasi perjalanan kereta api barang;</li>
+
+      <li>melakukan analisis dan menyusun laporan data harian kelambatan yang meliputi andil kelambatan wilayah, dinas, dan kereta api per komoditi;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait evaluasi perjalanan kereta api barang; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Evaluation.</li>
+    </ol>
+  </li>
+
+  <li>
+    Specialist of Traffic Evaluation of Commuter sebagaimana dimaksud dalam Pasal 82 huruf c mempunyai tugas:
+    <ol type="a">
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait evaluasi perjalanan kereta api perkotaan;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait evaluasi perjalanan kereta api perkotaan;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait evaluasi perjalanan kereta api perkotaan;</li>
+
+      <li>melakukan analisis dan menyusun laporan data harian kelambatan yang meliputi andil kelambatan wilayah, dinas, dan kereta api Public Service Obligation (PSO), perintis dan komersial;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait evaluasi perjalanan kereta api perkotaan; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Evaluation.</li>
+    </ol>
+  </li>
+
+  <li>
+    Specialist of Traffic Performance Evaluation sebagaimana dimaksud dalam Pasal 82 huruf d mempunyai tugas:
+    <ol type="a">
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf kebijakan dan prosedur terkait evaluasi kinerja operasi kereta api;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf masterplan dan roadmap terkait evaluasi kinerja operasi kereta api;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyusunan draf program kerja dan anggaran terkait evaluasi kinerja operasi kereta api;</li>
+
+      <li>menyusun kajian dan analisis data terkait kinerja operasi kereta api baik untuk kepentingan internal maupun eksternal;</li>
+
+      <li>menyusun laporan evaluasi kinerja kereta api;</li>
+
+      <li>mengelola administrasi dan kerumahtanggaan di Subdivision of Train Operation Control and Evaluation;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait evaluasi kinerja operasi kereta api; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Evaluation.</li>
+    </ol>
+  </li>
+</ol>
+
+  `
+},
+{
+  title: "Ortala Ditop  - OMS",
+  desc: `
+<div style="text-align:center;">
+  <h4>Bagian Kelima</h4>
+  <h4>Subdivision of Operation Southern Sumatera</h4>
+
+  <h4>Paragraf 1</h4>
+  <h4>Tugas</h4>
+
+  <h4>Pasal 84</h4>
+</div>
+
+<ol>
+  <li>Subdivision of Operation Southern Sumatera (OMS) dipimpin oleh Vice President of Operation Southern Sumatera yang bertanggung jawab kepada Executive Vice President of Operation Management.</li>
+
+  <li>
+    Vice President of Operation Southern Sumatera mempunyai tugas:
+    <ol type="a">
+      <li>menyelenggarakan penyusunan, evaluasi, dan pembaruan kebijakan dan prosedur terkait perencanaan, pengendalian dan evaluasi operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>menyelenggarakan penyusunan masterplan dan roadmap terkait perencanaan, pengendalian dan evaluasi operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>menyelenggarakan penyusunan program kerja dan anggaran terkait perencanaan, pengendalian dan evaluasi operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>
+        menyelenggarakan perencanaan, pengendalian, dan evaluasi operasi kereta api di Sumatera bagian selatan yang meliputi:
+        <ol>
+          <li>perencanaan perjalanan kereta api dan operasi sarana;</li>
+          <li>pemantauan realisasi stamformasi dan perjalanan kereta api;</li>
+          <li>pemantauan operasi sarana dan operasi prasarana secara terpusat dan terpadu; dan</li>
+          <li>evaluasi terhadap perjalanan kereta api yang meliputi kelambatan, ketepatan, andil, dan analisis penyebab andil kelambatan, serta administrasi pengendalian operasi kereta api.</li>
+        </ol>
+      </li>
+
+      <li>melakukan pembaruan kebijakan dan prosedur terkait sistem pengendalian perjalanan kereta api, dan operasi prasarana di Sumatera bagian selatan;</li>
+
+      <li>melakukan pembinaan pemahaman kepatuhan dan uji petik petugas operasi prasarana di pusat pengendali terkait dengan sistem pengendalian perjalanan kereta api, dan operasi prasarana di Sumatera bagian selatan;</li>
+
+      <li>membantu melakukan pembinaan dan pengawasan kepatuhan petugas operasi sarana dan petugas operasi prasarana di Sumatera bagian selatan;</li>
+
+      <li>melakukan peningkatan kualitas (quality improvement) perencanaan, pengendalian dan evaluasi operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>menyelenggarakan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan, pengendalian dan evaluasi operasi kereta api di Sumatera bagian selatan; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Executive Vice President of Operation Management.</li>
+    </ol>
+  </li>
+</ol>
+
+<div style="text-align:center;">
+  <h4>Paragraf 2</h4>
+  <h4>Susunan Organisasi</h4>
+
+  <h4>Pasal 85</h4>
+</div>
+
+<ol>
+  <li>
+    Subdivision of Operation Southern Sumatera terdiri atas:
+    <ol type="a">
+      <li>Section of Traffic Planning and Evaluation Southern Sumatera (OMSP);</li>
+      <li>Section of Traffic Control Southern Sumatera (OMSC); dan</li>
+      <li>Section of Rolling Stock Operation Southern Sumatera (OMSR).</li>
+    </ol>
+  </li>
+</ol>
+
+<div style="text-align:center;">
+  <h4>Paragraf 3</h4>
+  <h4>Section of Traffic Planning and Evaluation Southern Sumatera</h4>
+
+  <h4>Pasal 86</h4>
+</div>
+
+<ol>
+  <li>Section of Traffic Planning and Evaluation Southern Sumatera (OMSP) dipimpin oleh Manager of Traffic Planning and Evaluation Southern Sumatera.</li>
+
+  <li>
+    Manager of Traffic Planning and Evaluation Southern Sumatera mempunyai tugas:
+    <ol type="a">
+      <li>melakukan penyusunan, evaluasi, dan pembaruan draf kebijakan dan prosedur terkait perencanaan dan evaluasi operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>melakukan penyusunan, evaluasi, dan pembaruan draf masterplan dan roadmap terkait perencanaan dan evaluasi operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>menyusun draf program kerja dan anggaran terkait perencanaan dan evaluasi operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>menyusun rencana perjalanan dan rencana pengendalian operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>melakukan evaluasi perjalanan kereta api berupa kelambatan, ketepatan, andil dan analisis penyebab andil kelambatan;</li>
+
+      <li>menyusun laporan statistik operasi kereta api dan administrasi pengendalian operasi kereta api;</li>
+
+      <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan dan evaluasi operasi kereta api di Sumatera bagian selatan; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Vice President of Operation Southern Sumatera.</li>
+    </ol>
+  </li>
+</ol>
+
+<div style="text-align:center;">
+  <h4>Pasal 87</h4>
+</div>
+
+<ol>
+  <li>Manager of Traffic Planning and Evaluation Southern Sumatera dibantu oleh Specialist Perencanaan, Evaluasi dan Tata Usaha.</li>
+</ol>
+
+<div style="text-align:center;">
+  <h4>Pasal 88</h4>
+</div>
+
+<ol>
+  <li>
+    Specialist Perencanaan, Evaluasi dan Tata Usaha sebagaimana dimaksud dalam Pasal 87 mempunyai tugas:
+    <ol type="a">
+      <li>menyusun draf perencanaan dan evaluasi pengendalian operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>menyusun perencanaan perjalanan berupa malka, pengumuman perjalanan kereta api (PPK), dan WAM di Sumatera bagian selatan;</li>
+
+      <li>mengevaluasi dan melaporkan statistik operasi kereta api di Sumatera bagian selatan;</li>
+
+      <li>melaksanakan tata usaha dan pembinaan pekerja;</li>
+
+      <li>melakukan pengumpulan, validasi, dan evaluasi data yang diperlukan untuk penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan dan evaluasi pengendalian operasi kereta api di Sumatera bagian selatan; dan</li>
+
+      <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Planning and Evaluation Southern Sumatera.</li>
+    </ol>
+  </li>
+</ol>
+  <div style="text-align:center; font-weight:bold;">
+    <h4>Paragraf 4</h4>
+    <h4>Section of Traffic Control Southern Sumatera</h4>
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin-top:20px;">
+    <h4>Pasal 89</h4>
+  </div>
+
+  <ol>
+    <li>
+      Section of Traffic Control Southern Sumatera (OMSC) dipimpin oleh Manager of Traffic Control Southern Sumatera.
+    </li>
+
+    <li>
+      Manager of Traffic Control Southern Sumatera mempunyai tugas:
+      <ol type="a">
+        <li>melakukan penyusunan, evaluasi, dan pembaruan draf kebijakan dan prosedur terkait pengendalian operasi kereta api di Sumatera bagian selatan;</li>
+        <li>melakukan penyusunan, evaluasi, dan pembaruan draf masterplan dan roadmap terkait pengendalian operasi kereta api di Sumatera bagian selatan;</li>
+        <li>menyusun draf program kerja dan anggaran terkait pengendalian operasi kereta api di Sumatera bagian selatan;</li>
+        <li>melakukan pengendalian operasi kereta api di Sumatera bagian Selatan;</li>
+        <li>melakukan pemantauan realisasi stamformasi, perjalanan kereta api, operasi sarana, dan operasi prasarana secara terpusat dan terpadu di seluruh lintas Sumatera bagian selatan;</li>
+        <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait pengendalian operasi kereta api di Sumatera bagian selatan;</li>
+        <li>melaksanakan tugas lain yang diberikan oleh Vice President of Operation Southern Sumatera.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin-top:20px;">
+    <h4>Pasal 90</h4>
+  </div>
+
+  <ol>
+    <li>
+      Manager of Traffic Control Southern Sumatera dibantu oleh:
+      <ol type="a">
+        <li>Specialist Pengendalian Operasi Kereta Api;</li>
+        <li>Specialist Operator Radio;</li>
+        <li>Pengendali Perjalanan Kereta Api Terpusat (PPKP);</li>
+        <li>Pengendali Radio; dan</li>
+        <li>Pengendali Operasi Kereta Api.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin-top:20px;">
+    <h4>Pasal 91</h4>
+  </div>
+
+  <ol>
+    <li>
+      Specialist Pengendalian Operasi Kereta Api sebagaimana dimaksud dalam Pasal 90 huruf a mempunyai tugas:
+      <ol type="a">
+        <li>melakukan pengendalian operasi kereta api dengan melaksanakan pengaturan;</li>
+        <li>mengoordinasikan tugas-tugas Pengatur Perjalanan Kereta Api (PPKA) melalui komunikasi radio atau alat komunikasi lainnya; dan</li>
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Control Southern Sumatera.</li>
+      </ol>
+    </li>
+
+    <li>
+      Specialist Operator Radio sebagaimana dimaksud dalam Pasal 90 huruf b mempunyai tugas:
+      <ol type="a">
+        <li>melakukan pemantauan realisasi operasi kereta api;</li>
+        <li>melakukan koordinasi penanggulangan masalah dengan pihak terkait;</li>
+        <li>menyusun laporan harian situasi operasi kereta api pada kondisi perjalanan kereta api normal dan tidak normal; dan</li>
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Traffic Control Southern Sumatera.</li>
+      </ol>
+    </li>
+
+    <li>
+      Pengendali Perjalanan Kereta Api Terpusat (PPKP) sebagaimana dimaksud dalam Pasal 90 huruf e mempunyai tugas:
+      <ol type="a">
+        <li>melakukan pengendalian langsung operasi perjalanan kereta api;</li>
+        <li>meminimalisir dampak gangguan terhadap perjalanan kereta api pada saat terjadi gangguan operasi kereta api;</li>
+        <li>mengoptimalkan pencapaian kinerja operasi kereta api; dan</li>
+        <li>mengoordinasikan dengan pihak terkait untuk penyelesaian gangguan operasi perjalanan kereta api di Sumatera bagian selatan.</li>
+      </ol>
+    </li>
+
+    <li>
+      Pengendali Radio sebagaimana dimaksud dalam Pasal 90 huruf d mempunyai tugas:
+      <ol type="a">
+        <li>melakukan evaluasi gangguan operasi sarana;</li>
+        <li>memantau kinerja petugas pengendali operasi sarana;</li>
+        <li>membantu mengoordinasikan dengan pihak-pihak terkait untuk penyelesaian gangguan operasi kereta api di Sumatera bagian selatan; dan</li>
+        <li>membantu menyusun laporan harian situasi operasi kereta api pada kondisi perjalanan kereta api normal dan tidak normal.</li>
+      </ol>
+    </li>
+
+    <li>
+      Pengendali Operasi Kereta Api sebagaimana dimaksud dalam Pasal 90 huruf e mempunyai tugas:
+      <ol type="a">
+        <li>melakukan evaluasi kinerja operasi perjalanan kereta api;</li>
+        <li>mengoordinasikan para pengendali;</li>
+        <li>membantu proses pengendalian operasi kereta api pada saat terjadi kekusutan perjalanan kereta api; dan</li>
+        <li>membuat laporan-laporan terkait pengendalian operasi kereta api di Sumatera bagian selatan.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin-top:30px;">
+    <h4>Paragraf 5</h4>
+    <h4>Section of Rolling Stock Operation Southern Sumatera</h4>
+  </div>
+
+  <div style="text-align:center; font-weight:bold; margin-top:20px;">
+    <h4>Pasal 92</h4>
+  </div>
+
+  <ol>
+    <li>
+      Section of Rolling Stock Operation Southern Sumatera (OMSR) dipimpin oleh Manager of Rolling Stock Operation Southern Sumatera.
+    </li>
+
+    <li>
+      Manager of Rolling Stock Operation Southern Sumatera mempunyai tugas:
+      <ol type="a">
+        <li>melakukan penyusunan, evaluasi, dan pembaruan draf kebijakan dan prosedur terkait perencanaan, pengendalian, dan evaluasi operasi sarana Sumatera bagian selatan;</li>
+        <li>melakukan penyusunan, evaluasi, dan pembaruan draf masterplan dan roadmap terkait perencanaan, pengendalian, dan evaluasi operasi sarana Sumatera bagian selatan;</li>
+        <li>menyusun draf program kerja dan anggaran terkait perencanaan, pengendalian, dan evaluasi operasi sarana Sumatera bagian selatan;</li>
+        <li>melakukan pembaruan kebijakan dan prosedur terkait sistem perencanaan dan pengendalian operasi sarana Sumatera bagian selatan;</li>
+        <li>melakukan pembinaan pemahaman petugas operasi prasarana di pusat pengendali terkait dengan sistem pengendalian operasi sarana Sumatera bagian selatan;</li>
+        <li>melakukan perencanaan, pengendalian dan evaluasi operasi lokomotif, kereta rel diesel, kereta rel listrik, dan light rail transit Sumatera bagian selatan;</li>
+        <li>melakukan perencanaan, pengendalian dan evaluasi operasi kereta dan gerbong Sumatera bagian selatan;</li>
+        <li>melakukan pengelolaan proses bisnis terkait perencanaan, pengendalian dan evaluasi operasi sarana Sumatera bagian selatan yang efektif dan efisien;</li>
+        <li>mengoordinasikan penyelesaian dan pelaporan tindak lanjut temuan pemeriksaan internal maupun eksternal terkait perencanaan, pengendalian, dan evaluasi operasi sarana Sumatera bagian selatan; dan</li>
+        <li>melaksanakan tugas lain yang diberikan oleh Vice President of Operation Southern Sumatera.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin-top:20px;">
+    <h4>Pasal 93</h4>
+  </div>
+
+  <ol>
+    <li>
+      Manager of Rolling Stock Operation Southern Sumatera dibantu oleh:
+      <ol type="a">
+        <li>Specialist Pengendalian Sarana; dan</li>
+        <li>Pengendali Operasi Sarana.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <div style="text-align:center; font-weight:bold; margin-top:20px;">
+    <h4>Pasal 94</h4>
+  </div>
+
+  <ol>
+    <li>
+      Specialist Pengendalian Sarana sebagaimana dimaksud dalam Pasal 93 huruf a mempunyai tugas:
+      <ol type="a">
+        <li>menyusun perencanaan operasi sarana lokomotif, kereta, dan gerbong di Sumatera bagian selatan;</li>
+        <li>melakukan pengendalian dan evaluasi pelaksanaan mutasi atau asistensi operasi sarana lokomotif, kereta, dan gerbong di Sumatera bagian selatan;</li>
+        <li>melakukan pemantauan peredaran sarana lokomotif, kereta, dan gerbong di Sumatera bagian selatan;</li>
+        <li>melakukan pengendalian dan evaluasi peredaran sarana lokomotif, kereta, dan gerbong di Sumatera bagian selatan;</li>
+        <li>melakukan pemeriksaan dan pemantauan penyimpangan dinasan sarana lokomotif, kereta, dan gerbong di Sumatera bagian selatan;</li>
+        <li>menyusun data gangguan sarana lokomotif, kereta, dan gerbong di Sumatera bagian selatan; dan</li>
+        <li>melaksanakan tugas lain yang diberikan oleh Manager of Rolling Stock Operation Southern Sumatera.</li>
+      </ol>
+    </li>
+
+    <li>
+      Pengendali Operasi Sarana sebagaimana dimaksud dalam Pasal 93 huruf b mempunyai tugas:
+      <ol type="a">
+        <li>melakukan pengendalian langsung operasi sarana kereta api;</li>
+        <li>meminimalisir dampak gangguan sarana pada pengendalian operasi kereta api;</li>
+        <li>mengoptimalkan pencapaian program kinerja operasi sarana kereta api; dan</li>
+        <li>membuat laporan terkait pengendalian operasi sarana di Sumatera bagian selatan.</li>
+      </ol>
+    </li>
+  </ol>
+
+`
+},
+
+
 
 
 
@@ -85663,7 +87230,8 @@ function toggleFolder(el) {
   "ibpr": "https://drive.google.com/file/d/1aH3lFRMs1pZyrFJciOb-yR5wpIzcZ29k/preview", /// Sosialiasi Penguatan IBPR 2023
   "ibpr1": "https://drive.google.com/file/d/1iLl79iW0X7wbBYamO6plCwsXm_7yRosv/preview", /// Penyusunan Pedoman IBPR 2023
   "ibpr2": "https://drive.google.com/file/d/1LoZAWL-NQ4R45gSk8Sffwj9lRWWtipeG/preview",/// Materi Bimtek IBPR 2025
-  "ibpr3": "https://drive.google.com/file/d/1GJOi9g6jui825mb97HvfSZgaT1BWVlVF/preview" /// Pedoman Proses IBPR
+  "ibpr3": "https://drive.google.com/file/d/1GJOi9g6jui825mb97HvfSZgaT1BWVlVF/preview", /// Pedoman Proses IBPR
+  "green": "https://drive.google.com/file/d/1bLnOoaR4B8x6EFFhkmf06lGyiWwFgWt1/preview" /// green movement
 
 
 };
