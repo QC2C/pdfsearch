@@ -1,0 +1,3249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ujian Korporat KAI</title>
+
+  <style>
+
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f4f4;
+      margin:0;
+      padding:20px;
+    }
+
+    .container{
+      max-width:700px;
+      margin:auto;
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1{
+      text-align:center;
+      color:#1d3557;
+      margin-bottom:30px;
+    }
+
+    .soal{
+      background:#fafafa;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:15px;
+      margin-bottom:25px;
+    }
+
+    .soal p{
+      font-weight:bold;
+      font-size:17px;
+    }
+
+    label{
+      display:block;
+      margin:10px 0;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:10px;
+      background:#1d3557;
+      color:white;
+      font-size:17px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#274c77;
+    }
+
+    .status{
+      margin-top:12px;
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .benar{
+      color:green;
+    }
+
+    .salah{
+      color:red;
+    }
+
+    #hasil{
+      margin-top:30px;
+      text-align:center;
+      font-size:24px;
+      font-weight:bold;
+    }
+
+    .lulus{
+      color:green;
+    }
+
+    .tidak-lulus{
+      color:red;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>UJIAN KORPORAT KAI</h1>
+
+    <form id="quizForm">
+
+      <!-- SOAL 1 -->
+      <div class="soal">
+
+        <p>1. Penetapan Klb terdapat pada:</p>
+
+        <label>
+          <input type="radio" name="q1" value="a">
+          a. Wam
+        </label>
+
+        <label>
+          <input type="radio" name="q1" value="b">
+          b. PPK
+        </label>
+
+        <label>
+          <input type="radio" name="q1" value="c">
+          c. GAPEKA
+        </label>
+
+        <label>
+          <input type="radio" name="q1" value="d">
+          d. Malka
+        </label>
+
+        <div id="status1" class="status"></div>
+
+      </div>
+
+      <!-- SOAL 2 -->
+      <div class="soal">
+
+        <p>2. warna lampu indikator "STATUS" pada radio WS adalah :</p>
+
+        <label>
+          <input type="radio" name="q2" value="a">
+          a. Jingga
+        </label>
+
+        <label>
+          <input type="radio" name="q2" value="b">
+          b. Kuning
+        </label>
+
+        <label>
+          <input type="radio" name="q2" value="c">
+          c. Hijau
+        </label>
+
+        <label>
+          <input type="radio" name="q2" value="d">
+          d. Merah
+        </label>
+
+        <div id="status2" class="status"></div>
+
+      </div>
+      <div class="soal">
+
+  <p>
+    3. Hubungan blok dinyatakan terganggu pada hubungan blok elektris, apabila :
+  </p>
+
+  <label>
+    <input type="radio" name="q3" value="a">
+    a. Peralatan blok tidak dapat dilayani dan atau kawat plombir terputus
+  </label>
+
+  <label>
+    <input type="radio" name="q3" value="b">
+    b. Apabila rute berangkat dapat terbentuk atau sinyal keluar tidak dapat menunjukan indikasi berjalan
+  </label>
+
+  <label>
+    <input type="radio" name="q3" value="c">
+    c. Apabila rute berangkat tidak dapat terbentuk atau sinyal keluar tidak dapat menunjukan indikasi berjalan atau berjalan hati hati
+  </label>
+
+  <label>
+    <input type="radio" name="q3" value="d">
+    d. Peralatan blok tidak dapat dilayani dan atau kawat plombir normal
+  </label>
+
+  <div id="status3" class="status"></div>
+
+</div>
+
+<!-- SOAL 4 -->
+<div class="soal">
+
+  <p>
+    4. Penjabaran dari pedoman Karakter insan KAI Accountability ialah:
+  </p>
+
+  <label>
+    <input type="radio" name="q4" value="a">
+    a. Insan KAI berkomitmen dalam menjalankan tugas serta tujuan Perusahaan
+  </label>
+
+  <label>
+    <input type="radio" name="q4" value="b">
+    b. Insan KAI melaksanakan tugas dan kewajiban dengan sigap, cepat dan efektif
+  </label>
+
+  <label>
+    <input type="radio" name="q4" value="c">
+    c. Insan KAI bertanggung jawan atas setiap Tindakan, Keputusan serta hasil yang dilakukan
+  </label>
+
+  <label>
+    <input type="radio" name="q4" value="d">
+    d. Insan KAI bertindak konsisiten sesuai dengan nilai-nilai dan kebijakan Perusahaan serta mematuhi etika profesi dan bisnis
+  </label>
+
+  <div id="status4" class="status"></div>
+
+</div>
+
+<!-- SOAL 5 -->
+<div class="soal">
+
+  <p>
+    5. Pada aplikasi rolink, user dapat melihat WKP pada Gapeka program dengan warna :
+  </p>
+
+  <label>
+    <input type="radio" name="q5" value="a">
+    a. Abu-abu
+  </label>
+
+  <label>
+    <input type="radio" name="q5" value="b">
+    b. Oranye
+  </label>
+
+  <label>
+    <input type="radio" name="q5" value="c">
+    c. Ungu
+  </label>
+
+  <label>
+    <input type="radio" name="q5" value="d">
+    d. Biru
+  </label>
+
+  <div id="status5" class="status"></div>
+
+</div>
+
+<!-- SOAL 6 -->
+<div class="soal">
+
+  <p>
+    6. Kecepatan kereta api kerja, kereta api perawatan dan konvoi adalah
+  </p>
+
+  <label>
+    <input type="radio" name="q6" value="a">
+    a. 20km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q6" value="b">
+    b. 30km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q6" value="c">
+    c. 45km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q6" value="d">
+    d. 60km/jam
+  </label>
+
+  <div id="status6" class="status"></div>
+
+</div>
+
+<!-- SOAL 7 -->
+<div class="soal">
+
+  <p>
+    7. Peraturan Menteri perhubungan nomor berapa yang mengatur sertifikasi kecakapan pengatur perjalanan kereta api dan pengendali kereta api :
+  </p>
+
+  <label>
+    <input type="radio" name="q7" value="a">
+    a. PM no 5 tahun 2017
+  </label>
+
+  <label>
+    <input type="radio" name="q7" value="b">
+    b. PM no 24 tahun 2023
+  </label>
+
+  <label>
+    <input type="radio" name="q7" value="c">
+    c. PM no 19 tahun 2011
+  </label>
+
+  <label>
+    <input type="radio" name="q7" value="d">
+    d. PM no 19 tahun 2023
+  </label>
+
+  <div id="status7" class="status"></div>
+
+</div>
+
+<!-- SOAL 8 -->
+<div class="soal">
+
+  <p>
+    8. Panjang gerbong datar, adalah:
+  </p>
+
+  <label>
+    <input type="radio" name="q8" value="a">
+    a. 11,40m
+  </label>
+
+  <label>
+    <input type="radio" name="q8" value="b">
+    b. 12,50m
+  </label>
+
+  <label>
+    <input type="radio" name="q8" value="c">
+    c. 14,70m
+  </label>
+
+  <label>
+    <input type="radio" name="q8" value="d">
+    d. 16,70m
+  </label>
+
+  <div id="status8" class="status"></div>
+
+</div>
+
+<!-- SOAL 9 -->
+<div class="soal">
+
+  <p>
+    9. Ketentuan KA yang menggunakan lokomotif Tunggal, ganda, atau lebih diatur dalam :
+  </p>
+
+  <label>
+    <input type="radio" name="q9" value="a">
+    a. 0.100
+  </label>
+
+  <label>
+    <input type="radio" name="q9" value="b">
+    b. T.200
+  </label>
+
+  <label>
+    <input type="radio" name="q9" value="c">
+    c. 0.18
+  </label>
+
+  <label>
+    <input type="radio" name="q9" value="d">
+    d. Jawaban a dan c benar
+  </label>
+
+  <div id="status9" class="status"></div>
+
+</div>
+
+<!-- SOAL 10 -->
+<div class="soal">
+
+  <p>
+    10. Untuk pelayanan penumpang di emplasemen, sesuai PD 19, rangkaian kereta api yang sedang berhenti di stasiun dapat dipisahkan menjadi 2 bagian dengan jarak antara kedua bagian tersebut:
+  </p>
+
+  <label>
+    <input type="radio" name="q10" value="a">
+    a. Paling dekat 25 meter
+  </label>
+
+  <label>
+    <input type="radio" name="q10" value="b">
+    b. Paling dekat 15 meter
+  </label>
+
+  <label>
+    <input type="radio" name="q10" value="c">
+    c. Paling dekat 10 meter
+  </label>
+
+  <label>
+    <input type="radio" name="q10" value="d">
+    d. Paling dekat 8 meter
+  </label>
+
+  <div id="status10" class="status"></div>
+
+</div>
+<!-- SOAL 11 -->
+<div class="soal">
+
+  <p>11. Jalur utama dianggap isi apabila :</p>
+
+  <label>
+    <input type="radio" name="q11" value="a">
+    a. Jalur tersebut tidak dapat dilalui kereta api seluruhya
+  </label>
+
+  <label>
+    <input type="radio" name="q11" value="b">
+    b. Jalur yang terletak setelah penghabisan jalur utama yang digunakan untuk kereta api datang berhenti dan meluncur
+  </label>
+
+  <label>
+    <input type="radio" name="q11" value="c">
+    c. Jalur utama yang tidak menerus
+  </label>
+
+  <label>
+    <input type="radio" name="q11" value="d">
+    d. Jalur tersebut oleh kereta api yang masuk tidak dapat dilalui seluruhnya melewati penghabisan jalur utama hingga sepanjang luncuran yang ditetapakan pd 19 jil 1 psl 53 (9)
+  </label>
+
+  <div id="status11" class="status"></div>
+
+</div>
+
+<!-- SOAL 12 -->
+<div class="soal">
+
+  <p>12. Sesuai PM no 19 tahun 2023 Permohonan perpanjangan masa berlaku sertifikat disampaikan kepada dirjend paling lambat berapa hari :</p>
+
+  <label>
+    <input type="radio" name="q12" value="a">
+    a. 30 hari
+  </label>
+
+  <label>
+    <input type="radio" name="q12" value="b">
+    b. 45 hari
+  </label>
+
+  <label>
+    <input type="radio" name="q12" value="c">
+    c. 60 hari
+  </label>
+
+  <label>
+    <input type="radio" name="q12" value="d">
+    d. 90 hari
+  </label>
+
+  <div id="status12" class="status"></div>
+
+</div>
+
+<!-- SOAL 13 -->
+<div class="soal">
+
+  <p>13. Dalam melaksanakan tugas urusan pengaturan perjalanan kereta api dan langsir, PPKA dapat mendelegasikan tugasnya kepada PAP, kecuali:</p>
+
+  <label>
+    <input type="radio" name="q13" value="a">
+    a. Pelayanan peralatan persinyalan, penyampaian warta KA, termasuk warta PPJ dan penyampaian warta perjalanan kereta api
+  </label>
+
+  <label>
+    <input type="radio" name="q13" value="b">
+    b. Pelayanan peralatan persinyalan, penyampaian warta KA, termasuk warta PPJ dan tunjuk sebut
+  </label>
+
+  <label>
+    <input type="radio" name="q13" value="c">
+    c. Pelayanan peralatan persinyalan, penyampaian warta KA, termasuk warta PPJ dan penyampaian warta perjalanan kereta api, membunyikan semboyan genta
+  </label>
+
+  <label>
+    <input type="radio" name="q13" value="d">
+    d. Membunyikan semboyan genta, penyampaian warta KA, termasuk warta PPJ dan penyampaian warta perjalanan kereta api
+  </label>
+
+  <div id="status13" class="status"></div>
+
+</div>
+
+<!-- SOAL 14 -->
+<div class="soal">
+
+  <p>14. Berapa jarak apabila kita akan memuat barang melebihi panjang gerbong datar supaya alat perangkai tidak terhalang:</p>
+
+  <label>
+    <input type="radio" name="q14" value="a">
+    a. Tidak boleh melebihi 750mm
+  </label>
+
+  <label>
+    <input type="radio" name="q14" value="b">
+    b. Tidak boleh melebihi 500mm
+  </label>
+
+  <label>
+    <input type="radio" name="q14" value="c">
+    c. Tidak boleh melebihi 100mm
+  </label>
+
+  <label>
+    <input type="radio" name="q14" value="d">
+    d. Tidak boleh melebihi 250mm
+  </label>
+
+  <div id="status14" class="status"></div>
+
+</div>
+
+<!-- SOAL 15 -->
+<div class="soal">
+
+  <p>15. Pengisian kolom JALAN pada PPK sesuai lintasnya, dengan cara sbb</p>
+
+  <label>
+    <input type="radio" name="q15" value="a">
+    a. Kolom jalan berisi pengumuman jalan kereta api fakultatif dan Plb
+  </label>
+
+  <label>
+    <input type="radio" name="q15" value="b">
+    b. Kolom jalan berisi pengumuman jalan kereta api fakultatif dan Klb
+  </label>
+
+  <label>
+    <input type="radio" name="q15" value="c">
+    c. Kolom jalan berisi pengumuman jalan kereta api biasa dan fakultatif
+  </label>
+
+  <label>
+    <input type="radio" name="q15" value="d">
+    d. Kolom jalan berisi pengumuman jalan kereta api luarbiasa saja
+  </label>
+
+  <div id="status15" class="status"></div>
+
+</div>
+
+<!-- SOAL 16 -->
+<div class="soal">
+
+  <p>16. KA yang berangkat dari stasiun awal tempat persilangan dianggap sudah terlihat di stasiun tersebut berapa menit menurut peraturan perjalanan :</p>
+
+  <label>
+    <input type="radio" name="q16" value="a">
+    a. 15 menit
+  </label>
+
+  <label>
+    <input type="radio" name="q16" value="b">
+    b. 30 menit
+  </label>
+
+  <label>
+    <input type="radio" name="q16" value="c">
+    c. 10 menit
+  </label>
+
+  <label>
+    <input type="radio" name="q16" value="d">
+    d. 20 menit
+  </label>
+
+  <div id="status16" class="status"></div>
+
+</div>
+
+<!-- SOAL 17 -->
+<div class="soal">
+
+  <p>17. Menunjuk Instruksi Direksi PT. Kereta Api Indonesia (Persero) nomor INS.U/KL/401/VIII/1/ΚΑ-2023 tentang pelaksanaan langsir oleh 1 (satu) petugas, bahwa kecepatan langsir di empalsemen dan/atau melalui peron diatur :</p>
+
+  <label>
+    <input type="radio" name="q17" value="a">
+    a. Kecepatan di emplasemen paling tinggi 30 km/jam, sedangkan langsir melalui peron tidak boleh melebihi kecepatan orang berjalan kaki dan didahului petugas membawa bendera merah
+  </label>
+
+  <label>
+    <input type="radio" name="q17" value="b">
+    b. Kecepatan di emplasemen paling tinggi 30 km/jam sedangkan langsir melalui peron tidak boleh melebihi kecepatan orang berjalan kaki tanpa didahului petugas membawa bendera merah dengan masinis langsir membunyikan semboyan 35 berulang-ulang
+  </label>
+
+  <label>
+    <input type="radio" name="q17" value="c">
+    c. Kecepatan di emplasemen paling tinggi 30 km/jam sedangkan langsir melalui peron tidak boleh melebihi kecepatan orang berjalan kaki dengan masinis langsir membunyikan semboyan 35 berulang-ulang dan dalam hal langsir didorong, maka PLR memperdengarkan suara selompret atau peluit sebagi tanda meminta perhatian
+  </label>
+
+  <label>
+    <input type="radio" name="q17" value="d">
+    d. Kecepatan paling tinggi 30 km/jam dan tanpa didahului petugas membawa bendera merah dengan masinis langsir membunyikan semboyan 35 berulang-ulang dan dalam hal langsir didorong, maka PLR memperdengarkan suara selompret atau peluit sebagi tanda meminta perhatian
+  </label>
+
+  <div id="status17" class="status"></div>
+
+</div>
+
+<!-- SOAL 18 -->
+<div class="soal">
+
+  <p>18. Sisca adalah salah satu program dari subdivision Non Train Crew Operation, kepanjangan sisca ialah:</p>
+
+  <label>
+    <input type="radio" name="q18" value="a">
+    a. Sistem Informasi Safety & Compliance Application
+  </label>
+
+  <label>
+    <input type="radio" name="q18" value="b">
+    b. Sharing Is Caring
+  </label>
+
+  <label>
+    <input type="radio" name="q18" value="c">
+    c. Sharing Is Caring Awarness
+  </label>
+
+  <label>
+    <input type="radio" name="q18" value="d">
+    d. Sistem Integrasi Safety & Compliance Awarness
+  </label>
+
+  <div id="status18" class="status"></div>
+
+</div>
+
+<!-- SOAL 19 -->
+<div class="soal">
+
+  <p>19. Untuk KA masuk dan berhenti, Panjang luncuran pada jalur lurus yaitu :</p>
+
+  <label>
+    <input type="radio" name="q19" value="a">
+    a. 50 m
+  </label>
+
+  <label>
+    <input type="radio" name="q19" value="b">
+    b. 75 m
+  </label>
+
+  <label>
+    <input type="radio" name="q19" value="c">
+    c. 100 m
+  </label>
+
+  <label>
+    <input type="radio" name="q19" value="d">
+    d. 200 m
+  </label>
+
+  <div id="status19" class="status"></div>
+
+</div>
+
+<!-- SOAL 20 -->
+<div class="soal">
+
+  <p>20. Masa berlaku Sertifikat kecakapan pengatur perjalanan Kereta Api dan pengendali perjalanan Kereta Api sesuai PM 19 TAHUN 2023 yaitu:</p>
+
+  <label>
+    <input type="radio" name="q20" value="a">
+    a. berlaku selama 2 (dua) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q20" value="b">
+    b. berlaku selama 3 (tiga) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q20" value="c">
+    c. berlaku selama 4 (empat) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q20" value="d">
+    d. berlaku selama 5 (lima) tahun
+  </label>
+
+  <div id="status20" class="status"></div>
+
+</div>
+<!-- SOAL 21 -->
+<div class="soal">
+
+  <p>
+    21. Dalam SOP pengoperasian kereta api, perintah atau isyarat langsir tidak boleh diberikan apabila sinyal langsir menunjukan indikasi "tidak diperbolehkan langsir" kecuali:
+  </p>
+
+  <label>
+    <input type="radio" name="q21" value="a">
+    a. PLR mendapat izin secara tertulis dari PPKA secara langsung
+  </label>
+
+  <label>
+    <input type="radio" name="q21" value="b">
+    b. PLR mendapatkan izin berdasarkan instruksi (bernomor) dari PPKA melalui handy talky yang dicatat dalam formular izin melewati "tidak diperbolehkan langsir"
+  </label>
+
+  <label>
+    <input type="radio" name="q21" value="c">
+    c. Untuk menghidari bahaya, antara laian laratan atau gelundungan
+  </label>
+
+  <label>
+    <input type="radio" name="q21" value="d">
+    d. Semua Jawaban Benar
+  </label>
+
+  <div id="status21" class="status"></div>
+
+</div>
+
+<!-- SOAL 22 -->
+<div class="soal">
+
+  <p>
+    22. Papan peringatan "PERHATIAN PETAK JALAN TERHALANG" dipasang pada:
+  </p>
+
+  <label>
+    <input type="radio" name="q22" value="a">
+    a. peralatan blok atau meja pelayanan
+  </label>
+
+  <label>
+    <input type="radio" name="q22" value="b">
+    b. Telepon antar stasiun atau peralatan blok atau meja pelayanan pasal 72 (6)
+  </label>
+
+  <label>
+    <input type="radio" name="q22" value="c">
+    c. persinyalan mekanik pada peralatan blok atau persinyalan elektrik pada meja pelayanan
+  </label>
+
+  <label>
+    <input type="radio" name="q22" value="d">
+    d. tingkapan peralatan blok atau tombol pada meja pelayanan
+  </label>
+
+  <div id="status22" class="status"></div>
+
+</div>
+
+<!-- SOAL 23 -->
+<div class="soal">
+
+  <p>
+    23. Pada persinyalan Mekanik, fungsi dari Kancing adalah ?
+  </p>
+
+  <label>
+    <input type="radio" name="q23" value="a">
+    a. Mengancing Wesel dan sinyal
+  </label>
+
+  <label>
+    <input type="radio" name="q23" value="b">
+    b. Pengontrol kedudukan lidah wesel yang memiliki handel sendiri
+  </label>
+
+  <label>
+    <input type="radio" name="q23" value="c">
+    c. Manjamin Interlocking hubungan blok
+  </label>
+
+  <label>
+    <input type="radio" name="q23" value="d">
+    d. Merapatkan lidah wesel
+  </label>
+
+  <div id="status23" class="status"></div>
+
+</div>
+
+<!-- SOAL 24 -->
+<div class="soal">
+
+  <p>
+    24. Penetapan perjalanan yang terdapat dalam aplikasi Trainplan dapat diakses untuk digunakan dalam pembuatan:
+  </p>
+
+  <label>
+    <input type="radio" name="q24" value="a">
+    a. Daftar Waktu, Lampiran lapka, O.100, Penomoran KA
+  </label>
+
+  <label>
+    <input type="radio" name="q24" value="b">
+    b. Daftar Waktu, Lampiran lapka, Malka, Penomoran KA, Wam
+  </label>
+
+  <label>
+    <input type="radio" name="q24" value="c">
+    c. Daftar Waktu, Wam, 0.100, Penomoran KA, PPK
+  </label>
+
+  <label>
+    <input type="radio" name="q24" value="d">
+    d. Daftar Waktu, Lampiran lapka, O.100, PPK, Wam
+  </label>
+
+  <div id="status24" class="status"></div>
+
+</div>
+
+<!-- SOAL 25 -->
+<div class="soal">
+
+  <p>
+    25. Peron merupakan bagian dari bangunan stasiun yang dibedakan berdasarkan tinggi konstruksi yaitu:
+  </p>
+
+  <label>
+    <input type="radio" name="q25" value="a">
+    a. tinggi permukaan lantai 1000 mm diukur dari sisi atas kepala rel, jarak tepi atas lantai peron ke sumbu jalan rel 1600-mm pada lurusan, atau 1650 mm pada lengkung, lebar minimal 2000 mm jika berada di antara dua jalur atau 1650 mm jika berada di tepi jalur dan dilengkapi dengan garis batas aman peron minimal 350 mm dari sisi tepi luar ke as peron
+  </label>
+
+  <label>
+    <input type="radio" name="q25" value="b">
+    b. tinggi permukaan lantai 1000 m diukur dari sisi atas kepala rel, jarak tepi atas lantai peron ke sumbu jalan rel 1600 m pada lurusan, atau 1650 m pada lengkung, lebar minimal 2000 m jika berada di antara dua jalur atau 1650 m jika berada di tepi jalur dan dilengkapi dengan garis batas aman peron minimal 350 m dari sisi tepi luar ke as peron
+  </label>
+
+  <label>
+    <input type="radio" name="q25" value="c">
+    c. tinggi permukaan lantai 100 mm diukur dari sisi atas kepala rel, jarak tepi atas lantai peron ke sumbu jalan rel 160 mm pada lurusan, atau 165 mm pada lengkung, lebar minimal 2000 mm jika berada di antara dua jalur atau 165 mm jika berada di tepi jalur dan dilengkapi dengan garis batas aman peron minimal 35 mm dari sisi tepi luar ke as peron
+  </label>
+
+  <label>
+    <input type="radio" name="q25" value="d">
+    d. tinggi permukaan lantai 1000 cm diukur dari sisi atas kepala rel, jarak tepi atas lantai peron ke sumbu jalan rel 1600 mm pada lurusan, atau 1650 cm pada lengkung, lebar minimal 2000 cm jika berada di antara dua jalur atau 1650 cm jika berada di tepi jalur dan dilengkapi dengan garis batas aman peron minimal 350 cm dari sisi tepi luar ke as peron
+  </label>
+
+  <div id="status25" class="status"></div>
+
+</div>
+
+<!-- SOAL 26 -->
+<div class="soal">
+
+  <p>
+    26. Menunjuk Vice President of Non Train Crew Operation Nomor 7/KT.203/XI/KA/2025 tanggal 23 November 2025 Perihal Penyampaian Tag Line Safety Mindset & Culture Petugas Unit Operasi Non Train Crew Operation, Tag line Safety Mindset & Culture adalah:
+  </p>
+
+  <label>
+    <input type="radio" name="q26" value="a">
+    a. FOKUS, SIAGA & WASPADA, HATI-HATI. MENJAMIN KESELAMATAN PEKERJA, PERJALANAN KA & LANGSIRAN
+  </label>
+
+  <label>
+    <input type="radio" name="q26" value="b">
+    b. FOKUS, WAŞPADA & SIAGA, HATI-HATI. MENJAMIN KESELAMATAN PEKERJA, PERJALANAN KA & LANGSIRAN
+  </label>
+
+  <label>
+    <input type="radio" name="q26" value="c">
+    c. FOKUS, WASPADA & SIAGA, HATI-HATI. MENJAMIN KESELAMATAN PETUGAS, PERJALANAN ΚΑ & LANGSIRAN
+  </label>
+
+  <label>
+    <input type="radio" name="q26" value="d">
+    d. FOKUS, SIAGA & WASPADA, HATI-HATI. MENJAMIN KESELAMATAN PETUGAS, PERJALANAN KA & LANGSIRAN
+  </label>
+
+  <div id="status26" class="status"></div>
+
+</div>
+
+<!-- SOAL 27 -->
+<div class="soal">
+
+  <p>
+    27. Peraturan Direksi PT. Kereta Api Indonesia (PERSERO) no PER.U/KL.104/IV/1/KA-2018 berisi tentang:
+  </p>
+
+  <label>
+    <input type="radio" name="q27" value="a">
+    a. Pelaksanaan Perintah Langsir menggunakan Handy Talky
+  </label>
+
+  <label>
+    <input type="radio" name="q27" value="b">
+    b. IBPR (Identifikasi Bahaya, Penilaian dan pengendalian Resiko Keselamatan) PER.S/KS.102/IV/2/KA-2020 PROSEDUR IBPR dim SME
+  </label>
+
+  <label>
+    <input type="radio" name="q27" value="c">
+    c. SMKP (Sistem Manajemen Keselamatan Perkeretaapian) PER.U/KS.102/III/1/KA-2020
+  </label>
+
+  <label>
+    <input type="radio" name="q27" value="d">
+    d. Kewajiban Tunjuk Sebut Untuk Keselamatan Kerja Saat Berada di Area Track Atau Jalur Kereta Api. 2/ks.202/IV/KA/2025
+  </label>
+
+  <div id="status27" class="status"></div>
+
+</div>
+
+<!-- SOAL 28 -->
+<div class="soal">
+
+  <p>
+    28. Pelayanan Kereta Api berangkat Tunjuk dan Sebut yang dilakukan PPKA untuk semboyan yang diperlihatkan oleh sinyal keluar pada persinyalan mekanik adalah:
+  </p>
+
+  <label>
+    <input type="radio" name="q28" value="a">
+    a. Indikasi Sinyal Keluar (nomor sinyal) berjalan/berjalan hati-hati
+  </label>
+
+  <label>
+    <input type="radio" name="q28" value="b">
+    b. Sinyal Keluar Semboyan 5
+  </label>
+
+  <label>
+    <input type="radio" name="q28" value="c">
+    c. Indikasi Sinyal Keluar Semboyan 5
+  </label>
+
+  <label>
+    <input type="radio" name="q28" value="d">
+    d. Indikator Sinyal Keluar.... (nomor sinyal) hijau/kuning
+  </label>
+
+  <div id="status28" class="status"></div>
+
+</div>
+
+<!-- SOAL 29 -->
+<div class="soal">
+
+  <p>
+    29. Nota dinas no 2/KS.202/IV/KA/2025 berisi perihal :
+  </p>
+
+  <label>
+    <input type="radio" name="q29" value="a">
+    a. SMKP (Sistem Manajemen Keselamatan Perkeretaapian)
+  </label>
+
+  <label>
+    <input type="radio" name="q29" value="b">
+    b. Kewajiban Tunjuk Sebut Untuk Keselamatan Kerja Saat Berada di Area Track Atau Jalur Kereta Api
+  </label>
+
+  <label>
+    <input type="radio" name="q29" value="c">
+    c. IBPR (Identifikasi Bahaya, Penilaian dan pengendalian Resiko Keselamatan)
+  </label>
+
+  <label>
+    <input type="radio" name="q29" value="d">
+    d. Tunjuk sebut
+  </label>
+
+  <div id="status29" class="status"></div>
+
+</div>
+
+<!-- SOAL 30 -->
+<div class="soal">
+
+  <p>
+    30. bagaimana cara memasukan langsir keluar tanda batas gerakan langsir kembali ke emplasemen
+  </p>
+
+  <label>
+    <input type="radio" name="q30" value="a">
+    a. catatan di lapka masinis perihal kearah petak jalan mana tanda batas gerakan langsir boleh dilewati
+  </label>
+
+  <label>
+    <input type="radio" name="q30" value="b">
+    b. dengan memperlihatkan semboyan 4A atau perintah MS (bentuk 92)
+  </label>
+
+  <label>
+    <input type="radio" name="q30" value="c">
+    c. dengan melayani sinyal masuk menjadi semboyan 5/6
+  </label>
+
+  <label>
+    <input type="radio" name="q30" value="d">
+    d. Semua Jawaban Benar
+  </label>
+
+  <div id="status30" class="status"></div>
+
+</div>
+<!-- SOAL 31 -->
+<div class="soal">
+
+  <p>31. Semboyan disamping mempunyai arti:</p>
+
+  <!-- GANTI GAMBAR SESUAI KEBUTUHAN -->
+  <img src="gambar-semboyan.png"
+       alt="Semboyan"
+       style="
+       width:120px;
+       display:block;
+       margin:15px auto;
+       ">
+
+  <label>
+    <input type="radio" name="q31" value="a">
+    a. Kereta api berjalan dari jalur belok
+  </label>
+
+  <label>
+    <input type="radio" name="q31" value="b">
+    b. Kereta api berjalan menuju kearah yang ditujukan
+  </label>
+
+  <label>
+    <input type="radio" name="q31" value="c">
+    c. Kereta api menuju jalur lurus
+  </label>
+
+  <label>
+    <input type="radio" name="q31" value="d">
+    d. Kereta api akan berjalan ke jalur kiri pada petak jalan jalur ganda
+  </label>
+
+  <div id="status31" class="status"></div>
+
+</div>
+
+<!-- SOAL 32 -->
+<div class="soal">
+
+  <p>
+    32. Bentuk tempelan putih dengan garis diagonal merah
+    yang dipasang pada kereta/gerbong rusak yang akan
+    dikirim ke balai yasa guna perbaikan akibat anjlokan,
+    tabrakan disebut :
+  </p>
+
+  <label>
+    <input type="radio" name="q32" value="a">
+    a. T142
+  </label>
+
+  <label>
+    <input type="radio" name="q32" value="b">
+    b. T145
+  </label>
+
+  <label>
+    <input type="radio" name="q32" value="c">
+    c. 0142
+  </label>
+
+  <label>
+    <input type="radio" name="q32" value="d">
+    d. T143
+  </label>
+
+  <div id="status32" class="status"></div>
+
+</div>
+
+<!-- SOAL 33 -->
+<div class="soal">
+
+  <p>
+    33. Dalam SOP pengoperasian kereta api, prosedur yang
+    dilakukan petugas pengoperasian perkeretaapian dalam
+    persiapan bakalan kereta api di stasiun awal keberangkatan adalah:
+  </p>
+
+  <label>
+    <input type="radio" name="q33" value="a">
+    a. petugas sarana melakukan pemeriksaan sarana yang akan digunakan untuk bakalan kereta api
+  </label>
+
+  <label>
+    <input type="radio" name="q33" value="b">
+    b. petugas sarana melakukan input nomor seri sarana bakalan kereta api pada aplikasi mobile schowing (Moscow) yang terintegrasi dengan aplikasi pranopka
+  </label>
+
+  <label>
+    <input type="radio" name="q33" value="c">
+    c. PPKA dan PAP melakukan verifikasi nomor sarana yang telah dilakukan input oleh petugas sarana pada aplikasi mobile schowing (Moscow) selanjutnya pengendali sarana dan pusdalopka melakukan publish pada aplikasi pranopka
+  </label>
+
+  <label>
+    <input type="radio" name="q33" value="d">
+    d. Semua Jawaban Benar
+  </label>
+
+  <div id="status33" class="status"></div>
+
+</div>
+
+<!-- SOAL 34 -->
+<div class="soal">
+
+  <p>
+    34. Nota Dinas Vice President of Non Train Crew Operation
+    Nomor 26/KS.202/XI/KA/2025 tanggal 26 November 2025
+    perihal tata laksana program D-SAFE dan evaluasi kegiatan
+    pengawasan langsir, program D-SAFE meliputi?
+  </p>
+
+  <label>
+    <input type="radio" name="q34" value="a">
+    a. Langsir menggunakan HT, Cek Emplasemen, Simulasi Kondisi Darurat, Melakukan Pengawasan, Evaluasi Kepatuhan dan Konsistensi Pekerja Operasional
+  </label>
+
+  <label>
+    <input type="radio" name="q34" value="b">
+    b. Membaca dan menulis 1 (satu) pasal / 1 (satu) aturan setiap hari, Cek Emplasemen/wilayah kerja, Simulasi Kondisi Darurat, Melakukan Pengawasan, Evaluasi Kepatuhan dan Konsistensi Pekerja Operasional PENGAWASAN LANGSIR
+  </label>
+
+  <label>
+    <input type="radio" name="q34" value="c">
+    c. Membaca dan menulis 1 (satu) pasal / 1 (satu) aturan setiap hari, langsir dengan 1 petugas, Simulasi Kondisi Darurat, Melakukan Pengawasan, Evaluasi Kepatuhan dan Konsistensi Pekerja Operasional
+  </label>
+
+  <label>
+    <input type="radio" name="q34" value="d">
+    d. Membaca dan menulis 1 (satu) pasal / 1 (satu) aturan setiap hari, Cek Emplasemen, Simulasi Kondisi Darurat, tunjuk sebut
+  </label>
+
+  <div id="status34" class="status"></div>
+
+</div>
+
+<!-- SOAL 35 -->
+<div class="soal">
+
+  <p>
+    35. Pada penomoran lokomotif tersebut CC 205 12 02,
+    arti dari angka 12 adalah:
+  </p>
+
+  <label>
+    <input type="radio" name="q35" value="a">
+    a. Lokomotif diesel elektrik seri type 05
+  </label>
+
+  <label>
+    <input type="radio" name="q35" value="b">
+    b. Menggunakan 2 bogie dengan masing masing 2 roda penggerak
+  </label>
+
+  <label>
+    <input type="radio" name="q35" value="c">
+    c. Mulai dioperasikan di indonesia mulai tahun 2012
+  </label>
+
+  <label>
+    <input type="radio" name="q35" value="d">
+    d. Nomor urut lokomotif 12
+  </label>
+
+  <div id="status35" class="status"></div>
+
+</div>
+
+<!-- SOAL 36 -->
+<div class="soal">
+
+  <p>
+    36. Tanggung jawab penyelenggaraan urusan perjalanan
+    kereta api dan urusan langsir di stasiun adalah
+  </p>
+
+  <label>
+    <input type="radio" name="q36" value="a">
+    a. Kepala Stasiun
+  </label>
+
+  <label>
+    <input type="radio" name="q36" value="b">
+    b. PPKA
+  </label>
+
+  <label>
+    <input type="radio" name="q36" value="c">
+    c. JPOD
+  </label>
+
+  <label>
+    <input type="radio" name="q36" value="d">
+    d. PAP dan Juru Langsir
+  </label>
+
+  <div id="status36" class="status"></div>
+
+</div>
+
+<!-- SOAL 37 -->
+<div class="soal">
+
+  <p>37. Ketentuan jalur simpan Adalah :</p>
+
+  <label>
+    <input type="radio" name="q37" value="a">
+    a. Dipasang pada jalur sayap Di emplasemen, Panjang minimal dapat menyimpan 2 kereta, kedudukan biasa wesel harus mengarah ke jalur simpan.
+  </label>
+
+  <label>
+    <input type="radio" name="q37" value="b">
+    b. Dipasang pada jalur sayap di emplasemen, Panjang minimal dapat menyimpan 2 kereta, kedudukan biasa wesel harus tidak mengarah ke jalur simpan. PD 13A PASAL 10(2)
+  </label>
+
+  <label>
+    <input type="radio" name="q37" value="c">
+    c. Di emplasemen, Panjang minimal dapat menyimpan 2 kereta, kedudukan biasa wesel harus tidak mengarah ke jalur simpan.
+  </label>
+
+  <label>
+    <input type="radio" name="q37" value="d">
+    d. Di emplasemen, Panjang minimal dapat menyimpan 2 kereta, kedudukan biasa wesel harus mengarah ke jalur simpan.
+  </label>
+
+  <div id="status37" class="status"></div>
+
+</div>
+
+<!-- SOAL 38 -->
+<div class="soal">
+
+  <p>
+    38. KA yang telah selesai perjalanannya dianggap masih
+    terlihat di stasiun tempat persilangan berapa menit
+    sesudah waktu kedatangan menurut peraturan perjalanan :
+  </p>
+
+  <label>
+    <input type="radio" name="q38" value="a">
+    a. 10 menit
+  </label>
+
+  <label>
+    <input type="radio" name="q38" value="b">
+    b. 30 menit
+  </label>
+
+  <label>
+    <input type="radio" name="q38" value="c">
+    c. 15 menit
+  </label>
+
+  <label>
+    <input type="radio" name="q38" value="d">
+    d. 20 menit
+  </label>
+
+  <div id="status38" class="status"></div>
+
+</div>
+
+<!-- SOAL 39 -->
+<div class="soal">
+
+  <p>
+    39. Berat muatan maksimum yang boleh dimuat dalam lori adalah:
+  </p>
+
+  <label>
+    <input type="radio" name="q39" value="a">
+    a. 400 kg
+  </label>
+
+  <label>
+    <input type="radio" name="q39" value="b">
+    b. 300 kg
+  </label>
+
+  <label>
+    <input type="radio" name="q39" value="c">
+    c. 500 kg
+  </label>
+
+  <label>
+    <input type="radio" name="q39" value="d">
+    d. 600 kg
+  </label>
+
+  <div id="status39" class="status"></div>
+
+</div>
+
+<!-- SOAL 40 -->
+<div class="soal">
+
+  <p>
+    40. Pelaksanaan langsir yang dilakukan oleh 1 (satu)
+    petugas langsir harus memenuhi ketentuan sebagai berikut:
+    (jawaban salah)
+  </p>
+
+  <label>
+    <input type="radio" name="q40" value="a">
+    a. Langsir pindah jalur rangkaian kereta api penumpang dan/atau barang
+  </label>
+
+  <label>
+    <input type="radio" name="q40" value="b">
+    b. Lepas dan/atau gandeng rangkaian kereta api penumpang dan/atau barang paling banyak 5 kereta dan/atau gerbong
+  </label>
+
+  <label>
+    <input type="radio" name="q40" value="c">
+    c. Dilakukan di stasiun dengan pelayanan wesel terpusat dan/atau setempat yang dilengkapi dan/atau tidak dilengkapi penguncian
+  </label>
+
+  <label>
+    <input type="radio" name="q40" value="d">
+    d. Semua Jawaban Benar
+  </label>
+
+  <div id="status40" class="status"></div>
+
+</div>
+<!-- SOAL 41 -->
+<div class="soal">
+
+  <p>41. Serah terima dinasan PAP dilakukan tanpa perantara dan dicatat dalam:</p>
+
+  <label>
+    <input type="radio" name="q41" value="a">
+    a. Buku serah terima dinasan
+  </label>
+
+  <label>
+    <input type="radio" name="q41" value="b">
+    b. Buku warta kereta api dan buku serah terima
+  </label>
+
+  <label>
+    <input type="radio" name="q41" value="c">
+    c. Buku warta kereta api
+  </label>
+
+  <label>
+    <input type="radio" name="q41" value="d">
+    d. Buku serah terima dan buku material
+  </label>
+
+  <div id="status41" class="status"></div>
+
+</div>
+
+<!-- SOAL 42 -->
+<div class="soal">
+
+  <p>42. Tabel perjalanan kereta api yang harus di bawa oleh masinis sebagai dasar untuk mengetahui waktu perjalanan kereta api disebut dengan bentuk</p>
+
+  <label>
+    <input type="radio" name="q42" value="a">
+    a. 0.100
+  </label>
+
+  <label>
+    <input type="radio" name="q42" value="b">
+    b. 0.63
+  </label>
+
+  <label>
+    <input type="radio" name="q42" value="c">
+    c. 0,62
+  </label>
+
+  <label>
+    <input type="radio" name="q42" value="d">
+    d. 0.64
+  </label>
+
+  <div id="status42" class="status"></div>
+
+</div>
+
+<!-- SOAL 43 -->
+<div class="soal">
+
+  <p>43. Menunjuk rds Vice President of Non Train Crew Operation Nomor 2/KL.202/XI/KA/2025 tanggal 4 November 2025 Perihal Pelaksanaan Tunjuk dan Sebut Jalur dan Wesel (JA-SEL) Sebelum Melayani Kereta Api Datang/Langsung/Berangkat, pada persinyalan mekanik, wesel disebut aman apabila?</p>
+
+  <label>
+    <input type="radio" name="q43" value="a">
+    a. Wesel yang akan dilalui kereta api dan langsiran
+  </label>
+
+  <label>
+    <input type="radio" name="q43" value="b">
+    b. Wesel yang akan dilayani bebas dari sarana, material atau bakal pelanting
+  </label>
+
+  <label>
+    <input type="radio" name="q43" value="c">
+    c. Melihat wesel secara langsung atau dapat melalui perangkat pengawasan visibilitas visual (CCTV)
+  </label>
+
+  <label>
+    <input type="radio" name="q43" value="d">
+    d. Semua Jawaban Benar
+  </label>
+
+  <div id="status43" class="status"></div>
+
+</div>
+
+<!-- SOAL 44 -->
+<div class="soal">
+
+  <p>44. ketentuan pemasangan tanda batas ruang bebas (semboyan 18), adalah sebagai berikut:</p>
+
+  <label>
+    <input type="radio" name="q44" value="a">
+    a. tanda batas ruang bebas dipasang 600 cm lebih tinggi dari kepala rel, dan dicat warna putih yang pada malam hari dapat memantulkan cahaya sedangkan di bawahnya sampai dengan permukaan tanah dicat warna hitam, tanda batas ruang bebas dipasang diantara kedua jalur kereta api, diukur siku terhadap sumbu jalan rel masing-masing dengan jarak paling sedikit 1950 cm
+  </label>
+
+  <label>
+    <input type="radio" name="q44" value="b">
+    b. tanda batas ruang bebas dipasang 600 mm lebih tinggi dari kepala rel, dan dicat warna putih yang pada malam hari dapat memantulkan cahaya sedangkan di bawahnya sampai dengan permukaan tanah dicat warna hitam, tanda batas ruang bebas dipasang diantara kedua jalur kereta api, diukur siku terhadap sumbu jalan rel masing-masing dengan jarak paling sedikit 1950 mm.
+  </label>
+
+  <label>
+    <input type="radio" name="q44" value="c">
+    c. tanda batas ruang bebas dipasang 60 mm lebih tinggi dari kepala rel, dan dicat warna putih yang pada malam hari dapat memantulkan cahaya sedangkan di bawahnya sampai dengan permukaan tanah dicat warna hitam, tanda batas ruang bebas dipasang diantara kedua jalur kereta api, diukur siku terhadap sumbu jalan rel masing-masing dengan jarak paling sedikit 125 mm
+  </label>
+
+  <label>
+    <input type="radio" name="q44" value="d">
+    d. tanda batas ruang bebas dipasang 600 m lebih tinggi dari kepala rel, dan dicat warna putih yang pada malam hari dapat memantulkan cahaya sedangkan di bawahnya sampai dengan permukaan tanah dicat warna hitam, tanda batas ruang bebas dipasang diantara kedua jalur kereta api, diukur siku terhadap sumbu jalan rel masing-masing dengan jarak paling sedikit 1950 m
+  </label>
+
+  <div id="status44" class="status"></div>
+
+</div>
+
+<!-- SOAL 45 -->
+<div class="soal">
+
+  <p>45. Peraturan Menteri perhubungan nomor berapa yang mengatur sertifikat kecakapan penjaga perlintasan kereta api :</p>
+
+  <label>
+    <input type="radio" name="q45" value="a">
+    a. PM no 24 tahun 2023
+  </label>
+
+  <label>
+    <input type="radio" name="q45" value="b">
+    b. PM no 19 tahun 2011
+  </label>
+
+  <label>
+    <input type="radio" name="q45" value="c">
+    c. PM no 5 tahun 2017
+  </label>
+
+  <label>
+    <input type="radio" name="q45" value="d">
+    d. PM no 19 tahun 2023
+  </label>
+
+  <div id="status45" class="status"></div>
+
+</div>
+
+<!-- SOAL 46 -->
+<div class="soal">
+
+  <p>46. Di jalur 1 stasiun A, terdapat rangakaian untuk suatu KA. KA tersebut akan berangkat ke stasiun B. Apa tindakan yang dilakukan PPKA A, saat menerima pembukaan blok dari stasiun B tanpa adanya permintaan blok:</p>
+
+  <label>
+    <input type="radio" name="q46" value="a">
+    a. Konfirmasi ke stasiun B, KA bisa berangkat dr jalur 1
+  </label>
+
+  <label>
+    <input type="radio" name="q46" value="b">
+    b. Konfirmasi aman dilakukan melalui PPKP dan PРКА В
+  </label>
+
+  <label>
+    <input type="radio" name="q46" value="c">
+    c. PPKA stasiun sebelah tidak melakukan pemberian blok, maka PPKA penerima blok wajib membatalkan blok tersebut
+  </label>
+
+  <label>
+    <input type="radio" name="q46" value="d">
+    d. Semua Jawaban Benar
+  </label>
+
+  <div id="status46" class="status"></div>
+
+</div>
+
+<!-- SOAL 47 -->
+<div class="soal">
+
+  <p>47. Contoh yang benar perintah langsir maju dengan menggunakan handy talky adalah:</p>
+
+  <label>
+    <input type="radio" name="q47" value="a">
+    a. "asmas budi langsir 9 (sembilan) kereta maju ke arah batas langsir solojebres dari jalur I, ganti"
+  </label>
+
+  <label>
+    <input type="radio" name="q47" value="b">
+    b. "asmas budi langsir maju 9 (sembilan) kereta dari jalur I ke arah batas langsir solojebres, ganti"
+  </label>
+
+  <label>
+    <input type="radio" name="q47" value="c">
+    c. "asmas budi langsir maju 9 (sembilan) kereta ke arah batas langsir solojebres dari jalur I, ganti"
+  </label>
+
+  <label>
+    <input type="radio" name="q47" value="d">
+    d. "asmas budi langsir maju ke arah batas langsir solojebres dari jalur I dengan membawa 9 (sembilan) kereta, ganti "
+  </label>
+
+  <div id="status47" class="status"></div>
+
+</div>
+
+<!-- SOAL 48 -->
+<div class="soal">
+
+  <p>48. Menunjuk Nota Dinas Vice President of Non Train Crew Operation Nomor 13/KT.102/III/KA/202 Tanggal 31 Maret 2025, berapa nomor Contact Center Operasi Sharing Is Caring (CC-Ops Sisca)?</p>
+
+  <label>
+    <input type="radio" name="q48" value="a">
+    a. 087788222243
+  </label>
+
+  <label>
+    <input type="radio" name="q48" value="b">
+    b. 087788222235
+  </label>
+
+  <label>
+    <input type="radio" name="q48" value="c">
+    c. 087788222234
+  </label>
+
+  <label>
+    <input type="radio" name="q48" value="d">
+    d. 087788222236
+  </label>
+
+  <div id="status48" class="status"></div>
+
+</div>
+
+<!-- SOAL 49 -->
+<div class="soal">
+
+  <p>49. Peraturan Direksi PT. Kereta Api Indonesia (PERSERO) no PER.U/KS.102/III/1/KA-2020 berisi tentang:</p>
+
+  <label>
+    <input type="radio" name="q49" value="a">
+    a. IBPR (Identifikasi Bahaya, Penilaian dan pengendalian Resiko Keselamatan)
+  </label>
+
+  <label>
+    <input type="radio" name="q49" value="b">
+    b. Kewajiban Tunjuk Sebut Untuk Keselamatan Kerja Saat Berada di Area Track Atau Jalur Kereta Api.
+  </label>
+
+  <label>
+    <input type="radio" name="q49" value="c">
+    c. Pelaksanaan Perintah Langsir menggunakan Handy Talky
+  </label>
+
+  <label>
+    <input type="radio" name="q49" value="d">
+    d. SMKP (Sistem Manajemen Keselamatan Perkeretaapian)
+  </label>
+
+  <div id="status49" class="status"></div>
+
+</div>
+
+<!-- SOAL 50 -->
+<div class="soal">
+
+  <p>50. Dalam penghitungan jumlah kebutuhan pegawai dalam dinasan shift ada koefisian dan indeks, berapa indeks dalam penghitungan N2?</p>
+
+  <label>
+    <input type="radio" name="q50" value="a">
+    a. 1.04
+  </label>
+
+  <label>
+    <input type="radio" name="q50" value="b">
+    b. 1,21
+  </label>
+
+  <label>
+    <input type="radio" name="q50" value="c">
+    c. 1,41
+  </label>
+
+  <label>
+    <input type="radio" name="q50" value="d">
+    d. 1,02
+  </label>
+
+  <div id="status50" class="status"></div>
+
+</div>
+<!-- SOAL 51 -->
+<div class="soal">
+
+  <p>51. Berikut ini persyaratan untuk mendapatkan sertifikat kecakapan pengatur perjalanan Kereta Api Terpusat yaitu:</p>
+
+  <label>
+    <input type="radio" name="q51" value="a">
+    a. telah bertugas sebagai Pengatur perjalanan Kereta Api Daerah paling singkat selama 2 (dua) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q51" value="b">
+    b. telah bertugas sebagai Pengatur perjalanan Kereta Api Daerah paling singkat selama 3 (tiga) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q51" value="c">
+    c. telah bertugas sebagai Pengatur perjalanan Kereta Api Daerah paling singkat selama 4 (empat) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q51" value="d">
+    d. telah bertugas sebagai Pengatur perjalanan Kereta Api Daerah paling singkat selama 5 (lima) tahun
+  </label>
+
+  <div id="status51" class="status"></div>
+
+</div>
+
+<!-- SOAL 52 -->
+<div class="soal">
+
+  <p>52. Pedoman Karakter insan KAI Adalah CITAR, kepanjangan dari CITAR ialah:</p>
+
+  <label>
+    <input type="radio" name="q52" value="a">
+    a. Commitment, Integritas, Teamwork, Acountabilitas, Responsibilitas
+  </label>
+
+  <label>
+    <input type="radio" name="q52" value="b">
+    b. Commitment, Integritas, Teamwork, Acountability, Responsibility
+  </label>
+
+  <label>
+    <input type="radio" name="q52" value="c">
+    c. Commitment, Integrity, Teamwork, Acountabilitas, Responsibilitas
+  </label>
+
+  <label>
+    <input type="radio" name="q52" value="d">
+    d. Commitment, Integrity, Teamwork, Acountability, Responsibility
+  </label>
+
+  <div id="status52" class="status"></div>
+
+</div>
+
+<!-- SOAL 53 -->
+<div class="soal">
+
+  <p>53. Apabila PPJ pada petak jalan tidak sesuai Grafik PPJ/terlambat maka Kereta Api pertama yang akan melewati petak jalan tersebut diatur sebagai berikut:</p>
+
+  <label>
+    <input type="radio" name="q53" value="a">
+    a. Untuk Kereta Api yang berhenti diberikan perintah Berjalan Hati-Hati dan Masinis harus benar-benar memperhatikan akan kemungkinan adanya halangan pada petak jalan yang bersangkutan tanpa mengurangi kecepatan sesuai Tabel Kereta Api
+  </label>
+
+  <label>
+    <input type="radio" name="q53" value="b">
+    b. Untuk Kereta Api langsung pemberian perintah Berjalan Hati-Hati menggunakan telepon PK dari PPKA kepada Masinis melalui PPKP dengan menyebutkan nomor perintah "berjalan hati-hati" (bentuk 90) serta menyebutkan bahwa PPJ belum masuk Stasiun dan Masinis harus benar-benar memperhatikan akan kemungkinan adanya halangan pada petak jalan yang bersangkutan tanpa mengurangi kecepatan sesuai Tabel Kereta Api
+  </label>
+
+  <label>
+    <input type="radio" name="q53" value="c">
+    c. Dalam hal telepon PK tidak berfungsi maka pemberian perintah Berjalan Hati-Hati diberikan secara fisik dan untuk Kereta Api langsung harus di diberhentikan luar biasa
+  </label>
+
+  <label>
+    <input type="radio" name="q53" value="d">
+    d. Semua benar
+  </label>
+
+  <div id="status53" class="status"></div>
+
+</div>
+
+<!-- SOAL 54 -->
+<div class="soal">
+
+  <p>54. Pada penomoran lokomotif tersebut CC 205 12 02, arti dari huruf CC adalah:</p>
+
+  <label>
+    <input type="radio" name="q54" value="a">
+    a. Menggunakan 2 bogie dengan masing masing 1 roda penggerak
+  </label>
+
+  <label>
+    <input type="radio" name="q54" value="b">
+    b. Menggunakan 2 bogie dengan masing masing 2 roda penggerak
+  </label>
+
+  <label>
+    <input type="radio" name="q54" value="c">
+    c. Menggunakan 2 bogie dengan masing masing 3 roda penggerak
+  </label>
+
+  <label>
+    <input type="radio" name="q54" value="d">
+    d. Menggunakan 2 bogie dengan masing masing 4 roda penggerak
+  </label>
+
+  <div id="status54" class="status"></div>
+
+</div>
+
+<!-- SOAL 55 -->
+<div class="soal">
+
+  <p>55. Penetapan Plb terdapat pada :</p>
+
+  <label>
+    <input type="radio" name="q55" value="a">
+    a. Wam
+  </label>
+
+  <label>
+    <input type="radio" name="q55" value="b">
+    b. Malka
+  </label>
+
+  <label>
+    <input type="radio" name="q55" value="c">
+    c. GAPEKA
+  </label>
+
+  <label>
+    <input type="radio" name="q55" value="d">
+    d. PPK
+  </label>
+
+  <div id="status55" class="status"></div>
+
+</div>
+
+<!-- SOAL 56 -->
+<div class="soal">
+
+  <p>56. Pengertian Identifikasi Bahaya, Penilaian dan Pengendalian Risiko Keselamatan (IBPR) adalah :</p>
+
+  <label>
+    <input type="radio" name="q56" value="a">
+    a. proses untuk mengenali dan mengetahui adanya bahaya dan aspek lingkungan serta karakteristiknya
+  </label>
+
+  <label>
+    <input type="radio" name="q56" value="b">
+    b. serangkaian proses identifikasi bahaya, penilaian dan pengendalian risiko keselamatan yang meliputi risiko kecelakaan kereta api, kecelakan kerja, penyakit akibat kerja serta pencemaran lingkungan
+  </label>
+
+  <label>
+    <input type="radio" name="q56" value="c">
+    c. metode pengendalian risiko yang dilakukan oleh Pemilik Risiko (Risk Owner) yang mendasarkan pada aktivitas proses bisnis penting di Pemilik Risiko (Risk Owner) dalam upaya pencapaian tujuan-tujuan dan target target yang diusulkan dalam Rencana Kerja dan Anggaran Daerah Pemilik Risiko (Risk Owner) serta yang ditetapkan di dalam Rencana Kerja dan Anggaran Perusahaan
+  </label>
+
+  <label>
+    <input type="radio" name="q56" value="d">
+    d. keseluruhan proses dari identifikasi risiko, analisis risiko serta evaluasi risiko
+  </label>
+
+  <div id="status56" class="status"></div>
+
+</div>
+
+<!-- SOAL 57 -->
+<div class="soal">
+
+  <p>57. Peraturan Menteri perhubungan nomor berapa yang mengatur sertifikasi kecakapan pengatur perjalanan kereta api dan pengendali kereta api :</p>
+
+  <label>
+    <input type="radio" name="q57" value="a">
+    a. PM no 24 tahun 2023
+  </label>
+
+  <label>
+    <input type="radio" name="q57" value="b">
+    b. PM no 19 tahun 2011
+  </label>
+
+  <label>
+    <input type="radio" name="q57" value="c">
+    c. PM no 5 tahun 2017
+  </label>
+
+  <label>
+    <input type="radio" name="q57" value="d">
+    d. PM no 19 tahun 2023
+  </label>
+
+  <div id="status57" class="status"></div>
+
+</div>
+
+<!-- SOAL 58 -->
+<div class="soal">
+
+  <p>58. Pengumuman perjalanan kereta api dengan syarat lain, perjalanan kereta api pada suatu petak jalan dianggap telah diumumkan apabila :</p>
+
+  <label>
+    <input type="radio" name="q58" value="a">
+    a. Ppka dikedua stasiun dan penjaga blokpos pada petak jalan telah diberitahu tentang perjalanan kereta api tersebut dengan telepon antar stasiun dan dengan permintaan blok atau warta tanya jawab kondisi "aman"
+  </label>
+
+  <label>
+    <input type="radio" name="q58" value="b">
+    b. Penjaga perlintasan dan petugas perawatan prasarana telah diberitahukan tentang perjalanan kereta api tersebut dengan telepon, atau radio komunikasi, untuk penjaga perlintasan dipergunakan juga semboyan genta
+  </label>
+
+  <label>
+    <input type="radio" name="q58" value="c">
+    c. Pengantar lori yang berada dipetak jalan tekah mengetahui perjalanan kereta api tersebut
+  </label>
+
+  <label>
+    <input type="radio" name="q58" value="d">
+    d. Semua jawaban benar
+  </label>
+
+  <div id="status58" class="status"></div>
+
+</div>
+<!-- SOAL 59 -->
+<div class="soal">
+
+  <p>59. Handy Talky yang dipergunakan dalam kegiatan Langsir harus memenuhi persyaratan sebagai berikut:</p>
+
+  <label>
+    <input type="radio" name="q59" value="a">
+    a. memiliki frekuensi radio yang terbatas
+  </label>
+
+  <label>
+    <input type="radio" name="q59" value="b">
+    b. terekam
+  </label>
+
+  <label>
+    <input type="radio" name="q59" value="c">
+    c. berfungsi baik dan memiliki jangkauan hingga pergerakan langsir terjauh pada stasiun yang bersangkutan
+  </label>
+
+  <label>
+    <input type="radio" name="q59" value="d">
+    d. Semua jawaban benar
+  </label>
+
+  <div id="status59" class="status"></div>
+
+</div>
+
+<!-- SOAL 60 -->
+<div class="soal">
+
+  <p>60. Pemasangan warna benang pada gapeka jika kereta api fakultatif dan Plb diumumkan jalan dengan PPK adalah</p>
+
+  <label>
+    <input type="radio" name="q60" value="a">
+    a. Benang Putih
+  </label>
+
+  <label>
+    <input type="radio" name="q60" value="b">
+    b. Benang hijau
+  </label>
+
+  <label>
+    <input type="radio" name="q60" value="c">
+    c. Benang merah
+  </label>
+
+  <label>
+    <input type="radio" name="q60" value="d">
+    d. Benang kuning
+  </label>
+
+  <div id="status60" class="status"></div>
+
+</div>
+
+<!-- SOAL 61 -->
+<div class="soal">
+
+  <p>61. Berapa jarak antara tanda batas gerakan langsir dengan sinyal masuk</p>
+
+  <label>
+    <input type="radio" name="q61" value="a">
+    a. 50 Meter
+  </label>
+
+  <label>
+    <input type="radio" name="q61" value="b">
+    b. 100 Meter
+  </label>
+
+  <label>
+    <input type="radio" name="q61" value="c">
+    c. 200 Meter
+  </label>
+
+  <label>
+    <input type="radio" name="q61" value="d">
+    d. 250 Meter
+  </label>
+
+  <div id="status61" class="status"></div>
+
+</div>
+
+<!-- SOAL 62 -->
+<div class="soal">
+
+  <p>62. Pemasangan warna benang pada gapeka jika kereta api fakultatif dijalankan satu hari dengan Wam, adalah</p>
+
+  <label>
+    <input type="radio" name="q62" value="a">
+    a. Benang putih
+  </label>
+
+  <label>
+    <input type="radio" name="q62" value="b">
+    b. Benang merah
+  </label>
+
+  <label>
+    <input type="radio" name="q62" value="c">
+    c. Benang kuning
+  </label>
+
+  <label>
+    <input type="radio" name="q62" value="d">
+    d. Benang hijau
+  </label>
+
+  <div id="status62" class="status"></div>
+
+</div>
+
+<!-- SOAL 63 -->
+<div class="soal">
+
+  <p>63. Prosedur penggunaan radio way Station dalam melakukan panggilan emergency oleh PPKA kepada PPKP adalah :</p>
+
+  <label>
+    <input type="radio" name="q63" value="a">
+    a. PPKA menekan dua tombol "EMERG" secara bersamaan, kemudian PPKA harus menunggu alarm berbunyi atau konfirmasi dari PPKP lalu mengangkat handset dan menekan PTT dan segera melapor/berbicara kepada PPKP
+  </label>
+
+  <label>
+    <input type="radio" name="q63" value="b">
+    b. PPKA menekan tombol "EMERG" kemudian PPKA mengangkat handset dan menekan PTT dan segera melapor/berbicara kepada PPKP tanpa harus menunggu alarm berbunyi atau konfirmasi dari PPKP
+  </label>
+
+  <label>
+    <input type="radio" name="q63" value="c">
+    c. PPKA menekan dua tombol "EMERG" secara bersamaan, kemudian PPKA mengangkat handset dan menekan PTT dan segera melapor/berbicara kepada PPKP tanpa harus menunggu alarm berbunyi atau konfirmasi dari PPKP
+  </label>
+
+  <label>
+    <input type="radio" name="q63" value="d">
+    d. PPKA menekan satu tombol "EMERG" kemudian PPKA mengangkat handset dan menekan PTT dan segera melapor/berbicara kepada PPKP tanpa harus menunggu alarm berbunyi atau konfirmasi dari ppkp
+  </label>
+
+  <div id="status63" class="status"></div>
+
+</div>
+
+<!-- SOAL 64 -->
+<div class="soal">
+
+  <p>64. Penetapan kereta api biasa terdapat pada</p>
+
+  <label>
+    <input type="radio" name="q64" value="a">
+    a. PPK
+  </label>
+
+  <label>
+    <input type="radio" name="q64" value="b">
+    b. GAPEKA
+  </label>
+
+  <label>
+    <input type="radio" name="q64" value="c">
+    c. Wam
+  </label>
+
+  <label>
+    <input type="radio" name="q64" value="d">
+    d. Malka
+  </label>
+
+  <div id="status64" class="status"></div>
+
+</div>
+
+<!-- SOAL 65 -->
+<div class="soal">
+
+  <p>65. Dalam pelayanan KA datang, berangkat atau langsung pada persinyalan mekanik. ketika terjadi gangguan sinyal masuk dan sinyal keluar yang tidak dapat menunjukkan indikasi berjalan/berjalan hati-hati, apa saja yang harus dipastikan oleh PPKA:</p>
+
+  <label>
+    <input type="radio" name="q65" value="a">
+    a. Memasang apitan lidah wesel pada semua wesel yang akan dilalui KA
+  </label>
+
+  <label>
+    <input type="radio" name="q65" value="b">
+    b. Petak jalan yang akan dilalui aman
+  </label>
+
+  <label>
+    <input type="radio" name="q65" value="c">
+    c. Untuk wesel wesel yang akan dilalui dari arah muka harus dipasang apitan lidah wesel dan apitan lidah wesel tersebut dikunci gembok
+  </label>
+
+  <label>
+    <input type="radio" name="q65" value="d">
+    d. semua benar
+  </label>
+
+  <div id="status65" class="status"></div>
+
+</div>
+
+<!-- SOAL 66 -->
+<div class="soal">
+
+  <p>66. Jenis kereta api menurut metode pengoperasiannya dibagi atas</p>
+
+  <label>
+    <input type="radio" name="q66" value="a">
+    a. Kereta api reguler dan tambahan
+  </label>
+
+  <label>
+    <input type="radio" name="q66" value="b">
+    b. Kereta api biasa, fakultatif, tambahan
+  </label>
+
+  <label>
+    <input type="radio" name="q66" value="c">
+    c. Kereta api penumpang dan barang
+  </label>
+
+  <label>
+    <input type="radio" name="q66" value="d">
+    d. Kereta api antar stasiun, konvoi, dan lokomotif pendorong
+  </label>
+
+  <div id="status66" class="status"></div>
+
+</div>
+
+<!-- SOAL 67 -->
+<div class="soal">
+
+  <p>67. Pada jalur ganda penetapan berjalan jalur kiri disampaikan oleh:</p>
+
+  <label>
+    <input type="radio" name="q67" value="a">
+    a. Ks/Ppka yang KA nya berjalan jalur kiri
+  </label>
+
+  <label>
+    <input type="radio" name="q67" value="b">
+    b. Pimpinan daerah melalui Ppkp
+  </label>
+
+  <label>
+    <input type="radio" name="q67" value="c">
+    c. Salah satu Ks/Ppka pada petak jalan yang berlaku ketentuan berjalan jalur kiri
+  </label>
+
+  <label>
+    <input type="radio" name="q67" value="d">
+    d. Ks/Ppka yang KA nya berjalan jalur kanan
+  </label>
+
+  <div id="status67" class="status"></div>
+
+</div>
+
+<!-- SOAL 68 -->
+<div class="soal">
+
+  <p>68. Jenis kereta api menurut sifatnya: di upo salah</p>
+
+  <label>
+    <input type="radio" name="q68" value="a">
+    a. Kereta api biasa, fakultatif, dan klb
+  </label>
+
+  <label>
+    <input type="radio" name="q68" value="b">
+    b. Kereta api biasa, klb, dan plb
+  </label>
+
+  <label>
+    <input type="radio" name="q68" value="c">
+    c. Kereta api biasa, fakultatif, klb dan plb
+  </label>
+
+  <label>
+    <input type="radio" name="q68" value="d">
+    d. Kereta api biasa, fakultatif dan plb
+  </label>
+
+  <div id="status68" class="status"></div>
+
+</div>
+
+<!-- SOAL 69 -->
+<div class="soal">
+
+  <p>69. Kode kecepatan sarana dengan huruf "A" adalah:</p>
+
+  <label>
+    <input type="radio" name="q69" value="a">
+    a. 45km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q69" value="b">
+    b. 60km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q69" value="c">
+    c. 90km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q69" value="d">
+    d. 100km/jam
+  </label>
+
+  <div id="status69" class="status"></div>
+
+</div>
+
+<!-- SOAL 70 -->
+<div class="soal">
+
+  <p>70. Pemegang sertifikat kecakapan asisten pengatur perjalanan Kereta Api meliputi, kecuali:</p>
+
+  <label>
+    <input type="radio" name="q70" value="a">
+    a. Petugas Juru Langsir
+  </label>
+
+  <label>
+    <input type="radio" name="q70" value="b">
+    b. Penjaga perlintasan
+  </label>
+
+  <label>
+    <input type="radio" name="q70" value="c">
+    c. Petugas Rumah Sinyal
+  </label>
+
+  <label>
+    <input type="radio" name="q70" value="d">
+    d. Pengawas Peron
+  </label>
+
+  <div id="status70" class="status"></div>
+
+</div>
+<!-- SOAL 71 -->
+<div class="soal">
+
+  <p>71. Penempatan lokomotif ganda apabila satu lokomotif ditempatkan didepan dan satu lokomotif ditempatkan dibelakang, berapa kecepatan kereta api</p>
+
+  <label>
+    <input type="radio" name="q71" value="a">
+    45 km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q71" value="b">
+    50 km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q71" value="c">
+    60 km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q71" value="d">
+    Sesuai kecepatan yang diijinkan
+  </label>
+
+  <div id="status71" class="status"></div>
+
+</div>
+
+<!-- SOAL 72 -->
+<div class="soal">
+
+  <p>72. Dalam GAPEKA ditandai dengan simbol garis tebal dibawah nama stasiun disebut :</p>
+
+  <label>
+    <input type="radio" name="q72" value="a">
+    Stasiun kedudukan dipo lokomotif
+  </label>
+
+  <label>
+    <input type="radio" name="q72" value="b">
+    Stasiun dimana kondektur dan masinis bebas dari tanggung jawab persilangan
+  </label>
+
+  <label>
+    <input type="radio" name="q72" value="c">
+    Stasiun pemeriksa
+  </label>
+
+  <label>
+    <input type="radio" name="q72" value="d">
+    Stasiun batas biasa
+  </label>
+
+  <div id="status72" class="status"></div>
+
+</div>
+
+<!-- SOAL 73 -->
+<div class="soal">
+
+  <p>73. Berikut ini persyaratan untuk mendapatkan sertifikat kecakapan pengatur perjalanan Kereta Api Daerah yaitu:</p>
+
+  <label>
+    <input type="radio" name="q73" value="a">
+    telah bertugas sebagai Pengatur perjalanan Kereta Api Setempat paling singkat selama 5 (lima) tahun.
+  </label>
+
+  <label>
+    <input type="radio" name="q73" value="b">
+    telah bertugas sebagai Pengatur perjalanan Kereta Api Setempat paling singkat selama 4 (empat) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q73" value="c">
+    telah bertugas sebagai Pengatur perjalanan Kereta Api Setempat paling singkat selama 2 (dua) tahun
+  </label>
+
+  <label>
+    <input type="radio" name="q73" value="d">
+    telah bertugas sebagai Pengatur perjalanan Kereta Api Setempat paling singkat selama 3 (tiga) tahun
+  </label>
+
+  <div id="status73" class="status"></div>
+
+</div>
+
+<!-- SOAL 74 -->
+<div class="soal">
+
+  <p>74. Pengumuman kereta api PLB selama satu hari dengan</p>
+
+  <label>
+    <input type="radio" name="q74" value="a">
+    GAPEKA
+  </label>
+
+  <label>
+    <input type="radio" name="q74" value="b">
+    PPK
+  </label>
+
+  <label>
+    <input type="radio" name="q74" value="c">
+    MALKA
+  </label>
+
+  <label>
+    <input type="radio" name="q74" value="d">
+    WAM
+  </label>
+
+  <div id="status74" class="status"></div>
+
+</div>
+
+<!-- SOAL 75 -->
+<div class="soal">
+
+  <p>75. Pada saat kapan langsir keluar tanda batas gerakan langsir dilarang:</p>
+
+  <label>
+    <input type="radio" name="q75" value="a">
+    Pada waktu komunikasi antarstasiun mengalami gangguan
+  </label>
+
+  <label>
+    <input type="radio" name="q75" value="b">
+    pada waktu jalan kereta api terhalang
+  </label>
+
+  <label>
+    <input type="radio" name="q75" value="c">
+    semua benar
+  </label>
+
+  <label>
+    <input type="radio" name="q75" value="d">
+    semua salah
+  </label>
+
+  <div id="status75" class="status"></div>
+
+</div>
+
+<!-- SOAL 76 -->
+<div class="soal">
+
+  <p>76. Permintaan penutupan petak jalan harus dilakukan :</p>
+
+  <label>
+    <input type="radio" name="q76" value="a">
+    Disampaikan dengan surat permintaan kepada JPOD paling lambat 3 hari sebelumnya
+  </label>
+
+  <label>
+    <input type="radio" name="q76" value="b">
+    Disampaikan dengan surat permintaan kepada JPOD paling lambat 1 hari sebelumnya
+  </label>
+
+  <label>
+    <input type="radio" name="q76" value="c">
+    Disampaikan dengan surat permintaan kepada JPOD paling lambat 4 hari sebelumnya
+  </label>
+
+  <label>
+    <input type="radio" name="q76" value="d">
+    Disampaikan dengan surat permintaan kepada JPOD paling lambat 2 hari sebelumnya
+  </label>
+
+  <div id="status76" class="status"></div>
+
+</div>
+
+<!-- SOAL 77 -->
+<div class="soal">
+
+  <p>77. kereta api diperbolehkan melewati sinyal keluar yang menunjukan indikasi "berhenti" apabila kepada masinis:</p>
+
+  <label>
+    <input type="radio" name="q77" value="a">
+    diperlihatkan semboyan 4A (isyarat perintah masuk) atau telah diberikan bentuk perintah melalui sinyal yang berindikasi "berhenti" (bentuk 92) yang ditandatangani oleh PPKA yang menguasai
+  </label>
+
+  <label>
+    <input type="radio" name="q77" value="b">
+    diperlihatkan sinyal darurat (pada persinyalan elektrik) atau mendapat perintah dari PPKA stasiun pertama berikutnya yang menguasai petak blok
+  </label>
+
+  <label>
+    <input type="radio" name="q77" value="c">
+    diperlihatkan sinyal darurat (pada persinyalan elektrik) atau telah diberikan bentuk perintah melalui sinyal yang berindikasi "berhenti" (bentuk 92) yang ditandatangani oleh PPKA yang menguasai
+  </label>
+
+  <label>
+    <input type="radio" name="q77" value="d">
+    diperlihatkan sinyal darurat (pada persinyalan elektrik), telah diberikan bentuk perintah melalui sinyal yang berindikasi "berhenti" (bentuk 92) yang ditandatangani oleh PPKA yang menguasai atau diperlihatkan semboyan 4A (isyarat perintah masuk)
+  </label>
+
+  <div id="status77" class="status"></div>
+
+</div>
+
+<!-- SOAL 78 -->
+<div class="soal">
+
+  <p>78. Serah terima dinasan PPKA dilakukan tanpa perantara dan dicatat dalam :</p>
+
+  <label>
+    <input type="radio" name="q78" value="a">
+    Buku warta kereta api
+  </label>
+
+  <label>
+    <input type="radio" name="q78" value="b">
+    Buku serah terima dan buku material
+  </label>
+
+  <label>
+    <input type="radio" name="q78" value="c">
+    Buku warta kereta api dan buku serah terima
+  </label>
+
+  <label>
+    <input type="radio" name="q78" value="d">
+    Buku serah terima dinasan
+  </label>
+
+  <div id="status78" class="status"></div>
+
+</div>
+
+<!-- SOAL 79 -->
+<div class="soal">
+
+  <p>79. kereta api harus berhenti didekat petugas yang memperlihatkan isyarat perintah masuk untuk pemberian petunjuk kepada masinis dan catatan dalam lapka oleh petugas tentang?</p>
+
+  <label>
+    <input type="radio" name="q79" value="a">
+    Sinyal berindikasi "berhenti" yang sudah dilalui dan jalur yang sudah dilalui masuk berhenti atau langsung
+  </label>
+
+  <label>
+    <input type="radio" name="q79" value="b">
+    Sinyal berindikasi "berhenti" yang sudah dilalui dan jalur yang akan dilalui masuk berhenti atau langsung dengan kecepatan 30 km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q79" value="c">
+    Sinyal berindikasi "berhenti" yang akan dilalui dan jalur yang akan dilalui masuk berhenti atau langsung dengan kecepatan 30 km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q79" value="d">
+    Sinyal berindikasi "berhenti" yang sudah dilalui dan jalur yang akan dilalui masuk berhenti atau langsung
+  </label>
+
+  <div id="status79" class="status"></div>
+
+</div>
+
+<!-- SOAL 80 -->
+<div class="soal">
+
+  <p>80. Bagaimana tatacara tunjuk dan sebut PPKA sebelum melakukan pelayanan peralatan persinyalan untuk kereta api langsung di persinyalan elektrik pada siang hari?</p>
+
+  <label>
+    <input type="radio" name="q80" value="a">
+    Dari.... (nama stasiun) langsung jalur .... (nomor jalur) ke.... (nama stasiun)
+  </label>
+
+  <label>
+    <input type="radio" name="q80" value="b">
+    Route terbentuk, Indikator Sinyal Masuk .... (nomor sinyal) hijau/kuning
+  </label>
+
+  <label>
+    <input type="radio" name="q80" value="c">
+    Dari .... (nama stasiun) langsung ke.... (Nama Stasiun)
+  </label>
+
+  <label>
+    <input type="radio" name="q80" value="d">
+    Dari.... (nama stasiun) langsung lajur.... (nomor lajur) ke.... (nama stasiun)
+  </label>
+
+  <div id="status80" class="status"></div>
+
+</div>
+<!-- SOAL 81 -->
+<div class="soal">
+
+  <p>81. Bentuk tempelan kuning yang dipasang pada kereta/gerbong yang mengalami kerusakan tetapi tidak membahayakan perjalanan KA disebut:</p>
+
+  <label>
+    <input type="radio" name="q81" value="a">
+    a. 0142
+  </label>
+
+  <label>
+    <input type="radio" name="q81" value="b">
+    b. T143
+  </label>
+
+  <label>
+    <input type="radio" name="q81" value="c">
+    c. T145
+  </label>
+
+  <label>
+    <input type="radio" name="q81" value="d">
+    d. T142
+  </label>
+
+  <div id="status81" class="status"></div>
+
+</div>
+
+<!-- SOAL 82 -->
+<div class="soal">
+
+  <p>82. Pemasangan warna benang pada gapeka jika kereta api fakultatif dijalankan satu hari dengan Wam, adalah:</p>
+
+  <label>
+    <input type="radio" name="q82" value="a">
+    a. Benang putih
+  </label>
+
+  <label>
+    <input type="radio" name="q82" value="b">
+    b. Benang merah
+  </label>
+
+  <label>
+    <input type="radio" name="q82" value="c">
+    c. Benang kuning
+  </label>
+
+  <label>
+    <input type="radio" name="q82" value="d">
+    d. Benang hijau
+  </label>
+
+  <div id="status82" class="status"></div>
+
+</div>
+
+<!-- SOAL 83 -->
+<div class="soal">
+
+  <p>83. Sinyal darurat pada sinyal masuk dan pada sinyal keluar menunjukan indikasi "berjalan hati hati" yang hanya menyala paling lama 90 detik, maka kecepatan kereta api pada saat melewati sinyal masuk dan sinyal muka adalah:</p>
+
+  <label>
+    <input type="radio" name="q83" value="a">
+    a. 20km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q83" value="b">
+    b. 30km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q83" value="c">
+    c. 40km/jam
+  </label>
+
+  <label>
+    <input type="radio" name="q83" value="d">
+    d. 45km/jam
+  </label>
+
+  <div id="status83" class="status"></div>
+
+</div>
+
+<!-- SOAL 84 -->
+<div class="soal">
+
+  <p>84. Perintah "Maju" pada gerakan langsiran berarti</p>
+
+  <label>
+    <input type="radio" name="q84" value="a">
+    a. Jurusan kemana masinis membelakangi meja pelayanan lokomotif
+  </label>
+
+  <label>
+    <input type="radio" name="q84" value="b">
+    b. Jurusan sesuai ujung panjang lokomotif
+  </label>
+
+  <label>
+    <input type="radio" name="q84" value="c">
+    c. Jurusan kemana masinis menghadap ke meja pelayanan lokomotif
+  </label>
+
+  <label>
+    <input type="radio" name="q84" value="d">
+    d. Jurusan sesuai ujung pendek lokomotif
+  </label>
+
+  <div id="status84" class="status"></div>
+
+</div>
+
+<!-- SOAL 85 -->
+<div class="soal">
+
+  <p>85. Semboyan 9E1 memiliki arti:</p>
+
+  <label>
+    <input type="radio" name="q85" value="a">
+    a. Kereta api berjalan menuju kearah yang ditujukan.
+  </label>
+
+  <label>
+    <input type="radio" name="q85" value="b">
+    b. Kereta api menuju jalur belok
+  </label>
+
+  <label>
+    <input type="radio" name="q85" value="c">
+    c. Kereta api menuju jalur lurus.
+  </label>
+
+  <label>
+    <input type="radio" name="q85" value="d">
+    d. Kereta api berjalan dari jalur belok.
+  </label>
+
+  <div id="status85" class="status"></div>
+
+</div>
+
+<!-- SOAL 86 -->
+<div class="soal">
+
+  <p>86. Langsiran keluar tanda batas gerakan langsir, harus memenuhi ketentuan untuk emplasemen rangkaian kereta api biasa, langsiran diperbolehkan bergerak di luar sinyal masuk pada jarak paling jauh :</p>
+
+  <label>
+    <input type="radio" name="q86" value="a">
+    a. 250 m
+  </label>
+
+  <label>
+    <input type="radio" name="q86" value="b">
+    b. 500 m
+  </label>
+
+  <label>
+    <input type="radio" name="q86" value="c">
+    c. 1000 m
+  </label>
+
+  <label>
+    <input type="radio" name="q86" value="d">
+    d. 2 km
+  </label>
+
+  <div id="status86" class="status"></div>
+
+</div>
+
+<!-- SOAL 87 -->
+<div class="soal">
+
+  <p>87. Berikut ini yang bukan merupakan Go No Go Item Lokomotif adalah</p>
+
+  <label>
+    <input type="radio" name="q87" value="a">
+    a. Radio masinis dan alat pemadam kebakaran
+  </label>
+
+  <label>
+    <input type="radio" name="q87" value="b">
+    b. Alat pemasir dan rem lokomotif
+  </label>
+
+  <label>
+    <input type="radio" name="q87" value="c">
+    c. Lampu kabin masinis dan suling lokomotif
+  </label>
+
+  <label>
+    <input type="radio" name="q87" value="d">
+    d. Kipas pembersih kaca dan lampu sorot
+  </label>
+
+  <div id="status87" class="status"></div>
+
+</div>
+
+<!-- SOAL 88 -->
+<div class="soal">
+
+  <p>88. Tanda penghabisan jalur utama yaitu, kecuali :</p>
+
+  <label>
+    <input type="radio" name="q88" value="a">
+    a. Semboyan 18
+  </label>
+
+  <label>
+    <input type="radio" name="q88" value="b">
+    b. Semboyan 3
+  </label>
+
+  <label>
+    <input type="radio" name="q88" value="c">
+    c. Semboyan 8E
+  </label>
+
+  <label>
+    <input type="radio" name="q88" value="d">
+    d. Semboyan 7
+  </label>
+
+  <div id="status88" class="status"></div>
+
+</div>
+
+<!-- SOAL 89 -->
+<div class="soal">
+
+  <p>89. Tindakan PPKA saat mendengar panggilan emergency dari PPKP :</p>
+
+  <label>
+    <input type="radio" name="q89" value="a">
+    a. PPKA segera mengangkat handset kemudian menekan tombol PTT satu kali untuk menghentikan bunyi alarm dan berkomunikasi dengan ppkp
+  </label>
+
+  <label>
+    <input type="radio" name="q89" value="b">
+    b. PPKA segera mengangkat handset kemudian menekan tombol PTT dan ppkp
+  </label>
+
+  <label>
+    <input type="radio" name="q89" value="c">
+    c. PPKA membiarkan alarm radio Way Stasiun berbunyi
+  </label>
+
+  <label>
+    <input type="radio" name="q89" value="d">
+    d. PPKA segera mengangkat handset untuk mendengarkan informasi dari ppkp atau menekan tombol ALM CAN untuk mematikan bunyi panggilan
+  </label>
+
+  <div id="status89" class="status"></div>
+
+</div>
+
+<!-- SOAL 90 -->
+<div class="soal">
+
+  <p>90. Panjang efektif jalur utama pada persinyalan elektrik adalah:</p>
+
+  <label>
+    <input type="radio" name="q90" value="a">
+    a. Jarak antarpenghabisan jalur (bantalan putih) pada suatu jalur utama
+  </label>
+
+  <label>
+    <input type="radio" name="q90" value="b">
+    b. Jarak antara sinyal keluar dan sinyal keluar terjauh pada suatu jalur utama
+  </label>
+
+  <label>
+    <input type="radio" name="q90" value="c">
+    c. Jarak antara sinyal keluar dan batas pendeteksi sarana terjauh pada suatu jalur utama
+  </label>
+
+  <label>
+    <input type="radio" name="q90" value="d">
+    d. Jarak antara sinyal keluar dan batas pendeteksi sarana
+  </label>
+
+  <div id="status90" class="status"></div>
+
+</div>
+
+<!-- SOAL 91 -->
+<div class="soal">
+
+  <p>91. Yang termasuk dalam kategori warta perjalanan adalah warta yang disampaikan dengan alat komunikasi yang terekam meliputi:</p>
+
+  <label>
+    <input type="radio" name="q91" value="a">
+    a. Warta aman, warta masuk dan warta berangkat
+  </label>
+
+  <label>
+    <input type="radio" name="q91" value="b">
+    b. Pemindahan persilangan dan penyusulan
+  </label>
+
+  <label>
+    <input type="radio" name="q91" value="c">
+    c. Pemindahan persilangan, pemindahan penyusulan, berjalan jalur kiri, penetapan perjalanan, pengumuman perjalanan dan pembatalan warta - warta tersebut
+  </label>
+
+  <label>
+    <input type="radio" name="q91" value="d">
+    d. Semua jawaban salah
+  </label>
+
+  <div id="status91" class="status"></div>
+
+</div>
+
+<!-- SOAL 92 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    92. Urutan pelayanan perka di stasiun dengan mempertahankan sinyal keluar pada semboyan 7,
+    memperlihatkan semboyan 3 ditempat dikehendaki lokomotif harus berhenti,
+    memperlihatkan semboyan 2b pada ujung wesel yang akan dilalui kereta api datang,
+    mempertahankan sinyal masuk pada semboyan 7, adalah urutan pelayanan untuk:
+  </p>
+
+  <label>
+    <input type="radio" name="q92" value="a">
+    a. Masuk jalur isi zona b
+  </label>
+
+  <label>
+    <input type="radio" name="q92" value="b">
+    b. Langsung jalur belok
+  </label>
+
+  <label>
+    <input type="radio" name="q92" value="c">
+    c. Masuk jalur isi zona c
+  </label>
+
+  <label>
+    <input type="radio" name="q92" value="d">
+    d. Berhenti luar biasa
+  </label>
+
+  <div id="status92" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 93 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    93. Marka 10E memiliki arti:
+  </p>
+
+  <label>
+    <input type="radio" name="q93" value="a">
+    a. Informasi Lokasi pada jalur KA
+  </label>
+
+  <label>
+    <input type="radio" name="q93" value="b">
+    b. Informasi kepada petugas perawatan jalan rel untuk berhati hati dalam melakukan pekerjaan perawatan jalan rel agar tidak menimbulkan kerusakan pada prasarana perkeretaapian
+  </label>
+
+  <label>
+    <input type="radio" name="q93" value="c">
+    c. Informasi perubahan kelandaian jalan rel
+  </label>
+
+  <label>
+    <input type="radio" name="q93" value="d">
+    d. Informasi tentang nomor wesel
+  </label>
+
+  <div id="status93" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 94 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    94. Pelayanan Kereta Api berangkat Tunjuk dan Sebut yang dilakukan Ppka untuk semboyan yang diperlihatkan oleh sinyal keluar pada persinyalan mekanik adalah:
+  </p>
+
+  <label>
+    <input type="radio" name="q94" value="a">
+    a. Indikasi Sinyal Keluar.... (nomor sinyal) berjalan/berjalan hati-hati
+  </label>
+
+  <label>
+    <input type="radio" name="q94" value="b">
+    b. Indikasi Sinyal Keluar Semboyan 5
+  </label>
+
+  <label>
+    <input type="radio" name="q94" value="c">
+    c. Indikator Sinyal Keluar.... (nomor sinyal) hijau/kuning
+  </label>
+
+  <label>
+    <input type="radio" name="q94" value="d">
+    d. Sinyal Keluar Semboyan 5
+  </label>
+
+  <div id="status94" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 95 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    95. Hubungan blok dinyatakan terganggu pada hubungan blok elektromekanis, apabila :
+  </p>
+
+  <label>
+    <input type="radio" name="q95" value="a">
+    a. Peralatan blok tidak dapat dilayani dan atau kawat plombir terputus
+  </label>
+
+  <label>
+    <input type="radio" name="q95" value="b">
+    b. Peralatan blok tidak dapat dilayani dan atau kawat plombir normal
+  </label>
+
+  <label>
+    <input type="radio" name="q95" value="c">
+    c. Apabila rute berangkat dapat terbentuk atau sinyal keluar tidak dapat menunjukan indikasi berjalan
+  </label>
+
+  <label>
+    <input type="radio" name="q95" value="d">
+    d. Apabila rute berangkat tidak dapat terbentuk atau sinyal keluar tidak dapat menunjukan indikasi berjalan atau berjalan hati hati
+  </label>
+
+  <div id="status95" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 96 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    96. Penomoran penetapan kereta api dengan warta maklumat adalah
+  </p>
+
+  <label>
+    <input type="radio" name="q96" value="a">
+    a. KLB
+  </label>
+
+  <label>
+    <input type="radio" name="q96" value="b">
+    b. FAK
+  </label>
+
+  <label>
+    <input type="radio" name="q96" value="c">
+    c. PLB
+  </label>
+
+  <label>
+    <input type="radio" name="q96" value="d">
+    d. KA
+  </label>
+
+  <div id="status96" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 97 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    97. Tindakan PPKA memasukan kereta api tidak menurut daftar jalur:
+  </p>
+
+  <label>
+    <input type="radio" name="q97" value="a">
+    a. menulis dalam buku serah terima dinasan PPKA
+  </label>
+
+  <label>
+    <input type="radio" name="q97" value="b">
+    b. Menulis dalam buku warta kereta api
+  </label>
+
+  <label>
+    <input type="radio" name="q97" value="c">
+    c. Menyampaikan secara lisan kepada PPKP
+  </label>
+
+  <label>
+    <input type="radio" name="q97" value="d">
+    d. Menulis dalam buku kelambatan kereta api
+  </label>
+
+  <div id="status97" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 98 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    98. Formulir berjalan hati-hati merupakan bentuk no.
+  </p>
+
+  <label>
+    <input type="radio" name="q98" value="a">
+    a. Bentuk 90
+  </label>
+
+  <label>
+    <input type="radio" name="q98" value="b">
+    b. Bentuk 92
+  </label>
+
+  <label>
+    <input type="radio" name="q98" value="c">
+    c. Bentuk 89
+  </label>
+
+  <label>
+    <input type="radio" name="q98" value="d">
+    d. Bentuk 91
+  </label>
+
+  <div id="status98" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 99 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    99. Kecepatan maksimum kereta api (Vmaks) ditentukan berdasarkan sbb:
+  </p>
+
+  <label>
+    <input type="radio" name="q99" value="a">
+    a. Kecepatan maksimum ka berdasarkan kecepatan sarana kereta
+  </label>
+
+  <label>
+    <input type="radio" name="q99" value="b">
+    b. Kecepatan maksimum ka berdasarkan kecepatan prasarana atau jalan rel
+  </label>
+
+  <label>
+    <input type="radio" name="q99" value="c">
+    c. Kecepatan terendah antara kecepatan prasarana, sarana dan kecepatan operasi ka
+  </label>
+
+  <label>
+    <input type="radio" name="q99" value="d">
+    d. Kecepatan terendah antara kecepatan prasarana, sarana dan sifat barang yang diangkut
+  </label>
+
+  <div id="status99" class="status"></div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOAL 100 -->
+<!-- ========================= -->
+<div class="soal">
+
+  <p>
+    100. Menunjuk rds Vice President of Non Train Crew Operation Nomor 2/KL.202/XI/KA/2025 tanggal 4 November 2025 Perihal Pelaksanaan Tunjuk dan Sebut Jalur dan Wesel (JA-SEL) Sebelum Melayani Kereta Api Datang/Langsung/Berangkat, pada persinyalan elektrik, tunjuk dan sebut indikator wesel dilaksanakan kapan?
+  </p>
+
+  <label>
+    <input type="radio" name="q100" value="a">
+    a. Setiap melayani/membalik wesel
+  </label>
+
+  <label>
+    <input type="radio" name="q100" value="b">
+    b. Setiap membuat rute masuk/berangkat/langsir
+  </label>
+
+  <label>
+    <input type="radio" name="q100" value="c">
+    c. Hanya dilakukan pada saat rute tidak terbentuk atau indikator kedudukan wesel menyala merah
+  </label>
+
+  <label>
+    <input type="radio" name="q100" value="d">
+    d. Semuanya benar
+  </label>
+
+  <div id="status100" class="status"></div>
+
+</div>
+
+
+
+
+
+
+      
+      <!-- TOMBOL -->
+      <button type="button" onclick="cekNilai()">
+        Selesai Ujian
+      </button>
+
+    </form>
+
+    <!-- HASIL -->
+    <div id="hasil"></div>
+
+  </div>
+
+  <script>
+
+    // ==========================
+    // EDIT JAWABAN BENAR DI SINI
+    // ==========================
+    const jawabanBenar = {
+
+  q1 : "a",
+  q2 : "c",
+  q3 : "c",
+  q4 : "c",
+  q5 : "d",
+  q6 : "b",
+  q7 : "c",
+  q8 : "c",
+  q9 : "d",
+  q10 : "c"
+
+    };
+
+    // ==========================
+    // FUNGSI CEK NILAI
+    // ==========================
+    function cekNilai(){
+
+      let nilai = 0;
+      let jumlahSoal = 100;
+      let nilaiPerSoal = 100 / jumlahSoal;
+
+      // LOOP SEMUA SOAL
+      for(let i = 1; i <= jumlahSoal; i++){
+
+        let jawabanUser =
+          document.querySelector(
+            'input[name="q'+i+'"]:checked'
+          );
+
+        let status =
+          document.getElementById("status"+i);
+
+        // reset status
+        status.innerHTML = "";
+
+        // jika soal dijawab
+        if(jawabanUser){
+
+          // JAWABAN BENAR
+          if(
+            jawabanUser.value ===
+            jawabanBenar["q"+i]
+          ){
+
+            nilai += nilaiPerSoal;
+
+            status.innerHTML = `
+              <span class="benar">
+                ✔ Jawaban Benar
+              </span>
+            `;
+
+          }
+
+          // JAWABAN SALAH
+          else{
+
+            status.innerHTML = `
+              <span class="salah">
+                ✘ Jawaban Salah
+              </span>
+            `;
+          }
+        }
+
+        // BELUM DIJAWAB
+        else{
+
+          status.innerHTML = `
+            <span class="salah">
+              ✘ Belum Dijawab
+            </span>
+          `;
+        }
+
+      }
+
+      // BULATKAN NILAI
+      nilai = Math.round(nilai);
+
+      // TAMPILKAN HASIL
+      let hasil =
+        document.getElementById("hasil");
+
+      // JIKA LULUS
+      if(nilai >= 76){
+
+        hasil.innerHTML = `
+          <div class="lulus">
+            Nilai Anda : ${nilai}<br>
+            LULUS
+          </div>
+        `;
+
+      }
+
+      // JIKA TIDAK LULUS
+      else{
+
+        hasil.innerHTML = `
+          <div class="tidak-lulus">
+            Nilai Anda : ${nilai}<br>
+            TIDAK LULUS
+          </div>
+        `;
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
