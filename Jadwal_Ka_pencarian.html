@@ -1,272 +1,202 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jadwal KA Stasiun Karangpucung - Juni 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      font-size: 14px;
-      margin: 20px;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    h2, h3 {
-      text-align: center;
-      margin: 0;
-    }
-    h2 {
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-    h3 {
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-    .logo {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .logo img {
-      height: 50px;
-    }
-        #searchInput {
-      display: block;
-      margin: 20px auto;
-      padding: 10px;
-      width: 70%;
-      max-width: 500px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background-color: white;
-      overflow-x: auto;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      text-align: center;
-      padding: 8px;
-    }
-    th {
-      background-color: #0077b6;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-    tr:hover {
-      background-color: #f1f1f1;
-    }
-    .highlight {
-      background-color: #ffd166;
-      font-weight: bold;
-    }
-    .ttd {
-      margin-top: 40px;
-      text-align: right;
-    }
-    .ttd img {
-      margin-top: 10px;
-    }
-    .ttd p {
-      margin: 5px 0;
-    }
-    .ttd strong {
-      font-size: 16px;
-      text-decoration: underline;
-    }
-    @media print {
-  button {
-    display: none;
-  }
-  #searchInput {
-    display: none;
-  }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jadwal KA Stasiun Karangpucung</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  box-sizing:border-box;
 }
-thead tr:nth-child(1) th{
-  position: sticky;
-  top: 0;
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f5f5f5;
+  margin:10px;
+  font-size:12px;
+  color:#222;
+}
+
+/* ===== LOGO ===== */
+
+.logo{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.logo img{
+  height:40px;
+}
+
+/* ===== JUDUL ===== */
+
+h2,h3{
+  text-align:center;
+  margin:0;
+}
+
+h2{
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+h3{
+  font-size:13px;
+  margin-bottom:14px;
+  font-weight:600;
+}
+
+/* ===== BUTTON ===== */
+
+.print-box{
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.print-box button{
   background:#0077b6;
   color:white;
+  border:none;
+  border-radius:5px;
+  padding:8px 14px;
+  cursor:pointer;
+  font-size:12px;
+  font-family:'Poppins',sans-serif;
+}
+
+/* ===== SEARCH ===== */
+
+#searchInput{
+  display:block;
+  width:95%;
+  max-width:350px;
+  margin:0 auto 14px;
+  padding:8px 10px;
+  border:1px solid #ccc;
+  border-radius:7px;
+  font-size:12px;
+}
+
+/* ===== TABLE ===== */
+
+.table-wrapper{
+  overflow-x:auto;
+  width:100%;
+}
+
+#jadwalTable{
+  width:auto; /* penting */
+  margin:auto;
+  border-collapse:collapse;
+  background:white;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ===== CELL ===== */
+
+#jadwalTable th,
+#jadwalTable td{
+  border:1px solid #ccc;
+  padding:4px 5px;
+  text-align:center;
+  white-space:nowrap;
+  font-size:11px;
+}
+
+/* ===== HEADER ===== */
+
+#jadwalTable th{
+  background:#0077b6;
+  color:white;
+  font-weight:600;
+}
+
+thead tr:nth-child(1) th{
+  position:sticky;
+  top:0;
   z-index:3;
 }
 
 thead tr:nth-child(2) th{
-  position: sticky;
-  top: 38px;
-  background:#0096c7;
-  color:white;
+  position:sticky;
+  top:30px;
   z-index:2;
+  background:#0096c7;
 }
-/* Tebalkan semua data jam di kolom KARANGPUCUNG (DAT & BER) */
+
+/* ===== HOVER ===== */
+
+#jadwalTable tbody tr:hover{
+  background:#f1f1f1;
+}
+
+/* ===== KARANGPUCUNG ===== */
+
 #jadwalTable tbody td:nth-child(5),
-#jadwalTable tbody td:nth-child(6) {
-  font-weight: bold;
+#jadwalTable tbody td:nth-child(6){
+  background:#fff3b0;
+  font-weight:bold;
 }
 
-/* (opsional) tebalkan juga header KARANGPUCUNG */
-#jadwalTable thead tr:nth-child(2) th:nth-child(3),
-#jadwalTable thead tr:nth-child(2) th:nth-child(4) {
-  font-weight: bold;
-}
-/* KOLOM KHUSUS KARANGPUCUNG */
-#jadwalTable tbody td:nth-child(5),
-#jadwalTable tbody td:nth-child(6) {
-  font-weight: bold;
-  background-color: #fff3b0; /* kuning lembut */
-  color: #000;
+#jadwalTable tbody td:nth-child(5){
+  border-left:2px solid #ff8800;
 }
 
-/* garis pembatas kiri-kanan biar beda jelas */
-#jadwalTable tbody td:nth-child(5) {
-  border-left: 3px solid #ff8800;
+#jadwalTable tbody td:nth-child(6){
+  border-right:2px solid #ff8800;
 }
 
-#jadwalTable tbody td:nth-child(6) {
-  border-right: 3px solid #ff8800;
+#jadwalTable thead tr:nth-child(1) th:nth-child(4){
+  background:#ff8800;
 }
 
-/* header KARANGPUCUNG juga dibedakan */
-#jadwalTable thead tr:nth-child(1) th:nth-child(4) {
-  background-color: #ff8800;
-  color: white;
-}
-/* SHIFT PAGI */
-tr.shift-pagi td {
-  background-color: #d8f3dc;
-  font-weight: bold;
-  color: #1b4332;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* ===== SHIFT ===== */
+
+.shift-pagi td{
+  background:#d8f3dc;
+  color:#1b4332;
+  font-weight:bold;
 }
 
-/* SHIFT SIANG */
-tr.shift-siang td {
-  background-color: #fff3b0;
-  font-weight: bold;
-  color: #7a5c00;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.shift-siang td{
+  background:#fff3b0;
+  color:#7a5c00;
+  font-weight:bold;
 }
 
-/* SHIFT MALAM */
-tr.shift-malam td {
-  background-color: #dbeafe;
-  font-weight: bold;
-  color: #1e3a8a;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.shift-malam td{
+  background:#dbeafe;
+  color:#1e3a8a;
+  font-weight:bold;
 }
 
-/* efek garis pembatas biar makin tegas */
-tr.shift-pagi td,
-tr.shift-siang td,
-tr.shift-malam td {
-  border-top: 3px solid #333;
-  border-bottom: 3px solid #333;
-  text-align: center;
-}
-/* Highlight KA yang berhenti di Karangpucung */
-.stop-karangpucung td {
-  background-color: #ffd6d6; /* merah muda lembut */
-  font-weight: bold;
+/* ===== STOP ===== */
+
+.stop-karangpucung td{
+  background:#ffd6d6;
+  font-weight:bold;
 }
 
-/* efek garis kiri biar lebih “warning” */
-.stop-karangpucung td:nth-child(5),
-.stop-karangpucung td:nth-child(6) {
-  border-left: 3px solid #e63946;
-  border-right: 3px solid #e63946;
-}
-/* ===== RESPONSIVE MODE HP POTRAIT ===== */
-@media screen and (max-width: 768px) {
+/* ===== LEBAR KOLOM DIPERSEMPIT ===== */
 
-  body {
-    margin: 10px;
-    font-size: 12px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  h3 {
-    font-size: 14px;
-  }
-
-  /* tabel bisa digeser horizontal (penting) */
-  #jadwalTable {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  th, td {
-    padding: 6px;
-    font-size: 11px;
-  }
-
-  /* kolom penting tetap terbaca */
-  .highlight,
-  .stop-karangpucung td {
-    font-size: 11px;
-  }
-
-  /* tombol & search full lebar */
-  #searchInput {
-    width: 95%;
-    font-size: 12px;
-  }
-
-  button {
-    width: 95%;
-    font-size: 13px;
-  }
-
-  .logo img {
-    height: 35px;
-  }
-}
-/* biar tabel tidak pecah layout */
-#jadwalTable {
-  min-width: 900px;
-}
-
-/* supaya tabel tidak pakai lebar kaku */
-#jadwalTable {
-  width: 100%;
-  table-layout: auto; /* penting: bikin kolom menyesuaikan isi */
-}
-
-/* semua cell jadi rapih & tidak terlalu lebar */
-#jadwalTable th,
-#jadwalTable td {
-  white-space: nowrap; /* mencegah teks turun baris */
-  padding: 6px 4px;
-}
-
-/* kolom NO & NO KA dipersempit */
 #jadwalTable th:nth-child(1),
-#jadwalTable td:nth-child(1) {
-  width: 30px;
+#jadwalTable td:nth-child(1){
+  min-width:28px;
 }
 
 #jadwalTable th:nth-child(2),
-#jadwalTable td:nth-child(2) {
-  width: 60px;
+#jadwalTable td:nth-child(2){
+  min-width:48px;
 }
 
-/* kolom stasiun (DAT/BER) lebih kecil */
 #jadwalTable th:nth-child(3),
 #jadwalTable th:nth-child(4),
 #jadwalTable th:nth-child(5),
@@ -278,56 +208,260 @@ tr.shift-malam td {
 #jadwalTable td:nth-child(5),
 #jadwalTable td:nth-child(6),
 #jadwalTable td:nth-child(7),
-#jadwalTable td:nth-child(8) {
-  width: 55px;
+#jadwalTable td:nth-child(8){
+  min-width:44px;
 }
 
-/* kolom JALUR */
 #jadwalTable th:nth-child(9),
-#jadwalTable td:nth-child(9) {
-  width: 40px;
+#jadwalTable td:nth-child(9){
+  min-width:36px;
 }
 
-/* RELASI */
 #jadwalTable th:nth-child(10),
-#jadwalTable td:nth-child(10) {
-  width: 80px;
+#jadwalTable td:nth-child(10){
+  min-width:70px;
 }
 
-/* NAMA KA (biar fleksibel tapi tidak terlalu lebar) */
 #jadwalTable th:nth-child(11),
-#jadwalTable td:nth-child(11) {
-  width: 140px;
+#jadwalTable td:nth-child(11){
+  min-width:90px;
 }
-  </style>
+
+/* ===== TTD ===== */
+
+.ttd{
+  margin-top:30px;
+  text-align:right;
+  font-size:12px;
+}
+
+.ttd img{
+  margin-top:8px;
+}
+
+.ttd strong{
+  text-decoration:underline;
+}
+
+/* ===== MOBILE ===== */
+
+@media screen and (max-width:768px){
+
+  body{
+    margin:6px;
+    font-size:11px;
+  }
+
+  .logo img{
+    height:30px;
+  }
+
+  h2{
+    font-size:15px;
+  }
+
+  h3{
+    font-size:11px;
+  }
+
+  #jadwalTable th,
+  #jadwalTable td{
+    padding:3px 4px;
+    font-size:9px;
+  }
+
+  #jadwalTable{
+    transform:scale(0.95);
+    transform-origin:top center;
+  }
+
+  .print-box button{
+    width:95%;
+  }
+
+}
+
+/* ===== PRINT ===== */
+
+@media print{
+
+  .print-box,
+  #searchInput{
+    display:none;
+  }
+
+  body{
+    background:white;
+    margin:0;
+  }
+
+  #jadwalTable{
+    box-shadow:none;
+  }
+
+}
+
+/* ===== WRAPPER TABEL + CHART ===== */
+.table-chart-container{
+  display:flex;
+  align-items:flex-start;
+  gap:20px;
+}
+
+/* tabel */
+.table-wrapper{
+  flex:1;
+  overflow-x:auto;
+}
+
+
+.chart-box h4{
+  text-align:center;
+  margin-top:0;
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+
+
+/* legend */
+.legend{
+  margin-top:15px;
+  font-size:12px;
+}
+
+.legend div{
+  display:flex;
+  align-items:center;
+  margin-bottom:6px;
+}
+
+.legend span{
+  width:14px;
+  height:14px;
+  display:inline-block;
+  margin-right:8px;
+  border-radius:50%;
+}
+
+.legend .pagi{
+  background:#2ecc71;
+}
+
+.legend .siang{
+  background:#f1c40f;
+}
+
+.legend .malam{
+  background:#3498db;
+}
+
+/* ===== MODE HP ===== */
+@media screen and (max-width:768px){
+
+  .table-chart-container{
+    flex-direction:column;
+  }
+
+  .chart-box{
+    width:100%;
+    position:relative;
+    top:auto;
+  }
+
+}
+
+.popup-link{
+  color:blue;
+  cursor:pointer;
+  text-decoration:underline;
+  font-weight:bold;
+}
+
+.popup{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+}
+
+.popup-content{
+  background:#fff;
+  width:90%;
+  max-width:500px;
+  margin:10% auto;
+  padding:20px;
+  border-radius:10px;
+  position:relative;
+}
+
+.close-popup{
+  position:absolute;
+  right:15px;
+  top:10px;
+  font-size:28px;
+  cursor:pointer;
+}
+
+
+</style>
 </head>
+
 <body>
-  
 
-  <div class="logo">
-    <img src="https://postimg.pro/images/2025/05/12/7xoe7o.jpg" alt="Logo KAI">
-    <img src="https://postimg.pro/images/2025/05/12/7xoXSB.jpg" alt="Logo BUMN" height="40">
-  </div>
+<!-- LOGO -->
 
-  <h2>JADWAL PERJALANAN KERETA API</h2>
-  <h3>STASIUN KARANGPUCUNG<br>Masa Angkutan Lebaran 2026</h3>
-    <div style="text-align: center; margin: 20px;">
-  <button onclick="window.print()" style="padding: 10px 20px; background-color: #0077b6; color: white; border: none; border-radius: 5px; cursor: pointer;">
+<div class="logo">
+
+  <img src="https://i.ibb.co.com/5hTcwVCt/Danantara-Indonesia-no-SW-svg.png" alt="Logo dana antara">
+
+  <img src="https://i.ibb.co.com/F41m7v86/LOGO-KAI.png" alt="Logo KAI">
+
+</div>
+
+<!-- JUDUL -->
+
+<h2>JADWAL PERJALANAN KERETA API</h2>
+
+<h3>
+STASIUN KARANGPUCUNG<br>
+Mei 2026
+</h3>
+
+<!-- BUTTON -->
+
+<div class="print-box">
+  <button onclick="window.print()">
     🖨️ Cetak
   </button>
 </div>
-    <input type="text" id="searchInput" placeholder="Cari berdasarkan No KA, Nama KA, atau Relasi...">
 
+<!-- SEARCH -->
+
+<input
+type="text"
+id="searchInput"
+placeholder="Cari No KA, Nama KA, Relasi..."
+>
+
+<div class="table-chart-container">
+
+  <div class="table-wrapper">
     <table id="jadwalTable">
-    <thead>
+          <thead>
       <tr>
         <th rowspan="2">NO</th>
         <th rowspan="2">NO KA</th>
-        <th colspan="2">BANJAR</th>
-        <th colspan="2">KARANGPUCUNG</th>
         <th colspan="2">BOJONG</th>
+        <th colspan="2">KARANGPUCUNG</th>
+        <th colspan="2">BANJAR</th>
         <th rowspan="2">JALUR</th>
         <th rowspan="2">RELASI</th>
+        <th rowspan="2">DOKUMEN</th>
         <th rowspan="2">NAMA KA</th>
       </tr>
       <tr>
@@ -338,106 +472,342 @@ tr.shift-malam td {
 
     </thead>
     <tbody>
-<tr><td>5</td><td>292</td><td>00:22</td><td>00:27</td><td>Ls</td><td>00:15</td><td>Ls</td><td>00:07</td><td>II</td><td>KAC-KTA</td><td>Kutojaya Selatan</td></tr>
+<tr><td>5</td><td>292</td><td>00:22</td><td>00:27</td><td>Ls</td><td>00:15</td><td>Ls</td><td>00:07</td><td>II</td><td>KAC-KTA</td><td>Gapeka 2025</td><td>Kutojaya Selatan</td></tr>
 
-<tr><td>6</td><td>7012C</td><td>01:07</td><td>01:12</td><td>Ls</td><td>01:01</td><td>Ls</td><td>00:55</td><td>II</td><td>BD-SLO</td><td>Pnp tamb</td></tr>
+<tr><td>6</td><td>7012C</td><td>Ls</td><td>00:55</td><td>Ls</td><td>01:01</td><td>01:07</td><td>01:12</td><td>II</td><td>BD-SLO</td><td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+    Jumat 8 Mei menghadap Sabtu 9 Mei s/d 
+          Minggu 10 Mei menghadap Senin 11 Mei, 
+          Rabu 13 Mei menghadap Kamis 14 Mei s/d 
+          Minggu 17 Mei menghadap Senin 18 Mei, 
+          Jumat 22 Mei menghadap Sabtu 23 Mei s/d 
+          Minggu 31 Mei menghadap Senin 1 Juni 2026">
+    
+    OMR/326
+</td><td>Pnp tamb</td></tr>
 
-<tr><td>7</td><td>71</td><td>01:33</td><td>01:37</td><td>Ls</td><td>01:43</td><td>Ls</td><td>01:51</td><td>II</td><td>SGU-BD</td><td>Mutiara Selatan</td></tr>
+<tr><td>7</td><td>71</td><td>Ls</td><td>01:51</td><td>Ls</td><td>01:43</td><td>01:33</td><td>01:37</td><td>II</td><td>SGU-BD</td><td>Gapeka 2025</td><td>Mutiara Selatan</td></tr>
 
-<tr><td>8</td><td>67</td><td>01:59</td><td>02:04</td><td>Ls</td><td>02:10</td><td>Ls</td><td>02:18</td><td>II</td><td>ML-BD</td><td>Malabar</td></tr>
+<tr><td>8</td><td>67</td><td>Ls</td><td>02:18</td><td>Ls</td><td>02:10</td><td>01:59</td><td>02:04</td><td>II</td><td>ML-BD</td><td>Gapeka 2025</td><td>Malabar</td></tr>
 
-<tr><td>9</td><td>7013C</td><td>02:10</td><td>02:17</td><td>Ls</td><td>02:24</td><td>Ls</td><td>02:31</td><td>II</td><td>SLO-BD</td><td>Pnp tamb</td></tr>
+<tr><td>9</td><td>7013C</td><td>Ls</td><td>02:31</td><td>Ls</td><td>02:24</td><td>02:10</td><td>02:17</td><td>II</td><td>SLO-BD</td>
+  <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+    Jumat 1 Mei menghadap Sabtu 2 Mei s/d 
+          Minggu 3 Mei menghadap Senin 4 Mei, 
+          Jumat 8 Mei menghadap Sabtu 9 Mei s/d 
+          Minggu 10 Mei menghadap Senin 11 Mei, 
+          Rabu 13 Mei menghadap Kamis 14 Mei s/d 
+          Minggu 17 Mei menghadap Senin 18 Mei, 
+          Jumat 22 Mei menghadap Sabtu 23 Mei s/d 
+          Minggu 31 Mei menghadap Senin 1 Juni 2026">
+    
+    OMR/326
+</td><td>Pnp tamb</td></tr>
 
-<tr><td>10</td><td>274</td><td>02:14</td><td>02:21</td><td>Ls</td><td>02:30</td><td>02:39</td><td>02:44</td><td>II</td><td>KAC-BL</td><td>Kahuripan</td></tr>
+<tr><td>10</td><td>274</td><td>02:14</td><td>02:21</td><td>Ls</td><td>02:30</td><td>02:39</td><td>02:44</td><td>II</td><td>KAC-BL</td><td>Gapeka 2025</td><td>Kahuripan</td></tr>
 
-<tr><td>11</td><td>11</td><td>02:35</td><td>02:41</td><td>Ls</td><td>02:47</td><td>Ls</td><td>02:54</td><td>II</td><td>SGU-BD</td><td>Turangga</td></tr>
+<tr><td>11</td><td>11</td><td>Ls</td><td>02:54</td><td>Ls</td><td>02:47</td><td>02:35</td><td>02:41</td><td>II</td><td>SGU-BD</td><td>Gapeka 2025</td><td>Turangga</td></tr>
 
-<tr><td>12</td><td>288</td><td>03:35</td><td>03:41</td><td>Ls</td><td>03:28</td><td>Ls</td><td>03:20</td><td>II</td><td>PSE-KYA</td><td>Serayu</td></tr>
+<tr><td>12</td><td>288</td><td>Ls</td><td>03:20</td><td>Ls</td><td>03:28</td><td>03:35</td><td>03:41</td><td>II</td><td>PSE-KYA</td><td>Gapeka 2025</td><td>Serayu</td></tr>
 
-<tr><td>13</td><td>273</td><td>03:39</td><td>03:44</td><td>Ls</td><td>03:51</td><td>Ls</td><td>03:59</td><td>II</td><td>BL-KAC</td><td>Kahuripan</td></tr>
+<tr><td>13</td><td>273</td><td>Ls</td><td>03:59</td><td>Ls</td><td>03:51</td><td>03:39</td><td>03:44</td><td>II</td><td>BL-KAC</td><td>Gapeka 2025</td><td>Kahuripan</td></tr>
 
-<tr><td>14</td><td>7043</td><td>04:40</td><td>04:53</td><td>Ls</td><td>04:59</td><td>Ls</td><td>05:06</td><td>II</td><td>SGU-BD</td><td>Sangkuriang</td></tr>
+<tr><td>14</td><td>7043</td><td>Ls</td><td>05:06</td><td>Ls</td><td>04:59</td><td>04:40</td><td>04:53</td><td>II</td><td>SGU-BD</td>
+      <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+    sabtu 2 mei menghadap minggu 3 mei s/d 
+          minggu 31 mei menghadap senin 1 juni 2026">
+    
+    OMR/257
+</td><td>Sangkuriang</td></tr>
 
-<tr class="shift-pagi"><td colspan="11">SHIFT PAGI</td></tr>
+<tr class="shift-pagi"><td colspan="12">SHIFT PAGI</td></tr>
 
-<tr><td>1</td><td>305</td><td>Ls</td><td>6:06</td><td>Ls</td><td>5:59</td><td>5:47</td><td>5:52</td><td>II</td><td>SB-BD</td><td>Parcel Selatan</td></tr>
 
-<tr class="stop-karangpucung"><td>2</td><td>D2/10625</td><td>06.27</td><td>06.29</td><td>06.12</td><td>06.14</td><td></td><td>06.01</td><td>II</td><td>BJR-TSM</td><td>KPJ</td></tr>
+<tr><td>1</td><td>305</td><td>Ls</td><td>06:06</td><td>Ls</td><td>05:59</td><td>05:47</td><td>05:52</td><td>II</td><td>SB-BD</td><td>GAPEKA 2025</td><td>Parcel Selatan</td></tr>
 
-<tr><td>3</td><td>283A</td><td>9:36</td><td>9:43</td><td>Ls</td><td>9:28</td><td>9:19</td><td>9:22</td><td>II</td><td>KYA-PSE</td><td>Serayu</td></tr>
+<tr><td>2</td><td><b>D2/10625</b></td><td>06:27</td><td>06:29</td><td style="background:red; color:white;">06:12</td><td style="background:red; color:white;">06:14</td><td></td><td>06:01</td><td>II</td><td>BJR-TSM</td>
+      <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    PO2/181
+</td><td>Kpj</td></tr>
 
-<tr><td>4</td><td>78C</td><td>Ls</td><td>9:41</td><td>Ls</td><td>9:48</td><td>9:54</td><td>9:58</td><td>II</td><td>BD-SLO</td><td>Lodaya</td></tr>
+<tr><td>3</td><td>283A</td><td>09:36</td><td>09:43</td><td>Ls</td><td>09:28</td><td>09:19</td><td>09:22</td><td>II</td><td>KYA-PSE</td><td>GAPEKA 2025</td><td>Serayu</td></tr>
 
-<tr><td>5</td><td>10B</td><td>Ls</td><td>10:44</td><td>Ls</td><td>10:50</td><td>10:56</td><td>10:59</td><td>II</td><td>BD-SGU</td><td>Argo Wilis</td></tr>
+<tr><td>4</td><td>78C</td><td>Ls</td><td>09:41</td><td>Ls</td><td>09:48</td><td>09:54</td><td>09:58</td><td>II</td><td>BD-SLO</td>
+    <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    OMR/258
+</td><td>Lodaya</td></tr>
 
-<tr class="stop-karangpucung"><td>8</td><td>7011C</td><td>Ls</td><td>11:45</td><td>Ls</td><td>11:38</td><td>11:27</td><td>11:32</td><td>II</td><td>SLO-BD</td><td>Lodaya</td></tr>
+<tr><td>5</td><td>10B</td><td>Ls</td><td>10:44</td><td>Ls</td><td>10:50</td><td>10:56</td><td>10:59</td><td>II</td><td>BD-SGU</td>
+    <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    OMR/258
+</td><td>Argo Wilis</td></tr>
 
-<tr><td>7</td><td>70</td><td>Ls</td><td>12:43</td><td>Ls</td><td>12:50</td><td>12:56</td><td>13:01</td><td>II</td><td>BD-ML</td><td>Malabar</td></tr>
+<tr><td>6</td><td>77C</td><td>Ls</td><td>11:45</td><td>Ls</td><td>11:38</td><td>11:27</td><td>11:32</td><td>II</td><td>SLO-BD</td>
+    <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    OMR/258
+</td><td>Lodaya</td></tr>
 
-<tr><td>8</td><td>7011C</td><td>Ls</td><td>12:59</td><td>12:46</td><td>12:52</td><td>12:34</td><td>12:39</td><td>I</td><td>SLO-BD</td><td>Pnp tamb</td></tr>
+<tr><td>7</td><td>70</td><td>Ls</td><td>12:43</td><td>Ls</td><td>12:50</td><td>12:56</td><td>13:01</td><td>II</td><td>BD-ML</td><td>GAPEKA 2025</td><td>Malabar</td></tr>
 
-<tr><td>9</td><td>291A</td><td>Ls</td><td>13:40</td><td>Ls</td><td>13:33</td><td>13:22</td><td>13:27</td><td>II</td><td>KTA-KAC</td><td>Kutojaya Selatan</td></tr>
+<tr><td>8</td><td><b>KP/7011D</b></td><td>Ls</td><td>12:59</td><td style="background:red; color:white;">12:46</td><td style="background:red; color:white;">12:52</td><td>12:34</td><td>12:39</td><td>I</td><td>SLO-BD</td>
+    <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+    jumat 8 mei s/d minggu 10 mei, rabu 13 Mei s/d minggu 17 mei, jumat 22 Mei s/d 
+          minggu 31 mei 2026">
+    
+    OMR/271
+</td><td>Pnp tamb</td></tr>
 
-<tr class="shift-siang"><td colspan="11">SHIFT SIANG</td></tr>
+<tr><td>9</td><td>291A</td><td>Ls</td><td>13:40</td><td>Ls</td><td>13:33</td><td>13:22</td><td>13:27</td><td>II</td><td>KTA-KAC</td>
+      <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    OMR/258
+</td><td>Kutojaya Selatan</td></tr>
 
-<tr><td>1</td><td>7014C</td><td>Ls</td><td>14:03</td><td>Ls</td><td>14:12</td><td>14:19</td><td>14:28</td><td>II</td><td>BD-SLO</td><td>Pnp tamb</td></tr>
+<tr class="shift-siang"><td colspan="12">SHIFT SIANG</td></tr>
 
-<tr><td>2</td><td>275B</td><td>Ls</td><td>14:15</td><td>Ls</td><td>14:08</td><td></td><td>14:02</td><td>II</td><td>SGU-KAC</td><td>Pasundan</td></tr>
+<tr><td>1</td><td>7014C</td><td>Ls</td><td>14:03</td><td>Ls</td><td>14:12</td><td>14:19</td><td>14:28</td><td>II</td><td>BD-SLO</td>
+  <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+    Jumat 1 Mei s/d Minggu 3 Mei, 
+          Jumat 8 Mei s/d Minggu 10 Mei, 
+          Rabu 13 Mei s/d Minggu 17 Mei, 
+          Jumat 22 Mei s/d Minggu 31 Mei 2026">
+    
+    OMR/326
+</td><td>Pnp tamb</td></tr>
 
-<tr><td>3</td><td>69</td><td>Ls</td><td>14:44</td><td>Ls</td><td>14:37</td><td>14:26</td><td>14:30</td><td>II</td><td>ML-BD</td><td>Malabar</td></tr>
+<tr><td>2</td><td>275B</td><td>Ls</td><td>14:15</td><td>Ls</td><td>14:08</td><td></td><td>14:02</td><td>II</td><td>SGU-KAC</td><td>PPK NO.5</td><td>Pasundan</td></tr>
 
-<tr class="stop-karangpucung"><td>4</td><td>276</td><td>14:40:00</td><td>14:46</td><td>14:56</td><td>15:03</td><td>15:10</td><td>15:15</td><td>I</td><td>KAC-SGU</td><td>Pasundan</td></tr>
+<tr><td>3</td><td>69</td><td>Ls</td><td>14:44</td><td>Ls</td><td>14:37</td><td>14:26</td><td>14:30</td><td>II</td><td>ML-BD</td><td>GAPEKA 2025</td><td>Malabar</td></tr>
 
-<tr><td>5</td><td>9A</td><td>Ls</td><td>15:08</td><td>Ls</td><td>15:01</td><td>14:51</td><td>14:54</td><td>II</td><td>SGU-BD</td><td>Argo Wilis</td></tr>
+<tr><td>4</td><td><b>276</b></td><td>14:40</td><td>14:46</td><td style="background:red; color:white;">14:56</td><td style="background:red; color:white;">15:03</td><td>15:10</td><td>15:15</td><td>I</td><td>KAC-SGU</td><td>GAPEKA 2025</td><td>Pasundan</td></tr>
 
-<tr><td>6</td><td>128B</td><td>Ls</td><td>15:54</td><td>Ls</td><td>16:01</td><td>16:08</td><td></td><td>II</td><td>GMR-BJR</td><td>Pangandaran</td></tr>
+<tr><td>5</td><td>9A</td><td>Ls</td><td>15:08</td><td>Ls</td><td>15:01</td><td>14:51</td><td>14:54</td><td>II</td><td>SGU-BD</td><td>PPK NO.5</td><td>Argo Wilis</td></tr>
 
-<tr class="stop-karangpucung"><td>7</td><td>D2/11128</td><td>16.37</td><td>16.39</td><td>16.52</td><td>17.08</td><td>17.19</td><td></td><td>III</td><td>TSM-BJR</td><td>KPJ</td></tr>
+<tr><td>6</td><td>128B</td><td>Ls</td><td>15:54</td><td>Ls</td><td>16:01</td><td>16:08</td><td></td><td>II</td><td>GMR-BJR</td><td>PPK NO.5</td><td>Pangandaran</td></tr>
 
-<tr><td>8</td><td>127C</td><td>Ls</td><td>17:08</td><td>Ls</td><td>17:01</td><td></td><td>16:55</td><td>II</td><td>BJR-GMR</td><td>Pangandaran</td></tr>
+<tr><td>7</td><td><b>D2/11128</b></td><td>16:37</td><td>16:39</td><td style="background:red; color:white;">16:52</td><td style="background:red; color:white;">17:08</td><td>17:19</td><td></td><td>III</td><td>TSM-BJR</td>
+        <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    PO2/181
+</td><td>Kpj</td></tr>
 
-<tr><td>9</td><td>284B</td><td>Ls</td><td>17:31</td><td>Ls</td><td>17:39</td><td>17:45</td><td>17:50</td><td>II</td><td>PSE-KYA</td><td>Serayu</td></tr>
+<tr><td>8</td><td>127C</td><td>Ls</td><td>17:08</td><td>Ls</td><td>17:01</td><td></td><td>16:55</td><td>II</td><td>BJR-GMR</td><td>PPK NO.5</td><td>Pangandaran</td></tr>
 
-<tr><td>10</td><td>7044</td><td>Ls</td><td>18:06</td><td>Ls</td><td>18:13</td><td>18:19</td><td>18:22</td><td>II</td><td>BD-SGU</td><td>Sangkuriang</td></tr>
+<tr><td>9</td><td>284B</td><td>Ls</td><td>17:31</td><td>Ls</td><td>17:39</td><td>17:45</td><td>17:50</td><td>II</td><td>PSE-KYA</td>
+      <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    OMR/258
+</td><td>Serayu</td></tr>
 
-<tr><td>11</td><td>287A</td><td>Ls</td><td>19:35</td><td>Ls</td><td>19:27</td><td>19:16</td><td>19:20</td><td>II</td><td>KYA-PSE</td><td>Serayu</td></tr>
+<tr><td>10</td><td>7044</td><td>Ls</td><td>18:06</td><td>Ls</td><td>18:13</td><td>18:19</td><td>18:22</td><td>II</td><td>BD-SGU</td>
+      <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+    jumat 1 mei menghadap sabtu 2 mei s/d 
+          minggu 31 mei menghadap senin 1 juni 2026">
+    
+    OMR/257
+</td><td>Sangkuriang</td></tr>
 
-<tr><td>12</td><td>12</td><td>Ls</td><td>20:40</td><td>Ls</td><td>20:47</td><td>20:53</td><td>20:56</td><td>II</td><td>BD-SGU</td><td>Turangga</td></tr>
+<tr><td>11</td><td>287A</td><td>Ls</td><td>19:35</td><td>Ls</td><td>19:27</td><td>19:16</td><td>19:20</td><td>II</td><td>KYA-PSE</td>      
+  <td class="popup-link" 
+    data-title="OMR/326"
+    data-desc="JALAN : 
+   jumat 1 mei s/d minggu 31 mei 2026">
+    OMR/258
+</td><td>Serayu</td></tr>
 
-<tr><td>13</td><td>68</td><td>Ls</td><td>21:27</td><td>Ls</td><td>21:34</td><td>21:40</td><td>21:44</td><td>II</td><td>BD-ML</td><td>Malabar</td></tr>
+<tr><td>12</td><td>12</td><td>Ls</td><td>20:40</td><td>Ls</td><td>20:47</td><td>20:53</td><td>20:56</td><td>II</td><td>BD-SGU</td><td>GAPEKA 2025</td><td>Turangga</td></tr>
 
-<tr class="shift-malam"><td colspan="11">SHIFT MALAM</td></tr>
+<tr><td>13</td><td>68</td><td>Ls</td><td>21:27</td><td>Ls</td><td>21:34</td><td>21:40</td><td>21:44</td><td>II</td><td>BD-ML</td><td>GAPEKA 2025</td><td>Malabar</td></tr>
 
-<tr><td>1</td><td>306</td><td>Ls</td><td>21:53</td><td>Ls</td><td>22.00</td><td>22:06</td><td>22:11</td><td>II</td><td>BD-SB</td><td>Parcel Selatan</td></tr>
+<tr class="shift-malam"><td colspan="12">SHIFT MALAM</td></tr>
 
-<tr><td>2</td><td>80B</td><td>Ls</td><td>22:15</td><td>Ls</td><td>22:22</td><td>22:28</td><td>22:32</td><td>II</td><td>BD-SLO</td><td>Lodaya</td></tr>
+<tr><td>1</td><td>306</td><td>Ls</td><td>21:53</td><td>Ls</td><td>22:00</td><td>22:06</td><td>22:11</td><td>II</td><td>BD-SB</td><td>GAPEKA 2025</td><td>Parcel Selatan</td></tr>
 
-<tr><td>3</td><td>72</td><td>Ls</td><td>23:11</td><td>Ls</td><td>23:18</td><td>23:24</td><td>23:30</td><td>II</td><td>BD-SGU</td><td>Mutiara Selatan</td></tr>
+<tr><td>2</td><td>80B</td><td>Ls</td><td>22:15</td><td>Ls</td><td>22:22</td><td>22:28</td><td>22:32</td><td>II</td><td>BD-SLO</td><td>PPK NO.5</td><td>Lodaya</td></tr>
 
-<tr><td>4</td><td>79B</td><td>Ls</td><td>23:47</td><td>Ls</td><td>23:40</td><td>23:28</td><td>23:33</td><td>II</td><td>SLO-BD</td><td>Lodaya</td></tr>
+<tr><td>3</td><td>72</td><td>Ls</td><td>23:11</td><td>Ls</td><td>23:18</td><td>23:24</td><td>23:30</td><td>II</td><td>BD-SGU</td><td>GAPEKA 2025</td><td>Mutiara Selatan</td></tr>
+
+<tr><td>4</td><td>79B</td><td>Ls</td><td>23:47</td><td>Ls</td><td>23:40</td><td>23:28</td><td>23:33</td><td>II</td><td>SLO-BD</td><td>PPK NO.5</td><td>Lodaya</td></tr>
     </tbody>
   </table>
-
-  <div class="ttd">
-    <p>KEPALA STASIUN<br> KARANGPUCUNG</p>
-    <img src="https://postimg.pro/images/2025/05/31/7x3gEx.png" alt="Tanda Tangan" height="90">
-    <p><strong>YUSUP RONI</strong><br>49314</p>
+    </table>
   </div>
 
 
 
-  <script>
-    document.getElementById("searchInput").addEventListener("keyup", function() {
-      const input = this.value.toLowerCase();
-      const rows = document.querySelectorAll("#jadwalTable tbody tr");
 
-      rows.forEach(row => {
-        const cells = row.querySelectorAll("td");
-        const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(input));
-        row.style.display = match ? "" : "none";
-      });
-    });
-  </script>
+
+<!-- ===== SCRIPT SEARCH ===== -->
+
+<script>
+
+document
+.getElementById("searchInput")
+.addEventListener("keyup", function(){
+
+  const input = this.value.toLowerCase();
+
+  const rows = document.querySelectorAll(
+    "#jadwalTable tbody tr"
+  );
+
+  rows.forEach(row => {
+
+    const cells = row.querySelectorAll("td");
+
+    const match = Array.from(cells).some(cell =>
+      cell.textContent
+      .toLowerCase()
+      .includes(input)
+    );
+
+    row.style.display = match ? "" : "none";
+
+  });
+
+});
+
+</script>
+<!-- CHART JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+/* ===== HITUNG SHIFT ===== */
+function hitungShift() {
+
+  const rows = document.querySelectorAll("#jadwalTable tbody tr");
+
+  let pagi = 9;
+  let siang = 13;
+  let malam = 14;
+
+  rows.forEach(row => {
+
+    if(row.classList.contains("shift-pagi")){
+      pagi++;
+    }
+
+    if(row.classList.contains("shift-siang")){
+      siang++;
+    }
+
+    if(row.classList.contains("shift-malam")){
+      malam++;
+    }
+
+  });
+
+  const ctx = document.getElementById("shiftChart");
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [
+        'Shift Pagi',
+        'Shift Siang',
+        'Shift Malam'
+      ],
+      datasets: [{
+        data: [9, 13, 14],
+        backgroundColor: [
+          '#43a047',
+          '#fb8c00',
+          '#e53935'
+        ],
+        borderWidth: 2
+      }]
+    },
+
+    options: {
+      responsive:true,
+      plugins:{
+        legend:{
+          display:false
+        },
+        tooltip:{
+          callbacks:{
+            label:function(context){
+
+              const total = pagi + siang + malam;
+              const value = context.raw;
+
+              const persen =
+                ((value / total) * 100).toFixed(1);
+
+              return value + " KA (" + persen + "%)";
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+hitungShift();
+</script>
+<div id="popupBox" class="popup">
+  <div class="popup-content">
+    <span class="close-popup">&times;</span>
+
+    <h2 id="popupTitle"></h2>
+    <p id="popupDesc"></p>
+
+  </div>
+</div>
+<script>
+const popupLinks = document.querySelectorAll(".popup-link");
+const popup = document.getElementById("popupBox");
+const popupTitle = document.getElementById("popupTitle");
+const popupDesc = document.getElementById("popupDesc");
+const closePopup = document.querySelector(".close-popup");
+
+popupLinks.forEach(link => {
+  link.addEventListener("click", function() {
+    popupTitle.innerText = this.dataset.title;
+    popupDesc.innerText = this.dataset.desc;
+    popup.style.display = "block";
+  });
+});
+
+closePopup.onclick = function() {
+  popup.style.display = "none";
+}
+
+window.onclick = function(e) {
+  if(e.target == popup){
+    popup.style.display = "none";
+  }
+}
+</script>
 </body>
 </html>
 
