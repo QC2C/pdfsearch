@@ -108,7 +108,197 @@ thead tr:nth-child(2) th{
   color:white;
   z-index:2;
 }
+/* Tebalkan semua data jam di kolom KARANGPUCUNG (DAT & BER) */
+#jadwalTable tbody td:nth-child(5),
+#jadwalTable tbody td:nth-child(6) {
+  font-weight: bold;
+}
 
+/* (opsional) tebalkan juga header KARANGPUCUNG */
+#jadwalTable thead tr:nth-child(2) th:nth-child(3),
+#jadwalTable thead tr:nth-child(2) th:nth-child(4) {
+  font-weight: bold;
+}
+/* KOLOM KHUSUS KARANGPUCUNG */
+#jadwalTable tbody td:nth-child(5),
+#jadwalTable tbody td:nth-child(6) {
+  font-weight: bold;
+  background-color: #fff3b0; /* kuning lembut */
+  color: #000;
+}
+
+/* garis pembatas kiri-kanan biar beda jelas */
+#jadwalTable tbody td:nth-child(5) {
+  border-left: 3px solid #ff8800;
+}
+
+#jadwalTable tbody td:nth-child(6) {
+  border-right: 3px solid #ff8800;
+}
+
+/* header KARANGPUCUNG juga dibedakan */
+#jadwalTable thead tr:nth-child(1) th:nth-child(4) {
+  background-color: #ff8800;
+  color: white;
+}
+/* SHIFT PAGI */
+tr.shift-pagi td {
+  background-color: #d8f3dc;
+  font-weight: bold;
+  color: #1b4332;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SHIFT SIANG */
+tr.shift-siang td {
+  background-color: #fff3b0;
+  font-weight: bold;
+  color: #7a5c00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SHIFT MALAM */
+tr.shift-malam td {
+  background-color: #dbeafe;
+  font-weight: bold;
+  color: #1e3a8a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* efek garis pembatas biar makin tegas */
+tr.shift-pagi td,
+tr.shift-siang td,
+tr.shift-malam td {
+  border-top: 3px solid #333;
+  border-bottom: 3px solid #333;
+  text-align: center;
+}
+/* Highlight KA yang berhenti di Karangpucung */
+.stop-karangpucung td {
+  background-color: #ffd6d6; /* merah muda lembut */
+  font-weight: bold;
+}
+
+/* efek garis kiri biar lebih “warning” */
+.stop-karangpucung td:nth-child(5),
+.stop-karangpucung td:nth-child(6) {
+  border-left: 3px solid #e63946;
+  border-right: 3px solid #e63946;
+}
+/* ===== RESPONSIVE MODE HP POTRAIT ===== */
+@media screen and (max-width: 768px) {
+
+  body {
+    margin: 10px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  /* tabel bisa digeser horizontal (penting) */
+  #jadwalTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    padding: 6px;
+    font-size: 11px;
+  }
+
+  /* kolom penting tetap terbaca */
+  .highlight,
+  .stop-karangpucung td {
+    font-size: 11px;
+  }
+
+  /* tombol & search full lebar */
+  #searchInput {
+    width: 95%;
+    font-size: 12px;
+  }
+
+  button {
+    width: 95%;
+    font-size: 13px;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+}
+/* biar tabel tidak pecah layout */
+#jadwalTable {
+  min-width: 900px;
+}
+
+/* supaya tabel tidak pakai lebar kaku */
+#jadwalTable {
+  width: 100%;
+  table-layout: auto; /* penting: bikin kolom menyesuaikan isi */
+}
+
+/* semua cell jadi rapih & tidak terlalu lebar */
+#jadwalTable th,
+#jadwalTable td {
+  white-space: nowrap; /* mencegah teks turun baris */
+  padding: 6px 4px;
+}
+
+/* kolom NO & NO KA dipersempit */
+#jadwalTable th:nth-child(1),
+#jadwalTable td:nth-child(1) {
+  width: 30px;
+}
+
+#jadwalTable th:nth-child(2),
+#jadwalTable td:nth-child(2) {
+  width: 60px;
+}
+
+/* kolom stasiun (DAT/BER) lebih kecil */
+#jadwalTable th:nth-child(3),
+#jadwalTable th:nth-child(4),
+#jadwalTable th:nth-child(5),
+#jadwalTable th:nth-child(6),
+#jadwalTable th:nth-child(7),
+#jadwalTable th:nth-child(8),
+#jadwalTable td:nth-child(3),
+#jadwalTable td:nth-child(4),
+#jadwalTable td:nth-child(5),
+#jadwalTable td:nth-child(6),
+#jadwalTable td:nth-child(7),
+#jadwalTable td:nth-child(8) {
+  width: 55px;
+}
+
+/* kolom JALUR */
+#jadwalTable th:nth-child(9),
+#jadwalTable td:nth-child(9) {
+  width: 40px;
+}
+
+/* RELASI */
+#jadwalTable th:nth-child(10),
+#jadwalTable td:nth-child(10) {
+  width: 80px;
+}
+
+/* NAMA KA (biar fleksibel tapi tidak terlalu lebar) */
+#jadwalTable th:nth-child(11),
+#jadwalTable td:nth-child(11) {
+  width: 140px;
+}
   </style>
 </head>
 <body>
@@ -148,43 +338,83 @@ thead tr:nth-child(2) th{
 
     </thead>
     <tbody>
-      <tr><td>1</td><td>292</td><td>00:22</td><td>00:27</td><td>Ls</td><td>00:15</td><td>Ls</td><td>00:07</td><td>II</td><td>KAC-KTA</td><td>Kutojaya Selatan</td></tr>
-<tr><td>2</td><td>7012C</td><td>01:07</td><td>01:12</td><td>Ls</td><td>01:01</td><td>Ls</td><td>00:55</td><td>II</td><td>BD-SLO</td><td>Lodaya Tambahan</td></tr>
-<tr><td>3</td><td>71</td><td>01:33</td><td>01:37</td><td>Ls</td><td>01:43</td><td>Ls</td><td>01:51</td><td>II</td><td>SGU-BD</td><td>Mutiara Selatan</td></tr>
-<tr><td>4</td><td>67</td><td>01:59</td><td>02:04</td><td>Ls</td><td>02:10</td><td>Ls</td><td>02:18</td><td>II</td><td>ML-BD</td><td>Malabar</td></tr>
-<tr><td>5</td><td>7013C</td><td>02:10</td><td>02:17</td><td>Ls</td><td>02:24</td><td>Ls</td><td>02:31</td><td>II</td><td>SLO-BD</td><td>Lodaya Tambahan</td></tr>
-<tr><td>6</td><td>274</td><td>02:39</td><td>02:44</td><td>Ls</td><td>02:30</td><td>02:14</td><td>02:21</td><td>II</td><td>KAC-BL</td><td>Kahuripan</td></tr>
-<tr><td>7</td><td>11</td><td>02:35</td><td>02:41</td><td>Ls</td><td>02:47</td><td>Ls</td><td>02:54</td><td>II</td><td>SGU-BD</td><td>Turangga</td></tr>
-<tr><td>8</td><td>288</td><td>03:35</td><td>03:41</td><td>Ls</td><td>03:28</td><td>Ls</td><td>03:20</td><td>II</td><td>PSE-KYA</td><td>Serayu</td></tr>
-<tr><td>9</td><td>273</td><td>03:39</td><td>03:44</td><td>Ls</td><td>03:51</td><td>Ls</td><td>03:59</td><td>II</td><td>BL-KAC</td><td>Kahuripan</td></tr>
-<tr><td>10</td><td>305</td><td>05:47</td><td>05:52</td><td>Ls</td><td>05:59</td><td>Ls</td><td>06:06</td><td>II</td><td>SB-BD</td><td>Parcel Selatan</td></tr>
-<tr class="highlight"><td>11</td><td>D2/10625</td><td></td><td>06:01</td><td>06:12</td><td>06:14</td><td>06:27</td><td>06:29</td><td>II</td><td>BJR-TSM</td><td>Klb Dinas</td></tr>
-<tr><td>12</td><td>7030B</td><td>09:07</td><td>09:21</td><td>Ls</td><td>09:01</td><td>Ls</td><td>08:54</td><td>II</td><td>KAC-KTA</td><td>Kutsel Tambahan</td></tr>
-<tr><td>13</td><td>283</td><td>09:19</td><td>09:22</td><td>Ls</td><td>09:28</td><td>09:36</td><td>09:43</td><td>II</td><td>KYA-PSE</td><td>Serayu</td></tr>
-<tr><td>14</td><td>78B</td><td>09:54</td><td>09:58</td><td>Ls</td><td>09:48</td><td>Ls</td><td>09:41</td><td>II</td><td>BD-SLO</td><td>Lodaya</td></tr>
-<tr><td>15</td><td>10A</td><td>10:46</td><td>10:49</td><td>Ls</td><td>10:40</td><td>Ls</td><td>10:34</td><td>II</td><td>BD-SGU</td><td>Argo Wilis</td></tr>
-<tr><td>17</td><td>77B</td><td>11:28</td><td>11:32</td><td>Ls</td><td>11:38</td><td>Ls</td><td>11:45</td><td>II</td><td>SLO-BD</td><td>Lodaya</td></tr>
-<tr class="highlight"><td>18</td><td>7011C</td><td>12:34</td><td>12:39</td><td>12:46</td><td>12:52</td><td>Ls</td><td>12:59</td><td>I</td><td>SLO-BD</td><td>Lodaya Tambahan</td></tr>
-<tr><td>19</td><td>70</td><td>12:56</td><td>13:01</td><td>Ls</td><td>12:50</td><td>Ls</td><td>12:43</td><td>II</td><td>BD-ML</td><td>Malabar</td></tr>
-<tr><td>20</td><td>291</td><td>13:22</td><td>13:27</td><td>Ls</td><td>13:33</td><td>Ls</td><td>13:40</td><td>II</td><td>KTA-KAC</td><td>Kutojaya Selatan</td></tr>
-<tr><td>21</td><td>275B</td><td>13:57</td><td>14:02</td><td>Ls</td><td>14:08</td><td>Ls</td><td>14:15</td><td>II</td><td>SGU-KAC</td><td>Pasundan</td></tr>
-<tr><td>22</td><td>7014C</td><td>14:19</td><td>14:28</td><td>Ls</td><td>14:12</td><td>Ls</td><td>14:03</td><td>II</td><td>BD-SLO</td><td>Lodaya Tambahan</td></tr>
-<tr><td>23</td><td>69</td><td>14:26</td><td>14:30</td><td>Ls</td><td>14:37</td><td>Ls</td><td>14:44</td><td>II</td><td>ML-BD</td><td>Malabar</td></tr>
-<tr class="highlight"><td>24</td><td>276</td><td>15:10</td><td>15:15</td><td>14:56</td><td>15:03</td><td>14:40</td><td>14:46</td><td>I</td><td>KAC-SGU</td><td>Pasundan</td></tr>
-<tr><td>25</td><td>9A</td><td>14:51</td><td>14:54</td><td>Ls</td><td>15:01</td><td>Ls</td><td>15:08</td><td>II</td><td>SGU-BD</td><td>Argo Wilis</td></tr>
-<tr><td>26</td><td>128B</td><td>16:08</td><td></td><td>Ls</td><td>16:01</td><td>Ls</td><td>15:54</td><td>II</td><td>GMR-BJR</td><td>Pangandaran</td></tr>
-<tr class="highlight"><td>27</td><td>D2/11128</td><td>17:19</td><td></td><td>16:52</td><td>17:08</td><td>16:37</td><td>16:39</td><td>III</td><td>TSM-BJR</td><td>Klb Dinas</td></tr>
-<tr><td>28</td><td>127B</td><td></td><td>17:00</td><td>Ls</td><td>17:06</td><td>Ls</td><td>17:13</td><td>II</td><td>BJR-GMR</td><td>Pangandaran</td></tr>
-<tr><td>29</td><td>284</td><td>17:49</td><td>17:54</td><td>Ls</td><td>17:43</td><td>Ls</td><td>17:35</td><td>II</td><td>PSE-KYA</td><td>Serayu</td></tr>
-<tr><td>30</td><td>287</td><td>19:01</td><td>19:06</td><td>Ls</td><td>19:13</td><td>Ls</td><td>19:21</td><td>II</td><td>KYA-PSE</td><td>Serayu</td></tr>
-<tr><td>31</td><td>7021B</td><td>19:46</td><td>19:51</td><td>Ls</td><td>19:58</td><td>20:06</td><td>20:13</td><td>II</td><td>SGU-KAC</td><td>PNP tam Kac</td></tr>
-<tr><td>32</td><td>12</td><td>20:53</td><td>20:56</td><td>Ls</td><td>20:47</td><td>Ls</td><td>20:40</td><td>II</td><td>BD-SGU</td><td>Turangga</td></tr>
-<tr class="highlight"><td>33</td><td>7029A</td><td>21:16</td><td>21:21</td><td>21:29</td><td>21:36</td><td>Ls</td><td>21:44</td><td>I</td><td>KTA-KAC</td><td>Kutsel Tamb</td></tr>
-<tr><td>34</td><td>68</td><td>21:40</td><td>21:44</td><td>Ls</td><td>21:34</td><td>Ls</td><td>21:27</td><td>II</td><td>BD-ML</td><td>Malabar</td></tr>
-<tr><td>35</td><td>306</td><td>22:06</td><td>22:11</td><td>Ls</td><td>22:00</td><td>Ls</td><td>21:53</td><td>II</td><td>BD-SB</td><td>Parcel Selatan</td></tr>
-<tr><td>36</td><td>80B</td><td>22:28</td><td>22:31</td><td>Ls</td><td>22:22</td><td>Ls</td><td>22:15</td><td>II</td><td>BD-SLO</td><td>Lodaya</td></tr>
-<tr><td>37</td><td>72</td><td>23:24</td><td>23:30</td><td>Ls</td><td>23:18</td><td>Ls</td><td>23:11</td><td>II</td><td>BD-SGU</td><td>Mutiara Selatan</td></tr>
-<tr><td>38</td><td>79B</td><td>23:29</td><td>23:34</td><td>Ls</td><td>23:40</td><td>Ls</td><td>23:47</td><td>II</td><td>SLO-BD</td><td>Lodaya</td></tr>
+<tr><td>5</td><td>292</td><td>00:22</td><td>00:27</td><td>Ls</td><td>00:15</td><td>Ls</td><td>00:07</td><td>II</td><td>KAC-KTA</td><td>Kutojaya Selatan</td></tr>
+
+<tr><td>6</td><td>7012C</td><td>01:07</td><td>01:12</td><td>Ls</td><td>01:01</td><td>Ls</td><td>00:55</td><td>II</td><td>BD-SLO</td><td>Pnp tamb</td></tr>
+
+<tr><td>7</td><td>71</td><td>01:33</td><td>01:37</td><td>Ls</td><td>01:43</td><td>Ls</td><td>01:51</td><td>II</td><td>SGU-BD</td><td>Mutiara Selatan</td></tr>
+
+<tr><td>8</td><td>67</td><td>01:59</td><td>02:04</td><td>Ls</td><td>02:10</td><td>Ls</td><td>02:18</td><td>II</td><td>ML-BD</td><td>Malabar</td></tr>
+
+<tr><td>9</td><td>7013C</td><td>02:10</td><td>02:17</td><td>Ls</td><td>02:24</td><td>Ls</td><td>02:31</td><td>II</td><td>SLO-BD</td><td>Pnp tamb</td></tr>
+
+<tr><td>10</td><td>274</td><td>02:14</td><td>02:21</td><td>Ls</td><td>02:30</td><td>02:39</td><td>02:44</td><td>II</td><td>KAC-BL</td><td>Kahuripan</td></tr>
+
+<tr><td>11</td><td>11</td><td>02:35</td><td>02:41</td><td>Ls</td><td>02:47</td><td>Ls</td><td>02:54</td><td>II</td><td>SGU-BD</td><td>Turangga</td></tr>
+
+<tr><td>12</td><td>288</td><td>03:35</td><td>03:41</td><td>Ls</td><td>03:28</td><td>Ls</td><td>03:20</td><td>II</td><td>PSE-KYA</td><td>Serayu</td></tr>
+
+<tr><td>13</td><td>273</td><td>03:39</td><td>03:44</td><td>Ls</td><td>03:51</td><td>Ls</td><td>03:59</td><td>II</td><td>BL-KAC</td><td>Kahuripan</td></tr>
+
+<tr><td>14</td><td>7043</td><td>04:40</td><td>04:53</td><td>Ls</td><td>04:59</td><td>Ls</td><td>05:06</td><td>II</td><td>SGU-BD</td><td>Sangkuriang</td></tr>
+
+<tr class="shift-pagi"><td colspan="11">SHIFT PAGI</td></tr>
+
+<tr><td>1</td><td>305</td><td>Ls</td><td>6:06</td><td>Ls</td><td>5:59</td><td>5:47</td><td>5:52</td><td>II</td><td>SB-BD</td><td>Parcel Selatan</td></tr>
+
+<tr class="stop-karangpucung"><td>2</td><td>D2/10625</td><td>06.27</td><td>06.29</td><td>06.12</td><td>06.14</td><td></td><td>06.01</td><td>II</td><td>BJR-TSM</td><td>KPJ</td></tr>
+
+<tr><td>3</td><td>283A</td><td>9:36</td><td>9:43</td><td>Ls</td><td>9:28</td><td>9:19</td><td>9:22</td><td>II</td><td>KYA-PSE</td><td>Serayu</td></tr>
+
+<tr><td>4</td><td>78C</td><td>Ls</td><td>9:41</td><td>Ls</td><td>9:48</td><td>9:54</td><td>9:58</td><td>II</td><td>BD-SLO</td><td>Lodaya</td></tr>
+
+<tr><td>5</td><td>10B</td><td>Ls</td><td>10:44</td><td>Ls</td><td>10:50</td><td>10:56</td><td>10:59</td><td>II</td><td>BD-SGU</td><td>Argo Wilis</td></tr>
+
+<tr class="stop-karangpucung"><td>8</td><td>7011C</td><td>Ls</td><td>11:45</td><td>Ls</td><td>11:38</td><td>11:27</td><td>11:32</td><td>II</td><td>SLO-BD</td><td>Lodaya</td></tr>
+
+<tr><td>7</td><td>70</td><td>Ls</td><td>12:43</td><td>Ls</td><td>12:50</td><td>12:56</td><td>13:01</td><td>II</td><td>BD-ML</td><td>Malabar</td></tr>
+
+<tr><td>8</td><td>7011C</td><td>Ls</td><td>12:59</td><td>12:46</td><td>12:52</td><td>12:34</td><td>12:39</td><td>I</td><td>SLO-BD</td><td>Pnp tamb</td></tr>
+
+<tr><td>9</td><td>291A</td><td>Ls</td><td>13:40</td><td>Ls</td><td>13:33</td><td>13:22</td><td>13:27</td><td>II</td><td>KTA-KAC</td><td>Kutojaya Selatan</td></tr>
+
+<tr class="shift-siang"><td colspan="11">SHIFT SIANG</td></tr>
+
+<tr><td>1</td><td>7014C</td><td>Ls</td><td>14:03</td><td>Ls</td><td>14:12</td><td>14:19</td><td>14:28</td><td>II</td><td>BD-SLO</td><td>Pnp tamb</td></tr>
+
+<tr><td>2</td><td>275B</td><td>Ls</td><td>14:15</td><td>Ls</td><td>14:08</td><td></td><td>14:02</td><td>II</td><td>SGU-KAC</td><td>Pasundan</td></tr>
+
+<tr><td>3</td><td>69</td><td>Ls</td><td>14:44</td><td>Ls</td><td>14:37</td><td>14:26</td><td>14:30</td><td>II</td><td>ML-BD</td><td>Malabar</td></tr>
+
+<tr class="stop-karangpucung"><td>4</td><td>276</td><td>14:40:00</td><td>14:46</td><td>14:56</td><td>15:03</td><td>15:10</td><td>15:15</td><td>I</td><td>KAC-SGU</td><td>Pasundan</td></tr>
+
+<tr><td>5</td><td>9A</td><td>Ls</td><td>15:08</td><td>Ls</td><td>15:01</td><td>14:51</td><td>14:54</td><td>II</td><td>SGU-BD</td><td>Argo Wilis</td></tr>
+
+<tr><td>6</td><td>128B</td><td>Ls</td><td>15:54</td><td>Ls</td><td>16:01</td><td>16:08</td><td></td><td>II</td><td>GMR-BJR</td><td>Pangandaran</td></tr>
+
+<tr class="stop-karangpucung"><td>7</td><td>D2/11128</td><td>16.37</td><td>16.39</td><td>16.52</td><td>17.08</td><td>17.19</td><td></td><td>III</td><td>TSM-BJR</td><td>KPJ</td></tr>
+
+<tr><td>8</td><td>127C</td><td>Ls</td><td>17:08</td><td>Ls</td><td>17:01</td><td></td><td>16:55</td><td>II</td><td>BJR-GMR</td><td>Pangandaran</td></tr>
+
+<tr><td>9</td><td>284B</td><td>Ls</td><td>17:31</td><td>Ls</td><td>17:39</td><td>17:45</td><td>17:50</td><td>II</td><td>PSE-KYA</td><td>Serayu</td></tr>
+
+<tr><td>10</td><td>7044</td><td>Ls</td><td>18:06</td><td>Ls</td><td>18:13</td><td>18:19</td><td>18:22</td><td>II</td><td>BD-SGU</td><td>Sangkuriang</td></tr>
+
+<tr><td>11</td><td>287A</td><td>Ls</td><td>19:35</td><td>Ls</td><td>19:27</td><td>19:16</td><td>19:20</td><td>II</td><td>KYA-PSE</td><td>Serayu</td></tr>
+
+<tr><td>12</td><td>12</td><td>Ls</td><td>20:40</td><td>Ls</td><td>20:47</td><td>20:53</td><td>20:56</td><td>II</td><td>BD-SGU</td><td>Turangga</td></tr>
+
+<tr><td>13</td><td>68</td><td>Ls</td><td>21:27</td><td>Ls</td><td>21:34</td><td>21:40</td><td>21:44</td><td>II</td><td>BD-ML</td><td>Malabar</td></tr>
+
+<tr class="shift-malam"><td colspan="11">SHIFT MALAM</td></tr>
+
+<tr><td>1</td><td>306</td><td>Ls</td><td>21:53</td><td>Ls</td><td>22.00</td><td>22:06</td><td>22:11</td><td>II</td><td>BD-SB</td><td>Parcel Selatan</td></tr>
+
+<tr><td>2</td><td>80B</td><td>Ls</td><td>22:15</td><td>Ls</td><td>22:22</td><td>22:28</td><td>22:32</td><td>II</td><td>BD-SLO</td><td>Lodaya</td></tr>
+
+<tr><td>3</td><td>72</td><td>Ls</td><td>23:11</td><td>Ls</td><td>23:18</td><td>23:24</td><td>23:30</td><td>II</td><td>BD-SGU</td><td>Mutiara Selatan</td></tr>
+
+<tr><td>4</td><td>79B</td><td>Ls</td><td>23:47</td><td>Ls</td><td>23:40</td><td>23:28</td><td>23:33</td><td>II</td><td>SLO-BD</td><td>Lodaya</td></tr>
     </tbody>
   </table>
 
