@@ -1,168 +1,274 @@
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ujian Korporat KAI</title>
+<title>UJI PETIK ONLINE 2026</title>
 
-  <style>
+<style>
 
-    body{
-      font-family: Arial, sans-serif;
-      background:#f4f4f4;
-      margin:0;
-      padding:20px;
-    }
+*{
+  box-sizing:border-box;
+}
 
-    .container{
-      max-width:700px;
-      margin:auto;
-      background:white;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
-    }
+body{
+  margin:0;
+  padding:20px;
+  background:#f4f4f4;
+  font-family:Arial,sans-serif;
+}
 
-    h1{
-      text-align:center;
-      color:#1d3557;
-      margin-bottom:30px;
-    }
+.container{
+  max-width:850px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
 
-    .soal{
-      background:#fafafa;
-      border:1px solid #ddd;
-      border-radius:10px;
-      padding:15px;
-      margin-bottom:25px;
-    }
+h1{
+  text-align:center;
+  color:#1d3557;
+}
 
-    .soal p{
-      font-weight:bold;
-      font-size:17px;
-    }
+.info-page{
+  text-align:center;
+  margin-bottom:20px;
+  font-weight:bold;
+  color:#1d3557;
+}
 
-    label{
-      display:block;
-      margin:10px 0;
-      cursor:pointer;
-      font-size:16px;
-    }
+.soal{
+  display:none;
+  background:#fafafa;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:15px;
+  margin-bottom:20px;
+}
 
-    button{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:10px;
-      background:#1d3557;
-      color:white;
-      font-size:17px;
-      cursor:pointer;
-    }
+.soal.active{
+  display:block;
+}
 
-    button:hover{
-      background:#274c77;
-    }
+.soal p{
+  font-weight:bold;
+  font-size:17px;
+}
 
-    .status{
-      margin-top:12px;
-      font-size:18px;
-      font-weight:bold;
-    }
+label{
+  display:block;
+  margin:10px 0;
+  cursor:pointer;
+  line-height:1.5;
+}
 
-    .benar{
-      color:green;
-    }
+.nav-btn{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:25px;
+  gap:10px;
+}
 
-    .salah{
-      color:red;
-    }
+.left{
+  flex:1;
+}
 
-    #hasil{
-      margin-top:30px;
-      text-align:center;
-      font-size:24px;
-      font-weight:bold;
-    }
+.center{
+  flex:1;
+  text-align:center;
+}
 
-    .lulus{
-      color:green;
-    }
+.right{
+  flex:1;
+  text-align:right;
+}
 
-    .tidak-lulus{
-      color:red;
-    }
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  background:#1d3557;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
 
-  </style>
+button:hover{
+  background:#274c77;
+}
 
+.review{
+  margin-top:10px;
+  font-weight:bold;
+  font-size:15px;
+}
+
+.review.benar{
+  color:green;
+}
+
+.review.salah{
+  color:red;
+}
+
+#hasil{
+  display:none;
+  margin-top:30px;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.lulus{
+  background:#e8f5e9;
+  color:green;
+  border:2px solid green;
+}
+
+.tidak-lulus{
+  background:#ffebee;
+  color:red;
+  border:2px solid red;
+}
+
+@media(max-width:600px){
+
+  body{
+    padding:10px;
+  }
+
+  .container{
+    padding:15px;
+  }
+
+  .nav-btn{
+    flex-direction:column;
+  }
+
+  .left,
+  .center,
+  .right{
+    width:100%;
+    text-align:center;
+  }
+
+  button{
+    width:100%;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>UJIAN KORPORAT KAI</h1>
+<h1>UJIAN PETIK 2026</h1>
 
-    <form id="quizForm">
+<div id="infoPage" class="info-page"></div>
 
-      <!-- SOAL 1 -->
-      <div class="soal">
+<form id="quizForm">
 
-        <p>1. Penetapan Klb terdapat pada:</p>
 
-        <label>
-          <input type="radio" name="q1" value="a">
-          a. Wam
-        </label>
 
-        <label>
-          <input type="radio" name="q1" value="b">
-          b. PPK
-        </label>
 
-        <label>
-          <input type="radio" name="q1" value="c">
-          c. GAPEKA
-        </label>
 
-        <label>
-          <input type="radio" name="q1" value="d">
-          d. Malka
-        </label>
 
-        <div id="status1" class="status"></div>
 
-      </div>
 
-      <!-- SOAL 2 -->
-      <div class="soal">
 
-        <p>2. warna lampu indikator "STATUS" pada radio WS adalah :</p>
 
-        <label>
-          <input type="radio" name="q2" value="a">
-          a. Jingga
-        </label>
 
-        <label>
-          <input type="radio" name="q2" value="b">
-          b. Kuning
-        </label>
 
-        <label>
-          <input type="radio" name="q2" value="c">
-          c. Hijau
-        </label>
 
-        <label>
-          <input type="radio" name="q2" value="d">
-          d. Merah
-        </label>
 
-        <div id="status2" class="status"></div>
 
-      </div>
-      <div class="soal">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- SOAL 1 -->
+<div class="soal">
+
+  <p>1. Penetapan Klb terdapat pada:</p>
+
+  <label>
+    <input type="radio" name="q1" value="a">
+    a. Wam
+  </label>
+
+  <label>
+    <input type="radio" name="q1" value="b">
+    b. PPK
+  </label>
+
+  <label>
+    <input type="radio" name="q1" value="c">
+    c. GAPEKA
+  </label>
+
+  <label>
+    <input type="radio" name="q1" value="d">
+    d. Malka
+  </label>
+
+  <div class="review" id="review-q1"></div>
+
+</div>
+
+<!-- SOAL 2 -->
+<div class="soal">
+
+  <p>
+    2. warna lampu indikator "review" pada radio WS adalah :
+  </p>
+
+  <label>
+    <input type="radio" name="q2" value="a">
+    a. Jingga
+  </label>
+
+  <label>
+    <input type="radio" name="q2" value="b">
+    b. Kuning
+  </label>
+
+  <label>
+    <input type="radio" name="q2" value="c">
+    c. Hijau
+  </label>
+
+  <label>
+    <input type="radio" name="q2" value="d">
+    d. Merah
+  </label>
+
+  <div class="review" id="review-q2"></div>
+
+</div>
+
+<!-- SOAL 3 -->
+<div class="soal">
 
   <p>
     3. Hubungan blok dinyatakan terganggu pada hubungan blok elektris, apabila :
@@ -188,7 +294,7 @@
     d. Peralatan blok tidak dapat dilayani dan atau kawat plombir normal
   </label>
 
-  <div id="status3" class="status"></div>
+  <div class="review" id="review-q3"></div>
 
 </div>
 
@@ -219,7 +325,7 @@
     d. Insan KAI bertindak konsisiten sesuai dengan nilai-nilai dan kebijakan Perusahaan serta mematuhi etika profesi dan bisnis
   </label>
 
-  <div id="status4" class="status"></div>
+  <div class="review" id="review-q4"></div>
 
 </div>
 
@@ -250,7 +356,7 @@
     d. Biru
   </label>
 
-  <div id="status5" class="status"></div>
+  <div class="review" id="review-q5"></div>
 
 </div>
 
@@ -281,7 +387,7 @@
     d. 60km/jam
   </label>
 
-  <div id="status6" class="status"></div>
+  <div class="review" id="review-q6"></div>
 
 </div>
 
@@ -312,7 +418,7 @@
     d. PM no 19 tahun 2023
   </label>
 
-  <div id="status7" class="status"></div>
+  <div class="review" id="review-q7"></div>
 
 </div>
 
@@ -343,7 +449,7 @@
     d. 16,70m
   </label>
 
-  <div id="status8" class="status"></div>
+  <div class="review" id="review-q8"></div>
 
 </div>
 
@@ -374,7 +480,7 @@
     d. Jawaban a dan c benar
   </label>
 
-  <div id="status9" class="status"></div>
+  <div class="review" id="review-q9"></div>
 
 </div>
 
@@ -405,13 +511,16 @@
     d. Paling dekat 8 meter
   </label>
 
-  <div id="status10" class="status"></div>
+  <div class="review" id="review-q10"></div>
 
 </div>
+
 <!-- SOAL 11 -->
 <div class="soal">
 
-  <p>11. Jalur utama dianggap isi apabila :</p>
+  <p>
+    11. Jalur utama dianggap isi apabila :
+  </p>
 
   <label>
     <input type="radio" name="q11" value="a">
@@ -433,14 +542,16 @@
     d. Jalur tersebut oleh kereta api yang masuk tidak dapat dilalui seluruhnya melewati penghabisan jalur utama hingga sepanjang luncuran yang ditetapakan pd 19 jil 1 psl 53 (9)
   </label>
 
-  <div id="status11" class="status"></div>
+  <div class="review" id="review-q11"></div>
 
 </div>
 
 <!-- SOAL 12 -->
 <div class="soal">
 
-  <p>12. Sesuai PM no 19 tahun 2023 Permohonan perpanjangan masa berlaku sertifikat disampaikan kepada dirjend paling lambat berapa hari :</p>
+  <p>
+    12. Sesuai PM no 19 tahun 2023 Permohonan perpanjangan masa berlaku sertifikat disampaikan kepada dirjend paling lambat berapa hari :
+  </p>
 
   <label>
     <input type="radio" name="q12" value="a">
@@ -462,14 +573,16 @@
     d. 90 hari
   </label>
 
-  <div id="status12" class="status"></div>
+  <div class="review" id="review-q12"></div>
 
 </div>
 
 <!-- SOAL 13 -->
 <div class="soal">
 
-  <p>13. Dalam melaksanakan tugas urusan pengaturan perjalanan kereta api dan langsir, PPKA dapat mendelegasikan tugasnya kepada PAP, kecuali:</p>
+  <p>
+    13. Dalam melaksanakan tugas urusan pengaturan perjalanan kereta api dan langsir, PPKA dapat mendelegasikan tugasnya kepada PAP, kecuali:
+  </p>
 
   <label>
     <input type="radio" name="q13" value="a">
@@ -491,14 +604,16 @@
     d. Membunyikan semboyan genta, penyampaian warta KA, termasuk warta PPJ dan penyampaian warta perjalanan kereta api
   </label>
 
-  <div id="status13" class="status"></div>
+  <div class="review" id="review-q13"></div>
 
 </div>
 
 <!-- SOAL 14 -->
 <div class="soal">
 
-  <p>14. Berapa jarak apabila kita akan memuat barang melebihi panjang gerbong datar supaya alat perangkai tidak terhalang:</p>
+  <p>
+    14. Berapa jarak apabila kita akan memuat barang melebihi panjang gerbong datar supaya alat perangkai tidak terhalang:
+  </p>
 
   <label>
     <input type="radio" name="q14" value="a">
@@ -520,14 +635,16 @@
     d. Tidak boleh melebihi 250mm
   </label>
 
-  <div id="status14" class="status"></div>
+  <div class="review" id="review-q14"></div>
 
 </div>
 
 <!-- SOAL 15 -->
 <div class="soal">
 
-  <p>15. Pengisian kolom JALAN pada PPK sesuai lintasnya, dengan cara sbb</p>
+  <p>
+    15. Pengisian kolom JALAN pada PPK sesuai lintasnya, dengan cara sbb
+  </p>
 
   <label>
     <input type="radio" name="q15" value="a">
@@ -549,7 +666,7 @@
     d. Kolom jalan berisi pengumuman jalan kereta api luarbiasa saja
   </label>
 
-  <div id="status15" class="status"></div>
+  <div class="review" id="review-q15"></div>
 
 </div>
 
@@ -578,7 +695,7 @@
     d. 20 menit
   </label>
 
-  <div id="status16" class="status"></div>
+  <div class="review" id="review-q16"></div>
 
 </div>
 
@@ -607,7 +724,7 @@
     d. Kecepatan paling tinggi 30 km/jam dan tanpa didahului petugas membawa bendera merah dengan masinis langsir membunyikan semboyan 35 berulang-ulang dan dalam hal langsir didorong, maka PLR memperdengarkan suara selompret atau peluit sebagi tanda meminta perhatian
   </label>
 
-  <div id="status17" class="status"></div>
+  <div class="review" id="review-q17"></div>
 
 </div>
 
@@ -636,7 +753,7 @@
     d. Sistem Integrasi Safety & Compliance Awarness
   </label>
 
-  <div id="status18" class="status"></div>
+  <div class="review" id="review-q18"></div>
 
 </div>
 
@@ -665,7 +782,7 @@
     d. 200 m
   </label>
 
-  <div id="status19" class="status"></div>
+  <div class="review" id="review-q19"></div>
 
 </div>
 
@@ -694,15 +811,14 @@
     d. berlaku selama 5 (lima) tahun
   </label>
 
-  <div id="status20" class="status"></div>
+  <div class="review" id="review-q20"></div>
 
 </div>
+
 <!-- SOAL 21 -->
 <div class="soal">
 
-  <p>
-    21. Dalam SOP pengoperasian kereta api, perintah atau isyarat langsir tidak boleh diberikan apabila sinyal langsir menunjukan indikasi "tidak diperbolehkan langsir" kecuali:
-  </p>
+  <p>21. Dalam SOP pengoperasian kereta api, perintah atau isyarat langsir tidak boleh diberikan apabila sinyal langsir menunjukan indikasi "tidak diperbolehkan langsir" kecuali:</p>
 
   <label>
     <input type="radio" name="q21" value="a">
@@ -724,16 +840,14 @@
     d. Semua Jawaban Benar
   </label>
 
-  <div id="status21" class="status"></div>
+  <div class="review" id="review-q21"></div>
 
 </div>
 
 <!-- SOAL 22 -->
 <div class="soal">
 
-  <p>
-    22. Papan peringatan "PERHATIAN PETAK JALAN TERHALANG" dipasang pada:
-  </p>
+  <p>22. Papan peringatan "PERHATIAN PETAK JALAN TERHALANG" dipasang pada:</p>
 
   <label>
     <input type="radio" name="q22" value="a">
@@ -755,16 +869,14 @@
     d. tingkapan peralatan blok atau tombol pada meja pelayanan
   </label>
 
-  <div id="status22" class="status"></div>
+  <div class="review" id="review-q22"></div>
 
 </div>
 
 <!-- SOAL 23 -->
 <div class="soal">
 
-  <p>
-    23. Pada persinyalan Mekanik, fungsi dari Kancing adalah ?
-  </p>
+  <p>23. Pada persinyalan Mekanik, fungsi dari Kancing adalah ?</p>
 
   <label>
     <input type="radio" name="q23" value="a">
@@ -786,16 +898,14 @@
     d. Merapatkan lidah wesel
   </label>
 
-  <div id="status23" class="status"></div>
+  <div class="review" id="review-q23"></div>
 
 </div>
 
 <!-- SOAL 24 -->
 <div class="soal">
 
-  <p>
-    24. Penetapan perjalanan yang terdapat dalam aplikasi Trainplan dapat diakses untuk digunakan dalam pembuatan:
-  </p>
+  <p>24. Penetapan perjalanan yang terdapat dalam aplikasi Trainplan dapat diakses untuk digunakan dalam pembuatan:</p>
 
   <label>
     <input type="radio" name="q24" value="a">
@@ -817,16 +927,14 @@
     d. Daftar Waktu, Lampiran lapka, O.100, PPK, Wam
   </label>
 
-  <div id="status24" class="status"></div>
+  <div class="review" id="review-q24"></div>
 
 </div>
 
 <!-- SOAL 25 -->
 <div class="soal">
 
-  <p>
-    25. Peron merupakan bagian dari bangunan stasiun yang dibedakan berdasarkan tinggi konstruksi yaitu:
-  </p>
+  <p>25. Peron merupakan bagian dari bangunan stasiun yang dibedakan berdasarkan tinggi konstruksi yaitu:</p>
 
   <label>
     <input type="radio" name="q25" value="a">
@@ -848,7 +956,7 @@
     d. tinggi permukaan lantai 1000 cm diukur dari sisi atas kepala rel, jarak tepi atas lantai peron ke sumbu jalan rel 1600 mm pada lurusan, atau 1650 cm pada lengkung, lebar minimal 2000 cm jika berada di antara dua jalur atau 1650 cm jika berada di tepi jalur dan dilengkapi dengan garis batas aman peron minimal 350 cm dari sisi tepi luar ke as peron
   </label>
 
-  <div id="status25" class="status"></div>
+  <div class="review" id="review-q25"></div>
 
 </div>
 
@@ -879,7 +987,7 @@
     d. FOKUS, SIAGA & WASPADA, HATI-HATI. MENJAMIN KESELAMATAN PETUGAS, PERJALANAN KA & LANGSIRAN
   </label>
 
-  <div id="status26" class="status"></div>
+  <div class="review" id="review-q26"></div>
 
 </div>
 
@@ -910,7 +1018,7 @@
     d. Kewajiban Tunjuk Sebut Untuk Keselamatan Kerja Saat Berada di Area Track Atau Jalur Kereta Api. 2/ks.202/IV/KA/2025
   </label>
 
-  <div id="status27" class="status"></div>
+  <div class="review" id="review-q27"></div>
 
 </div>
 
@@ -941,7 +1049,7 @@
     d. Indikator Sinyal Keluar.... (nomor sinyal) hijau/kuning
   </label>
 
-  <div id="status28" class="status"></div>
+  <div class="review" id="review-q28"></div>
 
 </div>
 
@@ -972,7 +1080,7 @@
     d. Tunjuk sebut
   </label>
 
-  <div id="status29" class="status"></div>
+  <div class="review" id="review-q29"></div>
 
 </div>
 
@@ -1003,15 +1111,15 @@
     d. Semua Jawaban Benar
   </label>
 
-  <div id="status30" class="status"></div>
+  <div class="review" id="review-q30"></div>
 
 </div>
+
 <!-- SOAL 31 -->
 <div class="soal">
 
   <p>31. Semboyan disamping mempunyai arti:</p>
 
-  <!-- GANTI GAMBAR SESUAI KEBUTUHAN -->
   <img src="gambar-semboyan.png"
        alt="Semboyan"
        style="
@@ -1040,7 +1148,7 @@
     d. Kereta api akan berjalan ke jalur kiri pada petak jalan jalur ganda
   </label>
 
-  <div id="status31" class="status"></div>
+  <div class="review" id="review-q31"></div>
 
 </div>
 
@@ -1074,7 +1182,7 @@
     d. T143
   </label>
 
-  <div id="status32" class="status"></div>
+  <div class="review" id="review-q32"></div>
 
 </div>
 
@@ -1107,7 +1215,7 @@
     d. Semua Jawaban Benar
   </label>
 
-  <div id="status33" class="status"></div>
+  <div class="review" id="review-q33"></div>
 
 </div>
 
@@ -1141,7 +1249,7 @@
     d. Membaca dan menulis 1 (satu) pasal / 1 (satu) aturan setiap hari, Cek Emplasemen, Simulasi Kondisi Darurat, tunjuk sebut
   </label>
 
-  <div id="status34" class="status"></div>
+  <div class="review" id="review-q34"></div>
 
 </div>
 
@@ -1173,7 +1281,7 @@
     d. Nomor urut lokomotif 12
   </label>
 
-  <div id="status35" class="status"></div>
+  <div class="review" id="review-q35"></div>
 
 </div>
 
@@ -1205,7 +1313,7 @@
     d. PAP dan Juru Langsir
   </label>
 
-  <div id="status36" class="status"></div>
+  <div class="review" id="review-q36"></div>
 
 </div>
 
@@ -1234,7 +1342,7 @@
     d. Di emplasemen, Panjang minimal dapat menyimpan 2 kereta, kedudukan biasa wesel harus mengarah ke jalur simpan.
   </label>
 
-  <div id="status37" class="status"></div>
+  <div class="review" id="review-q37"></div>
 
 </div>
 
@@ -1267,7 +1375,7 @@
     d. 20 menit
   </label>
 
-  <div id="status38" class="status"></div>
+  <div class="review" id="review-q38"></div>
 
 </div>
 
@@ -1298,7 +1406,7 @@
     d. 600 kg
   </label>
 
-  <div id="status39" class="status"></div>
+  <div class="review" id="review-q39"></div>
 
 </div>
 
@@ -1331,13 +1439,16 @@
     d. Semua Jawaban Benar
   </label>
 
-  <div id="status40" class="status"></div>
+  <div class="review" id="review-q40"></div>
 
 </div>
+
 <!-- SOAL 41 -->
 <div class="soal">
 
-  <p>41. Serah terima dinasan PAP dilakukan tanpa perantara dan dicatat dalam:</p>
+  <p>
+    41. Serah terima dinasan PAP dilakukan tanpa perantara dan dicatat dalam:
+  </p>
 
   <label>
     <input type="radio" name="q41" value="a">
@@ -1359,14 +1470,16 @@
     d. Buku serah terima dan buku material
   </label>
 
-  <div id="status41" class="status"></div>
+  <div class="review" id="review-q41"></div>
 
 </div>
 
 <!-- SOAL 42 -->
 <div class="soal">
 
-  <p>42. Tabel perjalanan kereta api yang harus di bawa oleh masinis sebagai dasar untuk mengetahui waktu perjalanan kereta api disebut dengan bentuk</p>
+  <p>
+    42. Tabel perjalanan kereta api yang harus di bawa oleh masinis sebagai dasar untuk mengetahui waktu perjalanan kereta api disebut dengan bentuk
+  </p>
 
   <label>
     <input type="radio" name="q42" value="a">
@@ -1388,14 +1501,16 @@
     d. 0.64
   </label>
 
-  <div id="status42" class="status"></div>
+  <div class="review" id="review-q42"></div>
 
 </div>
 
 <!-- SOAL 43 -->
 <div class="soal">
 
-  <p>43. Menunjuk rds Vice President of Non Train Crew Operation Nomor 2/KL.202/XI/KA/2025 tanggal 4 November 2025 Perihal Pelaksanaan Tunjuk dan Sebut Jalur dan Wesel (JA-SEL) Sebelum Melayani Kereta Api Datang/Langsung/Berangkat, pada persinyalan mekanik, wesel disebut aman apabila?</p>
+  <p>
+    43. Menunjuk rds Vice President of Non Train Crew Operation Nomor 2/KL.202/XI/KA/2025 tanggal 4 November 2025 Perihal Pelaksanaan Tunjuk dan Sebut Jalur dan Wesel (JA-SEL) Sebelum Melayani Kereta Api Datang/Langsung/Berangkat, pada persinyalan mekanik, wesel disebut aman apabila?
+  </p>
 
   <label>
     <input type="radio" name="q43" value="a">
@@ -1417,14 +1532,16 @@
     d. Semua Jawaban Benar
   </label>
 
-  <div id="status43" class="status"></div>
+  <div class="review" id="review-q43"></div>
 
 </div>
 
 <!-- SOAL 44 -->
 <div class="soal">
 
-  <p>44. ketentuan pemasangan tanda batas ruang bebas (semboyan 18), adalah sebagai berikut:</p>
+  <p>
+    44. ketentuan pemasangan tanda batas ruang bebas (semboyan 18), adalah sebagai berikut:
+  </p>
 
   <label>
     <input type="radio" name="q44" value="a">
@@ -1446,14 +1563,16 @@
     d. tanda batas ruang bebas dipasang 600 m lebih tinggi dari kepala rel, dan dicat warna putih yang pada malam hari dapat memantulkan cahaya sedangkan di bawahnya sampai dengan permukaan tanah dicat warna hitam, tanda batas ruang bebas dipasang diantara kedua jalur kereta api, diukur siku terhadap sumbu jalan rel masing-masing dengan jarak paling sedikit 1950 m
   </label>
 
-  <div id="status44" class="status"></div>
+  <div class="review" id="review-q44"></div>
 
 </div>
 
 <!-- SOAL 45 -->
 <div class="soal">
 
-  <p>45. Peraturan Menteri perhubungan nomor berapa yang mengatur sertifikat kecakapan penjaga perlintasan kereta api :</p>
+  <p>
+    45. Peraturan Menteri perhubungan nomor berapa yang mengatur sertifikat kecakapan penjaga perlintasan kereta api :
+  </p>
 
   <label>
     <input type="radio" name="q45" value="a">
@@ -1475,7 +1594,7 @@
     d. PM no 19 tahun 2023
   </label>
 
-  <div id="status45" class="status"></div>
+  <div class="review" id="review-q45"></div>
 
 </div>
 
@@ -1504,7 +1623,7 @@
     d. Semua Jawaban Benar
   </label>
 
-  <div id="status46" class="status"></div>
+  <div class="review" id="review-q46"></div>
 
 </div>
 
@@ -1533,7 +1652,7 @@
     d. "asmas budi langsir maju ke arah batas langsir solojebres dari jalur I dengan membawa 9 (sembilan) kereta, ganti "
   </label>
 
-  <div id="status47" class="status"></div>
+  <div class="review" id="review-q47"></div>
 
 </div>
 
@@ -1562,7 +1681,7 @@
     d. 087788222236
   </label>
 
-  <div id="status48" class="status"></div>
+  <div class="review" id="review-q48"></div>
 
 </div>
 
@@ -1591,7 +1710,7 @@
     d. SMKP (Sistem Manajemen Keselamatan Perkeretaapian)
   </label>
 
-  <div id="status49" class="status"></div>
+  <div class="review" id="review-q49"></div>
 
 </div>
 
@@ -1620,9 +1739,10 @@
     d. 1,02
   </label>
 
-  <div id="status50" class="status"></div>
+  <div class="review" id="review-q50"></div>
 
 </div>
+
 <!-- SOAL 51 -->
 <div class="soal">
 
@@ -1648,7 +1768,7 @@
     d. telah bertugas sebagai Pengatur perjalanan Kereta Api Daerah paling singkat selama 5 (lima) tahun
   </label>
 
-  <div id="status51" class="status"></div>
+  <div class="review" id="review-q51"></div>
 
 </div>
 
@@ -1677,7 +1797,7 @@
     d. Commitment, Integrity, Teamwork, Acountability, Responsibility
   </label>
 
-  <div id="status52" class="status"></div>
+  <div class="review" id="review-q52"></div>
 
 </div>
 
@@ -1706,7 +1826,7 @@
     d. Semua benar
   </label>
 
-  <div id="status53" class="status"></div>
+  <div class="review" id="review-q53"></div>
 
 </div>
 
@@ -1735,7 +1855,7 @@
     d. Menggunakan 2 bogie dengan masing masing 4 roda penggerak
   </label>
 
-  <div id="status54" class="status"></div>
+  <div class="review" id="review-q54"></div>
 
 </div>
 
@@ -1764,7 +1884,7 @@
     d. PPK
   </label>
 
-  <div id="status55" class="status"></div>
+  <div class="review" id="review-q55"></div>
 
 </div>
 
@@ -1777,7 +1897,6 @@
     <input type="radio" name="q56" value="a">
     a. proses untuk mengenali dan mengetahui adanya bahaya dan aspek lingkungan serta karakteristiknya
   </label>
-
   <label>
     <input type="radio" name="q56" value="b">
     b. serangkaian proses identifikasi bahaya, penilaian dan pengendalian risiko keselamatan yang meliputi risiko kecelakaan kereta api, kecelakan kerja, penyakit akibat kerja serta pencemaran lingkungan
@@ -1793,7 +1912,7 @@
     d. keseluruhan proses dari identifikasi risiko, analisis risiko serta evaluasi risiko
   </label>
 
-  <div id="status56" class="status"></div>
+  <div class="review" id="review-q56"></div>
 
 </div>
 
@@ -1822,7 +1941,7 @@
     d. PM no 19 tahun 2023
   </label>
 
-  <div id="status57" class="status"></div>
+  <div class="review" id="review-q57"></div>
 
 </div>
 
@@ -1851,7 +1970,7 @@
     d. Semua jawaban benar
   </label>
 
-  <div id="status58" class="status"></div>
+  <div class="review" id="review-q58"></div>
 
 </div>
 <!-- SOAL 59 -->
@@ -1879,7 +1998,7 @@
     d. Semua jawaban benar
   </label>
 
-  <div id="status59" class="status"></div>
+  <div class="review" id="review-q59"></div>
 
 </div>
 
@@ -1908,7 +2027,7 @@
     d. Benang kuning
   </label>
 
-  <div id="status60" class="status"></div>
+  <div class="review" id="review-q60"></div>
 
 </div>
 
@@ -1937,7 +2056,7 @@
     d. 250 Meter
   </label>
 
-  <div id="status61" class="status"></div>
+  <div id="review61" class="review"></div>
 
 </div>
 
@@ -1966,7 +2085,7 @@
     d. Benang hijau
   </label>
 
-  <div id="status62" class="status"></div>
+  <div id="review62" class="review"></div>
 
 </div>
 
@@ -1995,7 +2114,7 @@
     d. PPKA menekan satu tombol "EMERG" kemudian PPKA mengangkat handset dan menekan PTT dan segera melapor/berbicara kepada PPKP tanpa harus menunggu alarm berbunyi atau konfirmasi dari ppkp
   </label>
 
-  <div id="status63" class="status"></div>
+  <div id="review63" class="review"></div>
 
 </div>
 
@@ -2024,7 +2143,7 @@
     d. Malka
   </label>
 
-  <div id="status64" class="status"></div>
+  <div id="review64" class="review"></div>
 
 </div>
 
@@ -2053,7 +2172,7 @@
     d. semua benar
   </label>
 
-  <div id="status65" class="status"></div>
+  <div id="review65" class="review"></div>
 
 </div>
 
@@ -2082,7 +2201,7 @@
     d. Kereta api antar stasiun, konvoi, dan lokomotif pendorong
   </label>
 
-  <div id="status66" class="status"></div>
+  <div id="review66" class="review"></div>
 
 </div>
 
@@ -2111,7 +2230,7 @@
     d. Ks/Ppka yang KA nya berjalan jalur kanan
   </label>
 
-  <div id="status67" class="status"></div>
+  <div id="review67" class="review"></div>
 
 </div>
 
@@ -2140,7 +2259,7 @@
     d. Kereta api biasa, fakultatif dan plb
   </label>
 
-  <div id="status68" class="status"></div>
+  <div id="review68" class="review"></div>
 
 </div>
 
@@ -2169,7 +2288,7 @@
     d. 100km/jam
   </label>
 
-  <div id="status69" class="status"></div>
+  <div id="review69" class="review"></div>
 
 </div>
 
@@ -2198,7 +2317,7 @@
     d. Pengawas Peron
   </label>
 
-  <div id="status70" class="status"></div>
+  <div id="review70" class="review"></div>
 
 </div>
 <!-- SOAL 71 -->
@@ -2226,7 +2345,7 @@
     Sesuai kecepatan yang diijinkan
   </label>
 
-  <div id="status71" class="status"></div>
+  <div id="review71" class="review"></div>
 
 </div>
 
@@ -2255,7 +2374,7 @@
     Stasiun batas biasa
   </label>
 
-  <div id="status72" class="status"></div>
+  <div id="review72" class="review"></div>
 
 </div>
 
@@ -2284,7 +2403,7 @@
     telah bertugas sebagai Pengatur perjalanan Kereta Api Setempat paling singkat selama 3 (tiga) tahun
   </label>
 
-  <div id="status73" class="status"></div>
+  <div id="review73" class="review"></div>
 
 </div>
 
@@ -2313,7 +2432,7 @@
     WAM
   </label>
 
-  <div id="status74" class="status"></div>
+  <div id="review74" class="review"></div>
 
 </div>
 
@@ -2342,7 +2461,7 @@
     semua salah
   </label>
 
-  <div id="status75" class="status"></div>
+  <div id="review75" class="review"></div>
 
 </div>
 
@@ -2371,7 +2490,7 @@
     Disampaikan dengan surat permintaan kepada JPOD paling lambat 2 hari sebelumnya
   </label>
 
-  <div id="status76" class="status"></div>
+  <div id="review76" class="review"></div>
 
 </div>
 
@@ -2400,7 +2519,7 @@
     diperlihatkan sinyal darurat (pada persinyalan elektrik), telah diberikan bentuk perintah melalui sinyal yang berindikasi "berhenti" (bentuk 92) yang ditandatangani oleh PPKA yang menguasai atau diperlihatkan semboyan 4A (isyarat perintah masuk)
   </label>
 
-  <div id="status77" class="status"></div>
+  <div id="review77" class="review"></div>
 
 </div>
 
@@ -2429,7 +2548,7 @@
     Buku serah terima dinasan
   </label>
 
-  <div id="status78" class="status"></div>
+  <div id="review78" class="review"></div>
 
 </div>
 
@@ -2458,7 +2577,7 @@
     Sinyal berindikasi "berhenti" yang sudah dilalui dan jalur yang akan dilalui masuk berhenti atau langsung
   </label>
 
-  <div id="status79" class="status"></div>
+  <div id="review79" class="review"></div>
 
 </div>
 
@@ -2487,7 +2606,7 @@
     Dari.... (nama stasiun) langsung lajur.... (nomor lajur) ke.... (nama stasiun)
   </label>
 
-  <div id="status80" class="status"></div>
+  <div id="review80" class="review"></div>
 
 </div>
 <!-- SOAL 81 -->
@@ -2515,7 +2634,7 @@
     d. T142
   </label>
 
-  <div id="status81" class="status"></div>
+  <div id="review81" class="review"></div>
 
 </div>
 
@@ -2544,7 +2663,7 @@
     d. Benang hijau
   </label>
 
-  <div id="status82" class="status"></div>
+  <div id="review82" class="review"></div>
 
 </div>
 
@@ -2573,7 +2692,7 @@
     d. 45km/jam
   </label>
 
-  <div id="status83" class="status"></div>
+  <div id="review83" class="review"></div>
 
 </div>
 
@@ -2602,7 +2721,7 @@
     d. Jurusan sesuai ujung pendek lokomotif
   </label>
 
-  <div id="status84" class="status"></div>
+  <div id="review84" class="review"></div>
 
 </div>
 
@@ -2631,7 +2750,7 @@
     d. Kereta api berjalan dari jalur belok.
   </label>
 
-  <div id="status85" class="status"></div>
+  <div id="review85" class="review"></div>
 
 </div>
 
@@ -2660,7 +2779,7 @@
     d. 2 km
   </label>
 
-  <div id="status86" class="status"></div>
+  <div id="review86" class="review"></div>
 
 </div>
 
@@ -2689,7 +2808,7 @@
     d. Kipas pembersih kaca dan lampu sorot
   </label>
 
-  <div id="status87" class="status"></div>
+  <div id="review87" class="review"></div>
 
 </div>
 
@@ -2718,7 +2837,7 @@
     d. Semboyan 7
   </label>
 
-  <div id="status88" class="status"></div>
+  <div id="review88" class="review"></div>
 
 </div>
 
@@ -2747,7 +2866,7 @@
     d. PPKA segera mengangkat handset untuk mendengarkan informasi dari ppkp atau menekan tombol ALM CAN untuk mematikan bunyi panggilan
   </label>
 
-  <div id="status89" class="status"></div>
+  <div id="review89" class="review"></div>
 
 </div>
 
@@ -2776,7 +2895,7 @@
     d. Jarak antara sinyal keluar dan batas pendeteksi sarana
   </label>
 
-  <div id="status90" class="status"></div>
+  <div id="review90" class="review"></div>
 
 </div>
 
@@ -2805,7 +2924,7 @@
     d. Semua jawaban salah
   </label>
 
-  <div id="status91" class="status"></div>
+  <div id="review91" class="review"></div>
 
 </div>
 
@@ -2840,7 +2959,7 @@
     d. Berhenti luar biasa
   </label>
 
-  <div id="status92" class="status"></div>
+  <div id="review92" class="review"></div>
 
 </div>
 
@@ -2873,7 +2992,7 @@
     d. Informasi tentang nomor wesel
   </label>
 
-  <div id="status93" class="status"></div>
+  <div id="review93" class="review"></div>
 
 </div>
 
@@ -2906,7 +3025,7 @@
     d. Sinyal Keluar Semboyan 5
   </label>
 
-  <div id="status94" class="status"></div>
+  <div id="review94" class="review"></div>
 
 </div>
 
@@ -2939,7 +3058,7 @@
     d. Apabila rute berangkat tidak dapat terbentuk atau sinyal keluar tidak dapat menunjukan indikasi berjalan atau berjalan hati hati
   </label>
 
-  <div id="status95" class="status"></div>
+  <div id="review95" class="review"></div>
 
 </div>
 
@@ -2972,7 +3091,7 @@
     d. KA
   </label>
 
-  <div id="status96" class="status"></div>
+  <div id="review96" class="review"></div>
 
 </div>
 
@@ -3005,7 +3124,7 @@
     d. Menulis dalam buku kelambatan kereta api
   </label>
 
-  <div id="status97" class="status"></div>
+  <div id="review97" class="review"></div>
 
 </div>
 
@@ -3038,7 +3157,7 @@
     d. Bentuk 91
   </label>
 
-  <div id="status98" class="status"></div>
+  <div id="review98" class="review"></div>
 
 </div>
 
@@ -3071,7 +3190,7 @@
     d. Kecepatan terendah antara kecepatan prasarana, sarana dan sifat barang yang diangkut
   </label>
 
-  <div id="status99" class="status"></div>
+  <div id="review99" class="review"></div>
 
 </div>
 
@@ -3104,146 +3223,389 @@
     d. Semuanya benar
   </label>
 
-  <div id="status100" class="status"></div>
+  <div id="review100" class="review"></div>
 
-</div>
-
-
+   </div>
 
 
 
 
-      
-      <!-- TOMBOL -->
-      <button type="button" onclick="cekNilai()">
-        Selesai Ujian
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- NAVIGATION -->
+  <div class="nav-btn">
+
+    <div class="left">
+      <button type="button" onclick="prevPage()">
+        ⬅ Previous
       </button>
+    </div>
 
-    </form>
+    <div class="center">
+      <button type="button" onclick="selesaiUjian()">
+        ✅ Cek
+      </button>
+    </div>
 
-    <!-- HASIL -->
-    <div id="hasil"></div>
+    <div class="right">
+      <button type="button" onclick="nextPage()">
+        Next ➡
+      </button>
+    </div>
 
   </div>
 
-  <script>
+</form>
 
-    // ==========================
-    // EDIT JAWABAN BENAR DI SINI
-    // ==========================
-    const jawabanBenar = {
+<div id="hasil"></div>
 
-  q1 : "a",
-  q2 : "c",
-  q3 : "c",
-  q4 : "c",
-  q5 : "d",
-  q6 : "b",
-  q7 : "c",
-  q8 : "c",
-  q9 : "d",
-  q10 : "c"
+</div>
 
-    };
+<script>
 
-    // ==========================
-    // FUNGSI CEK NILAI
-    // ==========================
-    function cekNilai(){
+// =====================
+// JAWABAN BENAR
+// =====================
 
-      let nilai = 0;
-      let jumlahSoal = 100;
-      let nilaiPerSoal = 100 / jumlahSoal;
+const jawabanBenar = {
 
-      // LOOP SEMUA SOAL
-      for(let i = 1; i <= jumlahSoal; i++){
+  q1:"a",
+q2:"c",
+q3:"c",
+q4:"c",
+q5:"c",
+q6:"c",
+q7:"d",
+q8:"c",
+q9:"c",
+q10:"d",
+q11:"d",
+q12:"b",
+q13:"a",
+q14:"d",
+q15:"a",
+q16:"d",
+q17:"c",
+q18:"b",
+q19:"c",
+q20:"c",
+q21:"d",
+q22:"b",
+q23:"b",
+q24:"a",
+q25:"a",
+q26:"b",
+q27:"a",
+q28:"b",
+q29:"b",
+q30:"a",
+q31:"d",
+q32:"a",
+q33:"d",
+q34:"c",
+q35:"c",
+q36:"a",
+q37:"b",
+q38:"d",
+q39:"c",
+q40:"d",
+q41:"a",
+q42:"a",
+q43:"b",
+q44:"b",
+q45:"a",
+q46:"c",
+q47:"a",
+q48:"c",
+q49:"d",
+q50:"a",
+q51:"b",
+q52:"d",
+q53:"d",
+q54:"c",
+q55:"b",
+q56:"b",
+q57:"d",
+q58:"d",
+q59:"d",
+q60:"b",
+q61:"a",
+q62:"b",
+q63:"c",
+q64:"b",
+q65:"c",
+q66:"d",
+q67:"b",
+q68:"a",
+q69:"a",
+q70:"b",
+q71:"b",
+q72:"a",
+q73:"d",
+q74:"d",
+q75:"c",
+q76:"c",
+q77:"c",
+q78:"d",
+q79:"d",
+q80:"a",
+q81:"c",
+q82:"b",
+q83:"b",
+q84:"c",
+q85:"b",
+q86:"b",
+q87:"a",
+q88:"c",
+q89:"d",
+q90:"c",
+q91:"c",
+q92:"d",
+q93:"d",
+q94:"d",
+q95:"a",
+q96:"a",
+q97:"a",
+q98:"a",
+q99:"d",
+q100:"c",
 
-        let jawabanUser =
-          document.querySelector(
-            'input[name="q'+i+'"]:checked'
-          );
+};
 
-        let status =
-          document.getElementById("status"+i);
+// =====================
+// PAGINATION
+// =====================
 
-        // reset status
-        status.innerHTML = "";
+const soalPerHalaman = 5;
 
-        // jika soal dijawab
-        if(jawabanUser){
+const soal =
+  document.querySelectorAll(".soal");
 
-          // JAWABAN BENAR
-          if(
-            jawabanUser.value ===
-            jawabanBenar["q"+i]
-          ){
+let halamanSekarang = 1;
 
-            nilai += nilaiPerSoal;
+const totalHalaman =
+  Math.ceil(
+    soal.length / soalPerHalaman
+  );
 
-            status.innerHTML = `
-              <span class="benar">
-                ✔ Jawaban Benar
-              </span>
-            `;
+function tampilkanHalaman(page){
 
-          }
+  soal.forEach((item,index)=>{
 
-          // JAWABAN SALAH
-          else{
+    const mulai =
+      (page - 1) * soalPerHalaman;
 
-            status.innerHTML = `
-              <span class="salah">
-                ✘ Jawaban Salah
-              </span>
-            `;
-          }
-        }
+    const selesai =
+      mulai + soalPerHalaman;
 
-        // BELUM DIJAWAB
-        else{
+    if(index >= mulai && index < selesai){
 
-          status.innerHTML = `
-            <span class="salah">
-              ✘ Belum Dijawab
-            </span>
-          `;
-        }
+      item.classList.add("active");
 
-      }
+    }else{
 
-      // BULATKAN NILAI
-      nilai = Math.round(nilai);
-
-      // TAMPILKAN HASIL
-      let hasil =
-        document.getElementById("hasil");
-
-      // JIKA LULUS
-      if(nilai >= 76){
-
-        hasil.innerHTML = `
-          <div class="lulus">
-            Nilai Anda : ${nilai}<br>
-            LULUS
-          </div>
-        `;
-
-      }
-
-      // JIKA TIDAK LULUS
-      else{
-
-        hasil.innerHTML = `
-          <div class="tidak-lulus">
-            Nilai Anda : ${nilai}<br>
-            TIDAK LULUS
-          </div>
-        `;
-      }
+      item.classList.remove("active");
 
     }
 
-  </script>
+  });
+
+  document.getElementById(
+    "infoPage"
+  ).innerHTML =
+    "Halaman " +
+    page +
+    " / " +
+    totalHalaman;
+
+}
+
+function nextPage(){
+
+  if(
+    halamanSekarang < totalHalaman
+  ){
+
+    halamanSekarang++;
+
+    tampilkanHalaman(
+      halamanSekarang
+    );
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+function prevPage(){
+
+  if(
+    halamanSekarang > 1
+  ){
+
+    halamanSekarang--;
+
+    tampilkanHalaman(
+      halamanSekarang
+    );
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+// =====================
+// SELESAI UJIAN
+// =====================
+
+function selesaiUjian(){
+
+  let benar = 0;
+
+  for(let key in jawabanBenar){
+
+    const pilihan =
+      document.querySelector(
+        `input[name="${key}"]:checked`
+      );
+
+    const review =
+      document.getElementById(
+        `review-${key}`
+      );
+
+    // RESET
+    review.innerHTML = "";
+
+    // JIKA BENAR
+    if(
+      pilihan &&
+      pilihan.value === jawabanBenar[key]
+    ){
+
+      benar++;
+
+      review.innerHTML =
+        "✔ Jawaban Benar";
+
+      review.className =
+        "review benar";
+
+    }
+
+    // JIKA SALAH / KOSONG
+    else{
+
+      review.innerHTML =
+        "❌ Jawaban Salah";
+
+      review.className =
+        "review salah";
+
+    }
+
+  }
+
+  // HITUNG NILAI
+  const totalSoal =
+    Object.keys(
+      jawabanBenar
+    ).length;
+
+  const nilai =
+    Math.round(
+      (benar / totalSoal) * 100
+    );
+
+  const hasil =
+    document.getElementById(
+      "hasil"
+    );
+
+  hasil.style.display =
+    "block";
+
+  // LULUS
+  if(nilai >= 80){
+
+    hasil.className =
+      "lulus";
+
+    hasil.innerHTML = `
+      ✅ ANDA LULUS
+      <br><br>
+
+      Nilai : ${nilai}
+      <br>
+
+      Jawaban Benar :
+      ${benar} dari ${totalSoal}
+    `;
+
+  }
+
+  // TIDAK LULUS
+  else{
+
+    hasil.className =
+      "tidak-lulus";
+
+    hasil.innerHTML = `
+      ❌ ANDA TIDAK LULUS
+      <br><br>
+
+      Nilai : ${nilai}
+      <br>
+
+      Jawaban Benar :
+      ${benar} dari ${totalSoal}
+    `;
+
+  }
+
+  // SCROLL KE HASIL
+  hasil.scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+// =====================
+// LOAD AWAL
+// =====================
+
+tampilkanHalaman(
+  halamanSekarang
+);
+
+</script>
+
 
 </body>
 </html>
