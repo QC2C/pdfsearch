@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Portal Stasiun Karangpucung - Tic Tac Toe</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* HEADER */
+.header {
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 22px;
+}
+
+.header p {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+/* BOARD */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.cell {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    cursor: pointer;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.08);
+    transition: 0.3s;
+}
+
+.cell:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+
+.cell.X {
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff;
+}
+
+.cell.O {
+    color: #ff4081;
+    text-shadow: 0 0 10px #ff4081;
+}
+
+/* STATUS */
+#status {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #00e5ff, #ff4081);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🚉 Portal Stasiun Karangpucung</h1>
+        <p>Game Tic Tac Toe</p>
+    </div>
+
+    <!-- GAME -->
+    <div class="board" id="board"></div>
+    <div id="status">Giliran: X</div>
+    <button onclick="resetGame()">Reset</button>
+
+</div>
+
+<!-- SOUND -->
+<audio id="clickSound" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
+<audio id="winSound" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3"></audio>
+<audio id="drawSound" src="https://www.soundjay.com/button/sounds/button-10.mp3"></audio>
+
+<script>
+const board = document.getElementById("board");
+const statusText = document.getElementById("status");
+
+const clickSound = document.getElementById("clickSound");
+const winSound = document.getElementById("winSound");
+const drawSound = document.getElementById("drawSound");
+
+let currentPlayer = "X";
+let cells = ["", "", "", "", "", "", "", "", ""];
+let gameActive = true;
+
+function createBoard() {
+    board.innerHTML = "";
+    cells.forEach((cell, index) => {
+        const div = document.createElement("div");
+        div.classList.add("cell");
+        div.dataset.index = index;
+        div.innerText = cell;
+
+        if (cell) div.classList.add(cell);
+
+        div.addEventListener("click", handleClick);
+        board.appendChild(div);
+    });
+}
+
+function handleClick(e) {
+    const index = e.target.dataset.index;
+
+    if (cells[index] !== "" || !gameActive) return;
+
+    clickSound.play();
+
+    cells[index] = currentPlayer;
+    e.target.innerText = currentPlayer;
+    e.target.classList.add(currentPlayer);
+
+    if (checkWinner()) {
+        statusText.innerHTML = `🎉 Pemenang: <b>${currentPlayer}</b>`;
+        winSound.play();
+        gameActive = false;
+        return;
+    }
+
+    if (!cells.includes("")) {
+        statusText.innerHTML = "😎 Seri!";
+        drawSound.play();
+        gameActive = false;
+        return;
+    }
+
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    statusText.innerHTML = `Giliran: <b>${currentPlayer}</b>`;
+}
+
+function checkWinner() {
+    const winPatterns = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+    ];
+
+    return winPatterns.some(pattern => {
+        return pattern.every(index => cells[index] === currentPlayer);
+    });
+}
+
+function resetGame() {
+    cells = ["", "", "", "", "", "", "", "", ""];
+    currentPlayer = "X";
+    gameActive = true;
+    statusText.innerHTML = "Giliran: X";
+    createBoard();
+}
+
+createBoard();
+</script>
+
+</body>
+</html>
