@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Struktur Organisasi Direksi PT. Kereta Api</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: #002856; /* teks biru tua */
+}
+
+h2 {
+  color: #002856;
+}
+
+.utama, .baris {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.utama {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center; /* Ensures content is centered */
+  flex-direction: column;
+  align-items: center; /* Centers the Yusup Roni card */
+}
+
+.judulBaris {
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite; /* Add bouncing animation */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Moves text up for a bounce effect */
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.judulBaris.ppka {
+  animation: slide 2s ease-out forwards; /* Slide animation */
+}
+
+.judulBaris.pjl {
+  animation: bounce 1s ease-in-out infinite; /* Bounce effect */
+}
+
+.baris {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.card {
+  width: 150px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #002856; /* Updated border to corporate blue */
+  border-radius: 8px;
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border-color: #F47B20; /* Hover border oranye */
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #002856; /* Updated border to corporate blue */
+}
+
+.card p {
+  margin: 4px 0;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 3px solid #F47B20; /* border oranye modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+a#cvLink {
+  color: #F47B20;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a#cvLink:hover {
+  color: #002856;
+  text-decoration: underline;
+}
+/* logo header */
+   .logo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background-color: transparent;
+    }
+    .logo-header img {
+      height: 50px; /* Ukuran seragam */
+      object-fit: contain;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+      border-radius: 8px; /* Bikin sudut agak membulat */
+      background-color: white; /* Optional: buat kontras kalau logo PNG transparan */
+      padding: 5px; /* Jarak biar nggak mepet */
+    }
+
+    /* Responsif jika di layar kecil */
+@media (max-width: 600px) {
+  .logo-header {
+    position: relative;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .logo-header img:first-child {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .logo-header img:last-child {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+    }
+
+
+.judulBaris.with-widget {
+  position: relative;
+  padding-right: 30px; /* ruang untuk widget */
+}
+
+.judulBaris.with-widget::after {
+  content: var(--emoji);
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  animation: pulse 1.5s infinite;
+}
+
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@media (max-width: 600px) {
+  .baris {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 80%; /* Lebar penuh dengan margin */
+    height: auto;
+  }
+
+  .judulBaris {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .modal-content {
+    width: 90%;
+    margin: 20% auto;
+  }
+
+  .logo-header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .logo-header img {
+    margin: 5px 0;
+  }
+}
+
+</style>
+
+</head>
+<body>
+  <div class="logo-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Danantara_Indonesia.svg/2560px-Danantara_Indonesia.svg.png" alt="Logo Garuda BUMN">
+    <img src="https://postimg.pro/images/2025/05/12/7xoXSB.jpg" alt="Logo KAI">
+  </div>
+
+
+<h2>Struktur Organisasi Direksi PT. Kereta Api</h2>
+
+<p class="judulBaris with-widget" style="--emoji:'👨‍💼';">Direktur Utama</p>
+<div class="utama" id="utamaContainer"></div>
+
+<p class="judulBaris with-widget" style="--emoji:'⛑️';">Direksi</p>
+<div class="baris" id="baris2"></div>
+
+<div class="baris" id="baris3"></div>
+
+
+
+<!-- Modal -->
+<div id="cvModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="modalNama"></h3>
+    <p id="modalJabatan"></p>
+    <a id="cvLink" href="#" target="_blank">Lihat CV</a>
+  </div>
+</div>
+
+
+
+
+<script>
+const direksi = [
+  { nama: "Didiek Hartantyo", jabatan: "Dirut", foto: "https://postimg.pro/images/2025/05/25/7xpcNu.webp", cvLink: "https://drive.google.com/file/d/15ShhLeWt83p-wMlh1hU83Y5YBBDJmvA8/view?usp=sharing" },
+  { nama: "Hadis S. Palapa", jabatan: "Dir. Niaga", foto: "https://postimg.pro/images/2025/05/25/7xpocC.jpg", cvLink: "https://drive.google.com/file/d/1wWsSiaRauvBOo_6D9F68JbQjxNn81UeG/view?usp=sharing" },
+  { nama: "Awan Hermawan", jabatan: "Dir. Operasi", foto: "https://postimg.pro/images/2025/05/25/7xpeY8.webp", cvLink: "https://drive.google.com/file/d/1oZTjn47hYAYUnejsjqVIIyIBhmwy8gKH/view?usp=sharing" },
+  { nama: "Heru Kuswanto", jabatan: "Dir. Prasarana", foto: "https://postimg.pro/images/2025/05/25/7xpjhD.jpg", cvLink: "https://drive.google.com/file/d/11zMYXM0zb5qx-EXdJ8Dlyn5vLgda3BJY/view?usp=sharing" },
+  { nama: "John Roberto", jabatan: "Dir. Sarana", foto: "https://postimg.pro/images/2025/05/25/7xpm4Q.jpg", cvLink: "https://drive.google.com/file/d/1iHUvpDKQJNKy7LJEtSGQ0NzJo9oPE6YV/view?usp=sharing" },
+  { nama: "Dadan Rudiansyah", jabatan: "Dir. Keselamatan", foto: "https://postimg.pro/images/2025/05/25/7xp931.jpg", cvLink: "https://drive.google.com/file/d/1KU-7YRF22foOLDie-qs2CgkxxR9opzy3/view?usp=sharing" },
+  { nama: "Rosma Handayani", jabatan: "Dir. SDM", foto: "https://postimg.pro/images/2025/05/25/7xpaRX.jpg", cvLink: "https://drive.google.com/file/d/10QBox2dK9o61ZTDRKHg-67PvRYsiuQk6/view?usp=sharing" },
+  { nama: "Rudi Aturridha", jabatan: "Dir. Bangus", foto: "https://postimg.pro/images/2025/05/25/7xppAN.jpg", cvLink: "https://drive.google.com/file/d/1pdZf0jTG5DMcpmPOue4lEXOdjSvp2mff/view?usp=sharing" },
+  { nama: "Salusra Wijaya", jabatan: "Dir. Keuangan", foto: "https://postimg.pro/images/2025/05/25/7xpq9E.webp", cvLink: "https://drive.google.com/file/d/1IBrZkP5a9ZIhvgeQViwtz3P591pS0x3F/view?usp=sharing" },
+];
+
+const urutan = {
+  utama: ["Didiek Hartantyo"],
+  baris2: ["Hadis S. Palapa", "Awan Hermawan", "Heru Kuswanto", "John Roberto"],
+  baris3: ["Dadan Rudiansyah", "Rosma Handayani", "Rudi Aturridha", "Salusra Wijaya",],
+
+};
+
+
+function buatCard(data) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<img src="${data.foto}" alt="${data.nama}"><p><strong>${data.nama}</strong></p><p>${data.jabatan}</p>`;
+  card.addEventListener('click', () => showModal(data));
+  return card;
+}
+
+Object.keys(urutan).forEach((barisId) => {
+  const container = document.getElementById(barisId === "utama" ? "utamaContainer" : barisId);
+  urutan[barisId].forEach(nama => {
+    const orang = direksi.find(d => d.nama === nama);
+    if (orang) {
+      container.appendChild(buatCard(orang));
+    }
+  });
+});
+
+const modal = document.getElementById("cvModal");
+const span = document.getElementsByClassName("close")[0];
+function showModal(data) {
+  document.getElementById("modalNama").textContent = data.nama;
+  document.getElementById("modalJabatan").textContent = data.jabatan;
+  document.getElementById("cvLink").href = data.cvLink;
+  modal.style.display = "block";
+}
+span.onclick = function() { modal.style.display = "none"; };
+window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } };
+</script>
+</body>
+</html>
