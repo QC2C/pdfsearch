@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator BMI - KAI</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:
+      linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+      url('https://assets.pikiran-rakyat.com/crop/0x0:0x0/720x0/webp/photo/2024/05/29/1575002239.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:380px;
+      background:#ffffff;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .header{
+      background:linear-gradient(135deg,#004b8d,#0072bc);
+      padding:25px;
+      text-align:center;
+      color:white;
+    }
+
+    .header h1{
+      font-size:24px;
+      margin-bottom:5px;
+      letter-spacing:1px;
+    }
+
+    .header p{
+      font-size:14px;
+      opacity:0.9;
+    }
+
+    .logo{
+      width:70px;
+      margin-bottom:12px;
+    }
+
+    .content{
+      padding:25px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      margin-top:18px;
+      font-weight:bold;
+      color:#333;
+    }
+
+    input{
+      width:100%;
+      padding:13px;
+      border:1px solid #d0d0d0;
+      border-radius:12px;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    input:focus{
+      outline:none;
+      border-color:#0072bc;
+      box-shadow:0 0 8px rgba(0,114,188,0.3);
+    }
+
+    button{
+      width:100%;
+      margin-top:25px;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(135deg,#ff7b00,#ff9800);
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+      opacity:0.95;
+    }
+
+    .hasil{
+      margin-top:25px;
+      background:#f4f8fb;
+      border-left:5px solid #0072bc;
+      padding:18px;
+      border-radius:12px;
+      text-align:center;
+      color:#222;
+      line-height:1.7;
+      font-size:17px;
+      font-weight:bold;
+    }
+
+    .footer{
+      text-align:center;
+      padding:15px;
+      font-size:12px;
+      color:#777;
+      border-top:1px solid #eee;
+    }
+
+    @media(max-width:480px){
+      .header h1{
+        font-size:20px;
+      }
+
+      .content{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div class="header">
+      <img 
+        src="https://i.ibb.co.com/F41m7v86/LOGO-KAI.png" 
+        class="logo"
+        alt="Logo KAI"
+      >
+
+      <h1>KALKULATOR BMI</h1>
+      <p>Corporate Health Checker</p>
+    </div>
+
+    <div class="content">
+
+      <label>Berat Badan (kg)</label>
+      <input type="number" id="berat" placeholder="Masukkan berat badan">
+
+      <label>Tinggi Badan (cm)</label>
+      <input type="number" id="tinggi" placeholder="Masukkan tinggi badan">
+
+      <button onclick="hitungBMI()">
+        HITUNG BMI
+      </button>
+
+      <div class="hasil" id="hasil">
+        Hasil BMI akan tampil di sini
+      </div>
+
+    </div>
+
+    <div class="footer">
+      PORTAL KESEHATAN KNP © 2026
+    </div>
+
+  </div>
+
+  <script>
+    function hitungBMI(){
+
+      let berat = document.getElementById("berat").value;
+      let tinggi = document.getElementById("tinggi").value;
+
+      if(berat === "" || tinggi === ""){
+        document.getElementById("hasil").innerHTML =
+        "Harap isi seluruh data terlebih dahulu";
+        return;
+      }
+
+      tinggi = tinggi / 100;
+
+      let bmi = berat / (tinggi * tinggi);
+      bmi = bmi.toFixed(1);
+
+      let status = "";
+      let warna = "";
+
+      if(bmi < 18.5){
+        status = "KURUS";
+        warna = "#f39c12";
+      }
+      else if(bmi >= 18.5 && bmi <= 24.9){
+        status = "IDEAL";
+        warna = "#27ae60";
+      }
+      else{
+        status = "OBESITAS";
+        warna = "#e74c3c";
+      }
+
+      document.getElementById("hasil").innerHTML =
+      `
+      BMI ANDA : <b>${bmi}</b><br>
+      STATUS : <span style="color:${warna}">${status}</span>
+      `;
+    }
+      function hitungBMI(){
+
+    let berat = document.getElementById("berat").value;
+    let tinggi = document.getElementById("tinggi").value;
+
+    if(berat === "" || tinggi === ""){
+      document.getElementById("hasil").innerHTML =
+      "Harap isi seluruh data terlebih dahulu";
+      return;
+    }
+
+    tinggi = tinggi / 100;
+
+    let bmi = berat / (tinggi * tinggi);
+    bmi = bmi.toFixed(1);
+
+    let status = "";
+    let warna = "";
+    let keterangan = "";
+
+    if(bmi < 18.5){
+
+      status = "BERAT BADAN KURANG (UNDERWEIGHT)";
+      warna = "#f39c12";
+
+      keterangan = `
+      Berisiko mengalami kurang gizi, anemia,
+      dan daya tahan tubuh rendah.
+      `;
+
+    }
+    else if(bmi >= 18.5 && bmi <= 24.9){
+
+      status = "BERAT BADAN NORMAL / IDEAL";
+      warna = "#27ae60";
+
+      keterangan = `
+      Rentang berat badan sehat dengan
+      risiko penyakit terendah.
+      `;
+
+    }
+    else if(bmi >= 25 && bmi <= 29.9){
+
+      status = "KELEBIHAN BERAT BADAN (OVERWEIGHT)";
+      warna = "#ff9800";
+
+      keterangan = `
+      Berisiko meningkatkan penyakit kronis
+      seperti diabetes tipe 2 dan penyakit jantung.
+      `;
+
+    }
+    else{
+
+      status = "OBESITAS";
+      warna = "#e74c3c";
+
+      keterangan = `
+      Risiko tinggi penyakit serius seperti
+      kardiovaskular, osteoartritis,
+      dan beberapa jenis kanker.
+      `;
+    }
+
+    document.getElementById("hasil").innerHTML =
+    `
+    <div style="font-size:20px; margin-bottom:10px;">
+      BMI ANDA : <b>${bmi}</b>
+    </div>
+
+    <div style="
+      color:${warna};
+      font-size:18px;
+      font-weight:bold;
+      margin-bottom:10px;
+    ">
+      ${status}
+    </div>
+
+    <div style="
+      font-size:15px;
+      line-height:1.6;
+      color:#444;
+    ">
+      ${keterangan}
+    </div>
+    `;
+  }
+  </script>
+
+</body>
+</html>
