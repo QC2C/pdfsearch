@@ -528,7 +528,30 @@ thead tr:nth-child(2) th{
   letter-spacing:0.5px;
   text-transform:uppercase;
 }
+/* ===== KOLOM KA KHUSUS ORANGE KORPORAT ===== */
 
+/* ===== WARNA KOLOM KA KHUSUS ===== */
+
+/* kolom nama KA di kalender */
+.nama-ka{
+  background:#ff8800 !important;   /* orange korporat */
+  color:#004b8d !important;        /* biru korporat */
+  font-weight:700;
+  text-align:center;
+}
+
+/* khusus nomor KA tertentu */
+.nama-ka{
+  border:1px solid #d96d00;
+  letter-spacing:0.5px;
+}
+
+/* efek hover */
+.nama-ka:hover{
+  background:#ff9f1c !important;
+  color:#003566 !important;
+  transition:0.2s;
+}
 </style>
 </head>
 
@@ -787,7 +810,7 @@ placeholder="Cari No KA, Nama KA, Relasi..."
 <div class="calendar-box">
 
     <div class="title">
-        <h1>JADWAL PERJALANAN KA ARGO WILIS</h1>
+        <h1>JADWAL OPERASI PLB / KLB</h1>
         <p>Periode Mei 2026</p>
     </div>
 
@@ -820,7 +843,7 @@ placeholder="Cari No KA, Nama KA, Relasi..."
 
         <!-- DATA -->
         <tr>
-
+<tr class="orange-ka">
             <td class="nama-ka"> 7012C</td>
 
     <td class="tidak"></td> <!-- 1 -->
