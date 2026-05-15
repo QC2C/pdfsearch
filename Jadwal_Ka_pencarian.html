@@ -304,7 +304,8 @@ thead tr:nth-child(2) th{
 /* ===== WRAPPER TABEL + CHART ===== */
 .table-chart-container{
   display:flex;
-  align-items:flex-start;
+  flex-direction:column;
+  align-items:stretch;
   gap:20px;
 }
 
@@ -407,6 +408,126 @@ thead tr:nth-child(2) th{
   cursor:pointer;
 }
 
+/* ===== KALENDER ===== */
+.calendar-box{
+  margin-top:20px;
+  background:white;
+  padding:10px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  max-width:350px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.calendar-box .title{
+  text-align:center;
+  width:100%;
+}
+
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:4px;
+  text-align:center;
+  font-size:11px;
+}
+
+.calendar div{
+  padding:6px 0;
+  background:#f1f1f1;
+  border-radius:4px;
+}
+
+.calendar .head{
+  background:#0077b6;
+  color:white;
+  font-weight:bold;
+}
+
+.calendar .today{
+  background:#ffb703;
+  font-weight:bold;
+}
+
+.title h1{
+  font-size:18px;
+  color:#004b8d;
+}
+
+.title p{
+  text-align:center;
+  margin-bottom:10px;
+  color:#666;
+}
+
+.card{
+  margin-top:20px;
+}
+.calendar-box table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.calendar-box th,
+.calendar-box td{
+  border:1px solid #d7e1ec;
+  padding:6px;
+  text-align:center;
+  font-size:11px;
+  background:white;
+}
+
+.calendar-box th{
+  background:#0077b6;
+  color:white;
+  font-weight:600;
+}
+
+.calendar-box .hari td{
+  background:#eaf2fb;
+  font-weight:bold;
+  color:#004b8d;
+}
+
+.calendar-box .jalan{
+  background:#0077b6;   /* biru korporate */
+  color:white;
+  font-weight:bold;
+}
+
+.calendar-box .tidak{
+  background:#f8fbff;
+}
+.calendar-box{
+  width:100%;
+  max-width:1200px;   /* boleh sesuaikan */
+  margin:20px auto 0 auto;  /* INI KUNCI TENGAH */
+  background:white;
+  padding:10px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+/* ===== HEADER KORPORATE ===== */
+.nama-ka-head{
+  background:#ff8800 !important;   /* orange korporate */
+  color:#0077b6 !important;        /* biru korporate */
+  font-weight:700;
+}
+
+/* baris hari */
+.hari td{
+  background:#ff8800 !important;   /* orange korporate */
+  color:#0077b6 !important;        /* biru korporate */
+  font-weight:700;
+}
+.nama-ka-head,
+.hari td{
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
 
 </style>
 </head>
@@ -661,7 +782,309 @@ placeholder="Cari No KA, Nama KA, Relasi..."
   </table>
     </table>
   </div>
+  
+<!-- ===== KALENDER ARGO WILIS ===== -->
+<div class="calendar-box">
 
+    <div class="title">
+        <h1>JADWAL PERJALANAN KA ARGO WILIS</h1>
+        <p>Periode Mei 2026</p>
+    </div>
+
+    <table>
+
+        <thead>
+            <!-- TANGGAL -->
+            <tr>
+                <th rowspan="2">Nomor KA</th>
+
+            <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+            <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th>
+            <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
+            <th>16</th><th>17</th><th>18</th><th>19</th><th>20</th>
+            <th>21</th><th>22</th><th>23</th><th>24</th><th>25</th>
+            <th>26</th><th>27</th><th>28</th><th>29</th><th>30</th>
+            <th>31</th>
+        </tr>
+
+        <!-- HARI -->
+        <tr class="hari">
+            <td>Jum</td><td>Sab</td><td>Min</td><td>Sen</td><td>Sel</td>
+            <td>Rab</td><td>Kam</td><td>Jum</td><td>Sab</td><td>Min</td>
+            <td>Sen</td><td>Sel</td><td>Rab</td><td>Kam</td><td>Jum</td>
+            <td>Sab</td><td>Min</td><td>Sen</td><td>Sel</td><td>Rab</td>
+            <td>Kam</td><td>Jum</td><td>Sab</td><td>Min</td><td>Sen</td>
+            <td>Sel</td><td>Rab</td><td>Kam</td><td>Jum</td><td>Sab</td>
+            <td>Min</td>
+        </tr>
+
+        <!-- DATA -->
+        <tr>
+
+            <td class="nama-ka"> 7012C</td>
+
+    <td class="tidak"></td> <!-- 1 -->
+    <td class="tidak"></td> <!-- 2 -->
+    <td class="tidak"></td> <!-- 3 -->
+    <td class="tidak"></td> <!-- 4 -->
+    <td class="tidak"></td> <!-- 5 -->
+    <td class="tidak"></td> <!-- 6 -->
+    <td class="tidak"></td> <!-- 7 -->
+    <td class="tidak"></td> <!-- 8 -->
+
+    <td class="jalan">✔</td> <!-- 9 -->
+    <td class="jalan">✔</td> <!-- 10 -->
+    <td class="jalan">✔</td> <!-- 11 -->
+
+    <td class="tidak"></td> <!-- 12 -->
+    <td class="tidak"></td> <!-- 13 -->
+
+    <td class="jalan">✔</td> <!-- 14 -->
+    <td class="jalan">✔</td> <!-- 15 -->
+    <td class="jalan">✔</td> <!-- 16 -->
+    <td class="jalan">✔</td> <!-- 17 -->
+    <td class="jalan">✔</td> <!-- 18 -->
+
+    <td class="tidak"></td> <!-- 19 -->
+    <td class="tidak"></td> <!-- 20 -->
+    <td class="tidak"></td> <!-- 21 -->
+    <td class="tidak"></td> <!-- 22 -->
+
+    <td class="jalan">✔</td> <!-- 23 -->
+    <td class="jalan">✔</td> <!-- 24 -->
+    <td class="jalan">✔</td> <!-- 25 -->
+    <td class="jalan">✔</td> <!-- 26 -->
+    <td class="jalan">✔</td> <!-- 27 -->
+    <td class="jalan">✔</td> <!-- 28 -->
+    <td class="jalan">✔</td> <!-- 29 -->
+    <td class="jalan">✔</td> <!-- 30 -->
+    <td class="jalan">✔</td> <!-- 31 -->
+
+        </tr>
+        <tr>
+
+    <td class="nama-ka"> 7012C</td>
+
+    <td class="tidak"></td> <!-- 1 -->
+
+    <td class="jalan">✔</td> <!-- 2 -->
+    <td class="jalan">✔</td> <!-- 3 -->
+    <td class="jalan">✔</td> <!-- 4 -->
+
+    <td class="tidak"></td> <!-- 5 -->
+    <td class="tidak"></td> <!-- 6 -->
+    <td class="tidak"></td> <!-- 7 -->
+    <td class="tidak"></td> <!-- 8 -->
+
+    <td class="jalan">✔</td> <!-- 9 -->
+    <td class="jalan">✔</td> <!-- 10 -->
+    <td class="jalan">✔</td> <!-- 11 -->
+
+    <td class="tidak"></td> <!-- 12 -->
+    <td class="tidak"></td> <!-- 13 -->
+
+    <td class="jalan">✔</td> <!-- 14 -->
+    <td class="jalan">✔</td> <!-- 15 -->
+    <td class="jalan">✔</td> <!-- 16 -->
+    <td class="jalan">✔</td> <!-- 17 -->
+    <td class="jalan">✔</td> <!-- 18 -->
+
+    <td class="tidak"></td> <!-- 19 -->
+    <td class="tidak"></td> <!-- 20 -->
+    <td class="tidak"></td> <!-- 21 -->
+    <td class="tidak"></td> <!-- 22 -->
+
+    <td class="jalan">✔</td> <!-- 23 -->
+    <td class="jalan">✔</td> <!-- 24 -->
+    <td class="jalan">✔</td> <!-- 25 -->
+    <td class="jalan">✔</td> <!-- 26 -->
+    <td class="jalan">✔</td> <!-- 27 -->
+    <td class="jalan">✔</td> <!-- 28 -->
+    <td class="jalan">✔</td> <!-- 29 -->
+    <td class="jalan">✔</td> <!-- 30 -->
+    <td class="jalan">✔</td> <!-- 31 -->
+
+</tr>
+<tr>
+
+    <td class="nama-ka"> 7043</td>
+
+    <td class="tidak"></td> <!-- 1 -->
+    <td class="tidak"></td> <!-- 2 -->
+
+    <td class="jalan">✔</td> <!-- 3 -->
+    <td class="jalan">✔</td> <!-- 4 -->
+    <td class="jalan">✔</td> <!-- 5 -->
+    <td class="jalan">✔</td> <!-- 6 -->
+    <td class="jalan">✔</td> <!-- 7 -->
+    <td class="jalan">✔</td> <!-- 8 -->
+    <td class="jalan">✔</td> <!-- 9 -->
+    <td class="jalan">✔</td> <!-- 10 -->
+    <td class="jalan">✔</td> <!-- 11 -->
+    <td class="jalan">✔</td> <!-- 12 -->
+    <td class="jalan">✔</td> <!-- 13 -->
+    <td class="jalan">✔</td> <!-- 14 -->
+    <td class="jalan">✔</td> <!-- 15 -->
+    <td class="jalan">✔</td> <!-- 16 -->
+    <td class="jalan">✔</td> <!-- 17 -->
+    <td class="jalan">✔</td> <!-- 18 -->
+    <td class="jalan">✔</td> <!-- 19 -->
+    <td class="jalan">✔</td> <!-- 20 -->
+    <td class="jalan">✔</td> <!-- 21 -->
+    <td class="jalan">✔</td> <!-- 22 -->
+    <td class="jalan">✔</td> <!-- 23 -->
+    <td class="jalan">✔</td> <!-- 24 -->
+    <td class="jalan">✔</td> <!-- 25 -->
+    <td class="jalan">✔</td> <!-- 26 -->
+    <td class="jalan">✔</td> <!-- 27 -->
+    <td class="jalan">✔</td> <!-- 28 -->
+    <td class="jalan">✔</td> <!-- 29 -->
+    <td class="jalan">✔</td> <!-- 30 -->
+    <td class="jalan">✔</td> <!-- 31 -->
+
+</tr>
+<tr>
+
+    <td class="nama-ka"> 7044</td>
+
+    <td class="tidak"></td> <!-- 1 -->
+    <td class="jalan">✔</td> <!-- 2 -->
+
+    <td class="jalan">✔</td> <!-- 3 -->
+    <td class="jalan">✔</td> <!-- 4 -->
+    <td class="jalan">✔</td> <!-- 5 -->
+    <td class="jalan">✔</td> <!-- 6 -->
+    <td class="jalan">✔</td> <!-- 7 -->
+    <td class="jalan">✔</td> <!-- 8 -->
+    <td class="jalan">✔</td> <!-- 9 -->
+    <td class="jalan">✔</td> <!-- 10 -->
+    <td class="jalan">✔</td> <!-- 11 -->
+    <td class="jalan">✔</td> <!-- 12 -->
+    <td class="jalan">✔</td> <!-- 13 -->
+    <td class="jalan">✔</td> <!-- 14 -->
+    <td class="jalan">✔</td> <!-- 15 -->
+    <td class="jalan">✔</td> <!-- 16 -->
+    <td class="jalan">✔</td> <!-- 17 -->
+    <td class="jalan">✔</td> <!-- 18 -->
+    <td class="jalan">✔</td> <!-- 19 -->
+    <td class="jalan">✔</td> <!-- 20 -->
+    <td class="jalan">✔</td> <!-- 21 -->
+    <td class="jalan">✔</td> <!-- 22 -->
+    <td class="jalan">✔</td> <!-- 23 -->
+    <td class="jalan">✔</td> <!-- 24 -->
+    <td class="jalan">✔</td> <!-- 25 -->
+    <td class="jalan">✔</td> <!-- 26 -->
+    <td class="jalan">✔</td> <!-- 27 -->
+    <td class="jalan">✔</td> <!-- 28 -->
+    <td class="jalan">✔</td> <!-- 29 -->
+    <td class="jalan">✔</td> <!-- 30 -->
+    <td class="jalan">✔</td> <!-- 31 -->
+
+</tr>
+<tr>
+
+    <td class="nama-ka">KP/7011D</td>
+
+    <td class="tidak"></td> <!-- 1 -->
+    <td class="tidak"></td> <!-- 2 -->
+    <td class="tidak"></td> <!-- 3 -->
+    <td class="tidak"></td> <!-- 4 -->
+    <td class="tidak"></td> <!-- 5 -->
+    <td class="tidak"></td> <!-- 6 -->
+    <td class="tidak"></td> <!-- 7 -->
+
+    <td class="jalan">✔</td> <!-- 8 -->
+    <td class="jalan">✔</td> <!-- 9 -->
+    <td class="jalan">✔</td> <!-- 10 -->
+
+    <td class="tidak"></td> <!-- 11 -->
+    <td class="tidak"></td> <!-- 12 -->
+
+    <td class="jalan">✔</td> <!-- 13 -->
+    <td class="jalan">✔</td> <!-- 14 -->
+    <td class="jalan">✔</td> <!-- 15 -->
+    <td class="jalan">✔</td> <!-- 16 -->
+    <td class="jalan">✔</td> <!-- 17 -->
+
+    <td class="tidak"></td> <!-- 18 -->
+    <td class="tidak"></td> <!-- 19 -->
+    <td class="tidak"></td> <!-- 20 -->
+    <td class="tidak"></td> <!-- 21 -->
+
+    <td class="jalan">✔</td> <!-- 22 -->
+    <td class="jalan">✔</td> <!-- 23 -->
+    <td class="jalan">✔</td> <!-- 24 -->
+    <td class="jalan">✔</td> <!-- 25 -->
+    <td class="jalan">✔</td> <!-- 26 -->
+    <td class="jalan">✔</td> <!-- 27 -->
+    <td class="jalan">✔</td> <!-- 28 -->
+    <td class="jalan">✔</td> <!-- 29 -->
+    <td class="jalan">✔</td> <!-- 30 -->
+    <td class="jalan">✔</td> <!-- 31 -->
+
+</tr>
+<tr>
+
+    <td class="nama-ka">7014C</td>
+
+    <td class="jalan">✔</td> <!-- 1 -->
+    <td class="jalan">✔</td> <!-- 2 -->
+    <td class="jalan">✔</td> <!-- 3 -->
+
+    <td class="tidak"></td> <!-- 4 -->
+    <td class="tidak"></td> <!-- 5 -->
+    <td class="tidak"></td> <!-- 6 -->
+    <td class="tidak"></td> <!-- 7 -->
+
+    <td class="jalan">✔</td> <!-- 8 -->
+    <td class="jalan">✔</td> <!-- 9 -->
+    <td class="jalan">✔</td> <!-- 10 -->
+
+    <td class="tidak"></td> <!-- 11 -->
+    <td class="tidak"></td> <!-- 12 -->
+
+    <td class="jalan">✔</td> <!-- 13 -->
+    <td class="jalan">✔</td> <!-- 14 -->
+    <td class="jalan">✔</td> <!-- 15 -->
+    <td class="jalan">✔</td> <!-- 16 -->
+    <td class="jalan">✔</td> <!-- 17 -->
+
+    <td class="tidak"></td> <!-- 18 -->
+    <td class="tidak"></td> <!-- 19 -->
+    <td class="tidak"></td> <!-- 20 -->
+    <td class="tidak"></td> <!-- 21 -->
+
+    <td class="jalan">✔</td> <!-- 22 -->
+    <td class="jalan">✔</td> <!-- 23 -->
+    <td class="jalan">✔</td> <!-- 24 -->
+    <td class="jalan">✔</td> <!-- 25 -->
+    <td class="jalan">✔</td> <!-- 26 -->
+    <td class="jalan">✔</td> <!-- 27 -->
+    <td class="jalan">✔</td> <!-- 28 -->
+    <td class="jalan">✔</td> <!-- 29 -->
+    <td class="jalan">✔</td> <!-- 30 -->
+    <td class="jalan">✔</td> <!-- 31 -->
+
+</tr>
+
+    </table>
+  
+ <!-- LEGEND -->
+    <div class="legend">
+
+        <div class="legend-item">
+            <div class="box box-jalan"></div>
+            Beroperasi
+        </div>
+
+        <div class="legend-item">
+            <div class="box box-tidak"></div>
+            Tidak Beroperasi
+        </div>
+
+    </div>
+
+</div>
 
 
 
