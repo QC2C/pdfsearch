@@ -164,78 +164,161 @@ a#cvLink:hover {
       padding: 5px; /* Jarak biar nggak mepet */
     }
 
-    /* Responsif jika di layar kecil */
-@media (max-width: 600px) {
-  .logo-header {
-    position: relative;
-    justify-content: center;
-    padding: 10px 0;
-  }
-  .logo-header img:first-child {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-  }
+/* =========================
+   RESPONSIVE MOBILE PERFECT
+========================= */
+@media (max-width: 768px) {
 
-  .logo-header img:last-child {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-    }
-
-
-.judulBaris.with-widget {
-  position: relative;
-  padding-right: 30px; /* ruang untuk widget */
-}
-
-.judulBaris.with-widget::after {
-  content: var(--emoji);
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 20px;
-  animation: pulse 1.5s infinite;
-}
-
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
-}
-
-@media (max-width: 600px) {
-  .baris {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .card {
-    width: 80%; /* Lebar penuh dengan margin */
-    height: auto;
-  }
-
-  .judulBaris {
-    font-size: 16px;
-    margin-top: 20px;
-  }
-
-  .modal-content {
-    width: 90%;
-    margin: 20% auto;
-  }
-
-  .logo-header {
-    flex-direction: column;
+  body{
     padding: 10px;
+    overflow-x: hidden;
   }
 
-  .logo-header img {
-    margin: 5px 0;
+  h2{
+    font-size: 22px;
+    line-height: 1.4;
+    padding: 0 10px;
   }
+
+  /* HEADER LOGO */
+  .logo-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 5px;
+  }
+
+  .logo-header img{
+    height: 42px;
+    max-width: 42%;
+    object-fit: contain;
+  }
+
+  /* CONTAINER */
+  .utama,
+  .baris{
+    width: 100%;
+    max-width: 100%;
+    margin: 15px auto;
+    gap: 14px;
+  }
+
+  /* CARD GRID */
+  .baris{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  /* DIREKTUR UTAMA */
+  .utama .card{
+    width: 180px;
+  }
+
+  /* CARD */
+  .card{
+    width: 100%;
+    max-width: 170px;
+    min-height: 220px;
+    height: auto;
+    padding: 12px 8px;
+    border-radius: 14px;
+  }
+
+  .card img{
+    width: 82px;
+    height: 82px;
+    margin-bottom: 8px;
+  }
+
+  .card p{
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .card p strong{
+    font-size: 14px;
+  }
+
+  /* JUDUL */
+  .judulBaris{
+    font-size: 15px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /* MODAL */
+  .modal-content{
+    width: 92%;
+    margin: 25% auto;
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  #modalNama{
+    font-size: 20px;
+  }
+
+  #modalJabatan{
+    font-size: 15px;
+  }
+
+  /* HOVER OFF MOBILE */
+  .card:hover{
+    transform: none;
+  }
+
+}
+
+/* EXTRA SMALL DEVICE */
+@media (max-width: 480px){
+
+  .baris{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card{
+    max-width: 155px;
+    min-height: 210px;
+  }
+
+  .card img{
+    width: 75px;
+    height: 75px;
+  }
+
+  .card p{
+    font-size: 12px;
+  }
+
+  .card p strong{
+    font-size: 13px;
+  }
+
+  h2{
+    font-size: 20px;
+  }
+
+}
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+body{
+  margin: 0;
+  padding: 0;
 }
 
 </style>
@@ -243,7 +326,7 @@ a#cvLink:hover {
 </head>
 <body>
   <div class="logo-header">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Danantara_Indonesia.svg/2560px-Danantara_Indonesia.svg.png" alt="Logo Garuda BUMN">
+    <img src="https://i.ibb.co.com/5hTcwVCt/Danantara-Indonesia-no-SW-svg.png" alt="Logo Garuda BUMN">
     <img src="https://postimg.pro/images/2025/05/12/7xoXSB.jpg" alt="Logo KAI">
   </div>
 
