@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Jadwal Dinasan</title><br>
+
+
+<style>
+
+
+body{
+  /* TOP LOGO */
+.top-brand{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:12px;
+  background:white;
+  padding:10px 18px;
+  border-radius:18px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  border:3px solid #ff7a00;
+}
+
+.top-brand img{
+  height:55px;
+  object-fit:contain;
+}
+
+.brand-center{
+  text-align:center;
+  flex:1;
+}
+
+.brand-center h1{
+  font-size:24px;
+  color:#002856;
+  font-weight:700;
+  margin:0;
+  line-height:1.2;
+}
+
+.brand-center p{
+  color:#ff7a00;
+  font-size:14px;
+  font-weight:600;
+  margin-top:2px;
+  letter-spacing:1px;
+}
+
+
+/* RESPONSIVE HP */
+@media(max-width:768px){
+
+  .top-brand{
+    padding:8px 10px;
+    gap:8px;
+  }
+
+  .top-brand img{
+    height:38px;
+  }
+
+  .brand-center h1{
+    font-size:16px;
+  }
+
+  .brand-center p{
+    font-size:10px;
+  }
+
+}
+  font-family:'Poppins',sans-serif;
+  background:#f4f7fb;
+  padding:20px;
+  color:#002856;
+}
+.logo-citar{
+  height:60px;
+  object-fit:contain;
+}
+
+
+/* HEADER */
+.header{
+  background:none;
+  color:#002856;
+  padding:8px 0;
+  border-radius:0;
+  text-align:center;
+  margin-bottom:8px;
+  box-shadow:none;
+}
+
+.header h2{
+  font-size:22px;
+  font-weight:700;
+  margin:0;
+}
+
+.header h3{
+  font-size:18px;
+  font-weight:600;
+  margin:0;
+}
+
+.header p{
+  margin-top:2px;
+  color:#002856;
+  font-size:13px;
+}
+/* TABLE CONTAINER */
+.table-container{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  border:3px solid #ff7a00;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+
+/* ukuran kolom lebih kecil */
+th, td{
+  border:1px solid #d8e3f0;
+  padding:4px;
+  text-align:center;
+  font-size:10px;
+  white-space:nowrap;
+}
+
+/* kolom kiri */
+.left{
+  text-align:left;
+  padding-left:6px;
+  font-size:12px;
+}
+
+/* ukuran header */
+.main-header{
+  font-size:11px;
+}
+
+.date-header,
+.day-header{
+  font-size:10px;
+}
+
+/* lebar kolom */
+table th:nth-child(1),
+table td:nth-child(1){
+  width:35px;
+}
+
+table th:nth-child(2),
+table td:nth-child(2){
+  width:140px;
+}
+
+table th:nth-child(3),
+table td:nth-child(3){
+  width:80px;
+}
+
+table th:nth-child(4),
+table td:nth-child(4){
+  width:70px;
+}
+
+table th:last-child,
+table td:last-child{
+  width:90px;
+}
+
+thead th{
+  position:sticky;
+  top:0;
+  z-index:2;
+}
+
+th, td{
+  border:1px solid #d8e3f0;
+  padding:8px;
+  text-align:center;
+  font-size:13px;
+}
+
+/* HEADER STYLE */
+.main-header{
+  background:#002856;
+  color:white;
+  font-size:14px;
+  font-weight:600;
+}
+
+.date-header{
+  background:#005baa;
+  color:white;
+  font-weight:600;
+}
+
+.day-header{
+  background:#ff7a00;
+  color:white;
+  font-weight:600;
+}
+
+/* LEFT COLUMN */
+.left{
+  text-align:left;
+  white-space:nowrap;
+  padding-left:12px;
+  font-weight:500;
+}
+
+/* ZEBRA ROW */
+tbody tr:nth-child(odd){
+  background:#f5f9ff;
+}
+
+tbody tr:nth-child(even){
+  background:#ffffff;
+}
+/* PEMBATAS TABEL */
+.separator-row td{
+  background:white;
+  font-weight:700;
+  text-align:center;
+  font-size:8px;
+  padding:5px;
+  letter-spacing:1px;
+  border-top:3px solid white;
+  border-bottom:3px solid white;
+}
+
+/* efek hover */
+tbody tr:hover{
+  background:#ffe8cc !important;
+  transition:0.2s;
+}
+/* SHIFT COLORS */
+.shift-1{
+  background:#d9f2ff;
+  font-weight:600;
+}
+
+.shift-2{
+  background:#dfffe0;
+  font-weight:600;
+}
+
+.shift-3{
+  background:#fff5d6;
+  font-weight:600;
+}
+
+.shift-4{
+  background:#ffe0e0;
+  font-weight:600;
+}
+
+.libur{
+  background:#ff7a00;
+  color:white;
+  font-weight:700;
+}
+.shift-5{
+  background:#dfffe0; /* sama seperti shift-2 */
+  font-weight:600;
+}
+
+.shift-6{
+  background:#ffe0e0;
+  font-weight:600;
+}
+
+.shift-7{
+  background:#dfffe0;
+  font-weight:600;
+}
+
+.rest{
+  background:#d9f2ff; /* opsional untuk kode R */
+  font-weight:600;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  body{
+    padding:10px;
+  }
+
+  .header h1{
+    font-size:22px;
+  }
+
+  th, td{
+    font-size:11px;
+    padding:6px;
+  }
+
+}/* LIBUR */
+.libur{
+  background:#d60000;
+  color:white;
+  font-weight:700;
+}
+
+/* HARI AH */
+.ah{
+  background:#d60000 !important;
+  color:white !important;
+}
+/* KETERANGAN */
+.legend-box{
+  margin-top:20px;
+  background:white;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  border-left:6px solid #ff7a00;
+}
+
+.legend-box h3{
+  margin-bottom:15px;
+  color:#002856;
+  font-size:18px;
+}
+
+.legend-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:14px;
+  font-weight:500;
+}
+
+.legend-color{
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  display:inline-block;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+/* WARNA CUTI */
+.cuti{
+  background:#9c27b0;
+}
+
+/* WARNA CUTI SAKIT */
+.sakit{
+  background:#e53935;
+}
+@media(max-width:768px){
+
+  body{
+    padding:4px;
+  }
+
+  .header{
+    padding:12px;
+  }
+
+  .header h2{
+    font-size:18px;
+  }
+
+  .header h3{
+    font-size:14px;
+  }
+
+  .header p{
+    font-size:11px;
+  }
+
+  th, td{
+    font-size:7px;
+    padding:2px;
+  }
+
+  .left{
+    font-size:7px;
+    padding-left:2px;
+  }
+
+  .legend-item{
+    font-size:11px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+<!-- TOP LOGO -->
+<div class="top-brand">
+
+  <!-- Logo Danantara -->
+  <img src="https://i.ibb.co.com/5hTcwVCt/Danantara-Indonesia-no-SW-svg.png" 
+       alt="Logo Danantara">
+
+  <!-- Tengah -->
+  <div class="brand-center">
+
+    <!-- Logo CITAR -->
+    <img 
+      src="https://i.ibb.co.com/hJ7hKsng/Logo-CITAR-2025-01.png" 
+      alt="Logo CITAR"
+      class="logo-citar">
+
+  </div>
+
+  <!-- Logo KAI -->
+  <img src="https://i.ibb.co.com/F41m7v86/LOGO-KAI.png" 
+       alt="Logo KAI">
+
+</div>
+
+  
+<div class="header">
+  <h2>JADWAL DINASAN</h2>
+  <h3>STASIUN KARANGPUCUNG</h3>
+  <p>Bulan Mei 2026</p>
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr class="main-header">
+  <th rowspan="3">NO.</th>
+  <th rowspan="3">N A M A</th>
+  <th rowspan="3">NIPP</th>
+  <th rowspan="3">JABATAN</th>
+  <th colspan="31">TANGGAL</th>
+  <th rowspan="3">KETERANGAN</th>
+</tr>
+
+<tr class="date-header">
+  <th>1</th><th>2</th><th class="ah">3</th><th>4</th><th>5</th>
+  <th>6</th><th>7</th><th>8</th><th>9</th><th class="ah">10</th>
+  <th>11</th><th>12</th><th>13</th><th>14</th><th>15</th>
+  <th>16</th><th class="ah">17</th><th>18</th><th>19</th><th>20</th>
+  <th>21</th><th>22</th><th>23</th><th class="ah">24</th><th>25</th>
+  <th>26</th><th>27</th><th>28</th><th>29</th><th>30</th>
+  <th class="ah">31</th>
+</tr>
+
+<tr class="day-header">
+  <th>Jt</th><th>ST</th><th class="ah">AH</th><th>Sn</th><th>Sl</th>
+  <th>Rb</th><th>Km</th><th>Jt</th><th>ST</th><th class="ah">AH</th>
+  <th>Sn</th><th>Sl</th><th>Rb</th><th>Km</th><th>Jt</th>
+  <th>ST</th><th class="ah">AH</th><th>Sn</th><th>Sl</th><th>Rb</th>
+  <th>Km</th><th>Jt</th><th>ST</th><th class="ah">AH</th><th>Sn</th>
+  <th>Sl</th><th>Rb</th><th>Km</th><th>Jt</th><th>ST</th>
+  <th class="ah">AH</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+  <td>1</td>
+  <td class="left">Yusup Roni</td>
+  <td>49314</td>
+  <td>KS</td>
+
+  <td class="shift-1">1</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-1">1</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-1">1</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-1">1</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-1">1</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-1">1</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-1">1</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-1">1</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-1">1</td>
+  <td class="shift-4">4</td>
+
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td class="left">Yogi Nuryana</td>
+  <td>71312</td>
+  <td>PPKA</td>
+
+  <td class="shift-2">2</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td class="left">Alek Nugraha</td>
+  <td>48850</td>
+  <td>PPKA</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td class="left">Nanang Suryana</td>
+  <td>48248</td>
+  <td>PPKA</td>
+
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+
+  <td class="shift-4">4</td>
+  <td class="shift-3">3</td>
+  <td class="shift-2">2</td>
+  <td class="libur">L</td>
+
+<td>-</td>
+</tr>
+
+<!-- PEMBATAS -->
+<tr class="separator-row">
+  <td colspan="36"></td>
+</tr>
+
+<tr>
+  <td>5</td>
+  <td class="left">Ajang Sobari</td>
+  <td>50202914</td>
+  <td>PKD</td>
+
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>6</td>
+  <td class="left">Kris Fitriadi</td>
+  <td>50202913</td>
+  <td>PKD</td>
+
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+
+  <td>-</td>
+</tr>
+
+<tr>
+  <td>7</td>
+  <td class="left">Didin Solahudin</td>
+  <td>50202915</td>
+  <td>PKD</td>
+
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+  <td class="shift-5">5</td>
+  <td class="shift-6">6</td>
+  <td class="shift-6">6</td>
+  <td class="rest">R</td>
+  <td class="libur">L</td>
+  <td class="shift-5">5</td>
+
+  <td>-</td>
+</tr>
+<!-- PEMBATAS -->
+<tr class="separator-row">
+  <td colspan="36"></td>
+</tr>
+<tr>
+  <td>8</td>
+  <td class="left">Endi Efendi</td>
+  <td>50203871</td>
+  <td>K2</td>
+
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="libur">L</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="libur">L</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="libur">L</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="libur">L</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+  <td class="shift-7">7</td>
+
+  <td>-</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+<!-- KETERANGAN -->
+<div class="legend-box">
+  <div class="legend-grid">
+
+    <div class="legend-item">
+      <span class="legend-color shift-1"></span>
+      <span>1 : Dinas KS</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-color shift-2"></span>
+      <span>2 : Dinas Pagi PPKA</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-color shift-3"></span>
+      <span>3 : Dinas Siang PPKA</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-color shift-4"></span>
+      <span>4 : Dinas Malam PPKA</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-color libur"></span>
+      <span>L : Libur</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-color cuti"></span>
+      <span>CT : Cuti</span>
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-color sakit"></span>
+      <span>CS : Cuti Sakit</span>
+    </div>
+
+    <div class="legend-item">
+  <span class="legend-color shift-5"></span>
+  <span>5 : Dinas Pagi PKD</span>
+</div>
+
+<div class="legend-item">
+  <span class="legend-color shift-6"></span>
+  <span>6 : Dinas Malam PKD</span>
+</div>
+
+<div class="legend-item">
+  <span class="legend-color shift-7"></span>
+  <span>7 : Dinas Pagi K2</span>
+</div>
+
+<div class="legend-item">
+  <span class="legend-color rest"></span>
+  <span>R : Rest</span>
+</div>
+
+  </div>
+</div>
+</body>
+</html>
