@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <title>Jadwal Dinasan</title>
-
 <style>
 
 /* BODY */
@@ -18,30 +15,81 @@ body{
   color:#002856;
 }
 
-/* HEADER */
+/* ============================================
+   HEADER — 3 KOLOM: logo kiri | judul | logo kanan
+   ============================================ */
 .header{
-  background:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
   color:#002856;
   padding:8px 0;
-  text-align:center;
   margin-bottom:8px;
 }
 
-.header h2{
+.header-logo{
+  width:80px;
+  height:80px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.header-logo img{
+  width:80%;
+  height:80%;
+  object-fit:contain;
+}
+
+/* Placeholder kotak putus-putus jika logo belum diisi / gagal load */
+.header-logo-empty{
+  width:80px;
+  height:80px;
+  border:2px dashed #b0c4de;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:9px;
+  color:#b0c4de;
+  text-align:center;
+  line-height:1.4;
+  flex-shrink:0;
+}
+
+.header-text{
+  text-align:center;
+  flex:1;
+}
+
+.header-text h2{
   font-size:22px;
   font-weight:700;
   margin:0;
 }
 
-.header h3{
+.header-text h3{
   font-size:18px;
   font-weight:600;
   margin:0;
 }
 
-.header p{
+.header-text p{
   margin-top:2px;
   font-size:13px;
+}
+
+@media(max-width:768px){
+  .header-logo,
+  .header-logo-empty{
+    width:45px;
+    height:45px;
+  }
+  .header-text h2{ font-size:14px; }
+  .header-text h3{ font-size:12px; }
+  .header-text p { font-size:10px; }
 }
 
 /* TABLE CONTAINER */
@@ -75,7 +123,7 @@ th, td{
   text-align:left;
   padding-left:6px;
   font-size:12px;
-  font-weight:500;
+  font-weight:bold ;
 }
 
 /* HEADER STYLE */
@@ -100,31 +148,67 @@ th, td{
 
 /* COLUMN WIDTH */
 table th:nth-child(1),
+table td:nth-child(1){ width:35px; }
+
+table th:nth-child(2),
+table td:nth-child(2){ width:140px; }
+
+table th:nth-child(3),
+table td:nth-child(3){ width:80px; }
+table td:nth-child(3){
+  font-weight:750;
+}
+
+table th:nth-child(4),
+table td:nth-child(4){ width:70px; }
+
+table th:last-child,
+table td:last-child{ width:90px; }
+
+/* ============================================
+   STICKY KOLOM NO & NAMA (FREEZE COLUMN)
+   ============================================ */
+table th:nth-child(1),
 table td:nth-child(1){
-  width:35px;
+  position:sticky;
+  left:0;
+  z-index:3;
 }
 
 table th:nth-child(2),
 table td:nth-child(2){
-  width:140px;
+  position:sticky;
+  left:35px;
+  z-index:3;
+  box-shadow:3px 0 6px rgba(0,0,0,0.12);
 }
 
-table th:nth-child(3),
-table td:nth-child(3){
-  width:80px;
-}
+thead th:nth-child(1),
+thead th:nth-child(2){ z-index:5; }
 
-table th:nth-child(4),
-table td:nth-child(4){
-  width:70px;
-}
+/* Background eksplisit sticky cells */
+tbody tr:nth-child(odd) td:nth-child(1),
+tbody tr:nth-child(odd) td:nth-child(2){ background:#f5f9ff; }
 
-table th:last-child,
-table td:last-child{
-  width:90px;
-}
+tbody tr:nth-child(even) td:nth-child(1),
+tbody tr:nth-child(even) td:nth-child(2){ background:#ffffff; }
 
-/* STICKY HEADER */
+tbody tr:hover td:nth-child(1),
+tbody tr:hover td:nth-child(2){ background:#ffe8cc !important; }
+
+.separator-row td:nth-child(1),
+.separator-row td:nth-child(2){ background:rgb(199,187,187); }
+
+.main-header th:nth-child(1),
+.main-header th:nth-child(2){ background:#002856; }
+
+.date-header th:nth-child(1),
+.date-header th:nth-child(2){ background:#005baa; }
+
+.day-header th:nth-child(1),
+.day-header th:nth-child(2){ background:#ff7a00; }
+
+/* STICKY HEADER vertikal */
 thead th{
   position:sticky;
   top:0;
@@ -132,13 +216,8 @@ thead th{
 }
 
 /* ZEBRA */
-tbody tr:nth-child(odd){
-  background:#f5f9ff;
-}
-
-tbody tr:nth-child(even){
-  background:#ffffff;
-}
+tbody tr:nth-child(odd){ background:#f5f9ff; }
+tbody tr:nth-child(even){ background:#ffffff; }
 
 /* HOVER */
 tbody tr:hover{
@@ -148,52 +227,21 @@ tbody tr:hover{
 
 /* SEPARATOR */
 .separator-row td{
-  background:rgb(199, 187, 187);
+  background:rgb(199,187,187);
   padding:5px;
   border-top:3px solid white;
   border-bottom:3px solid white;
 }
 
 /* SHIFT COLORS */
-.shift-1{
-  background:#d9f2ff;
-  font-weight:600;
-}
-
-.shift-2{
-  background:#dfffe0;
-  font-weight:600;
-}
-
-.shift-3{
-  background:#fff5d6;
-  font-weight:600;
-}
-
-.shift-4{
-  background:#ffe0e0;
-  font-weight:600;
-}
-
-.shift-5{
-  background:#dfffe0;
-  font-weight:600;
-}
-
-.shift-6{
-  background:#ffe0e0;
-  font-weight:600;
-}
-
-.shift-7{
-  background:#dfffe0;
-  font-weight:600;
-}
-
-.rest{
-  background:#d9f2ff;
-  font-weight:600;
-}
+.shift-1{ background:#d9f2ff; font-weight:600; }
+.shift-2{ background:#dfffe0; font-weight:600; }
+.shift-3{ background:#fff5d6; font-weight:600; }
+.shift-4{ background:#ffe0e0; font-weight:600; }
+.shift-5{ background:#dfffe0; font-weight:600; }
+.shift-6{ background:#ffe0e0; font-weight:600; }
+.shift-7{ background:#dfffe0; font-weight:600; }
+.rest{ background:#d9f2ff; font-weight:600; }
 
 .libur{
   background:#d60000;
@@ -201,7 +249,6 @@ tbody tr:hover{
   font-weight:700;
 }
 
-/* HARI AH */
 .ah{
   background:#d60000 !important;
   color:white !important;
@@ -212,34 +259,29 @@ tbody tr:hover{
   margin-top:20px;
   background:white;
   border-radius:18px;
-  padding:10px; /* samakan rasa dengan tabel */
+  padding:10px;
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
   border:3px solid #ff7a00;
 }
 
-/* JUDUL KETERANGAN */
 .legend-title{
-  font-size:10px;   /* sama dengan tabel */
+  font-size:10px;
   font-weight:600;
   margin:0 0 6px 0;
   color:#002856;
   text-align:left;
 }
 
-/* ITEM KETERANGAN */
 .legend-item{
   display:flex;
   align-items:center;
   gap:8px;
-
-  font-size:10px;   /* SAMA DENGAN TH/TD */
+  font-size:10px;
   font-weight:500;
-
-  padding:4px;      /* SAMA RASA DENGAN TABEL */
+  padding:4px;
   line-height:1.2;
 }
 
-/* WARNA BOX */
 .legend-color{
   width:12px;
   height:12px;
@@ -247,25 +289,12 @@ tbody tr:hover{
   flex-shrink:0;
 }
 
-/* RESPONSIVE SAMA PERSIS TABEL */
+.legend-grid{ display:grid; grid-template-columns:1fr; }
+
 @media(max-width:768px){
-  .legend-item{
-    font-size:7px;
-    padding:2px;
-  }
-
-  .legend-color{
-    width:10px;
-    height:10px;
-  }
-
-  .legend-title{
-    font-size:7px;
-  }
-}
-.legend-grid{
-  display:grid;
-  grid-template-columns:1fr;
+  .legend-item{ font-size:7px; padding:2px; }
+  .legend-color{ width:10px; height:10px; }
+  .legend-title{ font-size:7px; }
 }
 
 /* JAM & TANGGAL */
@@ -285,39 +314,53 @@ tbody tr:hover{
   box-shadow:0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* RESPONSIVE */
 @media(max-width:768px){
-
-  #clock{
-    font-size:10px;
-    padding:6px 10px;
-  }
-
+  #clock{ font-size:10px; padding:6px 10px; }
 }
+
 </style>
 </head>
-
 <body>
 
-
-  
+<!-- ================================================================
+     HEADER
+     Cara isi logo:
+       1. Simpan file gambar logo (misal: logo-kai.png) di folder
+          yang SAMA dengan file HTML ini.
+       2. Ganti teks LOGO_KIRI_URL_DI_SINI  → nama file logo kiri
+          Ganti teks LOGO_KANAN_URL_DI_SINI → nama file logo kanan
+       Contoh lokal  : src="logo-kai.png"
+       Contoh online : src="https://upload.wikimedia.org/logo.png"
+     ================================================================ -->
 <div class="header">
-  <h2>JADWAL DINASAN</h2>
-  <h3>STASIUN KARANGPUCUNG</h3>
-  <p>Bulan Mei 2026</p>
+
+  <!-- LOGO KIRI — ganti src di bawah -->
+  <div class="header-logo" id="wrap-logo-kiri">
+    <img src="https://i.ibb.co.com/5hTcwVCt/Danantara-Indonesia-no-SW-svg.png" alt="Logo Kiri" id="logo-kiri"/>
+  </div>
+
+  <!-- JUDUL TENGAH -->
+  <div class="header-text">
+    <h2>JADWAL DINASAN</h2>
+    <h3>STASIUN KARANGPUCUNG</h3>
+    <p>Bulan Mei 2026</p>
+  </div>
+
+  <!-- LOGO KANAN — ganti src di bawah -->
+  <div class="header-logo" id="wrap-logo-kanan">
+    <img src="https://i.ibb.co.com/F41m7v86/LOGO-KAI.png" alt="Logo Kanan" id="logo-kanan"/>
+  </div>
+
 </div>
+<!-- ================================================================ -->
 
 <div class="top-info">
   <div id="clock"></div>
 </div>
 
-
 <div class="table-container">
-
 <table>
-
 <thead>
-
 <tr class="main-header">
   <th rowspan="3">NO.</th>
   <th rowspan="3">N A M A</th>
@@ -326,7 +369,6 @@ tbody tr:hover{
   <th colspan="31">TANGGAL</th>
   <th rowspan="3">KETERANGAN</th>
 </tr>
-
 <tr class="date-header">
   <th>1</th><th>2</th><th class="ah">3</th><th>4</th><th>5</th>
   <th>6</th><th>7</th><th>8</th><th>9</th><th class="ah">10</th>
@@ -336,7 +378,6 @@ tbody tr:hover{
   <th>26</th><th>27</th><th>28</th><th>29</th><th>30</th>
   <th class="ah">31</th>
 </tr>
-
 <tr class="day-header">
   <th>Jt</th><th>ST</th><th class="ah">AH</th><th>Sn</th><th>Sl</th>
   <th>Rb</th><th>Km</th><th>Jt</th><th>ST</th><th class="ah">AH</th>
@@ -346,471 +387,199 @@ tbody tr:hover{
   <th>Sl</th><th>Rb</th><th>Km</th><th>Jt</th><th>ST</th>
   <th class="ah">AH</th>
 </tr>
-
 </thead>
-
 <tbody>
 
 <tr>
-  <td>1</td>
-  <td class="left">Yusup Roni</td>
-  <td>49314</td>
-  <td>KS</td>
-
-  <td class="shift-1">1</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-1">1</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-1">1</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-1">1</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-1">1</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-1">1</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-1">1</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-1">1</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-1">1</td>
-  <td class="shift-4">4</td>
-
-  <td>-</td>
+  <td>1</td><td class="left">Yusup Roni</td><td>49314</td><td>KS</td>
+  <td class="shift-1">1</td><td class="libur">L</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="shift-1">1</td>
+  <td class="libur">L</td><td class="shift-4">4</td><td class="shift-1">1</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="shift-1">1</td><td class="libur">L</td><td class="shift-4">4</td>
+  <td class="shift-1">1</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="shift-1">1</td><td class="libur">L</td>
+  <td class="shift-4">4</td><td class="shift-1">1</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="shift-1">1</td>
+  <td class="libur">L</td><td class="shift-4">4</td><td class="shift-1">1</td>
+  <td class="shift-4">4</td><td>-</td>
 </tr>
 
 <tr>
-  <td>2</td>
-  <td class="left">Yogi Nuryana</td>
-  <td>71312</td>
-  <td>PPKA</td>
-
-  <td class="shift-2">2</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-
-  <td>-</td>
+  <td>2</td><td class="left">Yogi Nuryana</td><td>71312</td><td>PPKA</td>
+  <td class="shift-2">2</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="libur">L</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="libur">L</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="libur">L</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="libur">L</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td>-</td>
 </tr>
 
 <tr>
-  <td>3</td>
-  <td class="left">Alek Nugraha</td>
-  <td>48850</td>
-  <td>PPKA</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td>-</td>
+  <td>3</td><td class="left">Alek Nugraha</td><td>48850</td><td>PPKA</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="libur">L</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="libur">L</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="libur">L</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="libur">L</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td>-</td>
 </tr>
 
 <tr>
-  <td>4</td>
-  <td class="left">Nanang Suryana</td>
-  <td>48248</td>
-  <td>PPKA</td>
-
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-
-  <td class="shift-4">4</td>
-  <td class="shift-3">3</td>
-  <td class="shift-2">2</td>
-  <td class="libur">L</td>
-
-<td>-</td>
+  <td>4</td><td class="left">Nanang Suryana</td><td>48248</td><td>PPKA</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="libur">L</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="libur">L</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="shift-4">4</td><td class="shift-3">3</td>
+  <td class="shift-2">2</td><td class="libur">L</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="shift-4">4</td>
+  <td class="shift-3">3</td><td class="shift-2">2</td><td class="libur">L</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="shift-4">4</td><td class="shift-3">3</td><td class="shift-2">2</td>
+  <td class="libur">L</td><td>-</td>
 </tr>
 
-<!-- PEMBATAS -->
-<tr class="separator-row">
-  <td colspan="36"></td>
+<tr class="separator-row"><td colspan="36"></td></tr>
+
+<tr>
+  <td>5</td><td class="left">Ajang Sobari</td><td>50202914</td><td>PKD</td>
+  <td class="shift-6">6</td><td class="shift-6">6</td><td class="rest">R</td>
+  <td class="libur">L</td><td class="shift-5">5</td><td class="shift-5">5</td>
+  <td class="shift-6">6</td><td class="shift-6">6</td><td class="rest">R</td>
+  <td class="libur">L</td><td class="shift-5">5</td><td class="shift-5">5</td>
+  <td class="shift-6">6</td><td class="shift-6">6</td><td class="rest">R</td>
+  <td class="libur">L</td><td class="shift-5">5</td><td class="shift-5">5</td>
+  <td class="shift-6">6</td><td class="shift-6">6</td><td class="rest">R</td>
+  <td class="libur">L</td><td class="shift-5">5</td><td class="shift-5">5</td>
+  <td class="shift-6">6</td><td class="shift-6">6</td><td class="rest">R</td>
+  <td class="libur">L</td><td class="shift-5">5</td><td class="shift-5">5</td>
+  <td class="shift-6">6</td><td>-</td>
 </tr>
 
 <tr>
-  <td>5</td>
-  <td class="left">Ajang Sobari</td>
-  <td>50202914</td>
-  <td>PKD</td>
-
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-
-  <td>-</td>
+  <td>6</td><td class="left">Kris Fitriadi</td><td>50202913</td><td>PKD</td>
+  <td class="rest">R</td><td class="libur">L</td><td class="shift-5">5</td>
+  <td class="shift-5">5</td><td class="shift-6">6</td><td class="shift-6">6</td>
+  <td class="rest">R</td><td class="libur">L</td><td class="shift-5">5</td>
+  <td class="shift-5">5</td><td class="shift-6">6</td><td class="shift-6">6</td>
+  <td class="rest">R</td><td class="libur">L</td><td class="shift-5">5</td>
+  <td class="shift-5">5</td><td class="shift-6">6</td><td class="shift-6">6</td>
+  <td class="rest">R</td><td class="libur">L</td><td class="shift-5">5</td>
+  <td class="shift-5">5</td><td class="shift-6">6</td><td class="shift-6">6</td>
+  <td class="rest">R</td><td class="libur">L</td><td class="shift-5">5</td>
+  <td class="shift-5">5</td><td class="shift-6">6</td><td class="shift-6">6</td>
+  <td class="rest">R</td><td>-</td>
 </tr>
 
 <tr>
-  <td>6</td>
-  <td class="left">Kris Fitriadi</td>
-  <td>50202913</td>
-  <td>PKD</td>
-
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-
-  <td>-</td>
+  <td>7</td><td class="left">Didin Solahudin</td><td>50202915</td><td>PKD</td>
+  <td class="shift-5">5</td><td class="shift-5">5</td><td class="shift-6">6</td>
+  <td class="shift-6">6</td><td class="rest">R</td><td class="libur">L</td>
+  <td class="shift-5">5</td><td class="shift-5">5</td><td class="shift-6">6</td>
+  <td class="shift-6">6</td><td class="rest">R</td><td class="libur">L</td>
+  <td class="shift-5">5</td><td class="shift-5">5</td><td class="shift-6">6</td>
+  <td class="shift-6">6</td><td class="rest">R</td><td class="libur">L</td>
+  <td class="shift-5">5</td><td class="shift-5">5</td><td class="shift-6">6</td>
+  <td class="shift-6">6</td><td class="rest">R</td><td class="libur">L</td>
+  <td class="shift-5">5</td><td class="shift-5">5</td><td class="shift-6">6</td>
+  <td class="shift-6">6</td><td class="rest">R</td><td class="libur">L</td>
+  <td class="shift-5">5</td><td>-</td>
 </tr>
+
+<tr class="separator-row"><td colspan="36"></td></tr>
 
 <tr>
-  <td>7</td>
-  <td class="left">Didin Solahudin</td>
-  <td>50202915</td>
-  <td>PKD</td>
-
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-  <td class="shift-5">5</td>
-  <td class="shift-6">6</td>
-  <td class="shift-6">6</td>
-  <td class="rest">R</td>
-  <td class="libur">L</td>
-  <td class="shift-5">5</td>
-
-  <td>-</td>
-</tr>
-<!-- PEMBATAS -->
-<tr class="separator-row">
-  <td colspan="36"></td>
-</tr>
-<tr>
-  <td>8</td>
-  <td class="left">Endi Efendi</td>
-  <td>50203871</td>
-  <td>K2</td>
-
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="libur">L</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="libur">L</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="libur">L</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="libur">L</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-  <td class="shift-7">7</td>
-
-  <td>-</td>
+  <td>8</td><td class="left">Endi Efendi</td><td>50203871</td><td>K2</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="shift-7">7</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="libur">L</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="shift-7">7</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="shift-7">7</td>
+  <td class="libur">L</td><td class="shift-7">7</td><td class="shift-7">7</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="shift-7">7</td>
+  <td class="shift-7">7</td><td class="libur">L</td><td class="shift-7">7</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="shift-7">7</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="libur">L</td>
+  <td class="shift-7">7</td><td class="shift-7">7</td><td class="shift-7">7</td>
+  <td class="shift-7">7</td><td>-</td>
 </tr>
 
 </tbody>
-
 </table>
-
 </div>
-<!-- KETERANGAN -->
+
 <!-- KETERANGAN -->
 <div class="legend-box">
-
   <h3 class="legend-title">KETERANGAN :</h3>
-
   <div class="legend-grid">
-
-
-    <div class="legend-item">
-      <span class="legend-color shift-1"></span>
-      <span>1 : Dinas KS</span>
-    </div>
-
-    <div class="legend-item">
-      <span class="legend-color shift-2"></span>
-      <span>2 : Dinas Pagi PPKA</span>
-    </div>
-
-    <div class="legend-item">
-      <span class="legend-color shift-3"></span>
-      <span>3 : Dinas Siang PPKA</span>
-    </div>
-
-    <div class="legend-item">
-      <span class="legend-color shift-4"></span>
-      <span>4 : Dinas Malam PPKA</span>
-    </div>
-
-    
-    <div class="legend-item">
-      <span class="legend-color shift-5"></span>
-      <span>5 : Dinas Pagi PKD</span>
-    </div>
-    
-    <div class="legend-item">
-      <span class="legend-color shift-6"></span>
-      <span>6 : Dinas Malam PKD</span>
-    </div>
-
-<div class="legend-item">
-  <span class="legend-color shift-7"></span>
-  <span>7 : Dinas Pagi K2</span>
+    <div class="legend-item"><span class="legend-color shift-1"></span><span>1 : Dinas KS</span></div>
+    <div class="legend-item"><span class="legend-color shift-2"></span><span>2 : Dinas Pagi PPKA</span></div>
+    <div class="legend-item"><span class="legend-color shift-3"></span><span>3 : Dinas Siang PPKA</span></div>
+    <div class="legend-item"><span class="legend-color shift-4"></span><span>4 : Dinas Malam PPKA</span></div>
+    <div class="legend-item"><span class="legend-color shift-5"></span><span>5 : Dinas Pagi PKD</span></div>
+    <div class="legend-item"><span class="legend-color shift-6"></span><span>6 : Dinas Malam PKD</span></div>
+    <div class="legend-item"><span class="legend-color shift-7"></span><span>7 : Dinas Pagi K2</span></div>
+    <div class="legend-item"><span class="legend-color libur"></span><span>L : Libur</span></div>
+    <div class="legend-item"><span class="legend-color cuti"></span><span>CT : Cuti</span></div>
+    <div class="legend-item"><span class="legend-color sakit"></span><span>CS : Cuti Sakit</span></div>
+    <div class="legend-item"><span class="legend-color rest"></span><span>R : Rest</span></div>
+  </div>
 </div>
 
-<div class="legend-item">
-  <span class="legend-color libur"></span>
-  <span>L : Libur</span>
-</div>
-
-<div class="legend-item">
-  <span class="legend-color cuti"></span>
-  <span>CT : Cuti</span>
-</div>
-
-<div class="legend-item">
-  <span class="legend-color sakit"></span>
-  <span>CS : Cuti Sakit</span>
-</div>
-
-<div class="legend-item">
-  <span class="legend-color rest"></span>
-  <span>R : Rest</span>
-</div>
-
-</div>
-</div>
 <script>
+/* ================================================================
+   CARA ISI LOGO — 2 OPSI:
 
+   OPSI A — File lokal (simpan di folder yang sama dengan HTML ini):
+     document.getElementById('logo-kiri').src  = 'logo-kai.png';
+     document.getElementById('logo-kanan').src = 'logo-stasiun.png';
+
+   OPSI B — URL online:
+     document.getElementById('logo-kiri').src  = 'https://upload.wikimedia.org/wikipedia/id/5/52/KAI_logo.png';
+     document.getElementById('logo-kanan').src = 'https://example.com/logo-kanan.png';
+
+   Uncomment (hapus //) salah satu opsi di bawah lalu isi nilainya:
+   ================================================================ */
+
+// document.getElementById('logo-kiri').src  = 'GANTI_NAMA_FILE_ATAU_URL_LOGO_KIRI';
+// document.getElementById('logo-kanan').src = 'GANTI_NAMA_FILE_ATAU_URL_LOGO_KANAN';
+
+/* Fallback: tampilkan kotak placeholder jika logo gagal load */
+['logo-kiri','logo-kanan'].forEach(function(id){
+  var img = document.getElementById(id);
+  img.onerror = function(){
+    var wrap = this.parentElement;
+    wrap.className = 'header-logo-empty';
+    wrap.innerHTML = id === 'logo-kiri' ? 'Logo<br>Kiri' : 'Logo<br>Kanan';
+  };
+});
+
+/* JAM */
 function updateClock(){
-
-  const now = new Date();
-
-  const hari = [
-    "Minggu","Senin","Selasa",
-    "Rabu","Kamis","Jumat","Sabtu"
-  ];
-
-  const bulan = [
-    "Januari","Februari","Maret",
-    "April","Mei","Juni",
-    "Juli","Agustus","September",
-    "Oktober","November","Desember"
-  ];
-
-  const h = String(now.getHours()).padStart(2,'0');
-  const m = String(now.getMinutes()).padStart(2,'0');
-  const s = String(now.getSeconds()).padStart(2,'0');
-
-  const text =
-    hari[now.getDay()] + ", " +
-    now.getDate() + " " +
-    bulan[now.getMonth()] + " " +
-    now.getFullYear() +
-    " | " +
-    h + ":" + m + ":" + s;
-
-  document.getElementById("clock").innerHTML = text;
+  var now = new Date();
+  var hari  = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+  var bulan = ["Januari","Februari","Maret","April","Mei","Juni",
+               "Juli","Agustus","September","Oktober","November","Desember"];
+  var h = String(now.getHours()).padStart(2,'0');
+  var m = String(now.getMinutes()).padStart(2,'0');
+  var s = String(now.getSeconds()).padStart(2,'0');
+  document.getElementById("clock").innerHTML =
+    hari[now.getDay()] + ", " + now.getDate() + " " +
+    bulan[now.getMonth()] + " " + now.getFullYear() +
+    " | " + h + ":" + m + ":" + s;
 }
-
-setInterval(updateClock,1000);
+setInterval(updateClock, 1000);
 updateClock();
-
 </script>
 </body>
 </html>
