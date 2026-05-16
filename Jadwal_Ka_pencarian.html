@@ -120,15 +120,10 @@ h3{
 }
 
 thead tr:nth-child(1) th{
-  position:sticky;
-  top:0;
-  z-index:3;
+  background:#0077b6;
 }
 
 thead tr:nth-child(2) th{
-  position:sticky;
-  top:30px;
-  z-index:2;
   background:#0096c7;
 }
 
@@ -161,19 +156,19 @@ thead tr:nth-child(2) th{
 /* ===== SHIFT ===== */
 
 .shift-pagi td{
-  background:#d8f3dc;
-  color:#1b4332;
+  background:#ffffff;
+  color:#1e3a8a;
   font-weight:bold;
 }
 
 .shift-siang td{
-  background:#fff3b0;
-  color:#7a5c00;
+  background:#ffffff;
+  color:#1e3a8a;
   font-weight:bold;
 }
 
 .shift-malam td{
-  background:#dbeafe;
+  background:#ffffff;
   color:#1e3a8a;
   font-weight:bold;
 }
@@ -287,9 +282,14 @@ thead tr:nth-child(2) th{
 }
 
 /* ===== PRINT ===== */
-
 @media print{
 
+  @page{
+    size:A4 portrait;
+    margin:10mm;
+  }
+
+  /* sembunyikan tombol */
   .print-box,
   #searchInput{
     display:none;
@@ -298,13 +298,62 @@ thead tr:nth-child(2) th{
   body{
     background:white;
     margin:0;
+    padding:0;
   }
 
+  /* halaman 1 */
+  .table-wrapper{
+    width:100%;
+    overflow:visible;
+    page-break-after:always;
+  }
+
+  /* tabel utama */
   #jadwalTable{
+    width:100%;
+    table-layout:fixed;
     box-shadow:none;
+    font-size:10px;
+  }
+
+  #jadwalTable th,
+  #jadwalTable td{
+    padding:3px;
+    font-size:9px;
+    word-wrap:break-word;
+    white-space:normal;
+  }
+
+  /* halaman 2 */
+  .calendar-box{
+    width:100%;
+    max-width:100%;
+    box-shadow:none;
+    page-break-before:always;
+  }
+
+  .calendar-box table{
+    width:100%;
+    table-layout:fixed;
+  }
+
+  .calendar-box th,
+  .calendar-box td{
+    font-size:9px;
+    padding:4px;
+  }
+
+  h2{
+    font-size:18px;
+  }
+
+  h3{
+    font-size:12px;
   }
 
 }
+
+
 
 /* ===== WRAPPER TABEL + CHART ===== */
 .table-chart-container{
@@ -500,6 +549,22 @@ thead tr:nth-child(2) th{
 .calendar-box .jalan{
   background:#0077b6;   /* biru korporate */
   color:white;
+  font-weight:bold;
+}
+.calendar-box .jalan{
+  background:#0077b6;
+  color:transparent; /* sembunyikan teks asli */
+  font-weight:bold;
+  position:relative;
+}
+
+.calendar-box .jalan::before{
+  content:"✔";
+  color:#ffffff; /* paksa putih */
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
   font-weight:bold;
 }
 
