@@ -1,98 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Jadwal Dinasan</title><br>
-
+<title>Jadwal Dinasan</title>
 
 <style>
 
-
+/* BODY */
 body{
-  /* TOP LOGO */
-.top-brand{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:12px;
-  background:white;
-  padding:10px 18px;
-  border-radius:18px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  border:3px solid #ff7a00;
-}
-
-.top-brand img{
-  height:55px;
-  object-fit:contain;
-}
-
-.brand-center{
-  text-align:center;
-  flex:1;
-}
-
-.brand-center h1{
-  font-size:24px;
-  color:#002856;
-  font-weight:700;
   margin:0;
-  line-height:1.2;
-}
-
-.brand-center p{
-  color:#ff7a00;
-  font-size:14px;
-  font-weight:600;
-  margin-top:2px;
-  letter-spacing:1px;
-}
-
-
-/* RESPONSIVE HP */
-@media(max-width:768px){
-
-  .top-brand{
-    padding:8px 10px;
-    gap:8px;
-  }
-
-  .top-brand img{
-    height:38px;
-  }
-
-  .brand-center h1{
-    font-size:16px;
-  }
-
-  .brand-center p{
-    font-size:10px;
-  }
-
-}
-  font-family:'Poppins',sans-serif;
+  padding:10px;
+  font-family:Arial, sans-serif;
   background:#f4f7fb;
-  padding:20px;
   color:#002856;
 }
-.logo-citar{
-  height:60px;
-  object-fit:contain;
-}
-
 
 /* HEADER */
 .header{
   background:none;
   color:#002856;
   padding:8px 0;
-  border-radius:0;
   text-align:center;
   margin-bottom:8px;
-  box-shadow:none;
 }
 
 .header h2{
@@ -109,14 +41,14 @@ body{
 
 .header p{
   margin-top:2px;
-  color:#002856;
   font-size:13px;
 }
+
 /* TABLE CONTAINER */
 .table-container{
   background:white;
   border-radius:18px;
-  overflow:hidden;
+  overflow-x:auto;
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
   border:3px solid #ff7a00;
 }
@@ -126,9 +58,10 @@ table{
   width:100%;
   border-collapse:collapse;
   table-layout:fixed;
+  min-width:1400px;
 }
 
-/* ukuran kolom lebih kecil */
+/* CELL */
 th, td{
   border:1px solid #d8e3f0;
   padding:4px;
@@ -137,24 +70,35 @@ th, td{
   white-space:nowrap;
 }
 
-/* kolom kiri */
+/* LEFT COLUMN */
 .left{
   text-align:left;
   padding-left:6px;
   font-size:12px;
+  font-weight:500;
 }
 
-/* ukuran header */
+/* HEADER STYLE */
 .main-header{
+  background:#002856;
+  color:white;
   font-size:11px;
+  font-weight:600;
 }
 
-.date-header,
+.date-header{
+  background:#005baa;
+  color:white;
+  font-weight:600;
+}
+
 .day-header{
-  font-size:10px;
+  background:#ff7a00;
+  color:white;
+  font-weight:600;
 }
 
-/* lebar kolom */
+/* COLUMN WIDTH */
 table th:nth-child(1),
 table td:nth-child(1){
   width:35px;
@@ -180,48 +124,14 @@ table td:last-child{
   width:90px;
 }
 
+/* STICKY HEADER */
 thead th{
   position:sticky;
   top:0;
   z-index:2;
 }
 
-th, td{
-  border:1px solid #d8e3f0;
-  padding:8px;
-  text-align:center;
-  font-size:13px;
-}
-
-/* HEADER STYLE */
-.main-header{
-  background:#002856;
-  color:white;
-  font-size:14px;
-  font-weight:600;
-}
-
-.date-header{
-  background:#005baa;
-  color:white;
-  font-weight:600;
-}
-
-.day-header{
-  background:#ff7a00;
-  color:white;
-  font-weight:600;
-}
-
-/* LEFT COLUMN */
-.left{
-  text-align:left;
-  white-space:nowrap;
-  padding-left:12px;
-  font-weight:500;
-}
-
-/* ZEBRA ROW */
+/* ZEBRA */
 tbody tr:nth-child(odd){
   background:#f5f9ff;
 }
@@ -229,23 +139,21 @@ tbody tr:nth-child(odd){
 tbody tr:nth-child(even){
   background:#ffffff;
 }
-/* PEMBATAS TABEL */
-.separator-row td{
-  background:white;
-  font-weight:700;
-  text-align:center;
-  font-size:8px;
-  padding:5px;
-  letter-spacing:1px;
-  border-top:3px solid white;
-  border-bottom:3px solid white;
-}
 
-/* efek hover */
+/* HOVER */
 tbody tr:hover{
   background:#ffe8cc !important;
   transition:0.2s;
 }
+
+/* SEPARATOR */
+.separator-row td{
+  background:rgb(199, 187, 187);
+  padding:5px;
+  border-top:3px solid white;
+  border-bottom:3px solid white;
+}
+
 /* SHIFT COLORS */
 .shift-1{
   background:#d9f2ff;
@@ -267,13 +175,8 @@ tbody tr:hover{
   font-weight:600;
 }
 
-.libur{
-  background:#ff7a00;
-  color:white;
-  font-weight:700;
-}
 .shift-5{
-  background:#dfffe0; /* sama seperti shift-2 */
+  background:#dfffe0;
   font-weight:600;
 }
 
@@ -288,27 +191,10 @@ tbody tr:hover{
 }
 
 .rest{
-  background:#d9f2ff; /* opsional untuk kode R */
+  background:#d9f2ff;
   font-weight:600;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-
-  body{
-    padding:10px;
-  }
-
-  .header h1{
-    font-size:22px;
-  }
-
-  th, td{
-    font-size:11px;
-    padding:6px;
-  }
-
-}/* LIBUR */
 .libur{
   background:#d60000;
   color:white;
@@ -320,6 +206,7 @@ tbody tr:hover{
   background:#d60000 !important;
   color:white !important;
 }
+
 /* KETERANGAN */
 .legend-box{
   margin-top:20px;
@@ -330,43 +217,37 @@ tbody tr:hover{
   border-left:6px solid #ff7a00;
 }
 
-.legend-box h3{
-  margin-bottom:15px;
-  color:#002856;
-  font-size:18px;
-}
-
+/* SUSUN KE BAWAH */
 .legend-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
+/* ITEM KETERANGAN */
 .legend-item{
   display:flex;
   align-items:center;
-  gap:10px;
-  font-size:14px;
-  font-weight:500;
+  gap:12px;
+
+  /* ATUR UKURAN FONT DI SINI */
+  font-size:12px;
+
+  font-weight:600;
+  line-height:1.5;
 }
 
+/* WARNA BOX */
 .legend-color{
-  width:22px;
-  height:22px;
+  width:15px;
+  height:15px;
   border-radius:6px;
   display:inline-block;
   border:1px solid rgba(0,0,0,0.1);
+  flex-shrink:0;
 }
 
-/* WARNA CUTI */
-.cuti{
-  background:#9c27b0;
-}
-
-/* WARNA CUTI SAKIT */
-.sakit{
-  background:#e53935;
-}
+/* RESPONSIVE */
 @media(max-width:768px){
 
   body{
@@ -400,7 +281,35 @@ tbody tr:hover{
   }
 
   .legend-item{
-    font-size:11px;
+    font-size:13px;
+  }
+
+}
+
+
+/* JAM & TANGGAL */
+.top-info{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:8px;
+}
+
+#clock{
+  background:#002856;
+  color:white;
+  padding:10px 16px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:600;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+  #clock{
+    font-size:10px;
+    padding:6px 10px;
   }
 
 }
@@ -408,29 +317,7 @@ tbody tr:hover{
 </head>
 
 <body>
-<!-- TOP LOGO -->
-<div class="top-brand">
 
-  <!-- Logo Danantara -->
-  <img src="https://i.ibb.co.com/5hTcwVCt/Danantara-Indonesia-no-SW-svg.png" 
-       alt="Logo Danantara">
-
-  <!-- Tengah -->
-  <div class="brand-center">
-
-    <!-- Logo CITAR -->
-    <img 
-      src="https://i.ibb.co.com/hJ7hKsng/Logo-CITAR-2025-01.png" 
-      alt="Logo CITAR"
-      class="logo-citar">
-
-  </div>
-
-  <!-- Logo KAI -->
-  <img src="https://i.ibb.co.com/F41m7v86/LOGO-KAI.png" 
-       alt="Logo KAI">
-
-</div>
 
   
 <div class="header">
@@ -438,6 +325,11 @@ tbody tr:hover{
   <h3>STASIUN KARANGPUCUNG</h3>
   <p>Bulan Mei 2026</p>
 </div>
+
+<div class="top-info">
+  <div id="clock"></div>
+</div>
+
 
 <div class="table-container">
 
@@ -836,8 +728,13 @@ tbody tr:hover{
 
 </div>
 <!-- KETERANGAN -->
+<!-- KETERANGAN -->
 <div class="legend-box">
+
+  <h3 class="legend-title">KETERANGAN :</h3>
+
   <div class="legend-grid">
+
 
     <div class="legend-item">
       <span class="legend-color shift-1"></span>
@@ -859,30 +756,16 @@ tbody tr:hover{
       <span>4 : Dinas Malam PPKA</span>
     </div>
 
+    
     <div class="legend-item">
-      <span class="legend-color libur"></span>
-      <span>L : Libur</span>
+      <span class="legend-color shift-5"></span>
+      <span>5 : Dinas Pagi PKD</span>
     </div>
-
+    
     <div class="legend-item">
-      <span class="legend-color cuti"></span>
-      <span>CT : Cuti</span>
+      <span class="legend-color shift-6"></span>
+      <span>6 : Dinas Malam PKD</span>
     </div>
-
-    <div class="legend-item">
-      <span class="legend-color sakit"></span>
-      <span>CS : Cuti Sakit</span>
-    </div>
-
-    <div class="legend-item">
-  <span class="legend-color shift-5"></span>
-  <span>5 : Dinas Pagi PKD</span>
-</div>
-
-<div class="legend-item">
-  <span class="legend-color shift-6"></span>
-  <span>6 : Dinas Malam PKD</span>
-</div>
 
 <div class="legend-item">
   <span class="legend-color shift-7"></span>
@@ -890,11 +773,63 @@ tbody tr:hover{
 </div>
 
 <div class="legend-item">
+  <span class="legend-color libur"></span>
+  <span>L : Libur</span>
+</div>
+
+<div class="legend-item">
+  <span class="legend-color cuti"></span>
+  <span>CT : Cuti</span>
+</div>
+
+<div class="legend-item">
+  <span class="legend-color sakit"></span>
+  <span>CS : Cuti Sakit</span>
+</div>
+
+<div class="legend-item">
   <span class="legend-color rest"></span>
   <span>R : Rest</span>
 </div>
 
-  </div>
 </div>
+</div>
+<script>
+
+function updateClock(){
+
+  const now = new Date();
+
+  const hari = [
+    "Minggu","Senin","Selasa",
+    "Rabu","Kamis","Jumat","Sabtu"
+  ];
+
+  const bulan = [
+    "Januari","Februari","Maret",
+    "April","Mei","Juni",
+    "Juli","Agustus","September",
+    "Oktober","November","Desember"
+  ];
+
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+
+  const text =
+    hari[now.getDay()] + ", " +
+    now.getDate() + " " +
+    bulan[now.getMonth()] + " " +
+    now.getFullYear() +
+    " | " +
+    h + ":" + m + ":" + s;
+
+  document.getElementById("clock").innerHTML = text;
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+</script>
 </body>
 </html>
