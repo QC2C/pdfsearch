@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ikhtisar Jam Kerja</title>
+
+<style>
+
+body{
+    font-family:"Times New Roman", serif;
+    background:#f3f3f3;
+    padding:20px;
+}
+
+.title{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.wrapper{
+    overflow-x:auto;
+    background:white;
+    border:2px solid #000;
+}
+
+table{
+    border-collapse:collapse;
+    width:max-content;
+    min-width:100%;
+}
+
+th, td{
+    border:1.5px solid #000;
+    padding:0;
+    position:relative;
+    text-align:center;
+    vertical-align:middle;
+}
+
+thead th{
+    background:#f0b400;
+    color:blue;
+    font-weight:bold;
+}
+
+.jabatan{
+    width:15vw;
+    min-width:100px;
+    font-size:20px;
+    height:75px;
+    white-space:normal;
+    word-break:break-word;
+}
+
+.no{
+    width:clamp(80px, 10vw, 130px);
+    padding:0 10px;
+    font-size:18px;
+}
+
+.hour{
+    width:34px;
+    min-width:34px;
+    height:75px;
+}
+
+/* ANGKA JAM DI GARIS */
+.hour span{
+    position:absolute;
+    top:50%;
+    left:-1px;
+    transform:translate(-50%, -50%);
+    background:#fff;
+    padding:0 3px;
+    color:#000;
+    font-size:14px;
+    z-index:5;
+}
+
+.istirahat{
+    width:150px;
+    min-width:150px;
+    font-size:12px;
+    line-height:1.1;
+}
+
+.catatan{
+    width:220px;
+    min-width:220px;
+}
+
+tbody td{
+    height: 24px;;
+    background:#e6e6e6;
+}
+
+.left{
+    text-align:left;
+    padding-left:8px;
+    font-size:18px;
+}
+
+/* GARIS HITAM */
+.black-line{
+    position:absolute;
+    top:8px;
+    left:-1px;
+    right:-1px;
+    height:5px;
+    background:#000;
+}
+
+/* GARIS MERAH */
+.red-line{
+    position:absolute;
+    top:8px;
+    left:-18px;
+    right:-1px;
+    height:5px;
+    background:red;
+}
+
+/* UJUNG KANAN 13.45 */
+.red-line-end{
+    position:absolute;
+    top:8px;
+    left:-18px;
+    right: 8px;;
+    height:5px;
+    background:red;
+}
+
+/* ANGKA DI GARIS */
+.line-label{
+    position:absolute;
+    top:8px;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background:#fff;
+    padding:0 2px;
+    font-size:14px;
+    z-index:10;
+}
+
+/* ANGKA ISTIRAHAT */
+.rest-number{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.small{
+    font-size:14px;
+
+}
+/*garis merah dinas malam */
+.red-line-night{
+    position:absolute;
+    top:8px;
+    left:0;
+    right:-1px;
+    height:5px;
+    background:red;
+}
+
+/* ===== TANDA TANGAN ===== */
+
+.ttd-wrapper{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:30px;
+    width:100%;
+}
+
+.ttd-box{
+    width:320px;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.ttd-img{
+    width:140px;
+    height:90px;
+    object-fit:contain;
+    display:block;
+    margin:10px auto;
+}
+
+.ttd-upload{
+    margin-top:10px;
+}
+
+/* ===== REKAPITULASI ===== */
+
+.rekap-container{
+    margin-top:40px;
+}
+
+.rekap-title{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.rekap-wrapper{
+    overflow-x:auto;
+    background:white;
+    border:2px solid #000;
+    width:fit-content;
+    margin:0 auto; /* supaya ke tengah */
+}
+
+.rekap-table{
+    width:auto;
+    border-collapse:collapse;
+    min-width:850px; /* bisa diperkecil lagi */
+}
+
+.rekap-table th,
+.rekap-table td{
+    border:1.5px solid #000;
+    padding:8px;
+    text-align:center;
+    font-size:16px;
+}
+
+.rekap-table th{
+    background:#f0b400;
+    color:blue;
+    font-weight:bold;
+}
+
+.rekap-left{
+    text-align:left;
+    padding-left:10px;
+}
+
+.rekap-bold{
+    font-weight:bold;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="title">
+IKHTISAR JAM KERJA STASIUN KARANGPUCUNG
+</div>
+
+<div class="wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th class="jabatan">
+JABATAN
+</th>
+
+<th class="no">
+NO.<br>DINA<br>SAN
+</th>
+
+<th class="hour"><span>0</span></th>
+<th class="hour"><span>1</span></th>
+<th class="hour"><span>2</span></th>
+<th class="hour"><span>3</span></th>
+<th class="hour"><span>4</span></th>
+<th class="hour"><span>5</span></th>
+<th class="hour"><span>6</span></th>
+<th class="hour"><span>7</span></th>
+<th class="hour"><span>8</span></th>
+<th class="hour"><span>9</span></th>
+<th class="hour"><span>10</span></th>
+<th class="hour"><span>11</span></th>
+<th class="hour"><span>12</span></th>
+<th class="hour"><span>13</span></th>
+<th class="hour"><span>14</span></th>
+<th class="hour"><span>15</span></th>
+<th class="hour"><span>16</span></th>
+<th class="hour"><span>17</span></th>
+<th class="hour"><span>18</span></th>
+<th class="hour"><span>19</span></th>
+<th class="hour"><span>20</span></th>
+<th class="hour"><span>21</span></th>
+<th class="hour"><span>22</span></th>
+<th class="hour"><span>23</span></th>
+<th class="hour"><span>24</span></th>
+
+<th class="istirahat">
+ISTIRAHAT UNTUK TERPUTUS ANTARA SUATU DINAS DENGAN DINAS BERIKUT ESOK HARI (JAM)
+</th>
+
+<th class="catatan">
+CATATAN
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<!-- ================= KS ================= -->
+
+<tr>
+
+<td class="left">KS</td>
+
+<td>1</td>
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<td>
+    <div class="line-label">00</div>
+</td>
+
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+
+<td>
+    <div class="line-label">00</div>
+</td>
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- ISTIRAHAT -->
+<td class="rest-number">16</td>
+
+<td class="small">
+<b>Dinasan KS Menyesuaikan</b>
+</td>
+
+</tr>
+
+<!-- ================= PPKA PAGI ================= -->
+
+<tr>
+
+<td class="left">PPKA PAGI</td>
+
+<td>2</td>
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- 5.45 -->
+<td>
+    <div class="line-label">45</div>
+</td>
+
+<!-- 6 -->
+<td><div class="red-line"></div></td>
+
+<!-- 7 -->
+<td><div class="red-line"></div></td>
+
+<!-- 8 -->
+<td><div class="red-line"></div></td>
+
+<!-- 9 -->
+<td><div class="red-line"></div></td>
+
+<!-- 10 -->
+<td><div class="red-line"></div></td>
+
+<!-- 11 -->
+<td><div class="red-line"></div></td>
+
+<!-- 12 -->
+<td><div class="red-line"></div></td>
+
+<!-- 13 -->
+<td>
+    <div class="red-line-end"></div>
+    <div class="line-label">45</div>
+</td>
+
+<!-- 14 -->
+<td></td>
+
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- ISTIRAHAT -->
+<td class="rest-number">32</td>
+
+<td></td>
+
+</tr>
+
+
+<!-- ================= PPKA SIANG ================= -->
+
+<tr>
+
+<td class="left">PPKA SIANG</td>
+
+<td>3</td>
+
+<!-- 0 - 12 kosong -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- 13.45 -->
+<td>
+    <div class="line-label">45</div>
+</td>
+
+<!-- 14 -->
+<td><div class="red-line"></div></td>
+
+<!-- 15 -->
+<td><div class="red-line"></div></td>
+
+<!-- 16 -->
+<td><div class="red-line"></div></td>
+
+<!-- 17 -->
+<td><div class="red-line"></div></td>
+
+<!-- 18 -->
+<td><div class="red-line"></div></td>
+
+<!-- 19 -->
+<td><div class="red-line"></div></td>
+
+<!-- 20 -->
+<td><div class="red-line"></div></td>
+
+<!-- 21 -->
+<td>
+    <div class="red-line-end"></div>
+    <div class="line-label">45</div>
+</td>
+
+<!-- 22 - 24 -->
+<td></td>
+<td></td>
+<td></td>
+
+<td class="rest-number">8</td>
+
+<td></td>
+
+</tr>
+
+<!-- ================= PPKA MALAM ================= -->
+
+<tr>
+
+<td class="left">PPKA MALAM</td>
+
+<td>4</td>
+
+<!-- 0 -->
+<td><div class="red-line-night"></div></td>
+
+<!-- 1 -->
+<td><div class="red-line-night"></div></td>
+
+<!-- 2 -->
+<td><div class="red-line-night"></div></td>
+
+<!-- 3 -->
+<td><div class="red-line-night"></div></td>
+
+<!-- 4 -->
+<td><div class="red-line-night"></div></td>
+
+<!-- 5 -->
+<td>
+    <div class="red-line-end"></div>
+    <div class="line-label">45</div>
+</td>
+
+<!-- 6 - 20 kosong -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- 21 -->
+<td>
+    <div class="line-label">45</div>
+</td>
+
+<!-- 22 -->
+<td><div class="red-line"></div></td>
+
+<!-- 23 -->
+<td><div class="red-line"></div></td>
+
+<!-- 24 -->
+<td>
+    <div class="line-label">00</div>
+</td>
+
+<td class="rest-number">8</td>
+
+<td></td>
+
+</tr>
+
+<!-- ================= PENGAMANAN STASIUN PAGI ================= -->
+
+<tr>
+
+<td class="left">PENGAMANAN STASIUN PAGI</td>
+
+<td>5</td>
+
+<!-- 0 - 5 kosong -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- 6 -->
+<td>
+    <div class="line-label">00</div>
+</td>
+
+<!-- 7 - 13 -->
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+
+<!-- 14 -->
+<td>
+    <div class="line-label">00</div>
+</td>
+
+<!-- 15 - 24 kosong -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<td class="rest-number">32</td>
+
+<td></td>
+
+</tr>
+
+<!-- ================= PENGAMANAN STASIUN SIANG ================= -->
+
+<tr>
+
+<td class="left">PENGAMANAN STASIUN SIANG</td>
+
+<td>6</td>
+
+<!-- 0 - 13 -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- 14 -->
+<td>
+    <div class="black-line"></div>
+    <div class="line-label" style="left:-1px;">00</div>
+</td>
+
+<!-- 15 - 21 -->
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+
+<!-- 22 -->
+<td>
+    <div class="line-label" style="left:0;">00</div>
+</td>
+
+<!-- 23 - 24 -->
+<td></td>
+<td></td>
+
+<td class="rest-number">8</td>
+
+<td></td>
+
+</tr>
+
+<!-- ================= PENGAMANAN STASIUN MALAM ================= -->
+
+<tr>
+
+<td class="left">PENGAMANAN STASIUN MALAM</td>
+
+<td>7</td>
+
+<!-- 00 -->
+<td>
+    <div class="black-line"></div>
+    <div class="line-label" style="left:0;">00</div>
+</td>
+
+<!-- 1 - 5 -->
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+
+<!-- 6 -->
+<td>
+    <div class="line-label">00</div>
+</td>
+
+<!-- 7 - 21 kosong -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- 22 -->
+<td>
+    <div class="black-line"></div>
+    <div class="line-label" style="left:0;">00</div>
+</td>
+
+<!-- 23 -->
+<td><div class="black-line"></div></td>
+
+<!-- 24 -->
+<td>
+    <div class="line-label">00</div>
+</td>
+
+<td class="rest-number">8</td>
+
+<td></td>
+
+</tr>
+
+<!-- ================= PEKERJA K2 ================= -->
+
+<tr>
+
+<td class="left">PEKERJA K2</td>
+
+<td>8</td>
+
+<!-- 0 - 5 -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<!-- 6 -->
+<td>
+    <div class="black-line"></div>
+    <div class="line-label" style="left:0;">00</div>
+</td>
+
+<!-- 7 - 13 -->
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+<td><div class="black-line"></div></td>
+
+<!-- 14 -->
+<td>
+    <div class="black-line"></div>
+    <div class="line-label" style="left:100%;">00</div>
+</td>
+
+<!-- 15 - 24 -->
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+
+<td class="rest-number">16</td>
+
+<td></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+
+
+<!-- ===== REKAPITULASI KEBUTUHAN PEKERJA ===== -->
+
+<div class="rekap-container">
+
+    <div class="rekap-title">
+        REKAPITULASI KEBUTUHAN PEKERJA
+    </div>
+
+    <div class="rekap-wrapper">
+
+        <table class="rekap-table">
+
+    <table class="rekap-table">
+
+        <thead>
+
+            <tr>
+                <th rowspan="2">NO.<br>URUT</th>
+                <th rowspan="2">JABATAN</th>
+
+                <th colspan="4">
+                    DIBUTUHKAN N2 = (∑S x ∑OS x K)In
+                </th>
+
+                <th rowspan="2">N2</th>
+                <th rowspan="2">KEBUTUHAN</th>
+                <th rowspan="2">ADANYA</th>
+                <th rowspan="2">KURANG / LEBIH</th>
+                <th rowspan="2">KETERANGAN</th>
+            </tr>
+
+            <tr>
+                <th>∑S</th>
+                <th>∑OS</th>
+                <th>K</th>
+                <th>In</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>1</td>
+                <td class="rekap-left">KS</td>
+
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
+                <td>-</td>
+                <td>1</td>
+                <td>1</td>
+                <td>-</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td class="rekap-left">PPKA</td>
+
+                <td>3</td>
+                <td>1</td>
+                <td>1,21</td>
+                <td>1,04</td>
+
+                <td>3,7752</td>
+                <td>4</td>
+                <td>3</td>
+                <td>-1</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td class="rekap-left">PENGAMANAN STASIUN</td>
+
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
+                <td>-</td>
+                <td>-</td>
+                <td>3</td>
+                <td>-</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td class="rekap-left">PEKERJA K2</td>
+
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+
+                <td>-</td>
+                <td>-</td>
+                <td>1</td>
+                <td>-</td>
+                <td></td>
+            </tr>
+
+            <tr class="rekap-bold">
+                <td colspan="7" class="rekap-left">
+                    JUMLAH :
+                </td>
+
+                <td>5</td>
+                <td>8</td>
+                <td>-1</td>
+                <td></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ===== TANDA TANGAN ===== -->
+
+<div class="ttd-wrapper">
+
+    <div class="ttd-box">
+
+        <div>
+            Karangpucung, 1 Juni 2025
+        </div>
+
+        <div>
+            Kepala Stasiun Karangpucung
+        </div>
+
+        <!-- GAMBAR TTD -->
+        <img id="previewTtd"
+             class="ttd-img"
+             src="https://i.ibb.co.com/7tqL9YY8/ttd-yusron-png-1-2.png"
+             alt="TTD">
+
+        <div>
+            <b>YUSUP RONI</b>
+        </div>
+
+        <div>
+            NIPP. 49314
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+const uploadTtd = document.getElementById("uploadTtd");
+const previewTtd = document.getElementById("previewTtd");
+
+uploadTtd.addEventListener("change", function(e){
+
+    const file = e.target.files[0];
+
+    if(file){
+        previewTtd.src = URL.createObjectURL(file);
+    }
+
+});
+</script>
+</body>
+</html>
