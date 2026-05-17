@@ -774,6 +774,7 @@ input {
   <li onclick="toggleFolder(this)">
     <b>🚉 Undang-Undang</b>
     <ul class="sub-folder">
+<li onclick="openPDF(event,'Al-quran',this)">Al-qur'an</li>
 <li onclick="openPDF(event,'uu no 23 2007',this)">
   UU no 23 2007
 </li>
@@ -801,6 +802,7 @@ input {
 <li onclick="openPDF(event,'pm 24 thn 2015',this)">PM 24 thn 2015</li>
 <li onclick="openPDF(event,'pm 60 thn 2012',this)">PM 60 thn 2012</li>
 <li onclick="openPDF(event,'pm 63 thn 2019',this)">PM 63 Thn 2019</li>
+<li onclick="openPDF(event,'pm 69 thn 2018',this)">PM 69 Thn 2018</li>
 <li onclick="openPDF(event,'sertifikasi',this)">Pemberkasan Sertifikasi</li>
 
 
@@ -811,14 +813,23 @@ input {
   <li onclick="toggleFolder(this)">
     <b>🚦 Peraturan Dinas</b>
     <ul class="sub-folder">
+<li onclick="openPDF(event,'pd 2 Jilid 1',this)">pd 2 Jilid 1</li>
 <li onclick="openPDF(event,'pd 3',this)">PD 3 2019</li>
 <li onclick="openPDF(event,'pd 8a',this)">PD 8a</li>
+<li onclick="openPDF(event,'pd 8a rev',this)">pd 8a rev</li>
+<li onclick="openPDF(event,'pd 8c',this)">PD 8c</li>
+<li onclick="openPDF(event,'pd 9',this)">PD 9</li>
 <li onclick="openPDF(event,'pd 10a',this)">PD 10A</li>
+<li onclick="openPDF(event,'pd 11',this)">PD 11</li>
 <li onclick="openPDF(event,'pd 12 jilid 1',this)">PD 12 Jilid 1</li>
+<li onclick="openPDF(event,'pd 12 jilid 2',this)">PD 12 Jilid 2</li>
 <li onclick="openPDF(event,'pd 13a',this)">PD 13A</li>
+<li onclick="openPDF(event,'pd 13c',this)">PD 13C</li>
 <li onclick="openPDF(event,'pd15',this)">PD 15</li>
 <li onclick="openPDF(event,'pd 16a',this)">PD 16A</li>
 <li onclick="openPDF(event,'pd 16ar',this)">PD 16A rev</li>
+<li onclick="openPDF(event,'pd 16b',this)">PD 16B</li>
+<li onclick="openPDF(event,'pd 18 jil 2',this)">pd 18 jil 2</li>
 <li onclick="openPDF(event,'pd 19 jil. 1 dan 2',this)">PD 19 Jil. 1 dan 2</li>
 <li onclick="openPDF(event,'pd 22 jilid 1',this)">PD 22 Jilid 1</li>
 <li onclick="openPDF(event,'pd 22 jilid 2',this)">PD 22 Jilid 2</li>
@@ -900,12 +911,31 @@ input {
 
 <div id="results"></div> <!-- TAMBAHKAN INI -->
 
-<div id="pdfViewer" style="display:none; position:relative;">
-  
-  <div id="closePdf" onclick="closePDF()">✖</div>
+<!-- PDF VIEWER -->
+<div id="pdfViewer" style="
+  display:none;
+  position:relative;
+  width:100%;
+  height:90vh;   /* 🔥 tinggi vertikal */
+  margin-top:20px;
+">
 
-  <iframe id="pdfFrame" width="100%" height="600px"></iframe>
-</div>
+  <!-- tombol tutup -->
+  <div id="closePdf" onclick="closePDF()">
+    ✖
+  </div>
+
+  <!-- iframe pdf -->
+  <iframe
+    id="pdfFrame"
+    style="
+      width:100%;
+      height:100%;
+      border:none;
+      border-radius:10px;
+      background:white;
+    ">
+  </iframe>
 
 </div>
 
@@ -90553,6 +90583,10 @@ Nipp.46862
     title: "Knp -  IJK 2025",
     desc: "Juni 2025"
   },
+   {
+    title: "Al-qur'an",
+    desc: "Juni 2019"
+  },
 
 
 
@@ -91111,10 +91145,17 @@ function toggleFolder(el) {
     str.toLowerCase().replace(/\s+/g, " ").trim();
 
   const pdfMap = {
+  "pd 2 Jilid 1": "https://online.fliphtml5.com/inzqs/pd-2---2011/",
+  "pd 18 jil 2": "https://drive.google.com/file/d/1E64tj4DhFU_D-Qz37k7ZEsHL6Jsz3daS/preview",
   "pd 19 jil 1 dan 2": "https://drive.google.com/file/d/1ZkO_YwVPjDd2llCLYdaQ3KauCOcdNsHY/preview",
-  "pd 8a": "https://drive.google.com/file/d/1ON9S8IrkcDQDPyFjUWzew5E2em9eOFTk/preview",
+"pd 8a": "https://online.fliphtml5.com/inzqs/PD-8A/",
+"pd 8a rev": "https://drive.google.com/file/d/1LoPklWn-3VQX1NVh-Isvn0aWyaUPvQWk/preview",
+"pd 8c": "https://drive.google.com/file/d/14gtdS9NJPxZnRdyBzLM7WTaAYmz4INxY/preview",
+"pd 9": "https://drive.google.com/file/d/1fM4VD5l0DNrHGQxNpXdAyhiItX5_Eh7b/preview",
+"pd 11": "https://drive.google.com/file/d/11V9HaPA2eTI0BEEyOsK-YqvqxYXMx0vE/preview",
   "pd 16a": "https://drive.google.com/file/d/1XGmT8REwsCl_KOLs4mJfFOVzBj_vkzcd/preview",
   "pd 16ar": "https://drive.google.com/file/d/1SdC9AvtNgUY4nX-iKrW9C8FbGsrPbsml/preview",
+  "pd 16b": "https://www.flipbookpdf.net/web/site/45b2e0c4ed5fd9deaf46fa7775ebc99fc04925bb202605.pdf.html",
 
   "pd 22 jilid 1": "https://drive.google.com/file/d/1Qy1hDfTttq52jmWY6zGXJ9oZ_9IFckGL/preview",
   "pd 22 jilid 2": "https://drive.google.com/file/d/1rCPSRYmH9LG9kSaPk_YmLeNdmhDCJ908/preview",
@@ -91133,6 +91174,7 @@ function toggleFolder(el) {
 
   "pd 23": "https://drive.google.com/file/d/1dusUuE-TD8rA6JMmqZipO6SnnZQOB77y/preview",
   "pd 10a": "https://drive.google.com/file/d/1NhYvoT5iJWq6C9BdP8_e4lz6fNSMz_jF/preview",
+  "pd 11": "https://drive.google.com/file/d/11V9HaPA2eTI0BEEyOsK-YqvqxYXMx0vE/preview",
   "pd 13a": "https://drive.google.com/file/d/112Om5vn3d1bP9rdhjvLtSmVGHfTvslC5/preview",
   "pdps knp": "https://drive.google.com/file/d/1xaNmkDjZE2L1zD8Gd2y3LWrETBrr3Iwt/preview",
 
@@ -91151,12 +91193,14 @@ function toggleFolder(el) {
   "fokus waspada dan siaga": "https://drive.google.com/file/d/1b_QHNtpsrqh-aCz9-iCdDvkIyvp7xzZK/preview",
   "tunjuk sebut": "https://drive.google.com/file/d/1TFSEa2o3OcbqBYO26MXswNCQM0gZC3U4/preview",
 
-  "pd 3": "https://drive.google.com/file/d/1Z3an_BKw6UbRLwuue_MnDqv-IQRW5swM/preview",
+"pd 3": "https://online.fliphtml5.com/inzqs/Peraturan-Dinas-3-Mengenai-Semboyan-2019/index.html",
   "pp 6 thn 2017": "https://drive.google.com/file/d/15WPkIaOhcs5vi1CNA_BqYrNnTJuuJVwE/preview",
   "pp 33 thn 2021": "https://drive.google.com/file/d/1m1sduDVyssL9iVEWcVcBKJJ2wSzD22zf/preview",
   "pm 60 thn 2012": "https://drive.google.com/file/d/1ejtiqT-LmwTrPUHWELxECagQrmtByy2i/preview",
+  "pm 69 thn 2018": "https://drive.google.com/file/d/1iPCnyQpISQ9LlzmZYzC9MCBwz6G1D8gi/preview",
 
   "pd 12 jilid 1": "https://drive.google.com/file/d/1qH2BocY7pthWl2CLdLe8GYZqK8iM4ZQN/preview",
+  "pd 12 jilid 2": "https://drive.google.com/file/d/1-8ifl5wHjXJJqBiT9bqhtbfQ9C64q_GF/preview",
 
   "ceklist perka gangguan": "https://drive.google.com/file/d/10Gx-zw8Tr6bmRv6YCp-Bl-pZpkj093UY/preview",
 
@@ -91179,8 +91223,9 @@ function toggleFolder(el) {
   "green": "https://drive.google.com/file/d/1bLnOoaR4B8x6EFFhkmf06lGyiWwFgWt1/preview", /// green movement
   "sertifikasi": "https://drive.google.com/file/d/1s0PenzN0xT0r_jIuiK6WQ0nxjv4rzbbR/preview", /// green movement
   "pd15": "https://drive.google.com/file/d/1hnHI2Znull1jmPkvixU9OhSU15IvM23l/preview", /// pd 15
+  "pd 13c": "https://drive.google.com/file/d/1L-3fTVJYhquHc2DRLJUtpMmRrhiArgo9/preview", /// pd 15
   "pd26": "https://drive.google.com/file/d/1BVvhpG_MuMT7F7-OWgcKvA1dlVBfiRWz/preview", /// pd 26
-
+  "Al-quran": "https://fliphtml5.com/iaimg/jkud/Al-Quran_dan_Terjemahnya_Edisi_Penyempurnaan_2019/",
 
 };
 
@@ -91326,6 +91371,7 @@ const htmlMap = {
   "Knp - Jadwal Dinasan Karangpucung": "jadwal dinasan karangpucung.html",
   "Knp -  Daftar Jalur": "jadwal Daftar Jalur 2026 Karangpucung.html",
   "Knp -  IJK 2025": "Ijk Knp.html",
+  "Al-qur'an": "https://fliphtml5.com/iaimg/jkud/Al-Quran_dan_Terjemahnya_Edisi_Penyempurnaan_2019/",
 };
 
 // =========================
