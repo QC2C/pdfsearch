@@ -97114,10 +97114,22 @@ function stripHTML(html) {
 // =========================
 // 🔥 INDEX DATA (SUPER CEPAT)
 // =========================
-const searchIndex = database.map(item => ({
-  ...item,
-  searchText: (item.title + " " + stripHTML(item.desc)).toLowerCase()
-}));
+// =========================
+// 🔥 SEARCH INDEX
+// =========================
+let searchIndex = [];
+
+function rebuildSearchIndex() {
+
+  searchIndex = database.map(item => ({
+    ...item,
+    searchText: (
+      item.title + " " +
+      stripHTML(item.desc)
+    ).toLowerCase()
+  }));
+
+}
 
 
 // =========================
@@ -97820,7 +97832,15 @@ function toggleTheme() {
 // 🔥 LOAD THEME SAAT START
 // =========================
 window.addEventListener("load", () => {
+
+  // 🔥 build database
+  rebuildSearchIndex();
+
+  // 🔥 baca isi html
+  indexHTMLFiles();
+
   const savedTheme = localStorage.getItem("theme");
+
   const btn = document.getElementById("themeToggle");
 
   if (savedTheme === "dark") {
@@ -97881,6 +97901,73 @@ const htmlMap = {
   "Knp - IBPR  Karangpucung": "IBPR  knp  mei 2026.html",
   "Pengelolaan Sampah 2026": "https://anyflip.com/hkmsv/afmo/",
 };
+
+// =========================
+// 🔥 INDEX HTML FILES
+// =========================
+async function indexHTMLFiles() {
+
+  for (const [title, path] of Object.entries(htmlMap)) {
+
+    // skip link luar
+    if (
+      path.startsWith("http://") ||
+      path.startsWith("https://")
+    ) continue;
+
+    try {
+
+      console.log("INDEX:", path);
+
+      const response = await fetch(path);
+
+      const html = await response.text();
+
+      // ubah html jadi text
+      const temp = document.createElement("div");
+
+      temp.innerHTML = html;
+
+      const text =
+        temp.innerText ||
+        temp.textContent ||
+        "";
+
+      // cek apakah sudah ada
+      const exists = database.find(
+        d => d.title === title
+      );
+
+      if (!exists) {
+
+        database.push({
+          title: title,
+          desc: text.slice(0, 50000)
+        });
+
+      } else {
+
+        exists.desc += " " + text;
+
+      }
+
+    } catch(err) {
+
+      console.log(
+        "Gagal membaca HTML:",
+        path,
+        err
+      );
+
+    }
+  }
+
+  // rebuild index setelah html selesai dibaca
+  rebuildSearchIndex();
+
+  console.log("HTML berhasil diindex");
+
+}
 
 // =========================
 // 🔥 OPEN HTML
