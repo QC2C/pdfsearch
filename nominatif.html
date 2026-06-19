@@ -7,17 +7,20 @@
 
 <style>
 body{
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin:20px;
+    background:#f4f7fa;
 }
 
 .section-title{
-    background:#1f4e78;
-    color:white;
-    text-align:center;
+    background:white;
+    color:#004A98;
+    border-left:5px solid #F37021;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+    border-radius:8px;
+    padding:12px;
+    margin-top:15px;
     font-weight:bold;
-    padding:8px;
-    margin-top:20px;
 }
 
 table{
@@ -25,6 +28,10 @@ table{
     border-collapse:collapse;
     margin-bottom:20px;
     font-size:12px;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
 th, td{
@@ -35,7 +42,9 @@ th, td{
 }
 
 th{
-    background:#d9eaf7;
+    background:#004A98;
+    color:white;
+    font-weight:600;
 }
 
 .subhead{
@@ -94,6 +103,16 @@ thead th{
 }
 </style>
 <style>
+    label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:3px;
+}
+
+small{
+    color:#666;
+    font-size:11px;
+}
 .section-title{
     background:#1f4e78;
     color:white;
@@ -125,7 +144,54 @@ tbody tr:hover{
 }
 
 
+:root{
+    --kai-blue:#004A98;
+    --kai-orange:#F37021;
+    --kai-light:#F4F7FA;
+    --kai-border:#D9E2EC;
+}
 
+.btn-primary{
+    background:#004A98;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-primary:hover{
+    background:#003b7a;
+}
+
+input,
+select{
+    width:100%;
+    padding:10px;
+    border:1px solid #d0d7de;
+    border-radius:8px;
+    margin-top:4px;
+    box-sizing:border-box;
+}
+
+input:focus,
+select:focus{
+    border-color:#004A98;
+    outline:none;
+}
+
+#overlay{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(3px);
+    z-index:9998;
+}
 </style>
 </head>
 <body>
@@ -134,9 +200,9 @@ tbody tr:hover{
         DAFTAR NOMINATIF PEKERJA
     </div>
     <div style="margin-bottom:15px;text-align:right;">
-    <button onclick="tambahData()">
-        ➕ Tambah Personel
-    </button>
+<button class="btn-primary" onclick="tambahData()">
+    ➕ Tambah Personel
+</button>
 </div>
         
     <div style="font-size:18px; font-weight:bold;">
@@ -371,6 +437,7 @@ tbody tr:hover{
 </tbody>
 </table>
 
+<div id="overlay"></div>
 <div id="popupForm"
 style="
 display:none;
@@ -379,27 +446,106 @@ top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 background:white;
-padding:20px;
-border:1px solid black;
-z-index:999;
+padding:25px;
+width:700px;
+max-height:90vh;
+overflow:auto;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+z-index:9999;
 ">
 
 <h3>Data Personel</h3>
 
-<input id="jabatan" placeholder="Jabatan"><br><br>
+<!-- JABATAN -->
+<select id="jabatan">
+    <option value="">Pilih Jabatan</option>
+    <option value="KS">KS</option>
+    <option value="WKS">WKS</option>
+    <option value="BURKA">BURKA</option>
+    <option value="PPKA">PPKA</option>
+    <option value="PJL">PJL</option>
+    <option value="PLR">PLR</option>
+    <option value="PELAKSANA">PELAKSANA</option>
+</select>
+<br><br>
 
-<input id="nama" placeholder="Nama"><br><br>
-
+<input id="nama" placeholder="NAMA"><br><br>
 <input id="nipp" placeholder="NIPP"><br><br>
 
-<input id="kedudukan" placeholder="Kedudukan"><br><br>
+<!-- KEDUDUKAN -->
+<select id="kedudukan">
+    <option value="">Pilih Kedudukan</option>
+    <option value="WB">WB</option>
+    <option value="BMW">BMW</option>
+    <option value="CPD">CPD</option>
+    <option value="CAA">CAA</option>
+    <option value="CAW">CAW</option>
+    <option value="RJP">RJP</option>
+    <option value="IH">IH</option>
+    <option value="TSM">TSM</option>
+    <option value="AW">AW</option>
+    <option value="MNJ">MNJ</option>
+    <option value="CI">CI</option>
+    <option value="BJG">BJG</option>
+    <option value="KNP">KNP</option>
+    <option value="BJR">BJR</option>
+</select>
 
-<button onclick="simpanData()">
-Simpan
+<br><br>
+
+<label>Tanggal Lahir</label><br>
+<input id="tgl_lahir" type="date"><br>
+<small>Format Indonesia: DD/MM/YYYY (Hari/Bulan/Tahun)</small>
+<br><br>
+<input id="domisili" placeholder="ALAMAT DOMISILI"><br><br>
+
+<label>TMT Masuk KAI</label><br>
+<input id="tmt_kai" type="date"><br>
+<small>Format Indonesia: DD/MM/YYYY</small>
+<br><br>
+<label>TMT Penempatan di Stasiun</label><br>
+<input id="tmt_stasiun" type="date"><br>
+<small>Format Indonesia: DD/MM/YYYY</small>
+<br><br>
+<hr>
+
+<h4>SMART CARD</h4>
+<input id="sc_no" placeholder="NO"><br><br>
+<label>Tanggal Berlaku Smart Card</label><br>
+<input id="sc_tgl" type="date"><br>
+<small>Format Indonesia: DD/MM/YYYY</small>
+<br><br>
+<input id="sc_ket" placeholder="KETERANGAN"><br><br>
+
+<hr>
+
+<h4>KECAKAPAN O.50</h4>
+<input id="o50_no" placeholder="NO"><br><br>
+<label>Tanggal Berlaku O.50</label><br>
+<input id="o50_tgl" type="date"><br>
+<small>Format Indonesia: DD/MM/YYYY</small>
+<br><br>
+<hr>
+
+<input id="mcu" placeholder="HASIL MCU"><br><br>
+<input id="keterangan" placeholder="KETERANGAN"><br><br>
+
+<button class="btn-primary" onclick="simpanData()">
+💾 Simpan
 </button>
 
-<button onclick="tutupForm()">
-Batal
+<button
+style="
+background:#dc3545;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+"
+onclick="tutupForm()">
+✖ Batal
 </button>
 
 </div>
@@ -855,6 +1001,7 @@ function tambahData(){
 
     mode = "tambah";
 
+    document.getElementById("overlay").style.display="block";
     document.getElementById("popupForm").style.display="block";
 
     document.getElementById("jabatan").value="";
@@ -866,6 +1013,7 @@ function tambahData(){
 function editData(jabatan,nama,nipp,kedudukan){
 
     mode = "edit";
+    document.getElementById("overlay").style.display="block";
 
     document.getElementById("popupForm").style.display="block";
 
@@ -877,7 +1025,9 @@ function editData(jabatan,nama,nipp,kedudukan){
 
 function tutupForm(){
 
-    document.getElementById("popupForm").style.display="none";
+document.getElementById("popupForm").style.display="none";
+document.getElementById("overlay").style.display="none";
+
 }
 
 
@@ -886,14 +1036,28 @@ function simpanData(){
 const data = {
 
 aksi: mode,
+
 jabatan: document.getElementById("jabatan").value,
 nama: document.getElementById("nama").value,
 nipp: document.getElementById("nipp").value,
-kedudukan: document.getElementById("kedudukan").value
+kedudukan: document.getElementById("kedudukan").value,
+
+tgl_lahir: document.getElementById("tgl_lahir").value,
+domisili: document.getElementById("domisili").value,
+tmt_kai: document.getElementById("tmt_kai").value,
+tmt_stasiun: document.getElementById("tmt_stasiun").value,
+
+sc_no: document.getElementById("sc_no").value,
+sc_tgl: document.getElementById("sc_tgl").value,
+sc_ket: document.getElementById("sc_ket").value,
+
+o50_no: document.getElementById("o50_no").value,
+o50_tgl: document.getElementById("o50_tgl").value,
+
+mcu: document.getElementById("mcu").value,
+keterangan: document.getElementById("keterangan").value
 
 };
-
-console.log(data);
 
 fetch(SHEET_URL,{
 method:"POST",
@@ -901,20 +1065,11 @@ body:JSON.stringify(data)
 })
 .then(r=>r.text())
 .then(res=>{
-
-console.log(res);
-
-alert("Data berhasil disimpan");
-
+alert(res);
 location.reload();
-
 })
 .catch(err=>{
-
-console.error(err);
-
-alert("ERROR : "+err);
-
+alert("ERROR: "+err);
 });
 
 }
