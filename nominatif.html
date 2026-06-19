@@ -42,8 +42,8 @@ th, td{
 }
 
 th{
-    background:#004A98;
-    color:white;
+    background:rgb(240, 152, 10);
+    color:#1f4e78;
     font-weight:600;
 }
 
@@ -129,18 +129,16 @@ small{
 
 /* Zebra Striping */
 tbody tr:nth-child(even){
-    background-color:#f2f2f2;
+    background:#fafbfc;
 }
 
 tbody tr:nth-child(odd){
-    background-color:#ffffff;
+    background:#ffffff;
 }
-
 /* Efek saat kursor diarahkan ke baris */
 tbody tr:hover{
-    background-color:#ffe599 !important;
-    cursor:pointer;
-    transition:0.2s;
+    background:#f8fafc !important;
+    transition:.2s;
 }
 
 
@@ -152,13 +150,18 @@ tbody tr:hover{
 }
 
 .btn-primary{
-    background:#004A98;
+    background:rgb(240, 152, 10);
     color:white;
     border:none;
     padding:10px 18px;
     border-radius:8px;
     cursor:pointer;
-    font-weight:bold;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary:hover{
+    background:#d95f17;
 }
 
 .btn-primary:hover{
@@ -192,12 +195,48 @@ select:focus{
     backdrop-filter:blur(3px);
     z-index:9998;
 }
+thead tr:first-child th{
+    background:#dde6ef;
+    color:#1f2937;
+    font-weight:700;
+}
+
+thead tr:nth-child(2) th{
+    background:#f5f7fa;
+    color:#4b5563;
+}
+.btn-edit{
+    background:#004A98;
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:6px 12px;
+    cursor:pointer;
+}
+
+.btn-edit:hover{
+    background:#003b7a;
+}
 </style>
 </head>
 <body>
-<div style="text-align:center; margin-bottom:20px; line-height:1.6;">
-    <div style="font-size:22px; font-weight:bold;">
+<div style="text-align:center; margin-bottom:15px;">
+    
+    <div style="
+        font-size:24px;
+        font-weight:700;
+        color:#004A98;
+        margin-bottom:3px;
+    ">
         DAFTAR NOMINATIF PEKERJA
+    </div>
+
+    <div style="
+        font-size:16px;
+        font-weight:600;
+        color:#555;
+    ">
+        WILAYAH OPERASI 2.C TSM DAERAH OPERASI 2 BANDUNG
     </div>
     <div style="margin-bottom:15px;text-align:right;">
 <button class="btn-primary" onclick="tambahData()">
@@ -205,9 +244,6 @@ select:focus{
 </button>
 </div>
         
-    <div style="font-size:18px; font-weight:bold;">
-        WILAYAH OPERASI 2.C TSM DAERAH OPERASI 2 BANDUNG
-    </div>
 </div>
 
 <div class="section-title" onclick="toggleTable('ksTable')">
@@ -1034,30 +1070,29 @@ document.getElementById("overlay").style.display="none";
 function simpanData(){
 
 const data = {
+  aksi: mode,
+  jabatan: document.getElementById("jabatan").value,
+  nama: document.getElementById("nama").value,
+  nipp: document.getElementById("nipp").value,
+  kedudukan: document.getElementById("kedudukan").value,
 
-aksi: mode,
+  tgl_lahir: document.getElementById("tgl_lahir").value,
+  domisili: document.getElementById("domisili").value,
+  tmt_kai: document.getElementById("tmt_kai").value,
+  tmt_stasiun: document.getElementById("tmt_stasiun").value,
 
-jabatan: document.getElementById("jabatan").value,
-nama: document.getElementById("nama").value,
-nipp: document.getElementById("nipp").value,
-kedudukan: document.getElementById("kedudukan").value,
+  sc_no: document.getElementById("sc_no").value,
+  sc_tgl: document.getElementById("sc_tgl").value,
+  sc_ket: document.getElementById("sc_ket").value,
 
-tgl_lahir: document.getElementById("tgl_lahir").value,
-domisili: document.getElementById("domisili").value,
-tmt_kai: document.getElementById("tmt_kai").value,
-tmt_stasiun: document.getElementById("tmt_stasiun").value,
+  o50_no: document.getElementById("o50_no").value,
+  o50_tgl: document.getElementById("o50_tgl").value,
 
-sc_no: document.getElementById("sc_no").value,
-sc_tgl: document.getElementById("sc_tgl").value,
-sc_ket: document.getElementById("sc_ket").value,
-
-o50_no: document.getElementById("o50_no").value,
-o50_tgl: document.getElementById("o50_tgl").value,
-
-mcu: document.getElementById("mcu").value,
-keterangan: document.getElementById("keterangan").value
-
+  mcu: document.getElementById("mcu").value,
+  keterangan: document.getElementById("keterangan").value
 };
+
+console.log(data);
 
 fetch(SHEET_URL,{
 method:"POST",
