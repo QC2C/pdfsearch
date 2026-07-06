@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+<meta charset="UTF-8">
+<title>Laporan Pemeriksaan Bersama - Daop 2 Bandung</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; color:#111; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+  th, td { border: 1px solid #000; padding: 8px; font-size: 14px; vertical-align: middle; text-align: left; }
+  th { background-color: #fac107; text-align: center; }
+  .subheader { background-color: #f6da08; font-weight: bold; text-align: center; }
+  .judul { text-align: center; font-weight: bold; font-size: 20px; margin-bottom: 10px; }
+  .subjudul-section { text-align: center; font-weight: bold; font-size: 16px; margin: 30px 0 10px; background:#efefef; padding:8px; border-radius:6px;}
+  .info { margin-bottom: 15px; font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap:10px; }
+  .info label { display: inline-block; margin: 4px 10px 4px 0; }
+  .info input[type=\"text\"], .info input[type=\"date\"] { padding: 4px; font-size: 14px; }
+
+  td input[type=\"text\"], td input:not([type]) { width: 95%; padding: 4px; box-sizing: border-box; border: 1px solid #ccc; text-align: center; font-size: 12px; }
+  td textarea { width: 100%; resize: vertical; min-height: 50px; box-sizing: border-box; border: 1px solid #ccc; padding: 5px; font-family: Arial, sans-serif; font-size: 12px; }
+
+  .image-input { display: none; }
+  .image-preview { text-align:center; min-height: 30px; }
+  .image-preview img { max-width: 140px; max-height: 140px; cursor: pointer; object-fit: contain; border: 1px solid #ccc; border-radius: 4px; transition: transform .2s ease; }
+  .image-preview img:hover { transform: scale(1.05); }
+  .image-cell { cursor: pointer; text-align:center; }
+  .image-cell:hover { background:#fffbe6; }
+  .image-hint { display:block; font-size: 11px; color:#777; margin-top:4px; }
+  .remove-img-btn { display:block; margin: 4px auto 0; background:#c0392b; color:#fff; border:none; padding:2px 8px; font-size:11px; border-radius:4px; cursor:pointer; }
+
+  /* Sintel table specific */
+  .tbl-sintel thead th { background:#fac106; }
+  /* Jalan rel */
+  .tbl-jr th, .tbl-jr td { border-color:#c92a2a; }
+  .tbl-jr th { background:#fbda04; }
+  .subjudul { text-align: left; font-weight: bold; background: #fbbe04; }
+
+  /* Signatures */
+  .signature-container { display:flex; justify-content:space-around; gap:10px; margin-top:20px; flex-wrap:wrap; }
+  .signature-block { text-align:center; width: 30%; min-width: 220px; padding: 10px; border:1px dashed #bbb; border-radius:6px; }
+  .signature-block img { margin: 5px auto 0; display: block; max-width: 140px; max-height: 140px; border:1px solid #ccc; border-radius:8px; }
+
+  /* Toolbar */
+  .toolbar { position: sticky; top: 0; z-index: 1000; background:#004080; padding:10px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin: -20px -20px 20px -20px; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+  .toolbar button, .toolbar label {
+    background: #ffffff; color:#004080; border: none; padding: 10px 16px; font-size: 14px; font-weight:bold;
+    border-radius: 6px; cursor: pointer; transition: transform .1s ease, background .2s ease;
+  }
+  .toolbar button:hover, .toolbar label:hover { background:#f0f4ff; transform: translateY(-1px); }
+  .toolbar .danger { background:#c0392b; color:#fff; }
+  .toolbar .danger:hover { background:#a93124; }
+  .toolbar .primary { background:#27ae60; color:#fff; }
+  .toolbar .primary:hover { background:#1f8f4f; }
+  .status { color:#fff; align-self:center; font-size:13px; opacity:.9; }
+
+  .print-only { display: none; }
+  @media print {
+    .toolbar, .no-print, .remove-img-btn, .image-hint { display: none !important; }
+    input[type=\"file\"] { display: none !important; }
+    input, textarea { border: none !important; background: transparent !important; }
+    .print-only { display: inline !important; font-weight: bold; }
+    body { margin: 10mm; }
+    table { page-break-inside: auto; }
+    tr { page-break-inside: avoid; page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <button class="primary" onclick="saveNow()" data-testid="save-btn">💾 Simpan</button>
+  <button onclick="window.print()" data-testid="print-btn">🖨️ Print PDF</button>
+  <button onclick="exportJSON()" data-testid="export-btn">⬇️ Export JSON</button>
+  <label for="importFile">⬆️ Import JSON</label>
+  <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importJSON(event)" data-testid="import-input">
+  <button class="danger" onclick="resetAll()" data-testid="reset-btn">🗑️ Reset Semua</button>
+  <span class="status" id="statusMsg">Auto-save aktif</span>
+</div>
+
+<div class="judul">LAPORAN PEMERIKSAAN BERSAMA <em>(JOINT INSPECTION)</em><br>Daerah Operasi 2 Bandung</div>
+
+<div class="info">
+  <label><strong>Tanggal:</strong>
+    <input type="date" data-key="header.tanggal">
+  </label>
+  <label><strong>Tempat:</strong>
+    <input type="text" data-key="header.tempat" value="Sta Karangpucung">
+  </label>
+  <label><strong>No Dok:</strong>
+    <input type="text" data-key="header.nodok" value="JI-01/ks-Knp/VII/2026">
+  </label>
+</div>
+
+<!-- ================= SECTION 1: OPERASI ================= -->
+<div class="subjudul-section">A. PEMERIKSAAN OPERASI</div>
+<table>
+  <tr>
+    <th style="width:5%">NO</th>
+    <th>OBYEK YANG DIPERIKSA</th>
+    <th style="width:20%">KONDISI</th>
+    <th style="width:20%">DOKUMENTASI</th>
+  </tr>
+  <tr>
+    <td colspan="4" class="subheader">OPERASI</td>
+  </tr>
+
+  <tr>
+    <td>1</td>
+    <td>Tanda Kecakapan PPKA</td>
+    <td><input type="text" placeholder="Ada/Berlaku" data-key="op.1.kondisi"></td>
+    <td class="image-cell" data-img-key="op.1.foto"></td>
+  </tr>
+
+  <tr>
+    <td>2</td>
+    <td>Kelengkapan Kerja (Semboyan 2A/2B, 3, 40, dan 4A (siang dan malam), Pluit PPKA/Pap, Tongklem, Stop blok, Daftar jalur & panjang jalur efektif; Slompret langsir ada dan berfungsi, Daftar KA lewat sesuai peraturan perjalanan, Jam dinding ada dan berfungsi)</td>
+    <td><input type="text" placeholder="Lengkap/Sesuai" data-key="op.2.kondisi"></td>
+    <td class="image-cell" data-img-key="op.2.foto"></td>
+  </tr>
+
+  <tr>
+    <td>3</td>
+    <td>Ruang Alat Pengamanan (Gambar Ikhtisar emplasemen, PDPS sesuai dengan alat pengamanan)</td>
+    <td><input type="text" placeholder="Sesuai" data-key="op.3.kondisi"></td>
+    <td class="image-cell" data-img-key="op.3.foto"></td>
+  </tr>
+
+  <tr>
+    <td>4</td>
+    <td>Memahami prosedur memberangkatkan dan menerima KA serta SOP langsiran</td>
+    <td><input type="text" placeholder="Faham" data-key="op.4.kondisi"></td>
+    <td class="image-cell" data-img-key="op.4.foto"></td>
+  </tr>
+
+  <tr>
+    <td>5</td>
+    <td>Uji petik PPKA</td>
+    <td><input type="text" placeholder="Rutin" data-key="op.5.kondisi"></td>
+    <td class="image-cell" data-img-key="op.5.foto"></td>
+  </tr>
+
+  <tr>
+    <td>6</td>
+    <td>Briefing Sebelum pelaksanaan pemeriksaan</td>
+    <td><input type="text" placeholder="Dilaksanakan" data-key="op.6.kondisi"></td>
+    <td class="image-cell" data-img-key="op.6.foto"></td>
+  </tr>
+</table>
+
+<!-- ================= SECTION 2: SINTELIS ================= -->
+<div class="subjudul-section">B. PEMERIKSAAN SINTELIS</div>
+
+<table class="tbl-sintel">
+  <thead>
+    <tr>
+      <th rowspan="2" style="width:5%">No</th>
+      <th rowspan="2">SINTELIS</th>
+      <th colspan="5">Wesel</th>
+      <th rowspan="2" style="width:18%">Dokumentasi</th>
+    </tr>
+    <tr>
+      <th>Wesel 11A</th>
+      <th>Wesel 11B</th>
+      <th>Wesel 21</th>
+      <th>Wesel 13A</th>
+      <th>Wesel 13B</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+<tr>
+  <td>1</td>
+  <td>Bukaan Lidah Wesel</td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.1.11A.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.1.11A.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.1.11B.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.1.11B.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.1.21.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.1.21.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.1.13A.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.1.13A.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.1.13B.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.1.13B.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td class="image-cell" data-img-key="st.1.foto"></td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>Penguncian Ganjalan</td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.2.11A.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.2.11A.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.2.11B.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.2.11B.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.2.21.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.2.21.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.2.13A.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.2.13A.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.2.13B.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.2.13B.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td class="image-cell" data-img-key="st.2.foto"></td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Penguncian Wesel</td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.3.11A.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.3.11A.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.3.11B.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.3.11B.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.3.21.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.3.21.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.3.13A.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.3.13A.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.3.13B.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.3.13B.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td class="image-cell" data-img-key="st.3.foto"></td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Panjang Langkah</td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.4.11A.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.4.11A.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.4.11B.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.4.11B.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.4.21.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.4.21.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.4.13A.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.4.13A.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td><table class="ka-ki-table"><tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.4.13B.ka" class="ka-ki-input"></td></tr><tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.4.13B.ki" class="ka-ki-input"></td></tr></table></td>
+
+  <td class="image-cell" data-img-key="st.4.foto"></td>
+</tr>
+
+    <tr>
+      <td>5</td>
+      <td>PERALATAN TELEKOMUNIKASI &amp; TELEMETRI<br>(Pesawat telepon antar stasiun, Pesawat WS suara jelas dan terekam, Induktor genta/gentanik)</td>
+      <td colspan="5"><textarea data-key="st.5.ket"></textarea></td>
+      <td class="image-cell" data-img-key="st.5.foto"></td>
+    </tr>
+
+    <tr>
+      <td>6</td>
+      <td>LOGGER/REKAMAN<br>(Data logger persinyalan berfungsi, Voice logger berfungsi)</td>
+      <td colspan="5"><textarea data-key="st.6.ket"></textarea></td>
+      <td class="image-cell" data-img-key="st.6.foto"></td>
+    </tr>
+
+<tr>
+  <td>7</td>
+  <td>
+    WESEL<br>
+    (Panjang claw bersandar pada kusen kanan dan kiri 40–60 mm,
+    Perintang/Pelalau, Penguncian internal lidah rapat terkunci,
+    Kondisi baut, mur, semat belah lengkap dan tidak ada kelonggaran)
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.7.11A.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.7.11A.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.7.11B.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.7.11B.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.7.21.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.7.21.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.7.13A.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.7.13A.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td>
+    <table class="ka-ki-table">
+      <tr><td class="ka-ki-label">ka:</td><td><input type="text" data-key="st.7.13B.ka" class="ka-ki-input"></td></tr>
+      <tr><td class="ka-ki-label">ki:</td><td><input type="text" data-key="st.7.13B.ki" class="ka-ki-input"></td></tr>
+    </table>
+  </td>
+
+  <td class="image-cell" data-img-key="st.7.foto"></td>
+</tr>
+
+
+    <tr>
+      <td>8</td>
+      <td>Kelengkapan Semboyan di Emplasemen</td>
+      <td colspan="5"><textarea data-key="st.8.ket"></textarea></td>
+      <td class="image-cell" data-img-key="st.8.foto"></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================= SECTION 3: JALAN REL ================= -->
+<div class="subjudul-section">C. PEMERIKSAAN JALAN REL</div>
+
+<table class="tbl-jr">
+  <tbody>
+
+    <tr class="subjudul">
+      <td colspan="8">1. JALUR</td>
+    </tr>
+
+    <tr>
+      <th rowspan="2" style="width:5%">No</th>
+      <th rowspan="2">Pemeriksaan</th>
+      <th colspan="5">JALUR</th>
+      <th rowspan="2" style="width:18%">Dokumentasi</th>
+    </tr>
+
+    <tr>
+      <th>I</th>
+      <th>II</th>
+      <th>III</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+
+    <tr>
+      <td>1a</td>
+      <td>Balas (rata dengan permukaan atas bantalan dan ada bahunya)</td>
+      <td><input type="text" placeholder="Rata" data-key="jr.1a.I"></td>
+      <td><input type="text" placeholder="Rata" data-key="jr.1a.II"></td>
+      <td><input type="text" placeholder="Rata" data-key="jr.1a.III"></td>
+      <td><input type="text" data-key="jr.1a.4"></td>
+      <td><input type="text" data-key="jr.1a.5"></td>
+      <td class="image-cell" data-img-key="jr.1a.foto"></td>
+    </tr>
+
+    <tr>
+      <td>1b</td>
+      <td>Terdapat kecrotan pada wesel</td>
+      <td><input type="text" placeholder="Tidak" data-key="jr.1b.I"></td>
+      <td><input type="text" placeholder="Tidak" data-key="jr.1b.II"></td>
+      <td><input type="text" placeholder="Tidak" data-key="jr.1b.III"></td>
+      <td><input type="text" data-key="jr.1b.4"></td>
+      <td><input type="text" data-key="jr.1b.5"></td>
+      <td class="image-cell" data-img-key="jr.1b.foto"></td>
+    </tr>
+
+    <tr>
+      <td>1c</td>
+      <td>Baut sambung sesuai jumlah lubang dan kencang</td>
+      <td><input type="text" placeholder="Ya" data-key="jr.1c.I"></td>
+      <td><input type="text" placeholder="Ya" data-key="jr.1c.II"></td>
+      <td><input type="text" placeholder="Ya" data-key="jr.1c.III"></td>
+      <td><input type="text" data-key="jr.1c.4"></td>
+      <td><input type="text" data-key="jr.1c.5"></td>
+      <td class="image-cell" data-img-key="jr.1c.foto"></td>
+    </tr>
+
+    <tr>
+      <td>1d</td>
+      <td>Terdapat bantalan rusak</td>
+      <td><input type="text" placeholder="Tidak" data-key="jr.1d.I"></td>
+      <td><input type="text" placeholder="Tidak" data-key="jr.1d.II"></td>
+      <td><input type="text" placeholder="Tidak" data-key="jr.1d.III"></td>
+      <td><input type="text" data-key="jr.1d.4"></td>
+      <td><input type="text" data-key="jr.1d.5"></td>
+      <td class="image-cell" data-img-key="jr.1d.foto"></td>
+    </tr>
+
+    <tr>
+      <td>1e</td>
+      <td>Mengukur Kelandaian Emplasemen</td>
+      <td><input type="text" placeholder="0,16‰" data-key="jr.1e.I"></td>
+      <td><input type="text" placeholder="1,17‰" data-key="jr.1e.II"></td>
+      <td><input type="text" placeholder="0,77‰" data-key="jr.1e.III"></td>
+      <td><input type="text" data-key="jr.1e.4"></td>
+      <td><input type="text" data-key="jr.1e.5"></td>
+      <td class="image-cell" data-img-key="jr.1e.foto"></td>
+    </tr>
+
+    <tr class="subjudul">
+      <td colspan="2">2. WESEL</td>
+      <td style="text-align:center;">11A</td>
+      <td style="text-align:center;">11B</td>
+      <td style="text-align:center;">21</td>
+      <td style="text-align:center;">13A</td>
+      <td style="text-align:center;">13B</td>
+      <td style="text-align:center;">Dokumentasi</td>
+    </tr>
+
+  </tbody>
+
+  <!-- JavaScript akan menambahkan baris 2a-2r di sini -->
+  <tbody id="weselRows"></tbody>
+
+</table>
+
+
+
+<!-- ================= SECTION 4: BANGUNAN DINAS ================= -->
+<div class="subjudul-section">D. PEMERIKSAAN BANGUNAN DINAS</div>
+
+<table>
+  <tr>
+    <th colspan="3">BANGUNAN DINAS</th>
+  </tr>
+
+  <tr>
+    <td style="width:5%">1</td>
+    <td style="width:60%">Lampu Penerangan mengarah ke Wesel</td>
+    <td><input type="text" placeholder="Ada/Tiada" data-key="bd.1.kondisi"></td>
+  </tr>
+
+  <tr>
+    <td>2</td>
+    <td>Kondisi Bangunan Kerja PPKA</td>
+    <td><input type="text" placeholder="Ada/Tiada" data-key="bd.2.kondisi"></td>
+  </tr>
+</table>
+
+<p style="font-weight:bold; text-decoration:underline; margin-top:20px;">Catatan</p>
+<p>Temuan Saat Ini :</p>
+
+<ul style="list-style:none; padding:0;">
+  <li style="display:flex; align-items:center; margin-bottom:8px;">
+    <span style="width:80px; font-weight:bold;">1. STL :</span>
+    <input type="text" placeholder="Isi temuan STL..." data-key="catatan.stl" style="flex:1; padding:6px;">
+  </li>
+
+  <li style="display:flex; align-items:center; margin-bottom:8px;">
+    <span style="width:80px; font-weight:bold;">2. JJ :</span>
+    <input type="text" placeholder="Isi temuan JJ..." data-key="catatan.jj" style="flex:1; padding:6px;">
+  </li>
+
+  <li style="display:flex; align-items:center; margin-bottom:8px;">
+    <span style="width:80px; font-weight:bold;">3. OP :</span>
+    <input type="text" placeholder="Isi temuan OP..." data-key="catatan.op" style="flex:1; padding:6px;">
+  </li>
+</ul>
+
+<div class="signature-container">
+  <div class="signature-block">
+    <strong>a.n KAREST SINTEL 2.10 Bjr</strong><br>
+    <strong>Kaur Sintel</strong><br>
+
+    <div class="image-cell" data-img-key="ttd.sintel"></div>
+
+    <!-- Nama -->
+    <div style="margin-top:12px; text-align:center;">
+        <input
+            type="text"
+            data-key="ttd.sintel.nama"
+            placeholder="CECEP IMAN NURDIN"
+            value=""
+            style="
+                width:220px;
+                border:none;
+                border-bottom:1px solid #000;
+                background:transparent;
+                text-align:center;
+                font-weight:bold;
+                text-transform:uppercase;
+                outline:none;
+            ">
+    </div>
+
+    <!-- NIPP -->
+    <div style="
+        margin-top:8px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    ">
+        <input
+            type="text"
+            data-key="ttd.sintel.nipp"
+            placeholder="49758"
+            value=""
+            style="
+                width:150px;
+                border:none;
+                border-bottom:1px solid #000;
+                background:transparent;
+                text-align:center;
+                outline:none;
+            ">
+    </div>
+  </div>
+
+<div class="signature-block">
+    <strong>a.n Karest J.R 2.13 Bjr</strong><br>
+    <strong>KAUR J.R</strong><br>
+
+    <div class="image-cell" data-img-key="ttd.jr"></div>
+
+    <!-- Nama -->
+    <div style="margin-top:12px; text-align:center;">
+        <input
+            type="text"
+            data-key="ttd.jr.nama"
+            placeholder="ABUNG BADRU ZAMAN"
+            value=""
+            style="
+                width:220px;
+                border:none;
+                border-bottom:1px solid #000;
+                background:transparent;
+                text-align:center;
+                font-weight:bold;
+                text-transform:uppercase;
+                outline:none;
+            ">
+    </div>
+
+    <!-- NIPP -->
+    <div style="
+        margin-top:8px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    ">
+        <input
+            type="text"
+            data-key="ttd.jr.nipp"
+            placeholder="49662"
+            value=""
+            style="
+                width:150px;
+                border:none;
+                border-bottom:1px solid #000;
+                background:transparent;
+                text-align:center;
+                outline:none;
+            ">
+    </div>
+</div>
+
+<div class="signature-block">
+    <strong>Kepala Stasiun</strong><br>
+    <strong>Karangpucung</strong><br>
+
+    <div class="image-cell" data-img-key="ttd.ks"></div>
+
+    <!-- Nama -->
+    <div style="margin-top:12px; text-align:center;">
+        <input
+            type="text"
+            data-key="ttd.ks.nama"
+            placeholder="YUSUP RONI"
+            value=""
+            style="
+                width:220px;
+                border:none;
+                border-bottom:1px solid #000;
+                background:transparent;
+                text-align:center;
+                font-weight:bold;
+                text-transform:uppercase;
+                outline:none;
+            ">
+    </div>
+
+    <!-- NIPP -->
+    <div style="
+        margin-top:8px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    ">
+        <input
+            type="text"
+            data-key="ttd.ks.nipp"
+            placeholder="49314"
+            value=""
+            style="
+                width:150px;
+                border:none;
+                border-bottom:1px solid #000;
+                background:transparent;
+                text-align:center;
+                outline:none;
+            ">
+    </div>
+</div>
+</div>
+
+<div style="height:40px"></div>
+
+<script>
+/* ========== Wesel rows generator (2a..2r) ========== */
+const WESEL_ROWS = [
+  ['2a','Balas (rata dengan permukaan atas bantalan dan ada bahunya)','Ya'],
+  ['2b','Terdapat kecerotan pada wesel','Tidak'],
+  ['2c','Lidah rapat menggantung','Tidak'],
+  ['2d','Bantalan pecah/lapuk/kropos berjajar lebih dari 2 batang','Tidak'],
+  ['2e','Bantalan di bawah pembalik wesel miring/pecah/lapuk/keropos/terdandang sepanjang bantalan','Tidak'],
+  ['2f','Lidah wesel grepes 20 cm atau lebih','Tidak'],
+  ['2g','Baut sambung sesuai jumlah lubang dan kencang','Ya'],
+  ['2h','Baut rel paksa/tangen tidak ada yang hilang/lepas dan kendor','Tidak'],
+  ['2i','Baut penahan rel lantak tidak ada yang hilang/lepas/kendor','Ya'],
+  ['2j','Jarum wesel retak kedalaman lebih dari 25 cm','Tidak'],
+  ['2k','Jarum wesel aus/depek vertikal lebih dari 10 mm','Tidak'],
+  ['2l','Vang rel aus vertical lebih dari 10 mm','Tidak'],
+['2m','Lebar jalur rel di muka lidah (sesuai D.145)','', true],
+['2n','Lebar jalan rel pada bagian penerus (-2/+5) (sesuai D.145)','L:\nB:', true],
+['2o','Jarak point of protection 1033 mm (+3/-2mm)','L:\nB:', true],
+['2p','Lebar alur rel paksa 34 mm (+1/-1)','L:\nB:', true],
+  ['2q','Nilai skillu /3m pada lengkung belakang wesel',''],
+  ['2r','Sambungan pangkal lidah wesel pada sisi dalam dan atas harus rata','Ya'],
+];
+const WESELS = ['11A','11B','21','13A','13B'];
+const weselBody = document.getElementById('weselRows');
+
+WESEL_ROWS.forEach(row => {
+
+  const [no, label, ph, isTextarea] = row;
+
+  const tr = document.createElement('tr');
+
+  let html = `<td style="width:5%">${no}</td><td>${label}</td>`;
+
+  WESELS.forEach(w => {
+
+    if (isTextarea) {
+
+      // Khusus baris 2n,2o,2p tampil L dan B
+      let defaultText = "";
+
+      if (["2n","2o","2p"].includes(no)) {
+        defaultText = "L:\n\nB:";
+      }
+
+html += `
+<td>
+  <table class="lb-table">
+    <tr>
+      <td class="lb-label">L:</td>
+      <td><input type="text" data-key="jr.${no}.${w}.L" class="lb-input"></td>
+    </tr>
+    <tr>
+      <td class="lb-label">B:</td>
+      <td><input type="text" data-key="jr.${no}.${w}.B" class="lb-input"></td>
+    </tr>
+  </table>
+</td>
+`;
+
+    } else {
+
+      html += `
+        <td>
+          <input
+            type="text"
+            data-key="jr.${no}.${w}"
+            placeholder="${ph}">
+        </td>
+      `;
+
+    }
+
+  });
+
+  html += `
+    <td class="image-cell"
+        style="width:18%"
+        data-img-key="jr.${no}.foto">
+    </td>
+  `;
+
+  tr.innerHTML = html;
+
+  weselBody.appendChild(tr);
+
+});
+
+/* ========== Image cells init ========== */
+document.querySelectorAll('.image-cell').forEach(cell => {
+  const key = cell.dataset.imgKey;
+  cell.innerHTML = `
+    <input type=\"file\" accept=\"image/*\" class=\"image-input\" data-img-input=\"${key}\">
+    <div class=\"image-preview\" data-img-preview=\"${key}\">
+      <span class=\"image-hint\">Klik untuk upload foto</span>
+    </div>
+  `;
+  const fileInput = cell.querySelector('input[type=file]');
+  cell.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON' || e.target.tagName === 'IMG') return;
+    fileInput.click();
+  });
+  fileInput.addEventListener('change', () => handleImageUpload(fileInput, key));
+});
+
+/* ========== Storage ========== */
+const STORAGE_KEY = 'laporan_pemeriksaan_daop2_v1';
+
+function collectData() {
+  const data = { fields: {}, images: {} };
+  document.querySelectorAll('[data-key]').forEach(el => {
+    data.fields[el.dataset.key] = el.value;
+  });
+  document.querySelectorAll('[data-img-preview]').forEach(prev => {
+    const img = prev.querySelector('img');
+    if (img && img.src) data.images[prev.dataset.imgPreview] = img.src;
+  });
+  return data;
+}
+
+function saveNow(silent) {
+  try {
+    const data = collectData();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    if (!silent) flashStatus('✓ Tersimpan di browser', '#2ecc71');
+    else flashStatus('Auto-save ✓', '#a0e6c1');
+  } catch (err) {
+    console.error(err);
+    flashStatus('⚠ Gagal simpan (kuota penuh?)', '#e74c3c');
+  }
+}
+
+function loadData() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    applyData(data);
+    flashStatus('Data dimuat dari browser', '#a0e6c1');
+  } catch (e) { console.error(e); }
+}
+
+function applyData(data) {
+  if (!data) return;
+  if (data.fields) {
+    Object.entries(data.fields).forEach(([k, v]) => {
+      const el = document.querySelector(`[data-key=\"${CSS.escape(k)}\"]`);
+      if (el) el.value = v;
+    });
+  }
+  if (data.images) {
+    Object.entries(data.images).forEach(([k, src]) => renderImage(k, src));
+  }
+}
+
+function renderImage(key, src) {
+  const prev = document.querySelector(`[data-img-preview="${CSS.escape(key)}"]`);
+  if (!prev) return;
+
+  prev.innerHTML = `
+    <img src="${src}" alt="Foto" onclick="openImageModal('${src.replace(/'/g, "\\'")}')">
+    <button type="button" class="remove-img-btn no-print" onclick="removeImage('${key}', event)">Hapus foto</button>
+  `;
+}
+
+function handleImageUpload(input, key) {
+  const file = input.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = (e) => {
+    renderImage(key, e.target.result);
+    saveNow(true);
+  };
+
+  reader.readAsDataURL(file);
+}
+
+function removeImage(key, evt) {
+  if (evt) evt.stopPropagation();
+
+  const prev = document.querySelector(`[data-img-preview="${CSS.escape(key)}"]`);
+
+  if (prev) {
+    prev.innerHTML = `<span class="image-hint">Klik untuk upload foto</span>`;
+  }
+
+  const inp = document.querySelector(`[data-img-input="${CSS.escape(key)}"]`);
+
+  if (inp) inp.value = '';
+
+  saveNow(true);
+}
+
+function openImageModal(src) {
+  const existing = document.getElementById('imageModal');
+
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+
+  modal.id = 'imageModal';
+
+  Object.assign(modal.style, {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+    background: 'rgba(0,0,0,0.85)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 99999,
+    cursor: 'zoom-out'
+  });
+
+  modal.innerHTML = `
+    <img src="${src}" style="max-width:92%; max-height:92%; box-shadow:0 4px 20px rgba(0,0,0,.5); border-radius:8px;">
+  `;
+
+  modal.onclick = () => modal.remove();
+
+  document.body.appendChild(modal);
+}
+
+function resetAll() {
+  if (!confirm('Yakin ingin menghapus SEMUA data dan foto yang tersimpan? Tindakan ini tidak bisa dibatalkan.')) return;
+
+  localStorage.removeItem(STORAGE_KEY);
+
+  document.querySelectorAll('[data-key]').forEach(el => {
+    el.value = '';
+  });
+
+  document.querySelectorAll('[data-img-preview]').forEach(prev => {
+    prev.innerHTML = `<span class="image-hint">Klik untuk upload foto</span>`;
+  });
+
+  document.querySelectorAll('input[type=file]').forEach(f => {
+    f.value = '';
+  });
+
+  flashStatus('Semua data direset', '#e67e22');
+}
+
+function exportJSON() {
+  const data = collectData();
+
+  const blob = new Blob(
+    [JSON.stringify(data, null, 2)],
+    { type: 'application/json' }
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+
+  const today = new Date().toISOString().slice(0, 10);
+
+  a.href = url;
+  a.download = `laporan-pemeriksaan-${today}.json`;
+
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  flashStatus('Data di-export', '#2ecc71');
+}
+
+function importJSON(event) {
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+
+      applyData(data);
+
+      saveNow(true);
+
+      flashStatus('Data berhasil di-import', '#2ecc71');
+
+    } catch (err) {
+      alert('File JSON tidak valid.');
+    }
+  };
+
+  reader.readAsText(file);
+
+  event.target.value = '';
+}
+
+/* ========== Auto-save ========== */
+
+let saveTimer;
+
+document.addEventListener('input', () => {
+  clearTimeout(saveTimer);
+
+  saveTimer = setTimeout(() => {
+    saveNow(true);
+  }, 500);
+});
+
+function flashStatus(msg, color) {
+  const s = document.getElementById('statusMsg');
+
+  if (!s) return;
+
+  s.textContent = msg;
+  s.style.color = color || '#fff';
+
+  clearTimeout(flashStatus._t);
+
+  flashStatus._t = setTimeout(() => {
+    s.textContent = 'Auto-save aktif';
+    s.style.color = '#fff';
+  }, 2500);
+}
+
+/* Set default date if empty */
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadData();
+
+  const dateEl = document.querySelector('[data-key="header.tanggal"]');
+
+  if (dateEl && !dateEl.value) {
+    dateEl.value = new Date().toISOString().slice(0, 10);
+  }
+});
+</script>
+</body>
+</html>
