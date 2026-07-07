@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Berita Acara Pemeriksaan Bersama</title>
+  <style>
+    @page { size: A4 portrait; margin: 15mm; }
+    body { font-family: Arial, sans-serif; margin: 20px auto; width: 210mm; line-height: 1.5; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .header img { height: 50px; }
+    .title { text-align: center; margin-bottom: 20px; }
+    .section { margin: 15px 0; font-size: 12pt; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 5px; vertical-align: top; }
+    input[type="text"], input[type="date"], input[type="time"] { border: none; border-bottom: 1px solid #999; width: 100%; padding: 2px; }
+    .short-input { width: 150px !important; }
+    .ttd { display: flex; justify-content: space-between; margin-top: 40px; }
+    .ttd-box { width: 30%; text-align: center; }
+    .photo-preview { width: 80px; height: 80px; object-fit: contain; margin: 10px 0; border: 1px solid #ccc; display: block; margin-left: auto; margin-right: auto; }
+    .controls { position: fixed; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 5px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); z-index: 1000; }
+    button { padding: 8px 12px; cursor: pointer; border: none; border-radius: 4px; background: #eee; text-align: left; }
+    button:hover { background: #ddd; }
+@media print {
+
+    /* Sembunyikan tombol dan upload file */
+    .controls,
+    input[type="file"],
+    .btn-action{
+        display:none !important;
+    }
+
+    /* Hilangkan semua garis bawah input text, date, time */
+    input[type="text"],
+    input[type="date"],
+    input[type="time"]{
+        border:none !important;
+        outline:none !important;
+        background:transparent !important;
+        box-shadow:none !important;
+    }
+
+    /* Hilangkan garis bawah textarea */
+    textarea{
+        border:none !important;
+        outline:none !important;
+        background:transparent !important;
+        resize:none;
+    }
+    .nomor-row{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin:6px 0;
+}
+
+.nomor-label{
+    margin:0;
+    white-space:nowrap;
+}
+
+#nomorBA{
+    width:220px;          /* sesuaikan, misal 220-260px */
+    height:28px;
+    padding:2px 6px;
+    font-size:15px;
+    font-weight:bold;
+    border:none;
+    border-bottom:1px solid #000;
+    background:transparent;
+    outline:none;
+    box-sizing:border-box;
+}
+
+@media print{
+    #nomorBA{
+        border:none;
+        border-bottom:1px solid #000;
+    }
+}
+.judul-ba{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.judul-ba h2{
+    margin:0;
+    font-size:20px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+}
+
+.nomor-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;   /* agar berada di tengah */
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.nomor-label{
+    white-space:nowrap;
+}
+
+#nomorBA{
+    width:240px;
+    border:none;
+    border-bottom:1px solid #000;
+    background:transparent;
+    font-size:15px;
+    font-weight:bold;
+    padding:2px 4px;
+    outline:none;
+}
+
+.ttd{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+}
+
+.ttd-box{
+    width:30%;
+    text-align:center;
+}
+
+.photo-preview{
+    width:180px;
+    height:100px;
+    object-fit:contain;
+    display:block;
+    margin:10px auto;
+}
+   .photo-preview{
+        border:none !important;
+    }
+
+.ttd-nama,
+.ttd-nip{
+    display:block;
+    width:90%;
+    margin:4px auto;
+    text-align:center;
+    font-weight:bold;
+    font-size:14px;
+    border:none;
+    outline:none;
+    background:transparent;
+}
+
+.ttd-nama{
+    margin-top:8px;
+}
+
+.ttd-nip{
+    margin-top:2px;
+}
+
+@media print{
+
+.ttd-nama,
+.ttd-nip{
+    border:none !important;
+    font-weight:bold !important;
+    text-align:center !important;
+}
+
+}
+   #hari{
+        border:none !important;
+        appearance:none;
+        -webkit-appearance:none;
+        background:transparent !important;
+    }
+}
+  </style>
+</head>
+<body>
+
+<div class="controls">
+  <button onclick="saveData()">💾 Simpan</button>
+  <button onclick="window.print()">🖨️ Print PDF</button>
+  <button onclick="exportJSON()">⬇️ Export JSON</button>
+  <button onclick="document.getElementById('importFile').click()">⬆️ Import JSON</button>
+  <input type="file" id="importFile" style="display:none" onchange="importJSON(event)">
+  <button onclick="resetData()" style="color: red;">🗑️ Reset Semua</button>
+</div>
+
+<div class="header">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Danantara_Indonesia.svg/2560px-Danantara_Indonesia.svg.png" alt="Logo">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSut2lbnrdOuIz0xhqubWhsDGffd5WO3sVHA&s" alt="Logo KAI">
+</div>
+
+<div class="judul-ba">
+    <h2>BERITA ACARA PEMERIKSAAN BERSAMA</h2>
+</div>
+
+<div class="nomor-row">
+    <label for="nomorBA" class="nomor-label"><strong>Nomor :</strong></label>
+    <input
+        type="text"
+        id="nomorBA"
+        value="JI-01/KS-KNP/VII/2026">
+</div>
+
+<div class="section">
+<label for="hari"><strong>Hari :</strong></label>
+<select id="hari" data-key="hari">
+    <option value="">-- Pilih Hari --</option>
+    <option value="Ahad">Ahad</option>
+    <option value="Senin">Senin</option>
+    <option value="Selasa">Selasa</option>
+    <option value="Rabu">Rabu</option>
+    <option value="Kamis">Kamis</option>
+    <option value="Jumat">Jumat</option>
+    <option value="Sabtu">Sabtu</option>
+</select>
+  Tanggal: <input type="date" id="tanggal" class="short-input"><br>
+  Telah dilakukan pemeriksaan bersama unit OP, JJ, STL untuk menunjang keselamatan perjalanan KA.
+</div>
+
+<div class="section">
+  <p><strong>1. Team Pemeriksa:</strong></p>
+  <table>
+<tr>
+  <td>a. Unit JJ</td>
+  <td>:</td>
+  <td>
+    <input
+      type="text"
+      id="jj1"
+      value="Abung B.Z / 49632 / KAUR JR 2.13 BJJR">
+  </td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>:</td>
+  <td>
+    <input
+      type="text"
+      id="jj2"
+      value="Dian F/ 50502  / SATKER JR 2.13 BJR">
+  </td>
+</tr>
+
+<tr>
+  <td>b. Sintel</td>
+  <td>:</td>
+  <td><input type="text" id="sintel1"value="Cecep Iman N / 49758 / KAUR STL 2.10 BJR"></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>:</td>
+  <td><input type="text" id="sintel2"value="Fajar P / 49758 / KAUR STL 2.10 BJR"></td>
+</tr>
+
+<tr>
+  <td>c. Operasi</td>
+  <td>:</td>
+  <td><input type="text" id="op1"value="Yusup R / 49314 / KS Karangpucung"></td>
+</tr>
+
+<tr>
+  <td></td>
+  <td>:</td>
+  <td><input type="text" id="op2"value="Alek N/ 48850 / PPKA Karangpucung"></td>
+</tr>
+  </table>
+</div>
+
+<div class="section">
+  <table>
+    <tr><td>2. Pemeriksaan</td><td>:</td><td><input type="text" id="lokasi"value="Stasiun Karangpucung"></td></tr>
+    <tr><td>3. Hal yang diperiksa</td><td>:</td><td><input type="text" id="hal"value="Emplasemen, Fasopka dan Bangunan Stasiun"></td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <p>4. Kesimpulan dari hasil pemeriksaan bersama, bahwa emplasemen, wesel, dan jalur di stasiun Indihiang masih dinyatakan dalam batas toleransi dan aman untuk dilalui KA. Adapun temuan akan segera di tindak lanjuti. Demikian terima kasih: <textarea style="width:100%; border:none; border-bottom:1px solid #999" id="kesimpulan"></textarea></p>
+</div>
+
+<div class="section" style="text-align: right;">
+  Karangpucung, <input type="date" id="tanggalTtd" class="short-input">
+</div>
+
+<div class="ttd">
+  <!-- TTD 1 -->
+  <div class="ttd-box">
+    <strong>KUPT Resort Sintel 2.10 BJr</strong><br>
+
+    <img id="photo1" class="photo-preview"
+         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+
+    <input type="file" accept="image/*" onchange="previewPhoto(this, 'photo1')">
+
+    <input type="text" id="nama1" class="ttd-nama" placeholder="ANDRI PERDIANSYAH">
+    <input type="text" id="nip1" class="ttd-nip" placeholder="NIP : 46303">
+  </div>
+
+  <!-- TTD 2 -->
+  <div class="ttd-box">
+    <strong>KUPT Resort  J.R 2.13 BJr</strong><br>
+
+    <img id="photo2" class="photo-preview"
+         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+
+    <input type="file" accept="image/*" onchange="previewPhoto(this, 'photo2')">
+
+    <input type="text" id="nama2" class="ttd-nama" placeholder="MAMAN SUPARMAN">
+    <input type="text" id="nip2" class="ttd-nip" placeholder="NIP : 44660">
+  </div>
+
+  <!-- TTD 3 -->
+  <div class="ttd-box">
+    <strong>Kepala Stasiun Karangpucung</strong><br>
+
+    <img id="photo3" class="photo-preview"
+         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+
+    <input type="file" accept="image/*" onchange="previewPhoto(this, 'photo3')">
+
+    <input type="text" id="nama3" class="ttd-nama" placeholder="YUSUP RONI">
+    <input type="text" id="nip3" class="ttd-nip" placeholder="NIP : 49314">
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'ba_data_storage';
+
+  function previewPhoto(input, imgId) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = e => { document.getElementById(imgId).src = e.target.result; saveData(); };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+function saveData() {
+  const data = {};
+
+document.querySelectorAll('input, textarea, select').forEach(el => {
+      if (el.type !== 'file') {
+      data[el.id] = el.value;
+    }
+  });
+
+  data.photos = {
+    p1: document.getElementById('photo1').src,
+    p2: document.getElementById('photo2').src,
+    p3: document.getElementById('photo3').src
+  };
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+  function loadData() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+    const data = JSON.parse(saved);
+    Object.keys(data).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = data[id];
+    });
+    if (data.photos) {
+      document.getElementById('photo1').src = data.photos.p1;
+      document.getElementById('photo2').src = data.photos.p2;
+      document.getElementById('photo3').src = data.photos.p3;
+    }
+  }
+
+  function resetData() { if(confirm('Hapus semua data?')) { localStorage.removeItem(STORAGE_KEY); location.reload(); } }
+  function exportJSON() {
+    const blob = new Blob([localStorage.getItem(STORAGE_KEY)], {type: 'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'data_ba.json'; a.click();
+  }
+  function importJSON(e) {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = e => { localStorage.setItem(STORAGE_KEY, e.target.result); location.reload(); };
+    reader.readAsText(file);
+  }
+
+document.querySelectorAll("input, textarea, select").forEach(el => {
+    el.addEventListener("input", saveData);
+    el.addEventListener("change", saveData);
+});
+  window.onload = loadData;
+</script>
+</body>
+</html>
