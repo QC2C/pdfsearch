@@ -1,84 +1,1259 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Nilai UPO</title>
-    <!-- Menggunakan Tailwind CSS untuk desain elegan -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daftar Pegawai — Dashboard</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #f5f6fa;
+      --surface: #ffffff;
+      --surface-2: #fafbfc;
+      --border: #e6e8ef;
+      --border-strong: #d6d9e3;
+      --text: #0f1729;
+      --text-muted: #5b6478;
+      --text-soft: #8890a2;
+      --primary: #1d4ed8;
+      --primary-600: #1e40af;
+      --primary-50: #eef2ff;
+      --primary-100: #e0e7ff;
+      --accent: #0ea5a4;
+      --danger: #dc2626;
+      --danger-50: #fef2f2;
+      --warn: #b45309;
+      --success: #15803d;
+      --success-50: #f0fdf4;
+      --ring: 0 0 0 4px rgba(29, 78, 216, .12);
+      --shadow-sm: 0 1px 2px rgba(15, 23, 41, .06);
+      --shadow-md: 0 8px 24px -12px rgba(15, 23, 41, .18);
+      --shadow-lg: 0 24px 60px -20px rgba(15, 23, 41, .28);
+      --radius: 14px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, Segoe UI, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.005em;
+    }
+
+    ::selection { background: #dbeafe; color: #0f1729; }
+    .hidden { display: none !important; }
+
+    /* Shell Layout */
+    .app-shell {
+      display: grid;
+      grid-template-columns: 264px 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      background: #0f1729;
+      color: #e2e6ef;
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    .brand {
+      display: flex; 
+      align-items: center; 
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+    .brand-mark {
+      width: 40px; 
+      height: 40px; 
+      border-radius: 10px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      color: #fff; 
+      font-size: 18px;
+      box-shadow: 0 6px 18px -4px rgba(59, 130, 246, .55);
+    }
+    .brand-title { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+    .brand-sub { color: #8892a8; font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; }
+
+    .nav-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #6f7a92;
+      padding: 0 4px;
+      margin-top: 4px;
+    }
+    .nav-tabs { display: flex; flex-direction: column; gap: 4px; }
+    .nav-btn {
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: #c8cee0;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-align: left;
+      transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .nav-btn:hover { background: rgba(255, 255, 255, .05); color: #fff; }
+    .nav-btn.active {
+      background: linear-gradient(180deg, rgba(59, 130, 246, .18), rgba(29, 78, 216, .10));
+      color: #fff;
+      border-color: rgba(59, 130, 246, .35);
+      box-shadow: inset 0 0 0 1px rgba(59, 130, 246, .15);
+    }
+    .nav-btn .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, .2);
+    }
+
+    .side-foot { margin-top: auto; }
+    .foot-hint {
+      font-size: 11.5px;
+      color: #8892a8;
+      background: rgba(255, 255, 255, .04);
+      padding: 10px 12px;
+      border-radius: 10px;
+      line-height: 1.55;
+    }
+    .foot-hint i { color: #3b82f6; margin-right: 4px; }
+
+    /* Main Content Area */
+    .main { padding: 28px 36px 40px; min-width: 0; }
+
+    .topbar {
+      display: flex; 
+      align-items: flex-end; 
+      justify-content: space-between;
+      gap: 16px; 
+      margin-bottom: 22px; 
+      flex-wrap: wrap;
+    }
+    .crumb {
+      display: flex; 
+      align-items: center; 
+      gap: 8px;
+      color: var(--text-muted); 
+      font-size: 12.5px;
+      font-weight: 500; 
+      letter-spacing: .01em;
+    }
+    .crumb-a { color: var(--text-soft); }
+    .crumb i { font-size: 10px; color: var(--text-soft); }
+    .crumb-b { color: var(--primary-600); font-weight: 600; }
+    .page-title {
+      margin: 6px 0 0;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .topbar-right {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .search-wrap {
+      position: relative;
+      display: flex; 
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0 12px 0 36px;
+      height: 40px;
+      width: 320px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .search-wrap:focus-within { border-color: var(--primary); box-shadow: var(--ring); }
+    .search-wrap i { position: absolute; left: 12px; color: var(--text-soft); font-size: 13px; }
+    .search-wrap input {
+      border: none; outline: none; background: transparent;
+      font-family: inherit; font-size: 13.5px;
+      width: 100%; color: var(--text);
+    }
+
+    /* Buttons Component */
+    .btn {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px;
+      height: 40px; 
+      padding: 0 14px;
+      font-family: inherit; 
+      font-size: 13.5px; 
+      font-weight: 600;
+      border-radius: 10px; 
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition: transform .12s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .btn:active { transform: translateY(0); }
+    .btn-ghost:hover { border-color: var(--border-strong); }
+    .btn-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-600); border-color: var(--primary-600); }
+    .btn-danger {
+      background: var(--danger);
+      border-color: var(--danger);
+      color: #fff;
+    }
+    .btn-danger:hover { background: #b91c1c; border-color: #b91c1c; }
+    .btn i { font-size: 13px; }
+
+    /* Stats Component */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--primary), #60a5fa);
+    }
+    .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 600; letter-spacing: .02em; text-transform: uppercase; }
+    .stat-value {
+      font-size: 28px; font-weight: 800; letter-spacing: -0.02em;
+      color: var(--text); margin: 6px 0 4px;
+    }
+    .stat-foot { font-size: 12px; color: var(--text-soft); }
+    .stat-foot i { color: var(--primary); margin-right: 4px; }
+
+    /* Card Component */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .card-head {
+      padding: 18px 22px;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+    .card-title { font-size: 15px; font-weight: 700; letter-spacing: -0.005em; }
+    .card-sub { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
+    .table-count {
+      font-size: 12px; color: var(--text-muted);
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 4px 10px; border-radius: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .02em;
+    }
+
+    /* Table Component */
+    .table-wrap { position: relative; overflow-x: auto; }
+    .data-table { width: 100%; border-collapse: collapse; }
+    .data-table thead th {
+      text-align: left;
+      padding: 12px 18px;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
+      color: var(--text-soft);
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table tbody td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+      color: var(--text);
+      vertical-align: middle;
+    }
+    .data-table tbody tr { transition: background .12s ease; }
+    .data-table tbody tr:hover { background: #f8fafc; }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    .cell-name { display: flex; align-items: center; gap: 10px; }
+    .avatar {
+      width: 32px; 
+      height: 32px; 
+      border-radius: 50%;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      font-weight: 700; 
+      font-size: 12px; 
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .badge {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px;
+      padding: 3px 10px; 
+      border-radius: 20px;
+      font-size: 12px; 
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .02em;
+    }
+    .badge-nipp { background: var(--primary-50); color: var(--primary-600); }
+    .badge-score {
+      padding: 4px 10px; 
+      border-radius: 8px;
+      font-weight: 700; 
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .score-high { background: var(--success-50); color: var(--success); }
+    .score-mid { background: #fff7ed; color: #c2410c; }
+    .score-low { background: var(--danger-50); color: var(--danger); }
+    .score-neutral { background: #f1f5f9; color: var(--text-muted); }
+
+    .row-actions { display: flex; gap: 6px; justify-content: flex-end; }
+    .icon-btn {
+      width: 32px; 
+      height: 32px; 
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center;
+      cursor: pointer; 
+      transition: all .15s ease;
+      font-size: 12.5px;
+    }
+    .icon-btn:hover { background: var(--primary-50); color: var(--primary-600); border-color: var(--primary-100); }
+    .icon-btn.danger:hover { background: var(--danger-50); color: var(--danger); border-color: #fecaca; }
+
+    .empty-state, .loading-state {
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .empty-state i { font-size: 34px; color: var(--text-soft); margin-bottom: 10px; display: block; }
+    .loading-state { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .spinner {
+      width: 34px; 
+      height: 34px; 
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Modals CSS Layout */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(15, 23, 41, .5);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      z-index: 1000; 
+      padding: 20px;
+      animation: fadeIn .18s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal {
+      background: var(--surface);
+      border-radius: 16px;
+      width: 100%; 
+      max-width: 520px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      animation: pop .22s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .modal-sm { max-width: 420px; }
+    @keyframes pop { from { transform: scale(.96) translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    .modal-head {
+      display: flex; 
+      align-items: flex-start; 
+      justify-content: space-between;
+      padding: 20px 22px 16px; 
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    }
+    .modal-eyebrow {
+      font-size: 10.5px; 
+      letter-spacing: .16em;
+      color: var(--primary-600); 
+      font-weight: 700;
+    }
+    .modal-eyebrow.warn { color: var(--danger); }
+    .modal-title { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; margin-top: 4px; }
+    .modal-body { padding: 20px 22px 22px; }
+
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block; 
+      font-size: 12px; 
+      font-weight: 600;
+      color: var(--text-muted); 
+      margin-bottom: 6px;
+      letter-spacing: .02em;
+    }
+    .field input {
+      width: 100%; 
+      height: 42px;
+      padding: 0 12px;
+      font-family: inherit; 
+      font-size: 13.5px;
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .field input:focus { border-color: var(--primary); box-shadow: var(--ring); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .modal-foot {
+      display: flex; 
+      justify-content: flex-end; 
+      gap: 8px;
+      padding-top: 8px; 
+      margin-top: 4px;
+    }
+
+    .confirm-text { color: var(--text-muted); font-size: 13.5px; }
+    .confirm-info {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 14px 0 6px;
+      font-size: 13px;
+    }
+    .confirm-info b { color: var(--text); }
+
+    /* Toast Notification CSS */
+    .toast-wrap {
+      position: fixed; 
+      right: 24px; 
+      bottom: 24px;
+      display: flex; 
+      flex-direction: column; 
+      gap: 10px;
+      z-index: 2000;
+    }
+    .toast {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 12px 16px;
+      min-width: 260px;
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+      font-size: 13.5px;
+      animation: slideIn .25s ease;
+    }
+    .toast.success { border-left-color: var(--success); }
+    .toast.error { border-left-color: var(--danger); }
+    .toast i { font-size: 15px; }
+    .toast.success i { color: var(--success); }
+    .toast.error i { color: var(--danger); }
+    .toast:not(.success):not(.error) i { color: var(--primary); }
+    @keyframes slideIn { from { transform: translateX(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    /* Responsive Queries */
+    @media (max-width: 1100px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .app-shell { grid-template-columns: 1fr; }
+      .sidebar { position: relative; height: auto; }
+      .nav-tabs { flex-direction: row; flex-wrap: wrap; }
+      .main { padding: 20px; }
+      .search-wrap { width: 100%; }
+      .topbar-right { width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .btn span { display: none; }
+      .btn { padding: 0 12px; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="bg-gray-50 min-h-screen p-4 md:p-8">
+<body>
 
-    <div class="max-w-5xl mx-auto">
-        <!-- Header -->
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-800">Dashboard Nilai UPO</h1>
-            <p class="text-gray-600">Pilih Triwulan untuk melihat data</p>
+  <div class="app-shell">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" data-testid="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-users-gear"></i></div>
+        <div class="brand-text">
+          <div class="brand-title">Data Pegawai</div>
+          <div class="brand-sub">Dashboard Manajemen</div>
+        </div>
+      </div>
+
+      <div class="nav-label">Periode Sheet</div>
+      <nav class="nav-tabs" id="sheetTabs" data-testid="sheet-tabs"></nav>
+
+      <div class="side-foot">
+        <div class="foot-hint"><i class="fa-solid fa-circle-info"></i> Data tersinkron langsung dengan Google Spreadsheet.</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main">
+      
+      <!-- Topbar Header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="crumb">
+            <span class="crumb-a">Manajemen</span>
+            <i class="fa-solid fa-angle-right"></i>
+            <span class="crumb-b" id="crumbSheet" data-testid="crumb-sheet">—</span>
+          </div>
+          <h1 class="page-title" id="pageTitle" data-testid="page-title">Daftar Pegawai</h1>
+        </div>
+        <div class="topbar-right">
+          <div class="search-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="searchInput" type="text" placeholder="Cari nama, NIPP, stasiun, jabatan…" data-testid="search-input" />
+          </div>
+          <button class="btn btn-ghost" id="btnRefresh" data-testid="btn-refresh">
+            <i class="fa-solid fa-arrows-rotate"></i><span>Muat Ulang</span>
+          </button>
+          <button class="btn btn-ghost" id="btnExportXlsx" data-testid="btn-export-xlsx">
+            <i class="fa-regular fa-file-excel"></i><span>Excel</span>
+          </button>
+          <button class="btn btn-ghost" id="btnExportPdf" data-testid="btn-export-pdf">
+            <i class="fa-regular fa-file-pdf"></i><span>PDF</span>
+          </button>
+          <button class="btn btn-primary" id="btnAdd" data-testid="btn-add">
+            <i class="fa-solid fa-plus"></i><span>Tambah Pegawai</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Stats Section -->
+      <section class="stats" data-testid="stats">
+        <div class="stat">
+          <div class="stat-label">Total Pegawai</div>
+          <div class="stat-value" id="statTotal" data-testid="stat-total">0</div>
+          <div class="stat-foot"><i class="fa-solid fa-user-group"></i> di periode ini</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Rata-rata Nilai</div>
+          <div class="stat-value" id="statAvg" data-testid="stat-avg">0</div>
+          <div class="stat-foot"><i class="fa-solid fa-chart-line"></i> seluruh baris</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Nilai Tertinggi</div>
+          <div class="stat-value" id="statMax" data-testid="stat-max">0</div>
+          <div class="stat-foot"><i class="fa-solid fa-arrow-trend-up"></i> top score</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Stasiun Unik</div>
+          <div class="stat-value" id="statStations" data-testid="stat-stations">0</div>
+          <div class="stat-foot"><i class="fa-solid fa-location-dot"></i> lokasi berbeda</div>
+        </div>
+      </section>
+
+      <!-- Table Card Section -->
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Tabel Pegawai</div>
+            <div class="card-sub" id="cardSub">Menampilkan seluruh data pada sheet aktif.</div>
+          </div>
+          <div class="table-count" id="tableCount" data-testid="table-count">0 baris</div>
         </div>
 
-        <!-- Kontrol -->
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-6">
-            <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Triwulan:</label>
-            <select id="sheetSelect" onchange="loadData()" class="w-full md:w-64 p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-                <option value="twi">Triwulan I</option>
-                <option value="twii">Triwulan II</option>
-                <option value="twiii">Triwulan III</option>
-                <option value="twiv">Triwulan IV</option>
-            </select>
+        <div class="table-wrap">
+          <table class="data-table" data-testid="data-table">
+            <thead>
+              <tr>
+                <th style="width:60px">NO</th>
+                <th>Nama</th>
+                <th style="width:140px">NIPP</th>
+                <th>Stasiun</th>
+                <th>Jabatan</th>
+                <th style="width:110px">Nilai</th>
+                <th style="width:130px; text-align:right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+          
+          <div id="emptyState" class="empty-state hidden" data-testid="empty-state">
+            <i class="fa-regular fa-folder-open"></i>
+            <div>Tidak ada data yang cocok.</div>
+          </div>
+          
+          <div id="loadingState" class="loading-state" data-testid="loading-state">
+            <div class="spinner"></div>
+            <div>Memuat data…</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal Form Dialog (Add & Edit) -->
+  <div class="modal-overlay hidden" id="modalOverlay" data-testid="modal-overlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <div>
+          <div class="modal-eyebrow" id="modalEyebrow">FORMULIR</div>
+          <div class="modal-title" id="modalTitle">Tambah Pegawai</div>
+        </div>
+        <button class="icon-btn" id="modalClose" data-testid="modal-close" aria-label="Tutup">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="dataForm" class="modal-body" autocomplete="off">
+        <input type="hidden" id="fRowIndex" />
+        <div class="field">
+          <label for="fNama">Nama Lengkap</label>
+          <input id="fNama" type="text" required placeholder="cth. Ahmad Fauzi" data-testid="input-nama" />
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="fNIPP">NIPP</label>
+            <input id="fNIPP" type="text" required placeholder="cth. 12345678" data-testid="input-nipp" />
+          </div>
+          <div class="field">
+            <label for="fNilai">Nilai</label>
+            <input id="fNilai" type="number" step="0.01" placeholder="cth. 85" data-testid="input-nilai" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="fStasiun">Stasiun</label>
+            <input id="fStasiun" type="text" placeholder="cth. Gambir" data-testid="input-stasiun" />
+          </div>
+          <div class="field">
+            <label for="fJabatan">Jabatan</label>
+            <input id="fJabatan" type="text" placeholder="cth. PPKA" data-testid="input-jabatan" />
+          </div>
         </div>
 
-        <!-- Tabel -->
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead class="bg-gray-100 border-b border-gray-200">
-                        <tr>
-                            <th class="px-6 py-4 font-semibold text-gray-700">Nama</th>
-                            <th class="px-6 py-4 font-semibold text-gray-700">NIPP</th>
-                            <th class="px-6 py-4 font-semibold text-gray-700">Stasiun</th>
-                            <th class="px-6 py-4 font-semibold text-gray-700">Jabatan</th>
-                            <th class="px-6 py-4 font-semibold text-gray-700">Nilai</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody" class="divide-y divide-gray-200">
-                        <tr><td colspan="5" class="px-6 py-10 text-center text-gray-500">Memuat data...</td></tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="modal-foot">
+          <button type="button" class="btn btn-ghost" id="btnCancel" data-testid="btn-cancel">Batal</button>
+          <button type="submit" class="btn btn-primary" id="btnSave" data-testid="btn-save">
+            <i class="fa-solid fa-check"></i><span id="btnSaveLabel">Simpan</span>
+          </button>
         </div>
+      </form>
     </div>
+  </div>
 
-    <script>
-        const API_URL = 'https://script.google.com/macros/s/AKfycbxrUoMg-mQwIbrRq49egcNcNKkEt5yCJAK21eAmJ_aUU_3tfOqFbe-7zmwrll3bjAEg/exec';
+  <!-- Confirm Delete Modal Dialog -->
+  <div class="modal-overlay hidden" id="confirmOverlay" data-testid="confirm-overlay">
+    <div class="modal modal-sm">
+      <div class="modal-head">
+        <div>
+          <div class="modal-eyebrow warn">KONFIRMASI</div>
+          <div class="modal-title">Hapus data ini?</div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="confirm-text">Baris yang dihapus akan terhapus juga dari Google Spreadsheet dan tidak dapat dikembalikan.</p>
+        <div class="confirm-info" id="confirmInfo"></div>
+        <div class="modal-foot">
+          <button type="button" class="btn btn-ghost" id="btnConfirmCancel" data-testid="btn-confirm-cancel">Batal</button>
+          <button type="button" class="btn btn-danger" id="btnConfirmDelete" data-testid="btn-confirm-delete">
+            <i class="fa-solid fa-trash"></i><span>Hapus</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        async function loadData() {
-            const sheet = document.getElementById('sheetSelect').value;
-            const tbody = document.getElementById('tbody');
-            tbody.innerHTML = "<tr><td colspan='5' class='px-6 py-4 text-center'>Memuat...</td></tr>";
+  <!-- Toast Notification Wrapper -->
+  <div class="toast-wrap" id="toastWrap" data-testid="toast-wrap"></div>
 
-            try {
-                const response = await fetch(API_URL + "?sheet=" + sheet);
-                const json = await response.json();
-                
-                tbody.innerHTML = "";
-                json.data.forEach(row => {
-                    const tr = document.createElement('tr');
-                    tr.className = "hover:bg-blue-50 transition-colors";
-                    tr.innerHTML = `
-                        <td class="px-6 py-4 font-medium text-gray-900">${row[0]}</td>
-                        <td class="px-6 py-4 text-gray-600">${row[1]}</td>
-                        <td class="px-6 py-4 text-gray-600">${row[2]}</td>
-                        <td class="px-6 py-4 text-gray-600">${row[3]}</td>
-                        <td class="px-6 py-4 font-bold text-blue-600">${row[4]}</td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            } catch (err) {
-                tbody.innerHTML = "<tr><td colspan='5' class='px-6 py-4 text-center text-red-500'>Gagal memuat data.</td></tr>";
-            }
+  <script>
+    // ===== TAUTAN BACKEND API (GANTI INI JIKA SUDAH DEPLOY DI GOOGLE SCRIPT) =====
+    // 1. Lakukan Deploy Web App baru di Google Apps Script (Pastikan Execute as: Me dan Who has access: Anyone).
+    // 2. Salin URL Web App Anda, lalu tempelkan di bawah ini menggantikan nilai default.
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxIAe87jiFj7j1pylVYNUAteiuGKnLm0HI_h68U3IHhZivUfdHUdBhW1pSdKmwGGsE/exec';
+
+    // ===== State =====
+    const state = {
+      sheets: [],
+      activeSheet: null,
+      rows: [],
+      filtered: [],
+      search: '',
+      pendingDeleteRow: null,
+    };
+
+    // ===== Elements =====
+    const els = {};
+
+    function initElements() {
+      const $ = (id) => document.getElementById(id);
+      
+      els.sheetTabs = $('sheetTabs');
+      els.crumbSheet = $('crumbSheet');
+      els.pageTitle = $('pageTitle');
+      els.searchInput = $('searchInput');
+      els.tableBody = $('tableBody');
+      els.tableCount = $('tableCount');
+      els.emptyState = $('emptyState');
+      els.loadingState = $('loadingState');
+      els.statTotal = $('statTotal');
+      els.statAvg = $('statAvg');
+      els.statMax = $('statMax');
+      els.statStations = $('statStations');
+      els.cardSub = $('cardSub');
+      els.modalOverlay = $('modalOverlay');
+      els.modalTitle = $('modalTitle');
+      els.modalEyebrow = $('modalEyebrow');
+      els.modalClose = $('modalClose');
+      els.btnCancel = $('btnCancel');
+      els.dataForm = $('dataForm');
+      els.fRowIndex = $('fRowIndex');
+      els.fNama = $('fNama');
+      els.fNIPP = $('fNIPP');
+      els.fStasiun = $('fStasiun');
+      els.fJabatan = $('fJabatan');
+      els.fNilai = $('fNilai');
+      els.btnSave = $('btnSave');
+      els.btnSaveLabel = $('btnSaveLabel');
+      els.confirmOverlay = $('confirmOverlay');
+      els.confirmInfo = $('confirmInfo');
+      els.btnConfirmCancel = $('btnConfirmCancel');
+      els.btnConfirmDelete = $('btnConfirmDelete');
+      els.toastWrap = $('toastWrap');
+      els.btnAdd = $('btnAdd');
+      els.btnRefresh = $('btnRefresh');
+      els.btnExportXlsx = $('btnExportXlsx');
+      els.btnExportPdf = $('btnExportPdf');
+    }
+
+    // ===== API Wrapper (Bypass CORS Preflight OPTIONS) =====
+    async function apiCall(action, payload = {}) {
+      // Jika masih menggunakan nilai default (di local computer / sandbox preview)
+      if (WEB_APP_URL === 'MASUKKAN_URL_WEB_APP_DI_SINI') {
+        return new Promise((resolve, reject) => {
+          executeMockCall(action, payload, resolve, reject);
+        });
+      }
+
+      try {
+        const response = await fetch(WEB_APP_URL, {
+          method: 'POST',
+          // PENTING: Kami sengaja tidak mengirimkan header 'Content-Type': 'application/json'
+          // agar browser melompati proses preflight OPTIONS CORS yang dibatasi oleh Google Apps Script.
+          body: JSON.stringify({ action, ...payload })
+        });
+
+        if (!response.ok) {
+          throw new Error('Respons jaringan tidak berhasil (Status: ' + response.status + ')');
         }
 
+        const resJson = await response.json();
+        if (!resJson.success) {
+          throw new Error(resJson.error || 'Terjadi gangguan sistem.');
+        }
+        return resJson.data;
+      } catch (err) {
+        console.error('API Error:', err);
+        throw err;
+      }
+    }
+
+    // ===== Utilities =====
+    function toast(message, type) {
+      if (!els.toastWrap) return;
+      const t = document.createElement('div');
+      t.className = 'toast ' + (type || '');
+      const icon = type === 'success' ? 'fa-circle-check'
+        : type === 'error' ? 'fa-circle-exclamation'
+        : 'fa-circle-info';
+      t.innerHTML = '<i class="fa-solid ' + icon + '"></i><span>' + escapeHtml(message) + '</span>';
+      els.toastWrap.appendChild(t);
+      setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateY(6px)'; }, 2600);
+      setTimeout(() => t.remove(), 3000);
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    }
+
+    function initials(name) {
+      if (!name) return '?';
+      const parts = String(name).trim().split(/\s+/);
+      return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+    }
+
+    function colorFromString(str) {
+      const palette = [
+        '#1d4ed8', '#0ea5a4', '#7c3aed', '#db2777',
+        '#0284c7', '#059669', '#ea580c', '#b45309', '#4f46e5'
+      ];
+      let sum = 0;
+      for (let i = 0; i < String(str).length; i++) sum += String(str).charCodeAt(i);
+      return palette[sum % palette.length];
+    }
+
+    function scoreClass(v) {
+      const n = Number(v);
+      if (isNaN(n) || v === '' || v === null) return 'score-neutral';
+      if (n >= 85) return 'score-high';
+      if (n >= 70) return 'score-mid';
+      return 'score-low';
+    }
+
+    function setLoading(on) { 
+      if (els.loadingState) els.loadingState.classList.toggle('hidden', !on); 
+    }
+
+    // ===== Sheet Tabs =====
+    function renderTabs() {
+      if (!els.sheetTabs) return;
+      els.sheetTabs.innerHTML = '';
+      state.sheets.forEach((s) => {
+        const b = document.createElement('button');
+        b.className = 'nav-btn' + (s === state.activeSheet ? ' active' : '');
+        b.setAttribute('data-testid', 'sheet-tab-' + s);
+        b.innerHTML = '<span class="dot"></span><span>Periode ' + s.toUpperCase() + '</span>';
+        b.addEventListener('click', () => selectSheet(s));
+        els.sheetTabs.appendChild(b);
+      });
+    }
+
+    function selectSheet(name) {
+      state.activeSheet = name;
+      if (els.crumbSheet) els.crumbSheet.textContent = 'Periode ' + name.toUpperCase();
+      if (els.pageTitle) els.pageTitle.textContent = 'Daftar Pegawai — ' + name.toUpperCase();
+      if (els.cardSub) els.cardSub.textContent = 'Menampilkan data pada sheet "' + name + '".';
+      renderTabs();
+      loadData();
+    }
+
+    // ===== Data =====
+    function loadData() {
+      setLoading(true);
+      if (els.tableBody) els.tableBody.innerHTML = '';
+      if (els.emptyState) els.emptyState.classList.add('hidden');
+      
+      apiCall('getData', { sheetName: state.activeSheet })
+        .then((res) => {
+          state.rows = res.rows || [];
+          applyFilter();
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+          toast('Gagal memuat data: ' + err.message, 'error');
+        });
+    }
+
+    function applyFilter() {
+      const q = state.search.trim().toLowerCase();
+      state.filtered = !q ? state.rows.slice() : state.rows.filter((r) => {
+        return [r.Nama, r.NIPP, r.Stasiun, r.Jabatan, r.Nilai, r.NO]
+          .some((v) => String(v == null ? '' : v).toLowerCase().includes(q));
+      });
+      renderTable();
+      renderStats();
+    }
+
+    function renderTable() {
+      const tbody = els.tableBody;
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      
+      if (!state.filtered.length) {
+        if (els.emptyState) els.emptyState.classList.remove('hidden');
+        if (els.tableCount) els.tableCount.textContent = '0 baris';
+        return;
+      }
+      
+      if (els.emptyState) els.emptyState.classList.add('hidden');
+      if (els.tableCount) els.tableCount.textContent = state.filtered.length + ' baris';
+
+      const frag = document.createDocumentFragment();
+      state.filtered.forEach((r) => {
+        const tr = document.createElement('tr');
+        tr.setAttribute('data-testid', 'row-' + r.rowIndex);
+        const color = colorFromString(r.Nama || '');
+        tr.innerHTML =
+          '<td>' + escapeHtml(r.NO) + '</td>' +
+          '<td><div class="cell-name">' +
+            '<div class="avatar" style="background:' + color + '">' + escapeHtml(initials(r.Nama)) + '</div>' +
+            '<div><div style="font-weight:600">' + escapeHtml(r.Nama) + '</div></div>' +
+          '</div></td>' +
+          '<td><span class="badge badge-nipp">' + escapeHtml(r.NIPP) + '</span></td>' +
+          '<td>' + escapeHtml(r.Stasiun) + '</td>' +
+          '<td>' + escapeHtml(r.Jabatan) + '</td>' +
+          '<td><span class="badge-score ' + scoreClass(r.Nilai) + '">' + (r.Nilai === '' || r.Nilai == null ? '—' : escapeHtml(r.Nilai)) + '</span></td>' +
+          '<td><div class="row-actions">' +
+            '<button class="icon-btn" title="Edit" data-testid="btn-edit-' + r.rowIndex + '" data-action="edit" data-row="' + r.rowIndex + '"><i class="fa-solid fa-pen"></i></button>' +
+            '<button class="icon-btn danger" title="Hapus" data-testid="btn-delete-' + r.rowIndex + '" data-action="delete" data-row="' + r.rowIndex + '"><i class="fa-solid fa-trash"></i></button>' +
+          '</div></td>';
+        frag.appendChild(tr);
+      });
+      tbody.appendChild(frag);
+    }
+
+    function renderStats() {
+      const rows = state.rows;
+      if (els.statTotal) els.statTotal.textContent = rows.length;
+      const nums = rows.map(r => Number(r.Nilai)).filter(n => !isNaN(n));
+      if (els.statAvg) els.statAvg.textContent = nums.length ? (nums.reduce((a, b) => a + b, 0) / nums.length).toFixed(1) : '0';
+      if (els.statMax) els.statMax.textContent = nums.length ? Math.max.apply(null, nums) : '0';
+      const stations = new Set(rows.map(r => String(r.Stasiun || '').trim()).filter(Boolean));
+      if (els.statStations) els.statStations.textContent = stations.size;
+    }
+
+    // ===== Modal =====
+    function openAddModal() {
+      if (els.modalTitle) els.modalTitle.textContent = 'Tambah Pegawai';
+      if (els.modalEyebrow) els.modalEyebrow.textContent = 'FORMULIR BARU';
+      if (els.btnSaveLabel) els.btnSaveLabel.textContent = 'Simpan';
+      if (els.dataForm) els.dataForm.reset();
+      if (els.fRowIndex) els.fRowIndex.value = '';
+      if (els.modalOverlay) els.modalOverlay.classList.remove('hidden');
+      setTimeout(() => { if (els.fNama) els.fNama.focus(); }, 50);
+    }
+
+    function openEditModal(row) {
+      if (els.modalTitle) els.modalTitle.textContent = 'Edit Pegawai';
+      if (els.modalEyebrow) els.modalEyebrow.textContent = 'PERBARUI DATA';
+      if (els.btnSaveLabel) els.btnSaveLabel.textContent = 'Perbarui';
+      if (els.fRowIndex) els.fRowIndex.value = row.rowIndex;
+      if (els.fNama) els.fNama.value = row.Nama || '';
+      if (els.fNIPP) els.fNIPP.value = row.NIPP || '';
+      if (els.fStasiun) els.fStasiun.value = row.Stasiun || '';
+      if (els.fJabatan) els.fJabatan.value = row.Jabatan || '';
+      if (els.fNilai) els.fNilai.value = (row.Nilai === '' || row.Nilai == null) ? '' : row.Nilai;
+      if (els.modalOverlay) els.modalOverlay.classList.remove('hidden');
+      setTimeout(() => { if (els.fNama) els.fNama.focus(); }, 50);
+    }
+
+    function closeModal() { 
+      if (els.modalOverlay) els.modalOverlay.classList.add('hidden'); 
+    }
+
+    function submitForm(e) {
+      e.preventDefault();
+      const data = {
+        Nama: els.fNama.value.trim(),
+        NIPP: els.fNIPP.value.trim(),
+        Stasiun: els.fStasiun.value.trim(),
+        Jabatan: els.fJabatan.value.trim(),
+        Nilai: els.fNilai.value === '' ? '' : Number(els.fNilai.value),
+      };
+      if (!data.Nama || !data.NIPP) { toast('Nama dan NIPP wajib diisi', 'error'); return; }
+
+      els.btnSave.disabled = true;
+      els.btnSave.style.opacity = '.7';
+      const rowIndex = els.fRowIndex.value ? parseInt(els.fRowIndex.value, 10) : null;
+
+      const onDone = (res) => {
+        els.btnSave.disabled = false; 
+        els.btnSave.style.opacity = '1';
+        toast(res.message || 'Berhasil', 'success');
+        closeModal();
         loadData();
-    </script>
+      };
+      const onFail = (err) => {
+        els.btnSave.disabled = false; 
+        els.btnSave.style.opacity = '1';
+        toast('Gagal menyimpan: ' + err.message, 'error');
+      };
+
+      const apiPromise = rowIndex
+        ? apiCall('updateRow', { sheetName: state.activeSheet, rowIndex, data })
+        : apiCall('addRow', { sheetName: state.activeSheet, data });
+
+      apiPromise.then(onDone).catch(onFail);
+    }
+
+    // ===== Delete =====
+    function openConfirm(row) {
+      state.pendingDeleteRow = row;
+      if (els.confirmInfo) {
+        els.confirmInfo.innerHTML =
+          '<div><b>Nama:</b> ' + escapeHtml(row.Nama) + '</div>' +
+          '<div><b>NIPP:</b> ' + escapeHtml(row.NIPP) + '</div>' +
+          '<div><b>Sheet:</b> ' + escapeHtml(state.activeSheet) + '</div>';
+      }
+      if (els.confirmOverlay) els.confirmOverlay.classList.remove('hidden');
+    }
+    
+    function closeConfirm() { 
+      if (els.confirmOverlay) els.confirmOverlay.classList.add('hidden'); 
+      state.pendingDeleteRow = null; 
+    }
+
+    function doDelete() {
+      const row = state.pendingDeleteRow;
+      if (!row) return;
+      els.btnConfirmDelete.disabled = true;
+      
+      apiCall('deleteRow', { sheetName: state.activeSheet, rowIndex: row.rowIndex })
+        .then((res) => {
+          els.btnConfirmDelete.disabled = false;
+          closeConfirm();
+          toast(res.message || 'Data dihapus', 'success');
+          loadData();
+        })
+        .catch((err) => {
+          els.btnConfirmDelete.disabled = false;
+          toast('Gagal menghapus: ' + err.message, 'error');
+        });
+    }
+
+    // ===== Export =====
+    function downloadBase64(res) {
+      try {
+        const byteChars = atob(res.base64);
+        const bytes = new Uint8Array(byteChars.length);
+        for (let i = 0; i < byteChars.length; i++) bytes[i] = byteChars.charCodeAt(i);
+        const blob = new Blob([bytes], { type: res.mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = res.filename;
+        document.body.appendChild(a); 
+        a.click();
+        setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 200);
+      } catch (e) {
+        toast('Gagal mengunduh: ' + e.message, 'error');
+      }
+    }
+
+    function exportXlsx() {
+      toast('Menyiapkan file Excel…');
+      els.btnExportXlsx.disabled = true;
+      
+      apiCall('exportSheetXlsx', { sheetName: state.activeSheet })
+        .then((res) => {
+          els.btnExportXlsx.disabled = false;
+          downloadBase64(res);
+          toast('Excel siap diunduh', 'success');
+        })
+        .catch((err) => {
+          els.btnExportXlsx.disabled = false;
+          toast('Gagal export Excel: ' + err.message, 'error');
+        });
+    }
+    
+    function exportPdf() {
+      toast('Menyiapkan file PDF…');
+      els.btnExportPdf.disabled = true;
+      
+      apiCall('exportSheetPdf', { sheetName: state.activeSheet })
+        .then((res) => {
+          els.btnExportPdf.disabled = false;
+          downloadBase64(res);
+          toast('PDF siap diunduh', 'success');
+        })
+        .catch((err) => {
+          els.btnExportPdf.disabled = false;
+          toast('Gagal export PDF: ' + err.message, 'error');
+        });
+    }
+
+    // ===== Initialize Listeners and Actions =====
+    function initEventListeners() {
+      els.searchInput.addEventListener('input', (e) => { state.search = e.target.value; applyFilter(); });
+      els.btnAdd.addEventListener('click', openAddModal);
+      els.btnRefresh.addEventListener('click', () => { toast('Memuat ulang…'); loadData(); });
+      els.btnExportXlsx.addEventListener('click', exportXlsx);
+      els.btnExportPdf.addEventListener('click', exportPdf);
+      els.modalClose.addEventListener('click', closeModal);
+      els.btnCancel.addEventListener('click', closeModal);
+      els.modalOverlay.addEventListener('click', (e) => { if (e.target === els.modalOverlay) closeModal(); });
+      els.dataForm.addEventListener('submit', submitForm);
+      els.btnConfirmCancel.addEventListener('click', closeConfirm);
+      els.btnConfirmDelete.addEventListener('click', doDelete);
+      els.confirmOverlay.addEventListener('click', (e) => { if (e.target === els.confirmOverlay) closeConfirm(); });
+
+      els.tableBody.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-action]');
+        if (!btn) return;
+        const action = btn.getAttribute('data-action');
+        const rowIndex = parseInt(btn.getAttribute('data-row'), 10);
+        const row = state.rows.find(r => r.rowIndex === rowIndex);
+        if (!row) return;
+        if (action === 'edit') openEditModal(row);
+        if (action === 'delete') openConfirm(row);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (els.modalOverlay && !els.modalOverlay.classList.contains('hidden')) closeModal();
+          if (els.confirmOverlay && !els.confirmOverlay.classList.contains('hidden')) closeConfirm();
+        }
+      });
+    }
+
+    // ===== App Bootstrapper =====
+    function bootstrapApp() {
+      setLoading(true);
+      apiCall('getSheetList')
+        .then((list) => {
+          state.sheets = list;
+          state.activeSheet = list[0];
+          renderTabs();
+          selectSheet(list[0]);
+        })
+        .catch((err) => {
+          setLoading(false);
+          toast('Gagal inisialisasi: ' + err.message, 'error');
+        });
+    }
+
+    // ===== Mock API Simulator (Untuk Preview Local / Offline Sandbox) =====
+    const mockStorage = {
+      twi: [
+        { rowIndex: 2, NO: 1, Nama: 'Ahmad Fauzi', NIPP: '12345678', Stasiun: 'Gambir', Jabatan: 'PPKA', Nilai: 88 },
+        { rowIndex: 3, NO: 2, Nama: 'Budi Santoso', NIPP: '12345679', Stasiun: 'Bandung', Jabatan: 'PPR', Nilai: 72 },
+        { rowIndex: 4, NO: 3, Nama: 'Citra Lestari', NIPP: '12345680', Stasiun: 'Gambir', Jabatan: 'PPKA', Nilai: 95 }
+      ],
+      twii: [
+        { rowIndex: 2, NO: 1, Nama: 'Dedi Kurniawan', NIPP: '12345681', Stasiun: 'Yogyakarta', Jabatan: 'Masinis', Nilai: 68 },
+        { rowIndex: 3, NO: 2, Nama: 'Fitri Handayani', NIPP: '12345682', Stasiun: 'Surabaya', Jabatan: 'PPKP', Nilai: 83 }
+      ],
+      twiii: [],
+      twiv: []
+    };
+
+    function executeMockCall(action, payload, resolve, reject) {
+      console.warn('Simulator: Menggunakan data tiruan (Mock Mode).');
+      
+      setTimeout(() => {
+        try {
+          if (action === 'getSheetList') {
+            resolve(['twi', 'twii', 'twiii', 'twiv']);
+          } 
+          else if (action === 'getData') {
+            resolve({
+              headers: ['NO', 'Nama', 'NIPP', 'Stasiun', 'Jabatan', 'Nilai'],
+              rows: mockStorage[payload.sheetName] || []
+            });
+          } 
+          else if (action === 'addRow') {
+            const sheetName = payload.sheetName;
+            const data = payload.data;
+            const sheet = mockStorage[sheetName] || [];
+            const nextNo = sheet.length ? Math.max(...sheet.map(r => r.NO)) + 1 : 1;
+            sheet.push({
+              rowIndex: sheet.length + 2,
+              NO: nextNo,
+              Nama: data.Nama,
+              NIPP: data.NIPP,
+              Stasiun: data.Stasiun,
+              Jabatan: data.Jabatan,
+              Nilai: data.Nilai
+            });
+            resolve({ success: true, message: 'Data ditambahkan (MOCK)' });
+          } 
+          else if (action === 'updateRow') {
+            const sheetName = payload.sheetName;
+            const data = payload.data;
+            const sheet = mockStorage[sheetName] || [];
+            const row = sheet.find(r => r.rowIndex === payload.rowIndex);
+            if (row) {
+              row.Nama = data.Nama;
+              row.NIPP = data.NIPP;
+              row.Stasiun = data.Stasiun;
+              row.Jabatan = data.Jabatan;
+              row.Nilai = data.Nilai;
+            }
+            resolve({ success: true, message: 'Data diperbarui (MOCK)' });
+          } 
+          else if (action === 'deleteRow') {
+            const sheetName = payload.sheetName;
+            const sheet = mockStorage[sheetName] || [];
+            const idx = sheet.findIndex(r => r.rowIndex === payload.rowIndex);
+            if (idx !== -1) {
+              sheet.splice(idx, 1);
+              sheet.forEach((r, i) => { r.NO = i + 1; r.rowIndex = i + 2; });
+            }
+            resolve({ success: true, message: 'Data dihapus (MOCK)' });
+          }
+          else if (action === 'exportSheetXlsx') {
+            resolve({
+              filename: 'DataPegawai_' + payload.sheetName + '.xlsx',
+              mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+              base64: 'UEsDBBQAAAAIAAAA'
+            });
+          }
+          else if (action === 'exportSheetPdf') {
+            resolve({
+              filename: 'DataPegawai_' + payload.sheetName + '.pdf',
+              mimeType: 'application/pdf',
+              base64: 'JVBERi0xLjQK'
+            });
+          }
+        } catch (e) {
+          reject(e);
+        }
+      }, 400);
+    }
+
+    // ===== Global DOM Ready Dispatcher =====
+    document.addEventListener('DOMContentLoaded', () => {
+      initElements();
+      initEventListeners();
+      bootstrapApp();
+    });
+  </script>
 </body>
 </html>
