@@ -1,63 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Data Nilai UPO</title>
-    <style>
-        body { font-family: sans-serif; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Nilai UPO</title>
+    <!-- Menggunakan Tailwind CSS untuk desain elegan -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 min-h-screen p-4 md:p-8">
 
-    <h2>Data Nilai UPO</h2>
-    <select id="sheetSelect" onchange="loadData()">
-        <option value="twi">TW I</option>
-        <option value="twii">TW II</option>
-        <option value="twiii">TW III</option>
-        <option value="twiv">TW IV</option>
-    </select>
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Dashboard Nilai UPO</h1>
+            <p class="text-gray-600">Pilih Triwulan untuk melihat data</p>
+        </div>
 
-    <table id="dataTable">
-        <thead>
-            <tr>
-                <th>Nama</th><th>NIPP</th><th>Stasiun</th><th>Jabatan</th><th>Nilai</th>
-            </tr>
-        </thead>
-        <tbody id="tbody">
-            <tr><td colspan="5">Memuat data...</td></tr>
-        </tbody>
-    </table>
+        <!-- Kontrol -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-6">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Pilih Triwulan:</label>
+            <select id="sheetSelect" onchange="loadData()" class="w-full md:w-64 p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                <option value="twi">Triwulan I</option>
+                <option value="twii">Triwulan II</option>
+                <option value="twiii">Triwulan III</option>
+                <option value="twiv">Triwulan IV</option>
+            </select>
+        </div>
+
+        <!-- Tabel -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-gray-100 border-b border-gray-200">
+                        <tr>
+                            <th class="px-6 py-4 font-semibold text-gray-700">Nama</th>
+                            <th class="px-6 py-4 font-semibold text-gray-700">NIPP</th>
+                            <th class="px-6 py-4 font-semibold text-gray-700">Stasiun</th>
+                            <th class="px-6 py-4 font-semibold text-gray-700">Jabatan</th>
+                            <th class="px-6 py-4 font-semibold text-gray-700">Nilai</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody" class="divide-y divide-gray-200">
+                        <tr><td colspan="5" class="px-6 py-10 text-center text-gray-500">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // GANTI DENGAN URL WEB APP ANDA
         const API_URL = 'https://script.google.com/macros/s/AKfycbxrUoMg-mQwIbrRq49egcNcNKkEt5yCJAK21eAmJ_aUU_3tfOqFbe-7zmwrll3bjAEg/exec';
 
         async function loadData() {
             const sheet = document.getElementById('sheetSelect').value;
             const tbody = document.getElementById('tbody');
-            tbody.innerHTML = "<tr><td colspan='5'>Memuat...</td></tr>";
+            tbody.innerHTML = "<tr><td colspan='5' class='px-6 py-4 text-center'>Memuat...</td></tr>";
 
             try {
                 const response = await fetch(API_URL + "?sheet=" + sheet);
                 const json = await response.json();
                 
-                tbody.innerHTML = ""; // Bersihkan tabel
-                
+                tbody.innerHTML = "";
                 json.data.forEach(row => {
                     const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td>`;
+                    tr.className = "hover:bg-blue-50 transition-colors";
+                    tr.innerHTML = `
+                        <td class="px-6 py-4 font-medium text-gray-900">${row[0]}</td>
+                        <td class="px-6 py-4 text-gray-600">${row[1]}</td>
+                        <td class="px-6 py-4 text-gray-600">${row[2]}</td>
+                        <td class="px-6 py-4 text-gray-600">${row[3]}</td>
+                        <td class="px-6 py-4 font-bold text-blue-600">${row[4]}</td>
+                    `;
                     tbody.appendChild(tr);
                 });
             } catch (err) {
-                tbody.innerHTML = "<tr><td colspan='5'>Gagal memuat data.</td></tr>";
-                console.error(err);
+                tbody.innerHTML = "<tr><td colspan='5' class='px-6 py-4 text-center text-red-500'>Gagal memuat data.</td></tr>";
             }
         }
 
-        // Load data pertama kali saat halaman dibuka
         loadData();
     </script>
 </body>
