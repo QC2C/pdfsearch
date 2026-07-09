@@ -1,19 +1,64 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplikasi UPO</title>
-  <style>
-    /* CSS ini membuat iframe mengisi seluruh layar tanpa sisa */
-    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f8fafc; }
-    iframe { width: 100%; height: 100%; border: none; display: block; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Data Nilai UPO</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
 </head>
 <body>
-  
-  <!-- MASUKKAN LINK WEB APP GOOGLE APPS SCRIPT ANDA DI BAWAH INI -->
-  <iframe src="https://script.google.com/macros/s/AKfycbxe1XhyjqSz_SHtGH8fksM-t_V1JTP68JcuuOMHxWyzj6E5b4Zw3IRByyz4YY9RhEiq/exec"></iframe>
 
+    <h2>Data Nilai UPO</h2>
+    <select id="sheetSelect" onchange="loadData()">
+        <option value="twi">TW I</option>
+        <option value="twii">TW II</option>
+        <option value="twiii">TW III</option>
+        <option value="twiv">TW IV</option>
+    </select>
+
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Nama</th><th>NIPP</th><th>Stasiun</th><th>Jabatan</th><th>Nilai</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr><td colspan="5">Memuat data...</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        // GANTI DENGAN URL WEB APP ANDA
+        const API_URL = 'https://script.google.com/macros/s/AKfycbxrUoMg-mQwIbrRq49egcNcNKkEt5yCJAK21eAmJ_aUU_3tfOqFbe-7zmwrll3bjAEg/exec';
+
+        async function loadData() {
+            const sheet = document.getElementById('sheetSelect').value;
+            const tbody = document.getElementById('tbody');
+            tbody.innerHTML = "<tr><td colspan='5'>Memuat...</td></tr>";
+
+            try {
+                const response = await fetch(API_URL + "?sheet=" + sheet);
+                const json = await response.json();
+                
+                tbody.innerHTML = ""; // Bersihkan tabel
+                
+                json.data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td>`;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                tbody.innerHTML = "<tr><td colspan='5'>Gagal memuat data.</td></tr>";
+                console.error(err);
+            }
+        }
+
+        // Load data pertama kali saat halaman dibuka
+        loadData();
+    </script>
 </body>
 </html>
