@@ -917,61 +917,81 @@ input {
     </ul>
   </li>
 
-  <!-- REPORT -->
-  <li onclick="toggleFolder(this)">
+ <!-- REPORT -->
+<li onclick="toggleFolder(this)">
     <b>📌 Report</b>
+
     <ul class="sub-folder">
+
         <!-- Harian -->
-        <li>
-            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">📅 Harian</b>
+        <li onclick="event.stopPropagation();">
+            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                📅 Harian
+            </b>
             <ul class="sub-folder">
-                <li onclick="openPDF(event,'harian-1h1p',this)">1H1P</li>
-                <li onclick="openPDF(event,'harian-imo',this)">IMO</li>
-                <li onclick="openPDF(event,'harian-renwas',this)">Renwas</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">1H1P</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzOxczr42OKW1wiUCetDlBbGSib7vyDwgrYLJP3kYtbTuotJXx_TpcPv-uLUkFqF-0VNw/exec')">IMO</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwy9525_H8rB1wR8r1Z3cNljAihzDpNAcPK9RJPQ2BwKHakwB7QGw2-C_drD1JZGWwb-A/exec')">Renwas</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzYRQGhruoTyreQH5jA9BMgDR8bn9k0F_wpI7r_6KJG-aMo9TW6X6A3jd-C9i9fTvE8/exec')">UPO Assesment</li>
             </ul>
         </li>
 
         <!-- Mingguan -->
-        <li>
-            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">📅 Mingguan</b>
+        <li onclick="event.stopPropagation();">
+            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                📅 Mingguan
+            </b>
             <ul class="sub-folder">
-                <li onclick="openPDF(event,'mingguan-1h1p',this)">1H1P</li>
-                <li onclick="openPDF(event,'mingguan-imo',this)">IMO</li>
-                <li onclick="openPDF(event,'mingguan-renwas',this)">Renwas</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">1H1P</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">IMO</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">Renwas</li>
             </ul>
         </li>
 
         <!-- Bulanan -->
-        <li>
-            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">📅 Bulanan</b>
+        <li onclick="event.stopPropagation();">
+            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                📅 Bulanan
+            </b>
             <ul class="sub-folder">
-                <li onclick="openPDF(event,'bulanan-1h1p',this)">1H1P</li>
-                <li onclick="openPDF(event,'bulanan-imo',this)">IMO</li>
-                <li onclick="openPDF(event,'bulanan-renwas',this)">Renwas</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwJGxnxgn-yJ3wHhc5WgaGl4gXijmI-7ycpesz7aZheMbfNzpOaeJ2aYpkByQAOubJQ/exec')">Jadwal DInasan</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyiV4eiMU9kHThbz_lvFehnu3PQZP3iEXn9KWyMaeGuRs3ofdb6FjX0SXpofNRaiMzH/exec')">Jadwal KA</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyBOkNmlBi19oE8IKk_zauQ6YLx9lb-duqnwZV39wCD3czMQJ4dVnEpDnOitQhc02MR/exec')">Emolumen</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbx0bmfesnx_hGYbvJTlbW2UNVSFl05wKv4po5F-IQ822H1JfUAEllzaCMtr-uuEMFKS/exec')">Nominatif Wil.2C</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzqvb-mcmEvCC3jeciAmTBvsjSBSiXdMeE9RYd6lMrvn7lI26Xg_1Iz94kzCey-GVD6QQ/exec')">JI-BA</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxfewG9PtggWED14w6oHDTPWZhDv6nQnGL5mmGW48-7NT5nm-seEbCnScpCjvKGDc5v/exec')">JI-Pemeriksaan</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbztXJSDO8nb_l-TAPNoS_TN1pGO0xGnAYwBoGemVK8uVLhy1ihl3yJoNj-9OqnigPDszw/exec')">JI-Temuan</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzs41DMaRQ3R_ov8GJ1HRdie_Tkg50pWAu1dhbXqdyYUKNZ9UQ3xC_agmyQNiG8jYAp5Q/exec')">JI-Daftar Hadir</li>
+                <li onclick="openWebApp(event,'')">IBPR</li>
             </ul>
         </li>
 
         <!-- Triwulan -->
-        <li>
-            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">📅 Triwulan</b>
+        <li onclick="event.stopPropagation();">
+            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                📅 Triwulan
+            </b>
             <ul class="sub-folder">
-                <li onclick="openPDF(event,'triwulan-1h1p',this)">1H1P</li>
-                <li onclick="openPDF(event,'triwulan-imo',this)">IMO</li>
-                <li onclick="openPDF(event,'triwulan-renwas',this)">Renwas</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwbZ5U3metpBQlfxsIelmN41ryB2TblV8fkhih04tsI04HSO4IH-5OJVlgt2s2R9lCp/exec')">Nilai UPO 2026 </li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbztCKYfJu3mZzuGuapEFCoRGFzZbaeVpzzuJDi9dKa_-ylwKg8M6eOYYkn1XDMxHdQ5/exec')">Berat Badan Ideal / BMI</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">Renwas</li>
             </ul>
         </li>
 
         <!-- Tahunan -->
-        <li>
-            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">📅 Tahunan</b>
+        <li onclick="event.stopPropagation();">
+            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                📅 Tahunan
+            </b>
             <ul class="sub-folder">
-                <li onclick="openPDF(event,'tahunan-1h1p',this)">1H1P</li>
-                <li onclick="openPDF(event,'tahunan-imo',this)">IMO</li>
-                <li onclick="openPDF(event,'tahunan-renwas',this)">Renwas</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">1H1P</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">IMO</li>
+                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">Renwas</li>
             </ul>
         </li>
+
     </ul>
-  </li>
+</li>
 
 </ul>
 
@@ -97735,13 +97755,13 @@ function toggleMenu() {
 
 // 🔥 fungsi toggle menu sidebar
 function toggleFolder(el) {
-  const sub = el.querySelector(".sub-folder");
+  const sub = el.querySelector(":scope > .sub-folder");
 
-  document.querySelectorAll(".sub-folder").forEach(s => {
-    if (s !== sub) s.style.display = "none";
-  });
+  if (!sub) return;
 
-  sub.style.display = sub.style.display === "block" ? "none" : "block";
+  // hanya toggle folder yang diklik
+  sub.style.display =
+    sub.style.display === "block" ? "none" : "block";
 }
  function loadLib(type) {
   const pdfViewer = document.getElementById("pdfViewer");
@@ -98100,7 +98120,10 @@ function closeHTML() {
   document.getElementById("htmlFrame").src = "";
 }
 
-
+function openWebApp(event, url) {
+  event.stopPropagation();
+  window.open(url, '_blank');
+}
 
 
 </script>
