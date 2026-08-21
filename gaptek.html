@@ -954,24 +954,45 @@ input {
         </li>
 
         <!-- Bulanan -->
-        <li onclick="event.stopPropagation();">
-            <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
-                📅 Bulanan
-            </b>
-            <ul class="sub-folder">
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwJGxnxgn-yJ3wHhc5WgaGl4gXijmI-7ycpesz7aZheMbfNzpOaeJ2aYpkByQAOubJQ/exec')">Jadwal DInasan</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyiV4eiMU9kHThbz_lvFehnu3PQZP3iEXn9KWyMaeGuRs3ofdb6FjX0SXpofNRaiMzH/exec')">Jadwal KA</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyBOkNmlBi19oE8IKk_zauQ6YLx9lb-duqnwZV39wCD3czMQJ4dVnEpDnOitQhc02MR/exec')">Emolumen</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbx0bmfesnx_hGYbvJTlbW2UNVSFl05wKv4po5F-IQ822H1JfUAEllzaCMtr-uuEMFKS/exec')">Nominatif Wil.2C</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwRg1wtSlYjAKUZZUEUIKRBKoMaqVXe9InVqQ0w9_XFBywSd_lW3aA57J0KiI5DJj-cYw/exec')">Pembinaan Personil Knp</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwODkZUMMqyMXEthRnUtT0P2H25rbRUThfm7pvZHGDaZ10TQI3EjW_zbCxiu_2BHn4yuw/exec')">Pembinaan FKKS Wil.2C</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzqvb-mcmEvCC3jeciAmTBvsjSBSiXdMeE9RYd6lMrvn7lI26Xg_1Iz94kzCey-GVD6QQ/exec')">JI-BA</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxfewG9PtggWED14w6oHDTPWZhDv6nQnGL5mmGW48-7NT5nm-seEbCnScpCjvKGDc5v/exec')">JI-Pemeriksaan</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbztXJSDO8nb_l-TAPNoS_TN1pGO0xGnAYwBoGemVK8uVLhy1ihl3yJoNj-9OqnigPDszw/exec')">JI-Temuan</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzs41DMaRQ3R_ov8GJ1HRdie_Tkg50pWAu1dhbXqdyYUKNZ9UQ3xC_agmyQNiG8jYAp5Q/exec')">JI-Daftar Hadir</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzAR5YvdAmUfvS6DdbfW0PkUcyfUfwz2tULRN8Ycrcms4eS2-LXul1JhbvS3eV9vP7y/exec')">IBPR</li>
-            </ul>
-        </li>
+          <li onclick="event.stopPropagation();">
+              <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                  📅 Bulanan
+              </b>
+              <ul class="sub-folder">
+                  <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwJGxnxgn-yJ3wHhc5WgaGl4gXijmI-7ycpesz7aZheMbfNzpOaeJ2aYpkByQAOubJQ/exec')">Jadwal DInasan</li>
+                  <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyiV4eiMU9kHThbz_lvFehnu3PQZP3iEXn9KWyMaeGuRs3ofdb6FjX0SXpofNRaiMzH/exec')">Jadwal KA</li>
+                  <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyBOkNmlBi19oE8IKk_zauQ6YLx9lb-duqnwZV39wCD3czMQJ4dVnEpDnOitQhc02MR/exec')">Emolumen</li>
+                  <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbx0bmfesnx_hGYbvJTlbW2UNVSFl05wKv4po5F-IQ822H1JfUAEllzaCMtr-uuEMFKS/exec')">Nominatif Wil.2C</li>
+                  <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
+                  <li onclick="event.stopPropagation();">
+                      <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                          📁 Pembinaan
+                      </b>
+                      <ul class="sub-folder">
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwRg1wtSlYjAKUZZUEUIKRBKoMaqVXe9InVqQ0w9_XFBywSd_lW3aA57J0KiI5DJj-cYw/exec')">Personil Knp</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwODkZUMMqyMXEthRnUtT0P2H25rbRUThfm7pvZHGDaZ10TQI3EjW_zbCxiu_2BHn4yuw/exec')">FKKS Wil.2C</li>
+
+                      </ul>
+                  </li>
+                  
+                  
+                  <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
+                  <li onclick="event.stopPropagation();">
+                      <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                          📁 Joint Inspection
+                      </b>
+                      <ul class="sub-folder">
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzqvb-mcmEvCC3jeciAmTBvsjSBSiXdMeE9RYd6lMrvn7lI26Xg_1Iz94kzCey-GVD6QQ/exec')">BA</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxfewG9PtggWED14w6oHDTPWZhDv6nQnGL5mmGW48-7NT5nm-seEbCnScpCjvKGDc5v/exec')">Pemeriksaan</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbztXJSDO8nb_l-TAPNoS_TN1pGO0xGnAYwBoGemVK8uVLhy1ihl3yJoNj-9OqnigPDszw/exec')">Temuan</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzs41DMaRQ3R_ov8GJ1HRdie_Tkg50pWAu1dhbXqdyYUKNZ9UQ3xC_agmyQNiG8jYAp5Q/exec')">Daftar Hadir</li>
+
+                      </ul>
+                  </li>
+                  <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzAR5YvdAmUfvS6DdbfW0PkUcyfUfwz2tULRN8Ycrcms4eS2-LXul1JhbvS3eV9vP7y/exec')">IBPR</li>
+              </ul>
+          </li>
+
 
         <!-- Triwulan -->
         <li onclick="event.stopPropagation();">
