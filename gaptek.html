@@ -131,22 +131,12 @@ mark {
   background: #f8f9fa;
 }
 
-.google-logo {
-  font-size: 55px;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  letter-spacing: -3px;
-  margin: 0;
-  line-height: 1.1; /* 🔥 penting biar tidak nabrak */
-}
-
-/* Warna khas Google */
-.g1 { color: #4285F4; } /* G */
-.o1 { color: #EA4335; } /* o */
-.o2 { color: #FBBC05; } /* o */
-.g2 { color: #4285F4; } /* g */
-.l  { color: #34A853; } /* l */
-.e  { color: #EA4335; } /* e */
+.main-logo {
+    height: 100px; /* Atur tinggi pasti logo */
+    width: auto;   /* Lebar akan menyesuaikan secara otomatis agar tidak gepeng */
+    display: block;
+    margin: 0 auto 12px auto;
+  }
 
 /* ========================= */
 /* 🌙 TOMBOL DARK MODE FIX */
@@ -1029,16 +1019,11 @@ input {
 
 
 <div class="top-bar">
-  <h1 class="google-logo">
-    <span class="g1">G</span>
-    <span class="o1">a</span>
-    <span class="o2">p</span>
-    <span class="g2">t</span>
-    <span class="l">e</span>
-    <span class="e">k</span>
-  </h1>
+  <img src="https://lh3.googleusercontent.com/d/1QweuaoF2ATjnboDHEuy3Yx1d2R4T9DWB" 
+       alt="Gaptek Logo" 
+       class="main-logo"
+       onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1AjbM5qvecR9zN3Xw46A9YN-ROL16LsK1&sz=w1000';">
 
-  <p class="subtitle">Gabungan Peraturan Tentang Perkeretaapian</p>
 
 <div class="search-box">
 
