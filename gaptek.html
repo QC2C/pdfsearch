@@ -938,6 +938,19 @@ input {
                 <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyCAAwaQ9TNfYhaMctAq8q2uNF5evNqMoT8rPiSWVU3Gj_DyE820DB-fHBSPkC1qFnb/exec')">Ijin Kerja Form</li>
                 <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzhkoKjko2YNbDc1noASC-CZF-MyLFym9sybUCryNXuqq23WyRaNap7iNDZvheOKYkzAw/exec')">Form Langsir</li>
                 <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwaCWPN4u1Dk1WIUcgMzo1p_KrOdQ-2Dfl7fnslSPTrF0dEumWzBOye922NCNBmZ7kO/exec')">Laporan Pelayanan Warta</li>
+                <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
+                  <li onclick="event.stopPropagation();">
+                      <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                          📁 Buku/Lembar Kerja KS
+                      </b>
+                      <ul class="sub-folder">
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwSbD8NnX1t9mWoGMYCtfAnRQDKShxZSciIKEt0I-SZLC-wb5yMLIytwa9nnRUS6SdYYw/exec')">Gambar Emplasemen</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbz-a2rcrSzb6UdS7Z9x37aMQur0La3sw5ABzdiKyBZsdnu4BHcqvsl834pbIharx-XJ/exec')">Jalur Efektif dan Wesel</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyRjF-ej9GQbj4caxHyWtFg00BlYXI19GRLkA1ajQIJq3HiiWK5SU-xWpeKt2DIL6HBMg/exec')">Data Nominatif</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwy9525_H8rB1wR8r1Z3cNljAihzDpNAcPK9RJPQ2BwKHakwB7QGw2-C_drD1JZGWwb-A/exec')">Renwas</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyWey3lbZ_iYLaWEaaYcDC9HwvjAwAEVLud_PxCYwLsGQKbVl3OTXpt4Xaw69cQr1M/exec')">Temuan</li>
+                      </ul>
+                  </li>
             </ul>
         </li>
 
@@ -949,7 +962,7 @@ input {
             <ul class="sub-folder">
                 <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxreuI6y1hnGTzcLWcG1tUYpGSLB7a-klETZpIiwXjW_v9MTiVQ3QnXbAdyjr2JWWOE/exec')">Pemeriksaan emplasemen / jalur</li>
                 <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">IMO</li>
-                <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbxar0AGWaw9YN1jQyJBX3lJ0UkX1DUepW_phgMrVbmOoG9RoraQSQttoTI5eOcA82CT/exec')">Renwas</li>
+                 
             </ul>
         </li>
 
