@@ -875,10 +875,13 @@ input {
       <li onclick="openPDF(event,'penggunaan radio ws',this)">PENGGUNAAN RADIO WS</li>
       <li onclick="openPDF(event,'ws jasum',this)">PENGGUNAAN RADIO WS JASUM</li>
       <li onclick="openPDF(event,'komdal jasum',this)">Komunikasi Pengendali OPKA JASUM 2026</li>
+      <li onclick="openPDF(event,'ppka_prs',this)">KOMUNIKASI PPKA DENGAN PRS, D_SAFE DAN PENGAWASAN LANGSIR</li>
       <li onclick="openPDF(event,'apitan lidah wesel',this)">APITAN LIDAH WESEL</li>
       <li onclick="openPDF(event,'pelumasan wesel',this)">PELUMASAN WESEL</li>
       <li onclick="openPDF(event,'ceklist perka gangguan',this)">Ceklist Perka Gangguan</li>
       <li onclick="openPDF(event,'instruksi pelayanan peralatan persinyalan mekanik daop 2 bandung',this)">Instruksi Pelayanan Peralatan Persinyalan Mekanik Daop 2 Bandung</li>
+
+      <li onclick="openPDF(event,'modul langsir',this)">Modul Langsir</li>
       <li onclick="openPDF(event,'modul pjl',this)">Modul PJL</li>
       <li onclick="openPDF(event,'sop pjl',this)">PJL OP 2026</li>
       <li onclick="openPDF(event,'sop pjl empl',this)">PJL Emplasemen 2023</li>
@@ -893,19 +896,39 @@ input {
         <b>📌 Pendukung Lain</b>
         <ul class="sub-folder">
           <li onclick="openPDF(event,'visi misi',this)">VISI MISI</li>
+<!-- PERUBAHAN DISINI: penjagaan dibuat menjadi folder / sub-menu -->
+                  <li onclick="event.stopPropagation();">
+                      <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                          CITAR :
+                      </b>
+                      <ul class="sub-folder">
           <li onclick="openPDF(event,'citar',this)">CITAR</li>
           <li onclick="openPDF(event,'citar1',this)">Buku Saku Citar</li>
           <li onclick="openPDF(event,'citar2',this)">Contoh Perilaku Citar</li>
+                      </ul>
+                  </li>
+
+          
+          <!-- PERUBAHAN DISINI: penjagaan dibuat menjadi folder / sub-menu -->
+                  <li onclick="event.stopPropagation();">
+                      <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                          IBPR :
+                      </b>
+                      <ul class="sub-folder">
           <li onclick="openPDF(event,'Knp - ibprknp',this)">Knp - IBPR Stasiun Karangpucung</li>
           <li onclick="openPDF(event,'ibpr',this)">IBPR Sosialiasi Penguatan 2023</li>
           <li onclick="openPDF(event,'ibpr1',this)">IBPR Penyusunan Pedoman 2023</li>
           <li onclick="openPDF(event,'ibpr2',this)">IBPR Materi Bimtek 2025</li>
           <li onclick="openPDF(event,'ibpr3',this)">IBPR Pedoman Proses IBPR</li>
+                      </ul>
+                  </li>
+
           <li onclick="openPDF(event,'self assesment',this)">Self Assesment</li>
           <li onclick="openPDF(event,'dsafe',this)">D_Safe</li>
           <li onclick="openPDF(event,'fokus waspada dan siaga',this)">Fokus, Waspada dan Siaga</li>
           <li onclick="openPDF(event,'green',this)">Green Movement KAI v3</li>
           <li onclick="openPDF(event,'sertifikasi',this)">Pemberkasan Sertifikasi</li>
+          <li onclick="openPDF(event,'kriteria smkp',this)">Kriteria penilaian SMKP</li>
         </ul>
       </li>
 
@@ -943,7 +966,7 @@ input {
                 <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
                   <li onclick="event.stopPropagation();">
                       <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
-                          📁 Buku/Lembar Kerja KS
+                          Buku/Lembar Kerja KS 
                       </b>
                       <ul class="sub-folder">
                           <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwSbD8NnX1t9mWoGMYCtfAnRQDKShxZSciIKEt0I-SZLC-wb5yMLIytwa9nnRUS6SdYYw/exec')">Gambar Emplasemen</li>
@@ -956,7 +979,7 @@ input {
                 <!-- PERUBAHAN DISINI: penjagaan dibuat menjadi folder / sub-menu -->
                   <li onclick="event.stopPropagation();">
                       <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
-                          📁 Buku Penjagaan
+                          Buku Penjagaan 
                       </b>
                       <ul class="sub-folder">
                           <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyb8YDhwo232cxZ9JkZ2KpVcprCa5SOyFWPb7XDnsi5gfseRJdyzw91xYh1BpowKGk2pQ/exec')">Counter dan Bentuk-Bnetuk</li>
@@ -990,7 +1013,7 @@ input {
                   <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
                   <li onclick="event.stopPropagation();">
                       <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
-                          📁 Pembinaan
+                          Pembinaan 
                       </b>
                       <ul class="sub-folder">
                           <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwRg1wtSlYjAKUZZUEUIKRBKoMaqVXe9InVqQ0w9_XFBywSd_lW3aA57J0KiI5DJj-cYw/exec')">Personil Knp</li>
@@ -1005,7 +1028,7 @@ input {
                   <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
                   <li onclick="event.stopPropagation();">
                       <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
-                          📁 Joint Inspection
+                          Joint Inspection 
                       </b>
                       <ul class="sub-folder">
                           <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbzqvb-mcmEvCC3jeciAmTBvsjSBSiXdMeE9RYd6lMrvn7lI26Xg_1Iz94kzCey-GVD6QQ/exec')">BA</li>
@@ -98043,7 +98066,10 @@ function toggleFolder(el) {
   "R13": "https://anyflip.com/hkmsv/hbxm/",
   "R22": "https://anyflip.com/hkmsv/firv/",
   "gapeka 2025": "https://online.fliphtml5.com/csvbyv/tyga/",
+  "ppka_prs": "https://drive.google.com/file/d/1Nk5ICRtHFELcWJRB8qxJpiAq5qZbhmnP/preview",
   "komdal jasum": "https://drive.google.com/file/d/12ywwluT_LR2IOMgMSHQafoDBOOmhamwG/preview",
+  "kriteria smkp": "https://drive.google.com/file/d/131zPqMXa4SOt-BsgZAxUwvaflfPfPj09/preview",
+  "modul langsir": "https://drive.google.com/file/d/1pTMBRXaJGLg8vBX0UVRHABXjCkpIgG6Z/preview",
 
 
 };
