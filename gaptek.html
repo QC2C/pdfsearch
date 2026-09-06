@@ -1007,7 +1007,20 @@ input {
               </b>
               <ul class="sub-folder">
                   <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwJGxnxgn-yJ3wHhc5WgaGl4gXijmI-7ycpesz7aZheMbfNzpOaeJ2aYpkByQAOubJQ/exec')">Jadwal Dinasan</li>
-                  <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyiV4eiMU9kHThbz_lvFehnu3PQZP3iEXn9KWyMaeGuRs3ofdb6FjX0SXpofNRaiMzH/exec')">Jadwal KA</li>
+                  <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
+                  <li onclick="event.stopPropagation();">
+                      <b onclick="event.stopPropagation(); toggleFolder(this.parentElement);">
+                          Jadwal KA dan Pendukung 
+                      </b>
+                      <ul class="sub-folder">
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyiV4eiMU9kHThbz_lvFehnu3PQZP3iEXn9KWyMaeGuRs3ofdb6FjX0SXpofNRaiMzH/exec')">Jadwal KA</li>
+                          <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbwIZC_2YZ14owsytEXiAKOIrZsJpXa0g1ULEx5pkGMDLnGLJvBrG-hBi3QG_o8mRBBX/exec')">PPK</li>
+                          <li onclick="openWebApp(event,'')">WAM</li>
+
+
+                      </ul>
+                  </li>
+                  
                   <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbyBOkNmlBi19oE8IKk_zauQ6YLx9lb-duqnwZV39wCD3czMQJ4dVnEpDnOitQhc02MR/exec')">Emolumen</li>
                   <li onclick="openWebApp(event,'https://script.google.com/macros/s/AKfycbx0bmfesnx_hGYbvJTlbW2UNVSFl05wKv4po5F-IQ822H1JfUAEllzaCMtr-uuEMFKS/exec')">Nominatif Wil.2C</li>
                   <!-- PERUBAHAN DISINI: JI-BA dibuat menjadi folder / sub-menu -->
