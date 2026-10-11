@@ -27,11 +27,12 @@
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
 
+    <!-- Header -->
     <header class="bg-blue-900 text-white shadow-md border-b-4 border-amber-500">
         <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                    <span class="inline-block bg-amber-500 text-blue-950 text-xs font-bold px-2.5 py-1 rounded mb-2">
+                    <span id="headerPpkCode" class="inline-block bg-amber-500 text-blue-950 text-xs font-bold px-2.5 py-1 rounded mb-2">
                         PPK.10-2026 / GAPEKA 2025 / JOP-KP.BD
                     </span>
                     <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
@@ -53,28 +54,66 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
 
-        <section class="mb-8 no-print bg-white p-4 rounded-xl shadow-sm border border-slate-200">
-            <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
-                <div class="relative w-full md:w-96">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                        <i class="fas fa-search"></i>
+        <!-- Controls & Settings Panel -->
+        <section class="mb-8 no-print space-y-4">
+            <!-- Settings Bar -->
+            <div class="bg-slate-800 text-white p-4 rounded-xl shadow-sm border border-slate-700">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 font-semibold text-sm">
+                        <i class="fas fa-sliders-h text-amber-400"></i>
+                        <span>Pengaturan Dokumen PPK & Bulan:</span>
                     </div>
-                    <input type="text" id="searchInput" onkeyup="filterTables()" placeholder="Cari nama KA, nomor, atau relasi..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm transition">
+                    <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                        <div class="flex items-center gap-2">
+                            <label for="ppkSelect" class="text-xs text-slate-300 font-medium">PPK:</label>
+                            <select id="ppkSelect" onchange="updatePpkSettings()" class="bg-slate-900 border border-slate-600 text-white text-xs rounded-lg p-2 focus:ring-amber-500 focus:border-amber-500 outline-none">
+                                <option value="1">PPK 1 (Januari)</option>
+                                <option value="2">PPK 2 (Februari)</option>
+                                <option value="3">PPK 3 (Maret)</option>
+                                <option value="4">PPK 4 (April)</option>
+                                <option value="5">PPK 5 (Mei)</option>
+                                <option value="6">PPK 6 (Juni)</option>
+                                <option value="7">PPK 7 (Juli)</option>
+                                <option value="8">PPK 8 (Agustus)</option>
+                                <option value="9">PPK 9 (September)</option>
+                                <option value="10" selected>PPK 10 (Oktober)</option>
+                                <option value="11">PPK 11 (November)</option>
+                                <option value="12">PPK 12 (Desember)</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <label for="yearInput" class="text-xs text-slate-300 font-medium">Tahun:</label>
+                            <input type="number" id="yearInput" value="2026" onchange="updatePpkSettings()" class="w-20 bg-slate-900 border border-slate-600 text-white text-xs rounded-lg p-2 focus:ring-amber-500 focus:border-amber-500 outline-none">
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-wrap gap-2 w-full md:w-auto">
-                    <button onclick="scrollToSection('sec-jalan-batal')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition">
-                        <i class="fas fa-exchange-alt mr-1"></i> Jalan & Batal
-                    </button>
-                    <button onclick="scrollToSection('sec-ketentuan')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition">
-                        <i class="fas fa-list-ul mr-1"></i> Perhatian
-                    </button>
-                    <button onclick="scrollToSection('sec-nonaktif')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition">
-                        <i class="fas fa-ban mr-1"></i> Lintas Nonaktif
-                    </button>
+            </div>
+
+            <!-- Search and Filter Navigation Bar -->
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+                    <div class="relative w-full md:w-96">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" id="searchInput" onkeyup="filterTables()" placeholder="Cari nama KA, nomor, atau relasi..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm transition">
+                    </div>
+                    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                        <button onclick="scrollToSection('sec-jalan-batal')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition">
+                            <i class="fas fa-exchange-alt mr-1"></i> Jalan & Batal
+                        </button>
+                        <button onclick="scrollToSection('sec-ketentuan')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition">
+                            <i class="fas fa-exclamation-circle mr-1"></i> Perhatian
+                        </button>
+                        <button onclick="scrollToSection('sec-nonaktif')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-3 rounded-lg border border-slate-300 transition">
+                            <i class="fas fa-ban mr-1"></i> Lintas Nonaktif
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- 1. Section: Table Jalan & Batal -->
         <section id="sec-jalan-batal" class="mb-10 bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden print-shadow-none">
             <div class="bg-slate-800 text-white px-6 py-4 flex justify-between items-center border-b border-slate-700">
                 <h2 class="text-lg font-bold flex items-center gap-2">
@@ -101,72 +140,17 @@
                             <th scope="col" class="px-3 py-2 min-w-[160px] bg-rose-50/50">Lintas</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-200 text-xs sm:text-sm">
-                        <script>
-                            const dataJalanBatal = [
-                                { no: 1, fak: "9A", namaJalan: "Argo Wilis", lintasJalan: "BJR-CB-BD", kaBatal: "9", namaBatal: "Argo Wilis", lintasBatal: "BJR-CB-BD" },
-                                { no: 2, fak: "10C", namaJalan: "Argo Wilis", lintasJalan: "BD-CB-BJR", kaBatal: "10", namaBatal: "Argo Wilis", lintasBatal: "BD-CB-BJR" },
-                                { no: 3, fak: "77D", namaJalan: "Lodaya", lintasJalan: "BJR-CB-BD", kaBatal: "77", namaBatal: "Lodaya", lintasBatal: "BJR-CB-BD" },
-                                { no: 4, fak: "78D", namaJalan: "Lodaya", lintasJalan: "BD-CB-BJR", kaBatal: "78", namaBatal: "Lodaya", lintasBatal: "BD-CB-BJR" },
-                                { no: 5, fak: "79B", namaJalan: "Lodaya", lintasJalan: "BJR-CB-BD", kaBatal: "79", namaBatal: "Lodaya", lintasBatal: "BJR-CB-BD" },
-                                { no: 6, fak: "80B", namaJalan: "Lodaya", lintasJalan: "BD-CB-BJR", kaBatal: "80", namaBatal: "Lodaya", lintasBatal: "BD-CB-BJR" },
-                                { no: 7, fak: "127D", namaJalan: "Pangandaran", lintasJalan: "BJR-CB-AND-PDL-CKP", kaBatal: "127", namaBatal: "Pangandaran", lintasBatal: "BJR-CB-AND-PDL-CKP" },
-                                { no: 8, fak: "128B", namaJalan: "Pangandaran", lintasJalan: "CKP-PDL-AND-CB-GRT", kaBatal: "128", namaBatal: "Pangandaran", lintasBatal: "CKP-PDL-AND-CB-GRT" },
-                                { no: 9, fak: "129B", namaJalan: "Papandayan", lintasJalan: "GRT-CB-AND-PDL-CKP", kaBatal: "129", namaBatal: "Papandayan", lintasBatal: "GRT-CB-AND-PDL-CKP" },
-                                { no: 10, fak: "130B", namaJalan: "Papandayan", lintasJalan: "CKP-PDL-AND-CB-GRT", kaBatal: "130", namaBatal: "Papandayan", lintasBatal: "CKP-PDL-AND-CB-GRT" },
-                                { no: 11, fak: "131B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "131", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
-                                { no: 12, fak: "132B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "132", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
-                                { no: 13, fak: "133B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "133", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
-                                { no: 14, fak: "134B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "134", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
-                                { no: 15, fak: "135B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "135", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
-                                { no: 16, fak: "136B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "136", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
-                                { no: 17, fak: "137B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "137", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
-                                { no: 18, fak: "138B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "138", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
-                                { no: 19, fak: "139B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "139", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
-                                { no: 20, fak: "140B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "140", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
-                                { no: 21, fak: "173B", namaJalan: "Ciremai", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "173", namaBatal: "Ciremai", lintasBatal: "BD-AND-PDL-CKP" },
-                                { no: 22, fak: "174B", namaJalan: "Ciremai", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "174", namaBatal: "Ciremai", lintasBatal: "CKP-PDL-AND-BD" },
-                                { no: 23, fak: "275B", namaJalan: "Pasundan", lintasJalan: "BJR-CB-BD", kaBatal: "275", namaBatal: "Pasundan", lintasBatal: "BJR-CB-BD" },
-                                { no: 24, fak: "329B", namaJalan: "CL Walahar", lintasJalan: "PWK-CKP", kaBatal: "329", namaBatal: "CL Walahar", lintasBatal: "PWK-CKP" },
-                                { no: 25, fak: "333B", namaJalan: "CL Walahar", lintasJalan: "PWK-CKP", kaBatal: "333", namaBatal: "CL Walahar", lintasBatal: "PWK-CKP" },
-                                { no: 26, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "305", namaBatal: "Parcel Selatan", lintasBatal: "BJR-CB-BD" },
-                                { no: 27, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "306", namaBatal: "Parcel Selatan", lintasBatal: "BD-CB-BJR" },
-                                { no: 28, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "398", namaBatal: "CL Bandung Raya", lintasBatal: "PDL-KAC" },
-                                { no: 29, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "399", namaBatal: "CL Bandung Raya", lintasBatal: "KAC-PDL" },
-                                { no: 30, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "R399-2", namaBatal: "DR Bandung Raya", lintasBatal: "PDL-BD" },
-                                { no: 31, fak: "R371a-2", namaJalan: "DR Bandung Raya", lintasJalan: "BD-CCL", kaBatal: "R371-2", namaBatal: "DR Bandung Raya", lintasBatal: "BD-CCL" },
-                                { no: 32, fak: "R398a-1", namaJalan: "DR Bandung Raya", lintasJalan: "CCL-BD", kaBatal: "-", namaBatal: "-", lintasBatal: "-" },
-                                { no: 33, fak: "398A", namaJalan: "CL Bandung Raya", lintasJalan: "PDL-CCL", kaBatal: "-", namaBatal: "-", lintasBatal: "-" },
-                                { no: 34, fak: "348A", namaJalan: "CL Garut", lintasJalan: "PWK-PDL-AND-BD-CB-GRT", kaBatal: "348", namaBatal: "CL Garut", lintasBatal: "PWK-PDL-AND-BD-CB-GRT" },
-                                { no: 35, fak: "351A", namaJalan: "CL Garut", lintasJalan: "GRT-CB-BD-AND-PDL", kaBatal: "351", namaBatal: "CL Garut", lintasBatal: "GRT-CB-BD-AND-PDL" },
-                                { no: 36, fak: "365A", namaJalan: "CL Bandung Raya", lintasJalan: "CCL-BD-AND-PDL", kaBatal: "365", namaBatal: "CL Bandung Raya", lintasBatal: "CCL-BD-AND-PDL" },
-                                { no: 37, fak: "283A", namaJalan: "Serayu", lintasJalan: "BJR-CB-AND-PDL-CKP", kaBatal: "283", namaBatal: "Serayu", lintasBatal: "BJR-CB-AND-PDL-CKP" },
-                                { no: 38, fak: "284B", namaJalan: "Serayu", lintasJalan: "CKP-PDL-AND-CB-BJR", kaBatal: "284", namaBatal: "Serayu", lintasBatal: "CKP-PDL-AND-CB-BJR" },
-                                { no: 39, fak: "287A", namaJalan: "Serayu", lintasJalan: "BJR-CB-AND-PDL-CKP", kaBatal: "287", namaBatal: "Serayu", lintasBatal: "BJR-CB-AND-PDL-CKP" },
-                                { no: 40, fak: "291A", namaJalan: "Kutojaya Selatan", lintasJalan: "BJR-CB-KAC", kaBatal: "291", namaBatal: "Kutojaya Selatan", lintasBatal: "BJR-CB-KAC" }
-                            ];
-
-                            dataJalanBatal.forEach(row => {
-                                document.write(`
-                                    <tr class="hover:bg-slate-50 transition border-b border-slate-100">
-                                        <td class="px-4 py-2.5 text-center font-medium text-slate-500 border-r border-slate-200">${row.no}</td>
-                                        <td class="px-3 py-2.5 border-r border-slate-200 font-mono font-bold text-emerald-700 bg-emerald-50/20">${row.fak !== '-' ? row.fak : '<span class="text-slate-300">-</span>'}</td>
-                                        <td class="px-3 py-2.5 border-r border-slate-200 font-medium ${row.namaJalan === '-' ? 'text-slate-300' : 'text-slate-900'}">${row.namaJalan}</td>
-                                        <td class="px-3 py-2.5 border-r border-slate-200 font-mono text-xs text-slate-600">${row.lintasJalan}</td>
-                                        <td class="px-3 py-2.5 border-r border-slate-200 font-mono font-bold text-rose-700 bg-rose-50/20">${row.kaBatal !== '-' ? row.kaBatal : '<span class="text-slate-300">-</span>'}</td>
-                                        <td class="px-3 py-2.5 border-r border-slate-200 font-medium ${row.namaBatal === '-' ? 'text-slate-300' : 'text-slate-900'}">${row.namaBatal}</td>
-                                        <td class="px-3 py-2.5 font-mono text-xs text-slate-600">${row.lintasBatal}</td>
-                                    </tr>
-                                `);
-                            });
-                        </script>
+                    <tbody class="divide-y divide-slate-200 text-xs sm:text-sm" id="tableBodyJalanBatal">
+                        <!-- Populated by JavaScript -->
                     </tbody>
                 </table>
             </div>
         </section>
 
+        <!-- Dynamic Sections: Perhatian & Lintas Nonaktif -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
+            <!-- Section: Perhatian -->
             <section id="sec-ketentuan" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between print-shadow-none">
                 <div>
                     <div class="bg-slate-800 text-white px-6 py-4 flex justify-between items-center border-b border-slate-700">
@@ -180,7 +164,7 @@
                         <!-- Roman numeral I -->
                         <div>
                             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                                <strong class="text-slate-900">I.</strong> Pengaturan perjalanan KA Fak/Plb DIJALANKAN Hari atau Tanggal tertentu bulan Oktober 2026 sbb :
+                                <strong class="text-slate-900">I.</strong> Pengaturan perjalanan KA Fak/Plb DIJALANKAN Hari atau Tanggal tertentu bulan <span class="monthText font-bold text-blue-900">Oktober</span> <span class="yearText font-bold text-blue-900">2026</span> sbb :
                             </p>
                             <div class="mt-2 pl-6">
                                 <span class="inline-block bg-slate-100 text-slate-800 font-mono font-bold px-3 py-1 rounded text-xs border border-slate-200">“TIADA”</span>
@@ -190,7 +174,7 @@
                         <!-- Roman numeral II -->
                         <div class="bg-amber-50 rounded-lg p-4 border border-amber-200">
                             <p class="text-xs sm:text-sm text-amber-900 font-medium mb-3">
-                                <strong class="text-amber-950">II.</strong> Pengaturan perjalanan KA DIBATALKAN Hari atau Tanggal tertentu bulan Oktober 2026 sbb:
+                                <strong class="text-amber-950">II.</strong> Pengaturan perjalanan KA DIBATALKAN Hari atau Tanggal tertentu bulan <span class="monthText font-bold text-amber-950">Oktober</span> <span class="yearText font-bold text-amber-950">2026</span> sbb:
                             </p>
                             <div class="space-y-2 text-xs sm:text-sm text-amber-900 pl-4">
                                 <p class="flex items-start gap-2">
@@ -203,7 +187,7 @@
                         <!-- Roman numeral III -->
                         <div>
                             <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                                <strong class="text-slate-900">III.</strong> Pengaturan perjalanan Ka/Plb/Klb untuk bulan Oktober 2026, dengan pengumuman WAM sbb:
+                                <strong class="text-slate-900">III.</strong> Pengaturan perjalanan Ka/Plb/Klb untuk bulan <span class="monthText font-bold text-blue-900">Oktober</span> <span class="yearText font-bold text-blue-900">2026</span>, dengan pengumuman WAM sbb:
                             </p>
                             <div class="mt-2 pl-6">
                                 <span class="inline-block bg-slate-100 text-slate-800 font-mono font-bold px-3 py-1 rounded text-xs border border-slate-200">“TIADA”</span>
@@ -213,6 +197,7 @@
                 </div>
             </section>
 
+            <!-- Section: Lintas Yang Tidak Aktif -->
             <section id="sec-nonaktif" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between print-shadow-none">
                 <div>
                     <div class="bg-slate-800 text-white px-6 py-4 flex justify-between items-center border-b border-slate-700">
@@ -265,7 +250,7 @@
                 </div>
 
                 <div class="p-4 bg-slate-50 border-t border-slate-200 text-xs text-slate-500 italic">
-                    <i class="fas fa-info-circle mr-1 text-slate-400"></i> Sumber data resmi PPK.10-2026/GAPEKA 2025/JOP-KP.BD (Wilayah DAOP 2 Bandung).
+                    <i class="fas fa-info-circle mr-1 text-slate-400"></i> Sumber data resmi <span id="footerPpkCode">PPK.10-2026/GAPEKA 2025/JOP-KP.BD</span> (Wilayah DAOP 2 Bandung).
                 </div>
             </section>
 
@@ -273,12 +258,104 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800 mt-12 no-print">
-        <p>© 2026 Pengumuman Kereta Api - DAOP 2 Bandung. Disusun berdasarkan Dokumen Resmi PPK 10/2026.</p>
+        <p>© <span class="yearText">2026</span> Pengumuman Kereta Api - DAOP 2 Bandung. Disusun berdasarkan Dokumen Resmi <span id="footerCopyrightPpk">PPK 10/2026</span>.</p>
     </footer>
 
     <script>
-        // Smooth scroll helper
+        const monthNames = [
+            "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+        ];
+
+        const dataJalanBatal = [
+            { no: 1, fak: "9A", namaJalan: "Argo Wilis", lintasJalan: "BJR-CB-BD", kaBatal: "9", namaBatal: "Argo Wilis", lintasBatal: "BJR-CB-BD" },
+            { no: 2, fak: "10C", namaJalan: "Argo Wilis", lintasJalan: "BD-CB-BJR", kaBatal: "10", namaBatal: "Argo Wilis", lintasBatal: "BD-CB-BJR" },
+            { no: 3, fak: "77D", namaJalan: "Lodaya", lintasJalan: "BJR-CB-BD", kaBatal: "77", namaBatal: "Lodaya", lintasBatal: "BJR-CB-BD" },
+            { no: 4, fak: "78D", namaJalan: "Lodaya", lintasJalan: "BD-CB-BJR", kaBatal: "78", namaBatal: "Lodaya", lintasBatal: "BD-CB-BJR" },
+            { no: 5, fak: "79B", namaJalan: "Lodaya", lintasJalan: "BJR-CB-BD", kaBatal: "79", namaBatal: "Lodaya", lintasBatal: "BJR-CB-BD" },
+            { no: 6, fak: "80B", namaJalan: "Lodaya", lintasJalan: "BD-CB-BJR", kaBatal: "80", namaBatal: "Lodaya", lintasBatal: "BD-CB-BJR" },
+            { no: 7, fak: "127D", namaJalan: "Pangandaran", lintasJalan: "BJR-CB-AND-PDL-CKP", kaBatal: "127", namaBatal: "Pangandaran", lintasBatal: "BJR-CB-AND-PDL-CKP" },
+            { no: 8, fak: "128B", namaJalan: "Pangandaran", lintasJalan: "CKP-PDL-AND-CB-GRT", kaBatal: "128", namaBatal: "Pangandaran", lintasBatal: "CKP-PDL-AND-CB-GRT" },
+            { no: 9, fak: "129B", namaJalan: "Papandayan", lintasJalan: "GRT-CB-AND-PDL-CKP", kaBatal: "129", namaBatal: "Papandayan", lintasBatal: "GRT-CB-AND-PDL-CKP" },
+            { no: 10, fak: "130B", namaJalan: "Papandayan", lintasJalan: "CKP-PDL-AND-CB-GRT", kaBatal: "130", namaBatal: "Papandayan", lintasBatal: "CKP-PDL-AND-CB-GRT" },
+            { no: 11, fak: "131B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "131", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
+            { no: 12, fak: "132B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "132", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
+            { no: 13, fak: "133B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "133", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
+            { no: 14, fak: "134B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "134", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
+            { no: 15, fak: "135B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "135", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
+            { no: 16, fak: "136B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "136", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
+            { no: 17, fak: "137B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "137", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
+            { no: 18, fak: "138B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "138", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
+            { no: 19, fak: "139B", namaJalan: "Parahyangan", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "139", namaBatal: "Parahyangan", lintasBatal: "BD-AND-PDL-CKP" },
+            { no: 20, fak: "140B", namaJalan: "Parahyangan", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "140", namaBatal: "Parahyangan", lintasBatal: "CKP-PDL-AND-BD" },
+            { no: 21, fak: "173B", namaJalan: "Ciremai", lintasJalan: "BD-AND-PDL-CKP", kaBatal: "173", namaBatal: "Ciremai", lintasBatal: "BD-AND-PDL-CKP" },
+            { no: 22, fak: "174B", namaJalan: "Ciremai", lintasJalan: "CKP-PDL-AND-BD", kaBatal: "174", namaBatal: "Ciremai", lintasBatal: "CKP-PDL-AND-BD" },
+            { no: 23, fak: "275B", namaJalan: "Pasundan", lintasJalan: "BJR-CB-BD", kaBatal: "275", namaBatal: "Pasundan", lintasBatal: "BJR-CB-BD" },
+            { no: 24, fak: "329B", namaJalan: "CL Walahar", lintasJalan: "PWK-CKP", kaBatal: "329", namaBatal: "CL Walahar", lintasBatal: "PWK-CKP" },
+            { no: 25, fak: "333B", namaJalan: "CL Walahar", lintasJalan: "PWK-CKP", kaBatal: "333", namaBatal: "CL Walahar", lintasBatal: "PWK-CKP" },
+            { no: 26, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "305", namaBatal: "Parcel Selatan", lintasBatal: "BJR-CB-BD" },
+            { no: 27, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "306", namaBatal: "Parcel Selatan", lintasBatal: "BD-CB-BJR" },
+            { no: 28, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "398", namaBatal: "CL Bandung Raya", lintasBatal: "PDL-KAC" },
+            { no: 29, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "399", namaBatal: "CL Bandung Raya", lintasBatal: "KAC-PDL" },
+            { no: 30, fak: "-", namaJalan: "-", lintasJalan: "-", kaBatal: "R399-2", namaBatal: "DR Bandung Raya", lintasBatal: "PDL-BD" },
+            { no: 31, fak: "R371a-2", namaJalan: "DR Bandung Raya", lintasJalan: "BD-CCL", kaBatal: "R371-2", namaBatal: "DR Bandung Raya", lintasBatal: "BD-CCL" },
+            { no: 32, fak: "R398a-1", namaJalan: "DR Bandung Raya", lintasJalan: "CCL-BD", kaBatal: "-", namaBatal: "-", lintasBatal: "-" },
+            { no: 33, fak: "398A", namaJalan: "CL Bandung Raya", lintasJalan: "PDL-CCL", kaBatal: "-", namaBatal: "-", lintasBatal: "-" },
+            { no: 34, fak: "348A", namaJalan: "CL Garut", lintasJalan: "PWK-PDL-AND-BD-CB-GRT", kaBatal: "348", namaBatal: "CL Garut", lintasBatal: "PWK-PDL-AND-BD-CB-GRT" },
+            { no: 35, fak: "351A", namaJalan: "CL Garut", lintasJalan: "GRT-CB-BD-AND-PDL", kaBatal: "351", namaBatal: "CL Garut", lintasBatal: "GRT-CB-BD-AND-PDL" },
+            { no: 36, fak: "365A", namaJalan: "CL Bandung Raya", lintasJalan: "CCL-BD-AND-PDL", kaBatal: "365", namaBatal: "CL Bandung Raya", lintasBatal: "CCL-BD-AND-PDL" },
+            { no: 37, fak: "283A", namaJalan: "Serayu", lintasJalan: "BJR-CB-AND-PDL-CKP", kaBatal: "283", namaBatal: "Serayu", lintasBatal: "BJR-CB-AND-PDL-CKP" },
+            { no: 38, fak: "284B", namaJalan: "Serayu", lintasJalan: "CKP-PDL-AND-CB-BJR", kaBatal: "284", namaBatal: "Serayu", lintasBatal: "CKP-PDL-AND-CB-BJR" },
+            { no: 39, fak: "287A", namaJalan: "Serayu", lintasJalan: "BJR-CB-AND-PDL-CKP", kaBatal: "287", namaBatal: "Serayu", lintasBatal: "BJR-CB-AND-PDL-CKP" },
+            { no: 40, fak: "291A", namaJalan: "Kutojaya Selatan", lintasJalan: "BJR-CB-KAC", kaBatal: "291", namaBatal: "Kutojaya Selatan", lintasBatal: "BJR-CB-KAC" }
+        ];
+
+        // Populate Table Function
+        function renderTable() {
+            const tbody = document.getElementById('tableBodyJalanBatal');
+            tbody.innerHTML = '';
+            dataJalanBatal.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
+                tr.innerHTML = `
+                    <td class="px-4 py-2.5 text-center font-medium text-slate-500 border-r border-slate-200">${row.no}</td>
+                    <td class="px-3 py-2.5 border-r border-slate-200 font-mono font-bold text-emerald-700 bg-emerald-50/20">${row.fak !== '-' ? row.fak : '<span class="text-slate-300">-</span>'}</td>
+                    <td class="px-3 py-2.5 border-r border-slate-200 font-medium ${row.namaJalan === '-' ? 'text-slate-300' : 'text-slate-900'}">${row.namaJalan}</td>
+                    <td class="px-3 py-2.5 border-r border-slate-200 font-mono text-xs text-slate-600">${row.lintasJalan}</td>
+                    <td class="px-3 py-2.5 border-r border-slate-200 font-mono font-bold text-rose-700 bg-rose-50/20">${row.kaBatal !== '-' ? row.kaBatal : '<span class="text-slate-300">-</span>'}</td>
+                    <td class="px-3 py-2.5 border-r border-slate-200 font-medium ${row.namaBatal === '-' ? 'text-slate-300' : 'text-slate-900'}">${row.namaBatal}</td>
+                    <td class="px-3 py-2.5 font-mono text-xs text-slate-600">${row.lintasBatal}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Dynamic PPK & Month Update Function
+        function updatePpkSettings() {
+            const ppkVal = parseInt(document.getElementById('ppkSelect').value, 10);
+            const yearVal = document.getElementById('yearInput').value || '2026';
+            const selectedMonth = monthNames[ppkVal - 1];
+
+            // Update Header & Footers
+            const fullPpkCode = `PPK.${ppkVal}-${yearVal} / GAPEKA 2025 / JOP-KP.BD`;
+            document.getElementById('headerPpkCode').innerText = fullPpkCode;
+            document.getElementById('footerPpkCode').innerText = fullPpkCode;
+            document.getElementById('footerCopyrightPpk').innerText = `PPK ${ppkVal}/${yearVal}`;
+
+            // Update Month texts
+            document.querySelectorAll('.monthText').forEach(el => {
+                el.innerText = selectedMonth;
+            });
+
+            // Update Year texts
+            document.querySelectorAll('.yearText').forEach(el => {
+                el.innerText = yearVal;
+            });
+        }
+
+        // Smooth Scroll Helper
         function scrollToSection(id) {
             const element = document.getElementById(id);
             if (element) {
@@ -286,7 +363,7 @@
             }
         }
 
-        // Table Filtering / Search Function
+        // Filter / Search Function
         function filterTables() {
             const input = document.getElementById('searchInput');
             const filter = input.value.toUpperCase();
@@ -308,6 +385,12 @@
                 tr[i].style.display = showRow ? "" : "none";
             }
         }
+
+        // Initialize on page load
+        window.onload = function() {
+            renderTable();
+            updatePpkSettings();
+        };
     </script>
 </body>
 </html>
