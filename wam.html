@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman WAM Perjalanan KPJ Tata - Daop 2 Bandung</title>
+    <style>
+        /* Pengaturan Cetak Halaman A4 */
+        @page {
+            size: A4 portrait;
+            margin: 8mm; /* Margin minimal agar memuat seluruh data dalam 1 halaman */
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 8pt;
+            line-height: 1.15;
+            color: #002b66; /* Warna biru tua untuk teks utama */
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-table {
+            width: 100%;
+            border-bottom: 1.5px solid #0033aa;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: #0033aa;
+        }
+
+        .header-table td {
+            padding: 1px 0;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 9.5pt;
+            margin: 2px 0 4px 0;
+            text-transform: uppercase;
+            color: #002288;
+        }
+
+        .address-line {
+            font-weight: bold;
+            font-size: 8pt;
+            margin-bottom: 4px;
+            text-transform: lowercase;
+            color: #0033aa;
+        }
+
+        ol {
+            margin: 0;
+            padding-left: 14px;
+        }
+
+        li {
+            margin-bottom: 2px;
+            color: #002b66;
+        }
+
+        /* Layout Grid Columns untuk Tabel Jadwal */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        .schedule-box {
+            border: 1px solid #0044cc;
+            padding: 2px 4px;
+            box-sizing: border-box;
+            background-color: #f0f5ff;
+            page-break-inside: avoid;
+        }
+
+        .schedule-title {
+            font-weight: bold;
+            font-size: 7.5pt;
+            border-bottom: 1px dashed #4488ff;
+            padding-bottom: 1px;
+            margin-bottom: 2px;
+            text-align: center;
+            background-color: #d8e5ff;
+            color: #002288;
+        }
+
+        .speed-limit {
+            font-size: 7pt;
+            font-style: italic;
+            text-align: center;
+            color: #0033aa;
+        }
+
+        table.timetable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 7.5pt;
+            color: #002b66;
+        }
+
+        table.timetable th {
+            border-bottom: 1px solid #0044cc;
+            text-align: left;
+            font-weight: bold;
+            padding: 1px 2px;
+            color: #002288;
+        }
+
+        table.timetable td {
+            padding: 0px 2px;
+            vertical-align: top;
+        }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+
+        .rules-section {
+            margin-top: 4px;
+            border-top: 1.5px solid #0033aa;
+            padding-top: 4px;
+            font-size: 8pt;
+        }
+
+        .footer {
+            margin-top: 6px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 8.5pt;
+            padding-right: 20px;
+            color: #002288;
+        }
+
+        /* Tombol Cetak (hanya tampil di layar) */
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+
+        .print-btn-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            padding: 5px;
+            border: 1px solid #0044cc;
+            box-shadow: 0 2px 4px rgba(0, 51, 170, 0.2);
+            border-radius: 4px;
+        }
+
+        .print-btn {
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        .print-btn:hover {
+            background-color: #002288;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-btn-container no-print">
+        <button class="print-btn" onclick="window.print()">Cetak Halaman (A4)</button>
+    </div>
+
+    <!-- Header Dokumen Telegram WAM -->
+    <table class="header-table">
+        <tr>
+            <td>KA BANDUNG1211</td>
+            <td class="text-center">PO2/154</td>
+            <td class="text-center">30/9-'26</td>
+            <td class="text-right">1402</td>
+        </tr>
+    </table>
+
+    <div class="title">= WAM =</div>
+
+    <div class="address-line">
+        ppka kkt si/cpt pdl/rh/pwk/ckp pdl/ccl/cb/tsm/bjr cb/grt bd jak
+    </div>
+
+    <ol>
+        <li><strong>MENUNJUK :</strong>
+            <ol type="a" style="padding-left: 12px;">
+                <li>Nota Dinas Manager Jalan Rel dan Jembatan Daop 2 BD No.15/KT.205/VIII/DO.2/2026 tgl 21 Agustus 2026 perihal Permohonan WAM Perjalanan KPJ Tata Bulan September 2026;</li>
+                <li>SOP No.SOP.01/TJT/XI/KAI-2021 tgl 29 November 2021 perihal SOP Patroli Pemeriksaan Jalur Kereta Api Dengan Menggunakan Dresin (KPJ);</li>
+                <li>PPK No.10 Bulan Oktober 2026;</li>
+                <li>Gapeka 2025.</li>
+            </ol>
+        </li>
+        <li><strong>SEHUBUNGAN HAL TERSEBUT, GUNA PERJALANAN KPJ TATA PERKA KAMI ATUR SBB :</strong><br>
+            <span style="font-size: 7.5pt; font-style: italic;">
+                Berjalan Kamis, 01 Oktober 2026 s/d Sabtu, 31 Oktober 2026 untuk seluruh KLB Dresin KPJ Lintas PWK/PLD/CKP, PDL/CCL, BJR/TSM, CJ/SI/CPT, CB/GRT, dan RH/PLD/PDL.
+            </span>
+        </li>
+    </ol>
+
+    <!-- Jadwal KLB dalam Tampilan Grid 3 Kolom -->
+    <div class="schedule-grid">
+
+        <!-- 1. PWK - PLD -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/11622 (PWK - PLD)</div>
+            <div class="speed-limit">Vmax: PWK-PLD = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>PWK</td><td class="text-center">-</td><td>03:52:00</td><td></td></tr>
+                <tr><td>CA</td><td>04:04:00</td><td>04:06:00</td><td></td></tr>
+                <tr><td>SUT</td><td>04:19:00</td><td>04:21:00</td><td></td></tr>
+                <tr><td>PLD</td><td>04:29:00</td><td class="text-center">-</td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 2. PLD - CKP -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/11569 (PLD - CKP)</div>
+            <div class="speed-limit">Vmax: PLD-CKP = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>PLD</td><td class="text-center">-</td><td>05:05:00</td><td></td></tr>
+                <tr><td>SUT</td><td>05:13:00</td><td>05:15:00</td><td></td></tr>
+                <tr><td>CA</td><td>05:28:00</td><td>05:30:00</td><td></td></tr>
+                <tr><td>PWK</td><td>05:42:00</td><td>05:44:00</td><td></td></tr>
+                <tr><td>SAD</td><td class="text-center">LS</td><td>05:53:00</td><td></td></tr>
+                <tr><td>CBR</td><td>06:03:00</td><td>06:05:00</td><td></td></tr>
+                <tr><td>CKP</td><td>06:18:00</td><td class="text-center">-</td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 3. CKP - PWK -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/11624 (CKP - PWK)</div>
+            <div class="speed-limit">Vmax: CKP-PWK = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>CKP</td><td class="text-center">-</td><td>07:15:00</td><td></td></tr>
+                <tr><td>CBR</td><td>07:28:00</td><td>07:30:00</td><td></td></tr>
+                <tr><td>SAD</td><td class="text-center">LS</td><td>07:40:00</td><td></td></tr>
+                <tr><td>PWK</td><td>07:49:00</td><td class="text-center">-</td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 4. PDL - CCL -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/10010 (PDL - CCL)</div>
+            <div class="speed-limit">Vmax: PDL-CCL = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>PDL</td><td></td><td>23:25:00</td><td></td></tr>
+                <tr><td>GK</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>CMI</td><td>23:37:00</td><td>23:39:00</td><td></td></tr>
+                <tr><td>CMD</td><td class="text-center">LS</td><td>23:45:00</td><td></td></tr>
+                <tr><td>AND</td><td class="text-center">LS</td><td>23:49:00</td><td></td></tr>
+                <tr><td>BD</td><td>23:54:00</td><td>23:56:00</td><td></td></tr>
+                <tr><td>CTH</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>KAC</td><td>00:06:00</td><td>00:09:00</td><td></td></tr>
+                <tr><td>GDB</td><td>00:19:00</td><td>00:21:00</td><td></td></tr>
+                <tr><td>CMK</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>RCK</td><td>00:35:00</td><td>00:37:00</td><td></td></tr>
+                <tr><td>HRP</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>CCL</td><td>00:53:00</td><td></td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 5. CCL - PDL -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/10011 (CCL - PDL)</div>
+            <div class="speed-limit">Vmax: CCL-PDL = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>CCL</td><td></td><td>01:45:00</td><td></td></tr>
+                <tr><td>HRP</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>RCK</td><td>02:01:00</td><td>02:03:00</td><td></td></tr>
+                <tr><td>CMK</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>GDB</td><td>02:17:00</td><td>02:19:00</td><td></td></tr>
+                <tr><td>KAC</td><td>02:29:00</td><td>02:31:00</td><td></td></tr>
+                <tr><td>CTH</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>BD</td><td>02:41:00</td><td>02:43:00</td><td></td></tr>
+                <tr><td>AND</td><td class="text-center">LS</td><td>02:48:00</td><td></td></tr>
+                <tr><td>CMD</td><td class="text-center">LS</td><td>02:52:00</td><td></td></tr>
+                <tr><td>CMI</td><td>02:58:00</td><td>03:00:00</td><td></td></tr>
+                <tr><td>GK</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>PDL</td><td>03:13:00</td><td></td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 6. BJR - TSM -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/10625 (BJR - TSM)</div>
+            <div class="speed-limit">Vmax: BJR-TSM = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>BJR</td><td></td><td>06:01:00</td><td></td></tr>
+                <tr><td>KNP</td><td>06:12:00</td><td>06:14:00</td><td></td></tr>
+                <tr><td>BJG</td><td>06:27:00</td><td>06:29:00</td><td></td></tr>
+                <tr><td>CI</td><td>06:44:00</td><td>06:46:00</td><td></td></tr>
+                <tr><td>MNJ</td><td>07:01:00</td><td>07:03:00</td><td></td></tr>
+                <tr><td>AW</td><td>07:10:00</td><td>07:12:00</td><td></td></tr>
+                <tr><td>TSM</td><td>07:24:00</td><td></td><td></td></tr>
+            </table>
+            
+            <div class="schedule-title" style="margin-top:4px;">KLB D2/11128 (TSM - BJR)</div>
+            <div class="speed-limit">Vmax: TSM-BJR = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>TSM</td><td></td><td>15:42:00</td><td></td></tr>
+                <tr><td>AW</td><td>15:54:00</td><td>15:56:00</td><td></td></tr>
+                <tr><td>MNJ</td><td>16:03:00</td><td>16:05:00</td><td></td></tr>
+                <tr><td>CI</td><td>16:20:00</td><td>16:22:00</td><td></td></tr>
+                <tr><td>BJG</td><td>16:37:00</td><td>16:39:00</td><td></td></tr>
+                <tr><td>KNP</td><td>16:52:00</td><td>17:08:00</td><td style="font-size:6pt">bers plb 127b</td></tr>
+                <tr><td>BJR</td><td>17:19:00</td><td></td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 7. CJ - SI - CPT -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/10003 (CJ - SI)</div>
+            <div class="speed-limit">Vmax: CJ-CBB(45), CBB-LP(40), LP-SI(45)</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>CJ</td><td></td><td>06:50:00</td><td style="font-size:6pt">bers ka 342</td></tr>
+                <tr><td>CIK</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>CBB</td><td>07:12:00</td><td>07:14:00</td><td></td></tr>
+                <tr><td>SSI</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>LP</td><td>07:32:00</td><td>07:34:00</td><td></td></tr>
+                <tr><td>CRG</td><td>07:41:00</td><td>07:43:00</td><td></td></tr>
+                <tr><td>GDS</td><td>07:54:00</td><td>07:56:00</td><td></td></tr>
+                <tr><td>RI</td><td class="text-center">LS</td><td class="text-center">-</td><td></td></tr>
+                <tr><td>SI</td><td>08:09:00</td><td></td><td></td></tr>
+            </table>
+
+            <div class="schedule-title" style="margin-top:4px;">KLB D2/10004 (SI - CPT)</div>
+            <div class="speed-limit">Vmax: SI-LP(45), LP-CBB(40), CBB-CPT(45)</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>SI</td><td></td><td>09:10:00</td><td></td></tr>
+                <tr><td>GDS</td><td>09:23:00</td><td>09:25:00</td><td></td></tr>
+                <tr><td>CRG</td><td>09:36:00</td><td>09:48:00</td><td style="font-size:6pt">bers ka 341</td></tr>
+                <tr><td>LP</td><td>09:55:00</td><td>09:57:00</td><td></td></tr>
+                <tr><td>CBB</td><td>10:15:00</td><td>10:17:00</td><td></td></tr>
+                <tr><td>CJ</td><td>10:39:00</td><td>10:41:00</td><td></td></tr>
+                <tr><td>CRJ</td><td>11:02:00</td><td>11:04:00</td><td></td></tr>
+                <tr><td>CPY</td><td>11:14:00</td><td>11:16:00</td><td></td></tr>
+                <tr><td>CPT</td><td>11:35:00</td><td></td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 8. CPT - CJ & CB - GRT -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/10033 (CPT - CJ)</div>
+            <div class="speed-limit">Vmax: CPT-CJ = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>CPT</td><td></td><td>14:20:00</td><td></td></tr>
+                <tr><td>CPY</td><td>14:38:00</td><td>14:40:00</td><td></td></tr>
+                <tr><td>CRJ</td><td>14:50:00</td><td>14:52:00</td><td></td></tr>
+                <tr><td>CJ</td><td>15:13:00</td><td></td><td></td></tr>
+            </table>
+
+            <div class="schedule-title" style="margin-top:4px;">KLB D2/10024 & D2/10021 (CB - GRT PP)</div>
+            <div class="speed-limit">Vmax: CB-GRT PP = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td colspan="4" style="font-weight:bold; background:#d8e5ff; text-align:center; color:#002288;">D2/10024 (CB-GRT)</td></tr>
+                <tr><td>CB</td><td></td><td>02:00:00</td><td></td></tr>
+                <tr><td>PSJ</td><td>02:09:00</td><td>02:11:00</td><td></td></tr>
+                <tr><td>WNR</td><td>02:20:00</td><td>02:22:00</td><td></td></tr>
+                <tr><td>GRT</td><td>02:40:00</td><td></td><td></td></tr>
+                <tr><td colspan="4" style="font-weight:bold; background:#d8e5ff; text-align:center; color:#002288;">D2/10021 (GRT-CB)</td></tr>
+                <tr><td>GRT</td><td></td><td>06:20:00</td><td></td></tr>
+                <tr><td>WNR</td><td>06:37:00</td><td>06:39:00</td><td></td></tr>
+                <tr><td>PSJ</td><td>06:48:00</td><td>06:50:00</td><td></td></tr>
+                <tr><td>CB</td><td>07:00:00</td><td></td><td></td></tr>
+            </table>
+        </div>
+
+        <!-- 9. RH - PLD - PDL - RH -->
+        <div class="schedule-box">
+            <div class="schedule-title">KLB D2/11563 (RH - PLD)</div>
+            <div class="speed-limit">Vmax: RH-PLD = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>RH</td><td class="text-center">-</td><td>05:00:00</td><td></td></tr>
+                <tr><td>CD</td><td>05:07:00</td><td>05:09:00</td><td></td></tr>
+                <tr><td>CG</td><td class="text-center">LS</td><td>05:19:00</td><td></td></tr>
+                <tr><td>PLD</td><td>05:29:00</td><td class="text-center">-</td><td></td></tr>
+            </table>
+
+            <div class="schedule-title" style="margin-top:2px;">KLB D2/11620 (PLD - PDL)</div>
+            <div class="speed-limit">Vmax: PLD-PDL = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>PLD</td><td class="text-center">-</td><td>05:50:00</td><td></td></tr>
+                <tr><td>CLE</td><td>06:55:00</td><td>07:06:00</td><td style="font-size:5.5pt">bers plb 135b</td></tr>
+                <tr><td>PDL</td><td>07:19:00</td><td class="text-center">-</td><td></td></tr>
+            </table>
+
+            <div class="schedule-title" style="margin-top:2px;">KLB D2/11567 (PDL - RH)</div>
+            <div class="speed-limit">Vmax: PDL-RH = 45 km/jam</div>
+            <table class="timetable">
+                <tr><th>STA</th><th>DATANG</th><th>BERANGKAT</th><th>KET</th></tr>
+                <tr><td>PDL</td><td class="text-center">-</td><td>07:30:00</td><td></td></tr>
+                <tr><td>CLE</td><td>07:43:00</td><td>07:45:00</td><td></td></tr>
+                <tr><td>SKT</td><td>07:58:00</td><td>08:00:00</td><td></td></tr>
+                <tr><td>MSI</td><td>08:09:00</td><td>08:11:00</td><td></td></tr>
+                <tr><td>RH</td><td>08:19:00</td><td class="text-center">-</td><td></td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Poin Ketentuan -->
+    <div class="rules-section">
+        <ol start="3">
+            <li><strong>RANGKAIAN :</strong> KPJ Dresin Tata</li>
+            <li><strong>KUPT MEKANIK :</strong> Atur dinasan sarana dan motorisnya.</li>
+            <li><strong>KAPUSDALOPKA 2 BD :</strong> Atur pengendalian perjalanan KA agar aman, tertib, dan lancar.</li>
+            <li>Mem BLB kan suatu KA harus sesuai PD 19 Jilid I Pasal 86.</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        --- KADAOP 2 BD ---
+    </div>
+
+</body>
+</html>
